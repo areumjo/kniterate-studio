@@ -47,7 +47,9 @@ needle or row counts: `fit hat.json --head-cm 52`, `--cuff-cm 8`,
 `--no-fold`, `--body-cm 15`, `--gauge 24,30 --gauge-source measured`,
 `--rib-gauge …`, `--backing birdseye`. It is one undoable operation that
 applies the plan's own sizing fixes; motifs keep their anchors. `new` takes
-`--backing birdseye` too.
+`--backing birdseye` too. A gauge given to `new` or `fit` is assumed unless
+`--gauge-source measured` says a swatch was measured; never mark a guess
+measured.
 
 **Hand-off:** `package hat.json -o hat-package/` writes the editable project,
 `program.k`/`program.kc`, `instructions.md`, `schematic.svg`, `chart.png`,

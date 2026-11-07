@@ -347,7 +347,7 @@ export function planProject(state: ProjectState, placements: readonly ResolvedPr
 
   const finishing = beanie
     ? [
-        'The top comes off the machine as live stitches (the last front loops are dropped). Thread the main-yarn tail through the top stitches straight away, before they ladder, and pull them closed.',
+        'The top comes off the machine on waste yarn, which holds its stitches. Thread the main-yarn tail through the top stitches below the waste and pull them closed, then unpick the waste yarn.',
         state.setup?.drawThread === false ? 'Unravel or cut away the waste yarn below the cast-on edge.' : 'Pull the draw thread (C1) to separate the waste yarn from the cast-on edge.',
         'Sew the two long edges together with mattress stitch, one stitch in from each edge, from the crown down to the brim. Where the brim will fold up, sew from the other side so the seam is hidden.',
         ...(beanieObjectOf(state)?.cuffFold ? [`Fold the rib cuff up along its middle (the cuff is ${cuffRows} rows, so fold at row ${Math.floor(cuffRows / 2)}); the folded half shows the rib's reverse, which looks the same for 2x2 rib.`] : []),

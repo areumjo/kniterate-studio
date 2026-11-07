@@ -40,8 +40,9 @@ Every command prints JSON. Exit 0 = ok / export-ready, 1 = blocked, 2 = usage or
   new <chart.json|project.json> -o <project.json> [--id <id>]
   new --width <st> --height <rows> [--palette "Name=#RRGGBB,..."] [--title <t>] -o <project.json>
       Start a project from a ColorworkChartV1 file, an existing project, or a blank chart.
-  new --object beanie [--head-cm X [--ease E]] [--body-cm X] [--gauge <st>,<rows>] [--color "Name=#RRGGBB"]
-      [--cuff-cm X --rib-gauge <st>,<rows> [--fold] [--accent "Name=#RRGGBB"] [--backing fairisle|birdseye]] -o <project.json>
+  new --object beanie [--head-cm X [--ease E]] [--body-cm X] [--gauge <st>,<rows>] [--gauge-source measured|assumed]
+      [--color "Name=#RRGGBB"] [--cuff-cm X --rib-gauge <st>,<rows> [--fold] [--accent "Name=#RRGGBB"]
+      [--backing fairisle|birdseye]] -o <project.json>
       Flat beanie, seamed afterwards (Customist's construction). Without --cuff-cm it is all 2x2 rib:
       the chart is the rib body (width = needles, height = rib rows) and --gauge is the rib gauge; with
       no sizing it is Kniterate's reference hat (194 x 102, Customist's own crown). With --cuff-cm it is a
@@ -49,10 +50,12 @@ Every command prints JSON. Exit 0 = ok / export-ready, 1 = blocked, 2 = usage or
       body's colorwork gauge, the chart's bottom rows are the cuff, and --accent adds a second yarn on C4.
       --head-cm sets the finished circumference target (head x (1 + ease), ease default -0.10) and
       --body-cm the body length; the plan's own fixes then size the chart. Widths 60-244 needles.
+      Gauges are assumed (the size is unverified) unless --gauge-source measured says a swatch was measured.
   fit <project.json> [--head-cm X] [--ease E] [--body-cm X] [--cuff-cm X] [--fold|--no-fold]
         [--gauge <st>,<rows>] [--rib-gauge <st>,<rows>] [--gauge-source measured|assumed] [--backing fairisle|birdseye]
       Change a beanie's fit, cuff, body height, gauges or backing as one undoable operation. The plan's
-      own fixes set the needle and row counts; motifs stay centred above the cuff.
+      own fixes set the needle and row counts; motifs stay centred above the cuff. New gauges are
+      assumed unless --gauge-source measured.
   package <project.json> -o <directory>
       Write the handoff package: the editable project, program.k and program.kc, instructions.md (with
       readiness and unresolved checks), schematic.svg, chart.png, measurement-form.md, measurements.json
@@ -308,6 +311,13 @@ function blankChart(parsed: Parsed) {
   };
 }
 
+/** A typed gauge is assumed unless `--gauge-source measured` says it came from a measured swatch. */
+function gaugeSourceOption(parsed: Parsed): 'measured' | 'assumed' {
+  const source = parsed.options.get('--gauge-source') ?? 'assumed';
+  if (source !== 'measured' && source !== 'assumed') throw new UsageError('--gauge-source must be measured or assumed.');
+  return source;
+}
+
 function colorOption(raw: string, flag: string): { name: string; hex: string } {
   const [name, hex] = raw.split('=').map((part) => part.trim());
   if (!name || !hex || !/^#[0-9a-fA-F]{6}$/.test(hex)) throw new UsageError(`${flag} must be Name=#RRGGBB.`);
@@ -316,6 +326,7 @@ function colorOption(raw: string, flag: string): { name: string; hex: string } {
 
 /** A beanie project: reference size, then the plan's own resize fixes for any requested size. */
 function newBeanie(parsed: Parsed): ColorworkProjectV1 {
+  const source = gaugeSourceOption(parsed);
   const gauge = gaugeOption(parsed);
   const ribGauge = gaugeOption(parsed, '--rib-gauge');
   const headCm = numberOption(parsed, '--head-cm');
@@ -338,8 +349,8 @@ function newBeanie(parsed: Parsed): ColorworkProjectV1 {
       title: parsed.options.get('--title') ?? 'Beanie',
       ...(headCm !== null ? { headCircumferenceCm: headCm, ease } : {}),
       ...(bodyCm !== null ? { bodyCm } : {}),
-      ...(gauge !== null ? { bodyGauge: { ...gauge, source: 'measured' as const } } : {}),
-      ...(cuffCm !== null ? { cuffCm, ribGauge: { ...ribGauge!, source: 'measured' as const }, fold } : {}),
+      ...(gauge !== null ? { bodyGauge: { ...gauge, source } } : {}),
+      ...(cuffCm !== null ? { cuffCm, ribGauge: { ...ribGauge!, source }, fold } : {}),
       main,
       ...(accent ? { accent } : {}),
       backing,
@@ -531,8 +542,7 @@ async function main(): Promise<number> {
     case 'fit': {
       const path = positional(parsed, 0, 'project file');
       let project = await readProject(path);
-      const source = parsed.options.get('--gauge-source') ?? 'measured';
-      if (source !== 'measured' && source !== 'assumed') throw new UsageError('--gauge-source must be measured or assumed.');
+      const source = gaugeSourceOption(parsed);
       const gauge = gaugeOption(parsed);
       const ribGauge = gaugeOption(parsed, '--rib-gauge');
       const easeRaw = parsed.options.get('--ease');

@@ -1,10 +1,11 @@
 /**
- * Customist 2×2 rib beanie, a flat piece seamed afterwards, reproducing the
- * construction of `reference/2x2-rib-beanie.kc`.
+ * Customist 2×2 rib beanie, a flat piece seamed afterwards, in the
+ * construction of `reference/2x2-rib-beanie.kc`; `reference: true`
+ * reproduces that file exactly.
  *
  * Sections, as decoded from the reference trace (offsets are from the
  * piece's left needle `lo`; W = hi − lo + 1 is even):
- *   Waste       an 81-pass waste interlock on the waste yarn with a speed ramp
+ *   Waste       an 81-pass waste interlock on the waste yarn
  *   Insert      the body yarn knits one 1×1 row, then a waste tube
  *   Draw        the draw yarn knits one 1×1 row, then a waste tube
  *   Collapse    the tube is transferred into 1×1 (front even, rear odd)
@@ -16,7 +17,8 @@
  *   Body        2×2 rib rows
  *   Crown       Customist's decreases and top jersey, replayed for the
  *               reference width (customist-rib-beanie-crown.ts)
- *   Knit off    the top's live loops are dropped; the carriers go out
+ *   Top         rows of waste yarn hold the top's stitches, then are
+ *               released (the reference drops the live loops instead)
  */
 
 import { b as backBed, comment, f, type CarrierId, type Direction, type KnitoutOp, type KnitoutProgram } from '../types.js'
@@ -26,7 +28,8 @@ import { CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES } from '../recipes/customist-st
 import type { PredictedPass } from '../sim/types.js'
 import { CUSTOMIST_RIB_CROWN_194_V1, CUSTOMIST_RIB_CROWN_WIDTH, type CustomistRibCrownStep } from './customist-rib-beanie-crown.js'
 import { planEightLineCrown, ribBed } from './rib-crown-plan.js'
-import { CUSTOMIST_RIB_BEANIE_SETTINGS_V1, emitCustomistFlatStart, flatPieceKit, flatStartSettingsV1, type FlatSectionSettingsV1, type SectionSettingsV1 } from './customist-flat-start.js'
+import { CUSTOMIST_RIB_BEANIE_SETTINGS_V1, STUDIO_FLAT_START_SETTINGS_V1, emitCustomistFlatStart, flatPieceKit, flatStartSettingsV1, type FlatSectionSettingsV1, type SectionSettingsV1 } from './customist-flat-start.js'
+import { SHAPED_PANEL_TOP_WASTE_ROWS } from './shaped-panel.js'
 
 export { CUSTOMIST_RIB_BEANIE_SETTINGS_V1 }
 
@@ -42,8 +45,21 @@ export interface CustomistRibBeanieInput {
   startWastePasses?: number
   /** The colourwork body's settings, over the backing's reference. */
   bodySettings?: SectionSettingsV1
-  /** Waste, cast-on, rib and transfer settings, over the reference's; the transfers are every transfer's, the crown's too. */
+  /**
+   * Waste, cast-on, rib, transfer and crown settings, over the reference's;
+   * the transfers are every transfer's, the crown's too, and the crown's are
+   * every crown row's (its stitch size the front bed's, the rear keeping the
+   * row's step below).
+   */
   sections?: FlatSectionSettingsV1
+  /**
+   * Reproduce `reference/2x2-rib-beanie.kc`: its start and its knit-off,
+   * which drops the top's live loops. Otherwise Studio's start
+   * (`STUDIO_FLAT_START_SETTINGS_V1`) and a waste top.
+   */
+  reference?: boolean
+  /** Rows of waste yarn on top (default `SHAPED_PANEL_TOP_WASTE_ROWS`); not with `reference`. */
+  topWasteRows?: number
   /** 2×2 rib rows after the set-up. */
   ribRows: number
   /**
@@ -98,7 +114,7 @@ export function emitCustomistRibBeanie(input: CustomistRibBeanieInput): Customis
   if (input.jerseyBody && input.crown === 'customist-194') throw new Error('the customist-194 crown is for an all-rib body; use the eight-line crown with a jersey body')
   const extraCarriers = [...new Set(bodyRows.flat())].filter((c) => c !== body).sort()
   if (extraCarriers.some((c) => c === waste || c === draw)) throw new Error('jersey body colors must not use the waste or draw carrier')
-  const s = flatStartSettingsV1(input.sections)
+  const s = flatStartSettingsV1(input.sections, input.reference ? CUSTOMIST_RIB_BEANIE_SETTINGS_V1 : STUDIO_FLAT_START_SETTINGS_V1)
   const sim = new CarriageSimulator({ carriers: ['1', '2', '3', '4', '5', '6'] })
   const ops: KnitoutOp[] = [comment('--- CUSTOMIST 2x2 RIB BEANIE: WASTE & CAST-ON ---')]
   const kit = flatPieceKit(sim, ops, lo, hi, s)
@@ -201,6 +217,7 @@ export function emitCustomistRibBeanie(input: CustomistRibBeanieInput): Customis
     ops.push(comment(`--- 2x2 RIB CROWN (${input.crown}) ---`))
     // Your transfer settings are every transfer's, the crown's too; without them the crown keeps its reference's.
     const transfers = input.sections?.transfers
+    const own = input.sections?.crown
     for (const step of crown) {
       if (step[0] === 'x') {
         const [, rack, from, referenceSpeed, referenceRoller, referenceStitch, sources] = step
@@ -220,9 +237,11 @@ export function emitCustomistRibBeanie(input: CustomistRibBeanieInput): Customis
           for (const pair of pairs) { sim.addRollerAdvance(roller); sim.xfer(pair.from, pair.to) }
         }
       } else {
-        const [, dir, speed, roller, frontStitch, rearStitch, front, rear] = step
+        const [, dir, referenceSpeed, referenceRoller, referenceFront, referenceRear, front, rear] = step
+        const frontStitch = own?.stitch ?? referenceFront
+        const rearStitch = own?.stitch === undefined ? referenceRear : Math.max(0, own.stitch - (referenceFront - referenceRear))
         sim.setRacking(0)
-        settings(speed, roller)
+        settings(own?.speed ?? referenceSpeed, own?.roller ?? referenceRoller)
         const frontSet = new Set(front)
         const rearSet = new Set(rear)
         for (const o of offsets(dir, (x) => frontSet.has(x) || rearSet.has(x))) {
@@ -232,11 +251,29 @@ export function emitCustomistRibBeanie(input: CustomistRibBeanieInput): Customis
       }
     }
     sim.setRacking(0)
-    // Knit off: drop the top's live loops (they are gathered by hand).
-    sim.setRoller(0)
-    sim.setStitch(0)
     const last = crown.at(-1)
-    if (last?.[0] === 'k') for (const o of last[6]) sim.drop(f(lo + o))
+    const top = last?.[0] === 'k' ? last[6] : []
+    if (input.reference) {
+      // Knit off: drop the top's live loops (they are gathered by hand).
+      sim.setRoller(0)
+      sim.setStitch(0)
+      for (const o of top) sim.drop(f(lo + o))
+    } else if (top.length > 0) {
+      // Waste yarn over the top's stitches, then released: they are gathered by hand off the machine before the waste comes out.
+      drain()
+      ops.push(comment('--- WASTE ON TOP ---'))
+      const first = Math.min(...top)
+      const span = Array.from({ length: Math.max(...top) - first + 1 }, (_, k) => first + k)
+      const live = new Set(top)
+      settings(s.tubeSpeed, s.castOnRoller, s.wasteStitch)
+      for (let k = 0; k < (input.topWasteRows ?? SHAPED_PANEL_TOP_WASTE_ROWS); k++) {
+        const dir: Direction = sim.positionOf(waste)?.side === 'left' ? '+' : '-'
+        // The first row knits only the top's stitches; later rows knit across any gap so the waste holds together.
+        for (const o of dir === '+' ? span : [...span].reverse()) if (k > 0 || live.has(o)) sim.knit(waste, dir, f(lo + o))
+      }
+      drain()
+      for (const o of span) sim.drop(f(lo + o))
+    }
     drain()
   }
 

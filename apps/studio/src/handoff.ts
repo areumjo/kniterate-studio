@@ -410,7 +410,7 @@ export function schematicSvg(project: ColorworkProjectV1, plan: ProjectPlan): st
       parts.push(`<path d="M${xb.toFixed(1)} ${bodyTop}L${xt.toFixed(1)} ${crownTop}" stroke="currentColor" stroke-opacity="0.3" stroke-dasharray="2 3"/>`);
     }
     dimV(x0 - 8, crownTop, bodyTop, `crown ${cmLabel(sections.crown?.cm, crownRows)}`);
-    text(x0 + W / 2, crownTop - 6, `gathered: ${sections.crown?.finalStitches} live stitches`, 'middle', 11);
+    text(x0 + W / 2, crownTop - 6, `gathered: ${sections.crown?.finalStitches} stitches, held on waste yarn`, 'middle', 11);
   }
   // Seam edges.
   for (const x of [x0, x0 + W]) parts.push(`<path d="M${x} ${crownTop + (x === x0 ? 0 : 0)}V${base}" stroke="#2563eb" stroke-width="3" stroke-opacity="0.7"/>`);

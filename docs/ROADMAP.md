@@ -19,8 +19,13 @@ Why this order:
 
 **A. Now: knit what exists, make it easier**
 
-- [ ] Knit the waiting beanie trial candidate as a development run and
+- [x] Knit the waiting beanie trial candidate as a development run and
   register the result, pass or fail ([`V1-PHYSICAL-TRIAL.md`](./V1-PHYSICAL-TRIAL.md)).
+  Knitted as issue #9's mini bird toque; it failed at the start and is
+  registered. The flat start, the beanie top and crown settings were fixed
+  from it (STATUS, 2026-11-07).
+- [ ] Knit a new mini toque from the fixed start, with a larger motif and a
+  taller body, and Kniterate's `fairisle.kc` again in run 2's yarns; register both.
 - [ ] Give the swatch one place: download and enter it under Your swatch, and
   have the status panel's button go there.
 - [ ] Start the left panel folded except Size; a Show or fix button opens the

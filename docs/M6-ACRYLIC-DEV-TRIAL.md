@@ -1,6 +1,12 @@
 # M6 acrylic development trial: bird toque
 
-**Status:** prepared, waiting for an operator run. This is a **development
+**Status (2026-11-07): superseded, do not knit.** Candidate `79670c31…`
+has the flat start that failed on the machine in issue #9's mini bird toque
+(registry entry `2026-11-07-run3-mini-bird-toque`). The start is fixed; a new
+candidate must be generated from the current commit. The procedure below is
+kept as the record of this candidate.
+
+**Original status:** prepared, waiting for an operator run. This is a **development
 run** in the sense of [`V1-PHYSICAL-TRIAL.md`](./V1-PHYSICAL-TRIAL.md): it
 finds physical defects in the M6 beanie construction early. It does not
 qualify `1.0.0`, and no verdict changes because of it.

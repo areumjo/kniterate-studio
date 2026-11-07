@@ -362,8 +362,9 @@ export const BEANIE_WIDTH_LIMITS = { min: 60, max: 244 } as const;
 
 /**
  * A beanie project: the chart is the rib body (width = needles, height = rib
- * rows, one color); the construction supplies Customist's frame, the crown,
- * and the knit-off. At the reference width the crown is Customist's own.
+ * rows, one color); the construction supplies Customist's frame (with
+ * Studio's start), the crown and the waste top. At the reference width the
+ * crown is Customist's own.
  */
 function compileBeanieProject(
   project: ColorworkProjectV1,
@@ -412,7 +413,7 @@ function compileBeanieProject(
     wastePasses: 81,
     wasteCarrier: '6',
     drawCarrier: state.setup?.drawThread === false ? null : '1',
-    bindOff: 'knit-off',
+    bindOff: 'waste-and-drop',
     frameCarriers: state.setup?.drawThread === false ? [] : ['1'],
   };
   const base = {
@@ -437,6 +438,7 @@ function compileBeanieProject(
     ribRows: cuffRows,
     crown,
     ...(state.setup?.wasteRows !== undefined ? { startWastePasses: customistWastePassesV1('flat', state.setup.wasteRows) } : {}),
+    ...(state.setup?.topWasteRows !== undefined ? { topWasteRows: state.setup.topWasteRows } : {}),
     ...(state.setup?.body !== undefined ? { bodySettings: state.setup.body } : {}),
     ...(flatSections(state.setup) ?? {}),
     ...(withBody ? { jerseyBody: { rows: bodyCells.map((cells) => cells.map(carrierOf)), backing: backing === 'birdseye' ? 'birdseye' as const : 'fairisle' as const } } : {}),

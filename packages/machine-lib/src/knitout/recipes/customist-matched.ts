@@ -16,7 +16,8 @@ import { buildCompileInputForExport, carrierModeForColorCount } from '../export-
 import type { FloatPolicy } from '../plan/bed-state.js'
 import type { YarnBinding } from '../types.js'
 import type { RecipeOverrides } from '../wizard-config.js'
-import { CUSTOMIST_RIB_BEANIE_SETTINGS_V1, type SectionSettingsV1 } from '../passes/customist-flat-start.js'
+import { STUDIO_FLAT_START_SETTINGS_V1, type SectionSettingsV1 } from '../passes/customist-flat-start.js'
+import { EIGHT_LINE_CROWN_V1 } from '../passes/rib-crown-plan.js'
 import { SHAPED_PANEL_TOP_WASTE_ROWS } from '../passes/shaped-panel.js'
 import { CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES } from './customist-studio-birdseye-7gg.js'
 import { CUSTOMIST_STUDIO_FAIRISLE_7GG_RECIPE } from './customist-studio-fairisle-7gg.js'
@@ -61,15 +62,17 @@ function referenceWaste(technique: CustomistMatchedTechniqueV1) {
     : CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.start!.wasteMachineConfig!
 }
 
-const FLAT = CUSTOMIST_RIB_BEANIE_SETTINGS_V1
-/** The waste pass after the flat start's speed ramp: its steady speed. */
-const FLAT_STEADY_WASTE_PASS = 19
+const FLAT = STUDIO_FLAT_START_SETTINGS_V1
+/** The first leftward waste pass after the flat start's slow passes: its steady speed and pulling roller. */
+const FLAT_STEADY_WASTE_PASS = FLAT.wasteRampPasses + 1 - (FLAT.wasteRampPasses % 2)
 
 /**
  * The reference's settings for each section a project can set, per
  * construction: what it knits with unless it sets its own. A chart sets its
  * waste section; the flat start (beanies, sweaters, scarves) its waste,
- * cast-on, rib and transfers. A rib's stitch size is its front bed's.
+ * cast-on, rib and transfers, and a beanie its crown. A rib's stitch size is
+ * its front bed's. The crown's reference changes row by row; its standard is
+ * the top rows'.
  */
 export const CUSTOMIST_STANDARD_SECTION_SETTINGS_V1 = {
   fairisle: { waste: { stitch: referenceWaste('fairisle').stitchNumber!, speed: referenceWaste('fairisle').wasteSpeed!, roller: referenceWaste('fairisle').rampRollerLeft! } },
@@ -79,6 +82,7 @@ export const CUSTOMIST_STANDARD_SECTION_SETTINGS_V1 = {
     castOn: { stitch: FLAT.castOnStitch, speed: FLAT.castOnSpeed, roller: FLAT.castOnRoller },
     rib: { stitch: FLAT.ribStitchFront, speed: FLAT.ribSpeed, roller: FLAT.ribRoller },
     transfers: { stitch: FLAT.xferStitch, speed: FLAT.xferSpeed, roller: FLAT.xferRoller },
+    crown: { stitch: EIGHT_LINE_CROWN_V1.topStitch, speed: EIGHT_LINE_CROWN_V1.topSpeed, roller: EIGHT_LINE_CROWN_V1.topRoller },
   },
 } as const
 
@@ -128,7 +132,7 @@ export const CUSTOMIST_STANDARD_WASTE_PASSES_V1 = {
   fairisle: CUSTOMIST_STUDIO_FAIRISLE_7GG_RECIPE.sections.start.wastePasses,
   birdseye: CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.start!.wastePasses!,
   /** Beanies, sweaters, scarves and blankets: the shared flat start. */
-  flat: CUSTOMIST_RIB_BEANIE_SETTINGS_V1.wastePasses,
+  flat: STUDIO_FLAT_START_SETTINGS_V1.wastePasses,
 } as const
 
 /**

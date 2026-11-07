@@ -239,8 +239,8 @@ describe('every section’s speed, roller and stitch size', () => {
     expect(uses(result.compiled!.knitoutText!)).toEqual([true, true, true]);
   });
 
-  it.each(['waste', 'castOn', 'rib', 'transfers'])('of a beanie: its %s', async (section) => {
-    expect(sectionStandards(materializeColorworkProject(hat()).state).map((item) => item.key)).toEqual(['waste', 'castOn', 'rib', 'body', 'transfers']);
+  it.each(['waste', 'castOn', 'rib', 'transfers', 'crown'])('of a beanie: its %s', async (section) => {
+    expect(sectionStandards(materializeColorworkProject(hat()).state).map((item) => item.key)).toEqual(['waste', 'castOn', 'rib', 'body', 'transfers', 'crown']);
     const result = await runAuthoredPipeline(own(hat(), section));
     expect(result.verdict.state).toBe('surface');
     // Transfers carry their own stitch size (x-xfer-stitch-number), not the knitting one.
@@ -260,6 +260,30 @@ describe('every section’s speed, roller and stitch size', () => {
     expect(crown).toMatch(/^x-speed-number 333$/m);
     // The transfer stitch size is set once and never changes back, the crown included.
     expect(new Set(result.compiled!.knitoutText!.match(/^x-xfer-stitch-number .+$/gm))).toEqual(new Set(['x-xfer-stitch-number B']));
+  });
+
+  it('of a beanie: its crown settings are every crown row’s, and nothing else’s', async () => {
+    const crownOf = (knitout: string) => knitout.slice(knitout.indexOf('RIB CROWN'), knitout.indexOf('WASTE ON TOP'));
+    const standard = compileColorworkProject(hat()).knitoutText!;
+    const result = await runAuthoredPipeline(own(hat(), 'crown'));
+    expect(result.verdict.state).toBe('surface');
+    const knitout = result.compiled!.knitoutText!;
+    expect(knitout.slice(0, knitout.indexOf('RIB CROWN'))).toBe(standard.slice(0, standard.indexOf('RIB CROWN')));
+    // Every crown row knits at your settings; the crown's transfers keep theirs.
+    expect(new Set(crownOf(knitout).match(/^x-stitch-number .+$/gm))).toEqual(new Set(['x-stitch-number B']));
+    expect(crownOf(knitout)).toMatch(/^x-speed-number 150$/m);
+  });
+
+  it('of a beanie: the top is waste yarn over the crown’s stitches, its rows your own', async () => {
+    const topOf = (knitout: string) => knitout.slice(knitout.indexOf('WASTE ON TOP'));
+    const rows = (knitout: string) => topOf(knitout).split('\n').filter((line) => /^knit [+-] f\d+ 6$/.test(line)).length;
+    const standard = compileColorworkProject(hat()).knitoutText!;
+    expect(standard).toContain('WASTE ON TOP');
+    const stitches = new Set(topOf(standard).match(/^drop f\d+$/gm)).size;
+    expect(rows(standard)).toBe(8 * stitches);
+    const result = await runAuthoredPipeline(appendProjectEdit(hat(), { id: 'top-rows', source: 'human', edit: { kind: 'set-machine-setup', setup: { topWasteRows: 12 } } }));
+    expect(result.verdict.state).toBe('surface');
+    expect(rows(result.compiled!.knitoutText!)).toBe(12 * stitches);
   });
 
   it('of a scarf: its sections, the rib only when it has rib ends', async () => {

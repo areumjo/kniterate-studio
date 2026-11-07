@@ -18,7 +18,7 @@ const REFERENCE = resolve(__dirname, '../../reference/2x2-rib-beanie.kc')
 const PIECE = { needleStart: 30, needleEnd: 223, bodyCarrier: '3', wasteCarrier: '6', drawCarrier: '1' } as const
 
 function kcode(ribRows: number): string {
-  const converted = authoredKnitoutToKCodeWithTrace(writeKnitoutProgram(buildCustomistRibBeanieProgram({ ...PIECE, ribRows, crown: 'customist-194' })))
+  const converted = authoredKnitoutToKCodeWithTrace(writeKnitoutProgram(buildCustomistRibBeanieProgram({ ...PIECE, ribRows, crown: 'customist-194', reference: true })))
   if (!converted.ok) throw new Error(converted.error)
   return converted.kcode
 }

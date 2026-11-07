@@ -5,8 +5,9 @@ import { Chips, NumberInput, Section } from './panel';
 
 /**
  * The machine's start and finish, the same section for every kind of
- * project. Each setting is the construction's reference (Kniterate's own
- * files) until you set your own. The inputs stay inside the machine-safety
+ * project. Each setting is the construction's standard (Kniterate's own
+ * files, and for a flat piece's start Studio's knit-tested one) until you set
+ * your own. The inputs stay inside the machine-safety
  * envelope; a waste section too short for the rollers, or a setting outside
  * the envelope, is refused when the project compiles.
  */
@@ -59,6 +60,7 @@ export function sectionStandards(state: ProjectState): { key: SetupSection; labe
     ...(body ? [{ key: 'body' as const, label: 'Body', standard: body }] : []),
     // A beanie's crown transfers too: at its own reference settings until you set yours.
     { key: 'transfers', label: 'Transfers', standard: flat.transfers, ...(object?.kind === 'beanie' ? { note: `Until you set your own, the crown keeps Kniterate's transfer settings (speed ${EIGHT_LINE_CROWN_V1.xferSpeed}).` } : {}) },
+    ...(object?.kind === 'beanie' ? [{ key: 'crown' as const, label: 'Crown', standard: flat.crown, note: `Until you set your own, the crown keeps Kniterate's settings row by row: its decrease rows knit at stitch ${EIGHT_LINE_CROWN_V1.jerseyStitch} with roller ${EIGHT_LINE_CROWN_V1.crownRoller} (in rib, ${EIGHT_LINE_CROWN_V1.crownStitchFront}), its top at the standard.` }] : []),
   ];
 }
 
@@ -97,7 +99,8 @@ function SectionSettingsFields({ id, section, label, value, standard, note, onCh
 /**
  * `objectTop`: a sweater's or scarf's top, which is part of its design (the
  * object), set here beside the start. A chart's top is its setup's; a
- * beanie's crown gathers it closed.
+ * beanie's is always waste yarn, which holds the crown's stitches until they
+ * are gathered closed.
  */
 export function MachineSetupSection({ state, onChange, objectTop }: {
   state: ProjectState;
@@ -148,18 +151,14 @@ export function MachineSetupSection({ state, onChange, objectTop }: {
       <label className="check-label"><input type="checkbox" checked={words.drawThread} onChange={(event) => setDraw(event.currentTarget.checked)} />Draw thread (C1)</label>
       <p className="design-hint">{words.drawThread ? 'Pulled out after knitting to free your piece from the waste yarn.' : 'Without one, unravel or cut the waste yarn away after knitting.'}</p>
     </>}
-    {beanie
-      ? <p className="design-hint">The top: the crown gathers it closed.</p>
-      : <>
-        <div className="field-row"><span>Top</span><Chips label="Top edge" value={top} options={[
-          { id: 'bind-off', name: 'Bind off', note: objectTop ? 'The machine binds off the top.' : 'A machine chain bind-off. Kniterate\'s own chart files end on waste yarn.' },
-          { id: 'waste', name: 'Waste yarn', note: 'Live stitches on waste yarn, to bind off or graft by hand.' },
-        ]} onPick={setTop} /></div>
-        {top === 'waste' && <>
-          <div className="field-row"><span>Waste on top</span><NumberInput label="Waste rows on top" value={topRows} min={2} max={100} step={construction === 'flat' ? 1 : 2} suffix="rows" onCommit={(rows) => setTopRows(Math.round(rows))} /></div>
-          <p className="design-hint">Standard: {topStandard} rows.{state.setup?.topWasteRows !== undefined && <> <button type="button" className="link-button" onClick={() => setTopRows(null)}>Use the standard {topStandard}</button></>}</p>
-        </>}
-      </>}
+    {!beanie && <div className="field-row"><span>Top</span><Chips label="Top edge" value={top} options={[
+      { id: 'bind-off', name: 'Bind off', note: objectTop ? 'The machine binds off the top.' : 'A machine chain bind-off. Kniterate\'s own chart files end on waste yarn.' },
+      { id: 'waste', name: 'Waste yarn', note: 'Live stitches on waste yarn, to bind off or graft by hand.' },
+    ]} onPick={setTop} /></div>}
+    {(beanie || top === 'waste') && <>
+      <div className="field-row"><span>Waste on top</span><NumberInput label="Waste rows on top" value={topRows} min={2} max={100} step={construction === 'flat' ? 1 : 2} suffix="rows" onCommit={(rows) => setTopRows(Math.round(rows))} /></div>
+      <p className="design-hint">{beanie ? 'Holds the crown\'s stitches until you gather them closed. ' : ''}Standard: {topStandard} rows.{state.setup?.topWasteRows !== undefined && <> <button type="button" className="link-button" onClick={() => setTopRows(null)}>Use the standard {topStandard}</button></>}</p>
+    </>}
     <details className="machine-sections" open={ownSections}>
       <summary>Speed, roller and stitch size</summary>
       {sections.map((section) => <SectionSettingsFields key={section.key} id={`machine.${section.key}`} section={section.key} label={section.label} value={state.setup?.[section.key]} standard={section.standard} {...(section.note ? { note: section.note } : {})} onChange={(next, label) => setSection(section.key, next, label)} />)}

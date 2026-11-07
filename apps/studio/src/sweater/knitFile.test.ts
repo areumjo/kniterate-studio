@@ -100,7 +100,7 @@ describe('a piece machine file read back', () => {
       const ribRows = plan.sections!.cuff?.rows ?? state.chart.height;
       const file = readKnitFile(result.kcode!, { zoneOfRow: (row) => (row < ribRows ? 'rib' : 'body'), carriers: { main: '3', second: null, waste: '6', draw: '1' }, kind: 'beanie' })!;
       const labels = file.sections.map((section) => section.label).filter((label) => !['Waste yarn', 'Draw thread', 'Cast-on', 'Carriers out'].includes(label));
-      expect(labels).toEqual(index === 1 ? ['Rib', 'Crown', 'Gathered top'] : ['Cuff rib', 'Body', 'Crown', 'Gathered top']);
+      expect(labels).toEqual(index === 1 ? ['Rib', 'Crown', 'Gathered top', 'Waste yarn on top'] : ['Cuff rib', 'Body', 'Crown', 'Gathered top', 'Waste yarn on top']);
       // The same row counts as the plan, so the schematic and the left panel agree.
       const rows = (...names: string[]) => file.courses.filter((course) => names.includes(file.sections[course.section]!.label)).length;
       const sections = plan.sections!;
