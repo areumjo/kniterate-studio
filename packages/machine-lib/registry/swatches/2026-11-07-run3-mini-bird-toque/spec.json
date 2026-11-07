@@ -1,0 +1,34 @@
+{
+  "$schema": "../_schema.json",
+  "kind": "kniterate-studio-project",
+  "sourceFingerprint": "f772ed0e",
+  "compilerFingerprint": "2e525c1d2886a1552ff2539471ac7a2ae56e3ec0d0669594ba21ead61eafe60d",
+  "knitoutSha256": "d869b2f522e9dcaa5a4b3d1af22d3dcd3672a197fb7e16428f3f57b927557f4c",
+  "kcodeSha256": "a5000f5f7f93d29a25419676bb5030f8fa89bb036f76662b4af8b41bc6f60c45",
+  "emitterCommit": "75f36c47e344a8542466d5110964406b23497559",
+  "compiledAt": "2026-11-07T22:28:55.269Z",
+  "studioVersion": "1.0.0-rc.1",
+  "compileResultOk": true,
+  "request": {
+    "path": "request.json",
+    "reemitCommand": "pnpm studio -- package project.kniterate-studio.json -o <directory>"
+  },
+  "reemitCheck": {
+    "status": "not-run",
+    "checkedAt": null,
+    "currentCommit": null,
+    "notes": "Historical operator note only. The registry checker independently recompiles and byte-compares current out.k/out.kc in-process."
+  },
+  "compileMessages": [],
+  "planSummary": {
+    "technique": "birdseye",
+    "coordinateSystem": "compiler/project coordinates mapped to exact KCode/trace coordinates; physical needle labels unverified",
+    "compilerCoordinateStart": 96,
+    "compilerCoordinateEnd": 157,
+    "rows": 33,
+    "wastePasses": 81,
+    "bindOff": "knit-off",
+    "profile": "kniterate-7gg-worsted-v1"
+  },
+  "notes": "Development run of a Studio handoff package (Mini bird toque test); not a 1.0.0 qualification artifact."
+}

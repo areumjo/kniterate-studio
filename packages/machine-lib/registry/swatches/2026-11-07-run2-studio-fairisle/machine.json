@@ -1,0 +1,93 @@
+{
+  "$schema": "../_schema.json",
+  "kind": "kniterate-machine-run-v1",
+  "schemaVersion": 1,
+  "ranAt": "2026-10-30T00:00:00-07:00",
+  "machineSerial": "not recorded",
+  "controlSoftwareVersion": "not recorded",
+  "profile": "kniterate-7gg-worsted-v1",
+  "program": {
+    "compilerCoordinateStart": 95,
+    "compilerCoordinateEnd": 158,
+    "coordinateBridge": {
+      "kind": "kniterate-authored-kcode-coordinate-bridge",
+      "schemaVersion": 1,
+      "provenance": "authored-project-and-pinned-lowering",
+      "artifactKcodeSha256": "3607b0ff3081980203f7fbb73916543e8dee64e93f35f0ea196003385489b8a1",
+      "profile": {
+        "id": "kniterate-7gg-kcode",
+        "version": 2,
+        "dialect": "knitout-vendor"
+      },
+      "lowering": {
+        "schemaVersion": 1,
+        "position": "Center",
+        "sourceSlotRange": {
+          "min": 95,
+          "max": 158
+        },
+        "frontSourceSlotToKCodeColumnOffset": -1,
+        "formula": "kcodeColumn=frontSourceSlot+offset"
+      },
+      "compilerProject": {
+        "basis": "one-based-knitout-front-bed-needle",
+        "start": 95,
+        "end": 158
+      },
+      "kcodeColumn": {
+        "basis": "marker-free-raster-column",
+        "start": 94,
+        "end": 157
+      },
+      "traceCoordinate": {
+        "basis": "dialect-normalized-marker-free-coordinate",
+        "start": 94,
+        "end": 157
+      },
+      "offsets": {
+        "compilerProjectToKcodeColumn": -1,
+        "kcodeColumnToTraceCoordinate": 0,
+        "compilerProjectToTraceCoordinate": -1
+      },
+      "verification": {
+        "scheduledTraceComparison": "passed",
+        "selectedTraceExtentMatchesMappedEndpoints": true
+      },
+      "physicalNeedleLabels": {
+        "status": "unverified"
+      }
+    },
+    "gauge": 7,
+    "position": "Center",
+    "wastePasses": 87,
+    "bindOff": "fairisle-park-bindoff",
+    "initialSettings": {
+      "stitchNumber": 9,
+      "xferStitchNumber": 5,
+      "speedNumber": 200,
+      "rollerAdvance": 450,
+      "xferStyle": "four-pass",
+      "carrierSpacing": 2,
+      "carrierStoppingDistance": 2.5
+    }
+  },
+  "carriers": {
+    "1": {
+      "role": "draw",
+      "yarnEntry": "yarn.json#yarns[0]"
+    },
+    "2": {
+      "role": "pattern",
+      "yarnEntry": "yarn.json#yarns[1]"
+    },
+    "3": {
+      "role": "pattern",
+      "yarnEntry": "yarn.json#yarns[2]"
+    },
+    "6": {
+      "role": "waste",
+      "yarnEntry": "yarn.json#yarns[3]"
+    }
+  },
+  "deviationsFromCompile": []
+}

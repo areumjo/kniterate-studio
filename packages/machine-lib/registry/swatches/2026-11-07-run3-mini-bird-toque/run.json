@@ -1,0 +1,58 @@
+{
+  "$schema": "../_schema.json",
+  "kind": "kniterate-run-observation-v1",
+  "schemaVersion": 1,
+  "operator": "not recorded",
+  "startedAt": "2026-10-30T00:00:00-07:00",
+  "endedAt": "2026-10-30T23:59:59-07:00",
+  "outcome": "aborted",
+  "physicalPlacement": {
+    "verified": false,
+    "compilerCoordinateStart": 96,
+    "compilerCoordinateEnd": 157,
+    "physicalNeedleStart": null,
+    "physicalNeedleEnd": null,
+    "orientation": null,
+    "method": null,
+    "verifiedBy": null,
+    "verifiedAt": null
+  },
+  "artifact": {
+    "loadedKcodeSha256": "a5000f5f7f93d29a25419676bb5030f8fa89bb036f76662b4af8b41bc6f60c45",
+    "displayedPassCount": null,
+    "manualProgramEdits": false
+  },
+  "manualInterventions": [],
+  "observations": {
+    "sections": {
+      "waste": "issue",
+      "castOn": "not-reached",
+      "drawThread": "not-reached",
+      "carrierBringIn": "issue",
+      "body": "not-reached",
+      "backing": "not-reached",
+      "leftEdge": "not-reached",
+      "rightEdge": "not-reached",
+      "bindOff": "not-reached"
+    },
+    "stops": [
+      {
+        "section": "carrierBringIn",
+        "passIndex": null,
+        "description": "Stopped early: stitches were missed near the first needles, and the waste yarn tangled while C3 and C4 were brought in."
+      }
+    ],
+    "dimensionsCm": {
+      "offMachine": {
+        "status": "not-measured",
+        "reason": "No dimensions were measured or claimed for this run."
+      },
+      "rested24h": {
+        "status": "not-measured",
+        "reason": "No dimensions were measured or claimed for this run."
+      }
+    },
+    "photos": [],
+    "notes": "Session date only (2026-10-30, reported in issue #9 comment 6711473394); start and end times were not recorded, so startedAt/endedAt bound the calendar day and are not run timing. Machine cleaned and oiled, then Kniterate's official warm-up run without yarn, before testing. This entry is the file as issued (a5000f5f...), knitted at its own speeds. It failed at the start and was not completed. The report does not give the exact stopping point; sections after the start are recorded as not reached. The yarns are those reported for run 3; the report does not separate the two attempts. The completed run 3 used a different, hand-edited file (ecb46fb6..., every movement pass set to speed 100). It is not this artifact and cannot be registered; see outcome.md. The file's gauges are labelled measured but were assumed placeholders (the issue's commands left out --gauge-source assumed). Machine serial, software version, displayed pass count, yarn brands and lots, and row numbers were not recorded."
+  }
+}
