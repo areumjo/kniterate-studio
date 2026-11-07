@@ -28,12 +28,13 @@ describe('Customist parity verdict', () => {
     expect(result.candidateSha256).not.toBe(result.referenceSha256);
   });
 
-  it('scores the actual 64x50 trial with C4/C3 and discloses its six differing passes', { timeout: 30_000 }, async () => {
+  it('scores the actual 64x50 trial with C4/C3, eight passes longer for Studio’s yarn catch', { timeout: 30_000 }, async () => {
+    // The recipe path without Studio's start pins the six differing passes (fairisle-parity.test.ts).
     const result = await scoreReference(REFERENCES.find((item) => item.id === 'fairisle')!);
     expect(result).toMatchObject({
       status: 'partial', verdict: 'Surface-proven',
       input: { kind: 'checked-in-chart', width: 64, height: 50, droppedPartialRows: 0 },
-      stitches: { actualPasses: 286, expectedPasses: 286, identicalPasses: 280, offset: 0, differingPassIndices: [116, 149, 173, 197, 221, 245] },
+      stitches: { actualPasses: 294, expectedPasses: 286 },
       machine: { identical: false },
       faces: { carrierMap: { '3': '3', '4': '4' }, referenceBoundary: 'after-last-draw' },
     });
@@ -49,7 +50,7 @@ describe('Customist parity verdict', () => {
     expect(await scoreReference(REFERENCES.find((item) => item.id === '2x2-rib-beanie')!)).toMatchObject({
       status: 'partial', verdict: 'Surface-proven',
       machine: { identical: false },
-      stitches: { expectedPasses: 530, actualPasses: 536 },
+      stitches: { expectedPasses: 530, actualPasses: 542 },
     });
   });
 });

@@ -39,6 +39,24 @@ ship," trust this file and the working tree instead.
     the parity scoreboard has no exact entry.
   - Not yet knitted. Edge drops seen in the hand-edited copy and the stiff
     crown's settings are open; the crown settings are exposed, not retuned.
+  - Then, from Kniterate's own guidance, staff answers and owners' reports
+    (researched 2026-11-07, sources in the commit message):
+    - a yarn catch (`STUDIO_YARN_CATCH_NEEDLES_V1`, 20 needles): before each
+      yarn's first row it knits out and back over the piece's leftmost
+      needles, both beds alternating, in the flat start and Studio's fairisle
+      chart start (not yet the birdseye chart start, which is built
+      separately);
+    - the first row after the fairisle chart's cast-on transfers and after a
+      beanie's rib → body transfer knits at roller 100
+      (`STUDIO_FIRST_ROW_AFTER_TRANSFERS_ROLLER_V1`), the fairisle one at the
+      body's stitch instead of the reference's handoff stitch 6;
+    - the birdseye body roller is 700 (`STUDIO_BIRDSEYE_BODY_ROLLER_V1`,
+      Kniterate's jacquard setting) for charts and beanies, and crown jersey
+      rows knit at stitch 6 or more (`STUDIO_CROWN_JERSEY_STITCH_V1`);
+    - a setting the file sets with its own op (carrier spacing, stopping
+      distance) is no longer turned into a "Set … on the machine" check.
+    The recipe path and the rib-beanie generator's reference mode still
+    reproduce Kniterate's files; none of this is knitted yet.
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are
@@ -403,8 +421,10 @@ ship," trust this file and the working tree instead.
   its construction generator until 2026-11-07, when authored beanies took
   Studio's start and a waste top; the generator's reference mode still
   matches it exactly. Fairisle uses the checked-in 64×50
-  trial chart with C4/C3 assignments and matches 280/286 stitch passes at
-  offset zero; six passes have additional C4 front knits in the reference. Other colorwork candidates are
+  trial chart with C4/C3 assignments. Its recipe path matches 280/286 stitch
+  passes at offset zero (six passes have additional C4 front knits in the
+  reference); Studio's authored fairisle adds its yarn catch (eight passes)
+  and gentle first row since 2026-11-07, so its passes no longer line up. Other colorwork candidates are
   explicitly inferred knit-column inputs, with any trimmed edge rows disclosed.
   Jacquard's two-color candidate blocks because its frame requires C2–C5.
   `knitted-faces.ts` preserves coordinate holes and alternating-needle passes;
@@ -424,9 +444,10 @@ ship," trust this file and the working tree instead.
   UI shows a read-only frame summary, including frame yarns (e.g. C1) the
   program brings in. Ladder, Lined, and Complement have no Customist
   reference and block with `project-technique-unmatched`; single-color charts
-  knit jersey inside the fairisle frame. The fairisle trial has 280/286
-  identical stitch passes and zero footer differences; the strict full-trace
-  comparison limits differences to six passes with reference-only C4 front knits.
+  knit jersey inside the fairisle frame. Before Studio's start (2026-11-07)
+  the fairisle trial had 280/286 identical stitch passes and zero footer
+  differences; the strict full-trace comparison limited differences to six
+  passes with reference-only C4 front knits. The recipe path still does.
   The general catch-loop rule and physical effect of those 21 extra knits remain
   unresolved. Birdseye uses the reference-derived DBJ
   introduction and finish with the established generic body: every requested
@@ -862,8 +883,10 @@ ship," trust this file and the working tree instead.
         swatch.";
       - ready: "Every software check passed."
     - `e2e/states.spec.ts` checks every kind against this at 1280 × 800.
-  - Words are plain: no "≈", no "machine truth" or "trials". Operator
-    settings read like "Set carrier spacing to 2 on the machine".
+  - Words are plain: no "≈", no "machine truth" or "trials". (Since
+    2026-11-07 a setting the file sets with its own op, such as carrier
+    spacing, is no longer turned into a "Set … on the machine" check; the
+    controller has no such setting.)
   - Export stays hard-gated by the authored verdict.
   - Contract: `docs/mockups/workspace-target.md`. Coverage:
     `e2e/workspace.spec.ts` and the updated specs.
@@ -980,8 +1003,8 @@ schema.
 ## The one real promotion gate
 
 The trial candidate partially reproduces the captured Customist
-`reference/fairisle.kc` program (see `V1-PHYSICAL-TRIAL.md`): 280/286 passes
-match at stitch level. Its manifest records the strict full-trace differences.
+`reference/fairisle.kc` program (see `V1-PHYSICAL-TRIAL.md`); without
+Studio's start (2026-11-07) 280/286 passes match at stitch level. Its manifest records the strict full-trace differences.
 The modified candidate has no controller or physical-run evidence.
 
 **Revised 2026-09-28:** the V1 gate now requires exact-artifact qualification

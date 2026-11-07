@@ -211,7 +211,8 @@ describe('blanket project compiler', () => {
     const compiled = compileColorworkProject(project);
     expect(compiled.ok).toBe(true);
     if (compiled.capacity.status === 'blocked') throw new Error(compiled.capacity.message);
-    expect(compiled.passes).toHaveLength(158);
+    // Includes Studio's yarn catch: out and back for each of the four yarns.
+    expect(compiled.passes).toHaveLength(166);
     const emitted = await compileKCodeArtifact({
       kind: 'convert-kcode',
       requestId: 1,
@@ -224,7 +225,7 @@ describe('blanket project compiler', () => {
     });
 
     expect(emitted.ok).toBe(true);
-    expect(emitted.passCount).toBe(158);
+    expect(emitted.passCount).toBe(166);
     const needleRange = authoredKnitoutNeedleRange(materializeColorworkProject(project).state);
     expect(emitted.coordinateBridge?.compilerProject).toMatchObject(needleRange);
     expect(emitted.rowPasses[0]!.passIndices.some((passIndex) => emitted.passKnitoutNeedles[passIndex] !== null)).toBe(true);
@@ -234,11 +235,12 @@ describe('blanket project compiler', () => {
       expect(needles!.start).toBeGreaterThanOrEqual(needleRange.start);
       expect(needles!.end).toBeLessThanOrEqual(needleRange.end);
     }
-    expect(compiled.rowProvenance[0]).toMatchObject({ rowId: 'row_0001', passIndices: [132, 133] });
-    expect(emitted.rowPasses[0]).toEqual({ rowId: 'row_0001', passIndices: [130, 131] });
+    // Studio's yarn catch puts 8 passes before the first row.
+    expect(compiled.rowProvenance[0]).toMatchObject({ rowId: 'row_0001', passIndices: [140, 141] });
+    expect(emitted.rowPasses[0]).toEqual({ rowId: 'row_0001', passIndices: [138, 139] });
     expect(compiled.diagnostics.find((item) => item.rowId === 'row_0001')).toMatchObject({
       rule: 'bed-state-long-float',
-      passIndices: [132, 133],
+      passIndices: [140, 141],
     });
   });
 
@@ -294,7 +296,7 @@ describe('blanket project compiler', () => {
     expect(compiled.capacity).toMatchObject({
       status: 'supported',
       project: { paletteColors: 4, activeColors: 2 },
-      observed: { knitoutRecords: 182_082 },
+      observed: { knitoutRecords: 182_244 },
     });
 
     project = appendProjectEdit(project, {

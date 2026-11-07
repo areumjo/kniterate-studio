@@ -54,13 +54,25 @@ function title(rule: string, severity: Finding['severity'], message: string): st
 }
 
 /**
- * The vendor converter drops Knitout extension headers it does not encode
- * (e.g. carrier spacing and stopping distance). Those settings then live only
- * on the controller, so they become an operator check with the intended value.
+ * The vendor converter ignores Knitout extension headers it does not encode
+ * (e.g. carrier spacing and stopping distance). When the program also sets
+ * the value with its own op line (`x-carrier-spacing 2`), the converter
+ * applied it and there is nothing to report (`headerSetByOp`); the Kniterate
+ * controller has no setting for either. A header alone becomes an operator
+ * check with the intended value.
  */
 /** A Knitout header's setting in words: `X-carrier-spacing` is carrier spacing. */
 export function settingName(header: string): string {
   return header.replace(/^X-/, '').replace(/-/g, ' ');
+}
+
+/** A converter note about a header whose value the program also sets with its own op line, which the converter applied. */
+export function headerSetByOp(rule: string, message: string, knitoutLines: readonly string[]): boolean {
+  if (rule !== 'vendor-converter-note') return false;
+  const match = /WARNING: Unknown comment header '([^']+)'/.exec(message);
+  if (match === null) return false;
+  const op = match[1]!.toLowerCase();
+  return knitoutLines.some((line) => line.split(/\s+/, 1)[0] === op);
 }
 
 function operatorHeader(rule: string, message: string, knitoutLines: readonly string[]): string | null {
@@ -123,6 +135,7 @@ export function collectFindings(plan: ProjectPlan, result: AuthoredPipelineResul
   }
   const knitoutLines = result.compiled?.knitoutText?.split('\n') ?? [];
   for (const message of result.kcode?.messages ?? []) {
+    if (headerSetByOp(message.rule, message.message, knitoutLines)) continue;
     const header = operatorHeader(message.rule, message.message, knitoutLines);
     findings.push({
       stage: 'kcode',

@@ -80,7 +80,8 @@ const MACHINE_SETTING_FIELD_REGISTRY: Readonly<Record<MachineSettingPrefix, read
   wasteMachineConfig: Object.keys(WASTE_BASE_DEFAULTS),
   bindOffMachineConfig: Object.keys(CHAIN_BINDOFF_DEFAULTS),
   fairisleParkConfig: Object.keys(FAIRISLE_PARK_BINDOFF_DEFAULTS),
-  fairisleCarrierIntro: Object.keys(FAIRISLE_CARRIER_INTRO_DEFAULTS),
+  // Studio's start adds the optional yarn catch and gentle first row (carrier-intro.ts).
+  fairisleCarrierIntro: [...Object.keys(FAIRISLE_CARRIER_INTRO_DEFAULTS), 'catchNeedles', 'firstRowRoller'],
 };
 
 export function machineSettingConsumptionWarnings(

@@ -61,7 +61,8 @@ export function readCleanV1KnitTrialReleaseSource(
 /**
  * The trial candidate is a partial reproduction of a captured Customist program:
  * fairisle.kc design (ground C4 casts on and leads, motif C3), compiled
- * through Studio's Customist-matched fairisle frame. The manifest records
+ * through Studio's Customist-matched fairisle frame with Studio's start (a
+ * yarn catch for each yarn and a gentle first row). The manifest records
  * exact software differences from that reference.
  * Neither the comparison nor the reference establishes physical equivalence.
  */
@@ -243,7 +244,7 @@ export function compileCurrentV1KnitTrial() {
       ...machineTraceComparison,
       detailsTruncated: machineTraceComparison.deltas.length < machineTraceComparison.deltaCount,
     },
-    note: 'Partial reproduction; the strict machine-trace comparison reports the full differing-field count with bounded details. Footer and stitch-set summaries do not establish program equivalence. The physical effect of the differences remains unestablished.',
+    note: 'Partial reproduction. Studio\'s start adds a yarn catch before each yarn\'s first row (two passes per yarn) and knits the first body row after the transfers at roller 100 and the body stitch, so later passes are offset from the reference\'s and the pass-by-pass summaries count them as different; without that start the recipe path differs in six passes (fairisle-parity.test.ts). The strict machine-trace comparison reports the full differing-field count with bounded details. Footer and stitch-set summaries do not establish program equivalence. The physical effect of the differences remains unestablished.',
   } as const;
   const manifest = {
     kind: 'kniterate-studio-v1-physical-trial', schemaVersion: 1,
@@ -295,7 +296,7 @@ export function compileCurrentV1KnitTrial() {
   };
   const operatorChecklist = `# V1 physical blanket trial
 
-This candidate is a partial reproduction of ${CUSTOMIST_REFERENCE_PATH}: ${customistParity.stitchIdenticalPasses}/${customistParity.comparedPasses} passes stitch-identical, ${customistParity.footerDeltas} legacy footer differences, and ${machineTraceComparison.deltaCount} strict machine-trace field differences. The manifest retains the first ${machineTraceComparison.deltas.length} field details; review the complete programs before the trial. This software comparison does not establish physical equivalence.
+This candidate is a partial reproduction of ${CUSTOMIST_REFERENCE_PATH}. Studio's start adds a yarn catch before each yarn's first row and a gentler first body row, so later passes are offset from the reference's: ${customistParity.stitchIdenticalPasses}/${customistParity.comparedPasses} passes stitch-identical at the same index, ${customistParity.footerDeltas} legacy footer differences, and ${machineTraceComparison.deltaCount} strict machine-trace field differences. The manifest retains the first ${machineTraceComparison.deltas.length} field details; review the complete programs before the trial. This software comparison does not establish physical equivalence.
 
 1. Knit a profile-matched tension swatch with the exact two pattern yarns and record yarn brand, line, lot, fiber, and measured gauge.
 2. Load every carrier in manifest.json: frame yarn${compiled.frame.frameCarriers.length === 1 ? '' : 's'} ${compiled.frame.frameCarriers.map((carrier) => `C${carrier}`).join(', ') || 'none'} (Customist draw/cameo), pattern yarns ${state.machine.yarnAssignments.map((assignment) => `C${assignment.carrier} ${assignment.yarnName}`).join(', ')}, and C${compiled.frame.wasteCarrier} waste yarn.

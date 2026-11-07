@@ -61,6 +61,8 @@ export interface CustomistFairisleFrameInput {
   intro: FairisleCarrierIntro
   /** Body transfer stitch to restore after the frame's transfers. */
   restoreXferStitch?: number
+  /** Needles of Studio's yarn catch before each yarn's first row (`STUDIO_YARN_CATCH_NEEDLES_V1`); 0 or absent for the reference's start. */
+  catchNeedles?: number
   initialNextDirection?: Direction
 }
 
@@ -99,9 +101,21 @@ export function emitCustomistFairisleFrame(input: CustomistFairisleFrameInput): 
   const interiorInterlock = (c: CarrierId) => {
     for (const n of needles('-', (m) => m > lo && m < hi)) sim.knit(c, '-', even(n) ? backBed(n) : f(n))
   }
+  /** Studio's yarn catch: out and back over the piece's leftmost needles, both beds alternating, at the intro settings. */
+  const catchNeedles = Math.min(input.catchNeedles ?? 0, hi - lo + 1)
+  const catchYarn = (c: CarrierId) => {
+    if (catchNeedles <= 0) return
+    sim.setSpeed(intro.introSpeed)
+    sim.setRoller(intro.introRoller)
+    sim.setStitch(intro.introStitch)
+    const zone = (n: number) => n - lo < catchNeedles
+    for (const n of needles('+', zone)) sim.knit(c, '+', even(n) ? f(n) : backBed(n))
+    for (const n of needles('-', zone)) sim.knit(c, '-', even(n) ? backBed(n) : f(n))
+  }
 
   // Start + interlock waste.
   sim.bringIn(waste, { side: 'left' })
+  catchYarn(waste)
   sim.setStitch(mc.stitchNumber)
   const castOnPasses = Math.max(1, mc.castOnPasses)
   const castOnMoves = Math.max(0, mc.castOnTuckPasses)
@@ -143,6 +157,7 @@ export function emitCustomistFairisleFrame(input: CustomistFairisleFrameInput): 
   const insertions = [...input.bodyCarriers, input.drawCarrier]
   insertions.forEach((carrier, index) => {
     sim.bringIn(carrier, { side: 'left' })
+    catchYarn(carrier)
     sim.setSpeed(intro.introSpeed)
     sim.setRoller(intro.introRoller)
     sim.setStitch(intro.introStitch)

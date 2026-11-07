@@ -703,6 +703,7 @@ export function compileChartToKniteratePlan(
       waste: { ...FAIRISLE_PARK_WASTE_DEFAULTS, ...input.wasteMachineConfig },
       intro: customistIntro,
       ...(settings.xferStitchNumber !== undefined ? { restoreXferStitch: settings.xferStitchNumber } : {}),
+      ...(customistIntro.catchNeedles !== undefined ? { catchNeedles: customistIntro.catchNeedles } : {}),
       initialNextDirection: threadedNextDirection,
     })
     : null;
@@ -923,16 +924,25 @@ export function compileChartToKniteratePlan(
     floatsBodyAutoMovePresser: wantsIntro
       ? CUSTOMIST_FLOATS_BODY_AUTO_MOVE_PRESSER
       : undefined,
-    // Customist's first body row runs at ramp speed and the handoff stitch
-    // (reference/fairisle.kc pass 112) whether or not protection is on.
+    // Customist's first body row, right after the frame's transfers, runs at
+    // ramp speed and the handoff stitch (reference/fairisle.kc pass 112)
+    // whether or not protection is on. Studio's start (`firstRowRoller`)
+    // knits it at the body's stitch with a gentle pull instead: the yarn broke
+    // there in Kniterate's file and Studio's alike (issue #9 runs 1 and 2).
     firstRowSpeedOverride: customistFrame && settings.speedNumber !== undefined
-      ? {
-        speed: introTransition.rampSpeed,
-        restoreSpeed: settings.speedNumber,
-        ...(introTransition.rampStitches[2] !== undefined && settings.stitchNumber !== undefined
-          ? { stitch: introTransition.rampStitches[2], restoreStitch: settings.stitchNumber }
-          : {}),
-      }
+      ? introTransition.firstRowRoller !== undefined
+        ? {
+          speed: introTransition.rampSpeed,
+          restoreSpeed: settings.speedNumber,
+          ...(settings.rollerAdvance !== undefined ? { roller: introTransition.firstRowRoller, restoreRoller: settings.rollerAdvance } : {}),
+        }
+        : {
+          speed: introTransition.rampSpeed,
+          restoreSpeed: settings.speedNumber,
+          ...(introTransition.rampStitches[2] !== undefined && settings.stitchNumber !== undefined
+            ? { stitch: introTransition.rampStitches[2], restoreStitch: settings.stitchNumber }
+            : {}),
+        }
       : input.protectFirstBodyRow !== false && settings.speedNumber !== undefined
         ? { speed: introTransition.rampSpeed, restoreSpeed: settings.speedNumber }
         : undefined,

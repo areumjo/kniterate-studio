@@ -93,7 +93,8 @@ describe('authored CLI command receipts', () => {
     const described = cli(['describe', projectPath]);
     expect(described.status).toBe(0);
     expect(described.receipt.readiness).toMatchObject({ ready: true, blockers: [] });
-    expect(described.receipt.readiness.operatorChecks.join('\n')).toContain('Set carrier spacing to 2 on the machine');
+    // The file sets carrier spacing itself (x-carrier-spacing); the machine has no such setting to ask for.
+    expect(described.receipt.readiness.operatorChecks.join('\n')).not.toMatch(/carrier spacing|stopping distance/);
     expect(described.receipt.summary).toContain('Readiness: READY');
     expect(described.receipt.summary.join('\n')).toContain('Panel: 39 st × 41 rows');
     for (const view of ['chart', 'back', 'speed']) {

@@ -96,7 +96,26 @@ export interface FairisleCarrierIntro {
    *  `carriage.activeCarriers()`. Reference uses `['1']` (the C1
    *  cameo). Empty by default. */
   cameoCarriers: readonly CarrierId[];
+  /** Studio's start: needles of the yarn catch before each yarn's first
+   *  row (`STUDIO_YARN_CATCH_NEEDLES_V1`); absent or 0 for none, as in the
+   *  reference. */
+  catchNeedles?: number;
+  /** Studio's start: the roller of the first body row after the frame's
+   *  transfers, which then knits at the body's stitch instead of the ramp's
+   *  handoff stitch; absent keeps the reference's first row. */
+  firstRowRoller?: number;
 }
+
+/**
+ * Needles of Studio's yarn catch: before a yarn's first full row it knits
+ * out and back over this many needles at the piece's left end (the end
+ * nearest the yarn clamp), both beds alternating, so a yarn that misses on
+ * the way out is caught on the return. The waste and draw yarns missed their
+ * first pass without one (issue #9 run 2). Kniterate's guidance catches every
+ * yarn before the piece; EcoKnitware's start does it over 20 needles at the
+ * piece's left end, and the CMU knitout backend widens its catch to 20.
+ */
+export const STUDIO_YARN_CATCH_NEEDLES_V1 = 20;
 
 export const FAIRISLE_CARRIER_INTRO_DEFAULTS: FairisleCarrierIntro = Object.freeze({
   introSpeed: 100,

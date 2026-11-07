@@ -24,12 +24,13 @@
 import { b as backBed, comment, f, type CarrierId, type Direction, type KnitoutOp, type KnitoutProgram } from '../types.js'
 import { CarriageSimulator } from '../sim/carriage-simulator.js'
 import { FAIRISLE_BODY_DEFAULTS } from '../kniterate/constants.js'
-import { CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES } from '../recipes/customist-studio-birdseye-7gg.js'
+import { CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES, STUDIO_BIRDSEYE_BODY_ROLLER_V1 } from '../recipes/customist-studio-birdseye-7gg.js'
 import type { PredictedPass } from '../sim/types.js'
 import { CUSTOMIST_RIB_CROWN_194_V1, CUSTOMIST_RIB_CROWN_WIDTH, type CustomistRibCrownStep } from './customist-rib-beanie-crown.js'
-import { planEightLineCrown, ribBed } from './rib-crown-plan.js'
+import { STUDIO_CROWN_JERSEY_STITCH_V1, planEightLineCrown, ribBed } from './rib-crown-plan.js'
 import { CUSTOMIST_RIB_BEANIE_SETTINGS_V1, STUDIO_FLAT_START_SETTINGS_V1, emitCustomistFlatStart, flatPieceKit, flatStartSettingsV1, type FlatSectionSettingsV1, type SectionSettingsV1 } from './customist-flat-start.js'
 import { SHAPED_PANEL_TOP_WASTE_ROWS } from './shaped-panel.js'
+import { STUDIO_FIRST_ROW_AFTER_TRANSFERS_ROLLER_V1 } from './first-row-speed.js'
 
 export { CUSTOMIST_RIB_BEANIE_SETTINGS_V1 }
 
@@ -87,10 +88,10 @@ export interface CustomistRibBeanieInput {
   jerseyBody?: { readonly rows: readonly (readonly CarrierId[])[]; readonly backing?: 'fairisle' | 'birdseye' }
 }
 
-/** Birdseye body settings: Customist's DBJ body (customist-studio-birdseye-7gg.ts, from reference/dbj.kc). */
+/** Birdseye body settings: Customist's DBJ body (customist-studio-birdseye-7gg.ts, from reference/dbj.kc) at Studio's roller. */
 const BIRDSEYE_BODY = {
   speed: CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.body!.speedNumber!,
-  roller: CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.body!.rollerAdvance!,
+  roller: STUDIO_BIRDSEYE_BODY_ROLLER_V1,
   stitch: CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.body!.stitchNumber!,
 }
 
@@ -166,8 +167,12 @@ export function emitCustomistRibBeanie(input: CustomistRibBeanieInput): Customis
         }
       }
       // Start the back layer (dbj.kc): the ground knits both beds, then one front and one rear row.
+      // The first pass after the rib's transfers pulls gently (Kniterate's guidance after many transfers).
+      const bodyRoller = own.roller ?? BIRDSEYE_BODY.roller
+      sim.setRoller(STUDIO_FIRST_ROW_AFTER_TRANSFERS_ROLLER_V1)
       sim.setRacking(0.5)
       halfRackPass(body, all, all)
+      sim.setRoller(bodyRoller)
       sim.setRacking(0)
       for (const bed of ['f', 'b'] as const) {
         const dir = sideOf(body)
@@ -192,8 +197,12 @@ export function emitCustomistRibBeanie(input: CustomistRibBeanieInput): Customis
       ops.push(comment('--- JERSEY COLORWORK BODY ---'))
       const own = input.bodySettings ?? {}
       settings(own.speed ?? FAIRISLE_BODY_DEFAULTS.speedNumber, own.roller ?? FAIRISLE_BODY_DEFAULTS.rollerAdvance, own.stitch ?? FAIRISLE_BODY_DEFAULTS.stitchNumber)
+      const bodyRoller = own.roller ?? FAIRISLE_BODY_DEFAULTS.rollerAdvance
       for (const [r, cells] of bodyRows.entries()) {
         sim.setSourceRows([input.ribRows + r])
+        // The first row after the rib's transfers pulls gently (Kniterate's guidance after many transfers).
+        if (r === 0) sim.setRoller(STUDIO_FIRST_ROW_AFTER_TRANSFERS_ROLLER_V1)
+        if (r === 1) sim.setRoller(bodyRoller)
         // Ground first, then the other colors; each starts from the side its carrier is parked on.
         for (const carrier of [body, ...extraCarriers]) {
           if (!cells.includes(carrier)) continue
@@ -238,7 +247,8 @@ export function emitCustomistRibBeanie(input: CustomistRibBeanieInput): Customis
         }
       } else {
         const [, dir, referenceSpeed, referenceRoller, referenceFront, referenceRear, front, rear] = step
-        const frontStitch = own?.stitch ?? referenceFront
+        // Studio's crowns knit no jersey row below STUDIO_CROWN_JERSEY_STITCH_V1; the reference's top rows are at 5.
+        const frontStitch = own?.stitch ?? (rear.length === 0 && !input.reference ? Math.max(referenceFront, STUDIO_CROWN_JERSEY_STITCH_V1) : referenceFront)
         const rearStitch = own?.stitch === undefined ? referenceRear : Math.max(0, own.stitch - (referenceFront - referenceRear))
         sim.setRacking(0)
         settings(own?.speed ?? referenceSpeed, own?.roller ?? referenceRoller)

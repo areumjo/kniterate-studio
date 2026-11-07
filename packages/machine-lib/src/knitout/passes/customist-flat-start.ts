@@ -19,6 +19,7 @@
 
 import { b as backBed, f, type CarrierId, type Direction, type KnitoutOp } from '../types.js'
 import type { CarriageSimulator } from '../sim/carriage-simulator.js'
+import { STUDIO_YARN_CATCH_NEEDLES_V1 } from './carrier-intro.js'
 
 /** A section's machine settings where a piece sets its own; anything left out is the reference's. */
 export interface SectionSettingsV1 {
@@ -46,6 +47,8 @@ export const CUSTOMIST_RIB_BEANIE_SETTINGS_V1 = Object.freeze({
   /** Waste tube rows after the body yarn's insert row, and after the draw yarn's (or the last insert's). */
   bodyTubeRows: 7,
   drawTubeRows: 6,
+  /** Needles of the yarn catch before each yarn's first row; the reference has none. */
+  catchNeedles: 0,
   tubeSpeed: 200,
   tubeRoller: 200,
   xferSpeed: 120,
@@ -76,8 +79,10 @@ export type FlatStartSettingsV1 = { readonly [K in keyof typeof CUSTOMIST_RIB_BE
  * entry 2026-11-07-run3-mini-bird-toque). The waste knits six slow passes
  * with the roller pulling, then holds a steady 300, pulling on leftward
  * passes; each yarn comes in at speed 100 and is followed by two waste tube
- * rows, and seven follow the draw yarn. The cast-on and everything after it
- * are the reference's.
+ * rows, and seven follow the draw yarn. Each yarn is first caught out and
+ * back at the piece's left end (`STUDIO_YARN_CATCH_NEEDLES_V1`), as the waste
+ * and draw yarns missed their first pass without it (issue #9 run 2). The
+ * cast-on and everything after it are the reference's.
  */
 export const STUDIO_FLAT_START_SETTINGS_V1: FlatStartSettingsV1 = Object.freeze({
   ...CUSTOMIST_RIB_BEANIE_SETTINGS_V1,
@@ -87,6 +92,7 @@ export const STUDIO_FLAT_START_SETTINGS_V1: FlatStartSettingsV1 = Object.freeze(
   insertSpeed: 100,
   bodyTubeRows: 2,
   drawTubeRows: 7,
+  catchNeedles: STUDIO_YARN_CATCH_NEEDLES_V1,
 })
 
 /** A piece's own settings for the sections of the flat start and its rib, over the reference's. */
@@ -227,6 +233,18 @@ export function emitCustomistFlatStart(sim: CarriageSimulator, kit: FlatPieceKit
    * It starts from the side the waste yarn is on, so the yarn never crosses
    * the bed without knitting.
    */
+  /**
+   * The yarn catch: out and back over the piece's leftmost needles, both beds
+   * alternating, at the insert settings; a yarn that misses on the way out is
+   * caught on the return, and it ends where its first row starts.
+   */
+  const catchYarn = (carrier: CarrierId) => {
+    const zone = Math.min(s.catchNeedles, width)
+    if (zone <= 0) return
+    settings(s.insertSpeed, s.insertRoller, s.wasteStitch)
+    row(carrier, '+', (o) => o < zone && even(o), (o) => o < zone && !even(o))
+    row(carrier, '-', (o) => o < zone && !even(o), (o) => o < zone && even(o))
+  }
   const tube = (count: number) => {
     const firstDir: Direction = sim.positionOf(waste)?.side === 'left' ? '+' : '-'
     settings(s.tubeSpeed, s.tubeRoller, s.wasteStitch)
@@ -241,6 +259,7 @@ export function emitCustomistFlatStart(sim: CarriageSimulator, kit: FlatPieceKit
   // odd); leftward passes knit the interior with the parities swapped. The
   // start pass skips the outermost needles.
   sim.bringIn(waste, { side: 'left' })
+  catchYarn(waste)
   for (let p = 0; p < (input.wastePasses ?? s.wastePasses); p++) {
     settings(s.wasteSpeed(p), s.wasteRoller(p), s.wasteStitch)
     if (p === 0) {
@@ -256,12 +275,14 @@ export function emitCustomistFlatStart(sim: CarriageSimulator, kit: FlatPieceKit
   sim.setPresserRoller(s.autoMovePresserRoller)
   // Body yarn insert (front odd, rear even), then a waste tube.
   sim.bringIn(body, { side: 'left' })
+  catchYarn(body)
   settings(s.insertSpeed, s.insertRoller, s.wasteStitch)
   row(body, '+', (o) => !even(o), even)
   tube(s.bodyTubeRows)
   // Each further yarn: one 1×1 insert row (alternating parity), then two waste tube rows.
   input.extraCarriers.forEach((carrier, index) => {
     sim.bringIn(carrier, { side: 'left' })
+    catchYarn(carrier)
     settings(s.insertSpeed, s.insertRoller, s.wasteStitch)
     row(carrier, '+', (o) => even(o) === (index % 2 === 0), (o) => even(o) !== (index % 2 === 0))
     tube(2)
@@ -269,6 +290,7 @@ export function emitCustomistFlatStart(sim: CarriageSimulator, kit: FlatPieceKit
   // Draw yarn insert (front even, rear odd), then a waste tube.
   if (draw !== null) {
     sim.bringIn(draw, { side: 'left' })
+    catchYarn(draw)
     settings(s.insertSpeed, s.insertRoller, s.wasteStitch)
     row(draw, '+', even, (o) => !even(o))
   }

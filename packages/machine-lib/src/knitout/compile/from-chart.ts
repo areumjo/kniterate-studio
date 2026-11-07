@@ -129,6 +129,9 @@ export interface CompileChartInput {
     rampRoller: number;
     rampSpeed: number;
     cameoCarriers: readonly import('../types.js').CarrierId[];
+    /** Studio's start (carrier-intro.ts): yarn catch needles and the first body row's roller. */
+    catchNeedles: number;
+    firstRowRoller: number;
   }>;
   /** Slow the first actual body row after cast-on, then restore body
    *  speed for row 1+. Default true. */
