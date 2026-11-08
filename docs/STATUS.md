@@ -79,6 +79,9 @@ ship," trust this file and the working tree instead.
     move that could damage the machine", the file's own words in Why?).
   - Matching a motif's colours shows each image colour as a chip, beside a
     chip of the yarn chosen for it, instead of "Image colour 0".
+  - A stitch row that knits and tucks on one bed has a one-click fix in the
+    texture editor: "Knit the row plain" (front tucks knit), or "Purl the
+    row plain" for the back bed (`texturePlainRowFix`).
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are

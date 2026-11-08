@@ -54,7 +54,7 @@ Why this order:
 - [x] Show colour chips when matching motif colours, instead of "Image colour 0".
 - [ ] Add yarn presets for yarns that suit 7 gauge: a starting gauge and stitch
   size.
-- [ ] Add a fix button for a stitch row that knits and tucks on one bed
+- [x] Add a fix button for a stitch row that knits and tucks on one bed
   ("Knit the row plain").
 
 **B. Safety, before new constructions**

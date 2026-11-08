@@ -8,7 +8,10 @@ import { runSweaterPipeline } from './sweaterPipeline';
 import { pieceSteps, sweaterInstructions, sweaterPackageFiles } from './sweaterHandoff';
 import { summarizeSweaterRun } from './sweaterRun';
 import { readinessStory } from '../handoff';
-import { TEXTURES, textureProblem } from './textures';
+import { TEXTURES, texturePlainRowFix, textureProblem } from './textures';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { createElement } from 'react';
+import { TextureEditor } from './TextureSwatch';
 import { assembledLayout, schematicLayout, sweaterSchematicSvg } from './schematic';
 
 const intent = (overrides: Partial<SweaterIntent> = {}): SweaterIntent => ({
@@ -109,6 +112,14 @@ describe('sweater rasterizing', () => {
     expect(textureProblem(['t', 't'])).toMatch(/two rows running/);
     expect(textureProblem(['ss'])).toMatch(/slips every stitch/);
     for (const texture of TEXTURES) expect(textureProblem(texture.rows), texture.id).toBeNull();
+    // A row that knits and tucks on one bed has a one-click fix: its tucks on that bed become plain stitches.
+    expect(texturePlainRowFix(['kk', 'kt'])).toEqual({ label: 'Knit the row plain', rows: ['kk', 'kk'] });
+    expect(texturePlainRowFix(['pu', 'kp'])).toEqual({ label: 'Purl the row plain', rows: ['pp', 'kp'] });
+    expect(texturePlainRowFix(['ku', 'tp'])).toBeNull();
+    for (const texture of TEXTURES) expect(texturePlainRowFix(texture.rows), texture.id).toBeNull();
+    const editor = (rows: string[]) => renderToStaticMarkup(createElement(TextureEditor, { rows, hex: '#D9CBB0', onChange: () => {} }));
+    expect(editor(['kt'])).toContain('Knit the row plain');
+    expect(editor(['t', 't'])).not.toContain('the row plain');
     const project = create();
     const object = sweaterObjectOf(materializeColorworkProject(project).state)!;
     const bad = appendProjectOperation(project, { group: 'bad', source: 'human', label: 'bad', edits: [sweaterEdit({ ...object, body: { name: 'Bad', texture: ['kt'] } })] });
