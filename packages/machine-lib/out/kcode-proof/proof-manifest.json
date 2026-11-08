@@ -30936,7 +30936,7 @@
     ]
   },
   "contract": {
-    "sha256": "74a9f5f701d506589324edc65bbee13398e7413ba6d9258fb8457784c8c5370d",
+    "sha256": "b8ee38c31b74988735c2bffa9a988d22ef957a749b73369940e229c9e33d7a8a",
     "files": [
       {
         "path": "../../.github/workflows/ci.yml",
@@ -31030,8 +31030,8 @@
       },
       {
         "path": "../../apps/studio/src/beanieWorkflow.test.ts",
-        "sha256": "ca4ac4a28e176c7b492f26ee6ee402eb262139b9f52a59772b98803b530de556",
-        "bytes": 28525
+        "sha256": "9e3c70711f9848543aed14df034b2f66a7b08f591993fd0a38f27fc2f920c302",
+        "bytes": 29609
       },
       {
         "path": "../../apps/studio/src/blanket/BlanketSetupRail.test.tsx",
@@ -31100,8 +31100,8 @@
       },
       {
         "path": "../../apps/studio/src/chart/ChartWorkspace.tsx",
-        "sha256": "9598fefbac797016c42756163a88ac83bf94fbff1b070878a2ed2806a485d0d2",
-        "bytes": 32716
+        "sha256": "482f9a870e418e72b5cbee50517783d6294907775109737f756bf5d948d544e1",
+        "bytes": 32277
       },
       {
         "path": "../../apps/studio/src/chart/ColorworkCanvas.tsx",
@@ -31244,6 +31244,11 @@
         "bytes": 3134
       },
       {
+        "path": "../../apps/studio/src/flatStart.test.ts",
+        "sha256": "19c485788a4aefc313b2e0d375c1458960331a674810ce33b46a103a3624e22c",
+        "bytes": 7011
+      },
+      {
         "path": "../../apps/studio/src/foreignRunSheetFindings.test.tsx",
         "sha256": "fa9a2837461810d7bdb2946cc6c8dbc49d720229e055480b6475333d438a3521",
         "bytes": 7010
@@ -31300,8 +31305,8 @@
       },
       {
         "path": "../../apps/studio/src/handoff.ts",
-        "sha256": "c713997ada13155f8e087c8c8c56c1b6acb9bdc90de4d8390f863538415ac20a",
-        "bytes": 36078
+        "sha256": "f16fca590754a04e831527a0071392a5a8d90df9e9638963da4a36967a0b697f",
+        "bytes": 38770
       },
       {
         "path": "../../apps/studio/src/imageChart.ts",
@@ -31585,8 +31590,8 @@
       },
       {
         "path": "../../apps/studio/src/sweater/knitFile.ts",
-        "sha256": "e766f57d18311a5c81f4c642db69a9bc4ad09aaa8ebc2994ebd1d7672a799f56",
-        "bytes": 19063
+        "sha256": "7804b236190eaba3881a403938a8195bf70a32714eff523060c78d359ed93cc7",
+        "bytes": 20554
       },
       {
         "path": "../../apps/studio/src/sweater/panel.test.ts",
