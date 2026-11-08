@@ -170,9 +170,16 @@ the `reference/fairisle.kc` design (64x50, two colors;
 C4 (casts on and leads) and motif on C3, compiled through Studio's
 Customist-matched fairisle frame (87 waste passes on C6, C1 draw yarn,
 Customist cast-on and transfers, closing waste with park-out and final drop).
-The generated package has 14,209 Knitout operations, 286 predicted and
+Since 2026-11-07 the candidate knits Studio's start: a yarn catch before each
+yarn's first row (two passes per yarn, eight in all) and a first body row at
+roller 100 and the body stitch after the transfers (issue #9 runs 1 and 2).
+Its passes after the catch are therefore offset from the reference's, and the
+manifest's pass-by-pass `customistParity` summaries count them as different;
+its note says so. The figures below are from before that change, and the
+recipe path without Studio's start still has them (`fairisle-parity.test.ts`).
+The generated package had 14,209 Knitout operations, 286 predicted and
 emitted passes, and an authored-plan estimate of 2,081 seconds. Against the
-reference, the manifest's `customistParity` records 0 footer differences and
+reference, the manifest's `customistParity` recorded 0 footer differences and
 280 of 286 passes stitch-identical (including both transfer selectors) at the
 same bed position, plus the full strict machine-trace comparison. The six
 differing passes contain 21 extra C4 front knits in the reference. The intended

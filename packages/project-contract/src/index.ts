@@ -93,7 +93,7 @@ const MachineSetupSchema = z.object({
   drawThread: z.boolean().optional(),
   /** A colour chart's top: the reference's closing waste, or a machine chain bind-off. (A sweater's or scarf's top is its object's `top`.) */
   top: z.enum(['waste', 'bind-off']).optional(),
-  /** Rows of waste yarn on top, when the top is waste. */
+  /** Rows of waste yarn on top, when the top is waste (a beanie's always is). */
   topWasteRows: z.number().int().min(2).max(100).optional(),
   /** The body's speed, roller and stitch size, over the construction's reference. */
   body: SectionSettingsSchema.optional(),
@@ -105,6 +105,8 @@ const MachineSetupSchema = z.object({
   rib: SectionSettingsSchema.optional(),
   /** The transfers'. */
   transfers: SectionSettingsSchema.optional(),
+  /** A beanie crown's knitted rows: its stitch size, speed and roller, over the crown's reference row by row. */
+  crown: SectionSettingsSchema.optional(),
 });
 export type MachineSetup = z.infer<typeof MachineSetupSchema>;
 

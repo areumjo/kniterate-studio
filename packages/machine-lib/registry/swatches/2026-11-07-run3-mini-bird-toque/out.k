@@ -1,0 +1,11622 @@
+;!knitout-2
+;;Carriers: 1 2 3 4 5 6
+;;Machine: kniterate
+;;Gauge: 7
+;;Position: Keep
+;;Yarn-1: draw thread
+;;Yarn-3: main
+;;Yarn-4: colour 4
+;;Yarn-6: waste
+; --- CUSTOMIST 2x2 RIB BEANIE: WASTE & CAST-ON ---
+in 6
+x-speed-number 100
+x-roller-advance 440
+x-stitch-number 5
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+miss + f157 6
+x-speed-number 700
+x-roller-advance 0
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-speed-number 300
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-speed-number 400
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-speed-number 500
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-speed-number 600
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-speed-number 700
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-roller-advance 440
+knit - b156 6
+knit - f155 6
+knit - b154 6
+knit - f153 6
+knit - b152 6
+knit - f151 6
+knit - b150 6
+knit - f149 6
+knit - b148 6
+knit - f147 6
+knit - b146 6
+knit - f145 6
+knit - b144 6
+knit - f143 6
+knit - b142 6
+knit - f141 6
+knit - b140 6
+knit - f139 6
+knit - b138 6
+knit - f137 6
+knit - b136 6
+knit - f135 6
+knit - b134 6
+knit - f133 6
+knit - b132 6
+knit - f131 6
+knit - b130 6
+knit - f129 6
+knit - b128 6
+knit - f127 6
+knit - b126 6
+knit - f125 6
+knit - b124 6
+knit - f123 6
+knit - b122 6
+knit - f121 6
+knit - b120 6
+knit - f119 6
+knit - b118 6
+knit - f117 6
+knit - b116 6
+knit - f115 6
+knit - b114 6
+knit - f113 6
+knit - b112 6
+knit - f111 6
+knit - b110 6
+knit - f109 6
+knit - b108 6
+knit - f107 6
+knit - b106 6
+knit - f105 6
+knit - b104 6
+knit - f103 6
+knit - b102 6
+knit - f101 6
+knit - b100 6
+knit - f99 6
+knit - b98 6
+knit - f97 6
+x-roller-advance 0
+knit + f96 6
+knit + b97 6
+knit + f98 6
+knit + b99 6
+knit + f100 6
+knit + b101 6
+knit + f102 6
+knit + b103 6
+knit + f104 6
+knit + b105 6
+knit + f106 6
+knit + b107 6
+knit + f108 6
+knit + b109 6
+knit + f110 6
+knit + b111 6
+knit + f112 6
+knit + b113 6
+knit + f114 6
+knit + b115 6
+knit + f116 6
+knit + b117 6
+knit + f118 6
+knit + b119 6
+knit + f120 6
+knit + b121 6
+knit + f122 6
+knit + b123 6
+knit + f124 6
+knit + b125 6
+knit + f126 6
+knit + b127 6
+knit + f128 6
+knit + b129 6
+knit + f130 6
+knit + b131 6
+knit + f132 6
+knit + b133 6
+knit + f134 6
+knit + b135 6
+knit + f136 6
+knit + b137 6
+knit + f138 6
+knit + b139 6
+knit + f140 6
+knit + b141 6
+knit + f142 6
+knit + b143 6
+knit + f144 6
+knit + b145 6
+knit + f146 6
+knit + b147 6
+knit + f148 6
+knit + b149 6
+knit + f150 6
+knit + b151 6
+knit + f152 6
+knit + b153 6
+knit + f154 6
+knit + b155 6
+knit + f156 6
+knit + b157 6
+x-presser-speed 600
+x-presser-roller 0
+in 3
+x-speed-number 200
+x-roller-advance 400
+knit + b96 3
+knit + f97 3
+knit + b98 3
+knit + f99 3
+knit + b100 3
+knit + f101 3
+knit + b102 3
+knit + f103 3
+knit + b104 3
+knit + f105 3
+knit + b106 3
+knit + f107 3
+knit + b108 3
+knit + f109 3
+knit + b110 3
+knit + f111 3
+knit + b112 3
+knit + f113 3
+knit + b114 3
+knit + f115 3
+knit + b116 3
+knit + f117 3
+knit + b118 3
+knit + f119 3
+knit + b120 3
+knit + f121 3
+knit + b122 3
+knit + f123 3
+knit + b124 3
+knit + f125 3
+knit + b126 3
+knit + f127 3
+knit + b128 3
+knit + f129 3
+knit + b130 3
+knit + f131 3
+knit + b132 3
+knit + f133 3
+knit + b134 3
+knit + f135 3
+knit + b136 3
+knit + f137 3
+knit + b138 3
+knit + f139 3
+knit + b140 3
+knit + f141 3
+knit + b142 3
+knit + f143 3
+knit + b144 3
+knit + f145 3
+knit + b146 3
+knit + f147 3
+knit + b148 3
+knit + f149 3
+knit + b150 3
+knit + f151 3
+knit + b152 3
+knit + f153 3
+knit + b154 3
+knit + f155 3
+knit + b156 3
+knit + f157 3
+x-roller-advance 200
+knit - f157 6
+knit - f156 6
+knit - f155 6
+knit - f154 6
+knit - f153 6
+knit - f152 6
+knit - f151 6
+knit - f150 6
+knit - f149 6
+knit - f148 6
+knit - f147 6
+knit - f146 6
+knit - f145 6
+knit - f144 6
+knit - f143 6
+knit - f142 6
+knit - f141 6
+knit - f140 6
+knit - f139 6
+knit - f138 6
+knit - f137 6
+knit - f136 6
+knit - f135 6
+knit - f134 6
+knit - f133 6
+knit - f132 6
+knit - f131 6
+knit - f130 6
+knit - f129 6
+knit - f128 6
+knit - f127 6
+knit - f126 6
+knit - f125 6
+knit - f124 6
+knit - f123 6
+knit - f122 6
+knit - f121 6
+knit - f120 6
+knit - f119 6
+knit - f118 6
+knit - f117 6
+knit - f116 6
+knit - f115 6
+knit - f114 6
+knit - f113 6
+knit - f112 6
+knit - f111 6
+knit - f110 6
+knit - f109 6
+knit - f108 6
+knit - f107 6
+knit - f106 6
+knit - f105 6
+knit - f104 6
+knit - f103 6
+knit - f102 6
+knit - f101 6
+knit - f100 6
+knit - f99 6
+knit - f98 6
+knit - f97 6
+knit - f96 6
+knit + b96 6
+knit + b97 6
+knit + b98 6
+knit + b99 6
+knit + b100 6
+knit + b101 6
+knit + b102 6
+knit + b103 6
+knit + b104 6
+knit + b105 6
+knit + b106 6
+knit + b107 6
+knit + b108 6
+knit + b109 6
+knit + b110 6
+knit + b111 6
+knit + b112 6
+knit + b113 6
+knit + b114 6
+knit + b115 6
+knit + b116 6
+knit + b117 6
+knit + b118 6
+knit + b119 6
+knit + b120 6
+knit + b121 6
+knit + b122 6
+knit + b123 6
+knit + b124 6
+knit + b125 6
+knit + b126 6
+knit + b127 6
+knit + b128 6
+knit + b129 6
+knit + b130 6
+knit + b131 6
+knit + b132 6
+knit + b133 6
+knit + b134 6
+knit + b135 6
+knit + b136 6
+knit + b137 6
+knit + b138 6
+knit + b139 6
+knit + b140 6
+knit + b141 6
+knit + b142 6
+knit + b143 6
+knit + b144 6
+knit + b145 6
+knit + b146 6
+knit + b147 6
+knit + b148 6
+knit + b149 6
+knit + b150 6
+knit + b151 6
+knit + b152 6
+knit + b153 6
+knit + b154 6
+knit + b155 6
+knit + b156 6
+knit + b157 6
+knit - f157 6
+knit - f156 6
+knit - f155 6
+knit - f154 6
+knit - f153 6
+knit - f152 6
+knit - f151 6
+knit - f150 6
+knit - f149 6
+knit - f148 6
+knit - f147 6
+knit - f146 6
+knit - f145 6
+knit - f144 6
+knit - f143 6
+knit - f142 6
+knit - f141 6
+knit - f140 6
+knit - f139 6
+knit - f138 6
+knit - f137 6
+knit - f136 6
+knit - f135 6
+knit - f134 6
+knit - f133 6
+knit - f132 6
+knit - f131 6
+knit - f130 6
+knit - f129 6
+knit - f128 6
+knit - f127 6
+knit - f126 6
+knit - f125 6
+knit - f124 6
+knit - f123 6
+knit - f122 6
+knit - f121 6
+knit - f120 6
+knit - f119 6
+knit - f118 6
+knit - f117 6
+knit - f116 6
+knit - f115 6
+knit - f114 6
+knit - f113 6
+knit - f112 6
+knit - f111 6
+knit - f110 6
+knit - f109 6
+knit - f108 6
+knit - f107 6
+knit - f106 6
+knit - f105 6
+knit - f104 6
+knit - f103 6
+knit - f102 6
+knit - f101 6
+knit - f100 6
+knit - f99 6
+knit - f98 6
+knit - f97 6
+knit - f96 6
+knit + b96 6
+knit + b97 6
+knit + b98 6
+knit + b99 6
+knit + b100 6
+knit + b101 6
+knit + b102 6
+knit + b103 6
+knit + b104 6
+knit + b105 6
+knit + b106 6
+knit + b107 6
+knit + b108 6
+knit + b109 6
+knit + b110 6
+knit + b111 6
+knit + b112 6
+knit + b113 6
+knit + b114 6
+knit + b115 6
+knit + b116 6
+knit + b117 6
+knit + b118 6
+knit + b119 6
+knit + b120 6
+knit + b121 6
+knit + b122 6
+knit + b123 6
+knit + b124 6
+knit + b125 6
+knit + b126 6
+knit + b127 6
+knit + b128 6
+knit + b129 6
+knit + b130 6
+knit + b131 6
+knit + b132 6
+knit + b133 6
+knit + b134 6
+knit + b135 6
+knit + b136 6
+knit + b137 6
+knit + b138 6
+knit + b139 6
+knit + b140 6
+knit + b141 6
+knit + b142 6
+knit + b143 6
+knit + b144 6
+knit + b145 6
+knit + b146 6
+knit + b147 6
+knit + b148 6
+knit + b149 6
+knit + b150 6
+knit + b151 6
+knit + b152 6
+knit + b153 6
+knit + b154 6
+knit + b155 6
+knit + b156 6
+knit + b157 6
+knit - f157 6
+knit - f156 6
+knit - f155 6
+knit - f154 6
+knit - f153 6
+knit - f152 6
+knit - f151 6
+knit - f150 6
+knit - f149 6
+knit - f148 6
+knit - f147 6
+knit - f146 6
+knit - f145 6
+knit - f144 6
+knit - f143 6
+knit - f142 6
+knit - f141 6
+knit - f140 6
+knit - f139 6
+knit - f138 6
+knit - f137 6
+knit - f136 6
+knit - f135 6
+knit - f134 6
+knit - f133 6
+knit - f132 6
+knit - f131 6
+knit - f130 6
+knit - f129 6
+knit - f128 6
+knit - f127 6
+knit - f126 6
+knit - f125 6
+knit - f124 6
+knit - f123 6
+knit - f122 6
+knit - f121 6
+knit - f120 6
+knit - f119 6
+knit - f118 6
+knit - f117 6
+knit - f116 6
+knit - f115 6
+knit - f114 6
+knit - f113 6
+knit - f112 6
+knit - f111 6
+knit - f110 6
+knit - f109 6
+knit - f108 6
+knit - f107 6
+knit - f106 6
+knit - f105 6
+knit - f104 6
+knit - f103 6
+knit - f102 6
+knit - f101 6
+knit - f100 6
+knit - f99 6
+knit - f98 6
+knit - f97 6
+knit - f96 6
+knit + b96 6
+knit + b97 6
+knit + b98 6
+knit + b99 6
+knit + b100 6
+knit + b101 6
+knit + b102 6
+knit + b103 6
+knit + b104 6
+knit + b105 6
+knit + b106 6
+knit + b107 6
+knit + b108 6
+knit + b109 6
+knit + b110 6
+knit + b111 6
+knit + b112 6
+knit + b113 6
+knit + b114 6
+knit + b115 6
+knit + b116 6
+knit + b117 6
+knit + b118 6
+knit + b119 6
+knit + b120 6
+knit + b121 6
+knit + b122 6
+knit + b123 6
+knit + b124 6
+knit + b125 6
+knit + b126 6
+knit + b127 6
+knit + b128 6
+knit + b129 6
+knit + b130 6
+knit + b131 6
+knit + b132 6
+knit + b133 6
+knit + b134 6
+knit + b135 6
+knit + b136 6
+knit + b137 6
+knit + b138 6
+knit + b139 6
+knit + b140 6
+knit + b141 6
+knit + b142 6
+knit + b143 6
+knit + b144 6
+knit + b145 6
+knit + b146 6
+knit + b147 6
+knit + b148 6
+knit + b149 6
+knit + b150 6
+knit + b151 6
+knit + b152 6
+knit + b153 6
+knit + b154 6
+knit + b155 6
+knit + b156 6
+knit + b157 6
+knit - f157 6
+knit - f156 6
+knit - f155 6
+knit - f154 6
+knit - f153 6
+knit - f152 6
+knit - f151 6
+knit - f150 6
+knit - f149 6
+knit - f148 6
+knit - f147 6
+knit - f146 6
+knit - f145 6
+knit - f144 6
+knit - f143 6
+knit - f142 6
+knit - f141 6
+knit - f140 6
+knit - f139 6
+knit - f138 6
+knit - f137 6
+knit - f136 6
+knit - f135 6
+knit - f134 6
+knit - f133 6
+knit - f132 6
+knit - f131 6
+knit - f130 6
+knit - f129 6
+knit - f128 6
+knit - f127 6
+knit - f126 6
+knit - f125 6
+knit - f124 6
+knit - f123 6
+knit - f122 6
+knit - f121 6
+knit - f120 6
+knit - f119 6
+knit - f118 6
+knit - f117 6
+knit - f116 6
+knit - f115 6
+knit - f114 6
+knit - f113 6
+knit - f112 6
+knit - f111 6
+knit - f110 6
+knit - f109 6
+knit - f108 6
+knit - f107 6
+knit - f106 6
+knit - f105 6
+knit - f104 6
+knit - f103 6
+knit - f102 6
+knit - f101 6
+knit - f100 6
+knit - f99 6
+knit - f98 6
+knit - f97 6
+knit - f96 6
+in 4
+x-roller-advance 400
+knit + f96 4
+knit + b97 4
+knit + f98 4
+knit + b99 4
+knit + f100 4
+knit + b101 4
+knit + f102 4
+knit + b103 4
+knit + f104 4
+knit + b105 4
+knit + f106 4
+knit + b107 4
+knit + f108 4
+knit + b109 4
+knit + f110 4
+knit + b111 4
+knit + f112 4
+knit + b113 4
+knit + f114 4
+knit + b115 4
+knit + f116 4
+knit + b117 4
+knit + f118 4
+knit + b119 4
+knit + f120 4
+knit + b121 4
+knit + f122 4
+knit + b123 4
+knit + f124 4
+knit + b125 4
+knit + f126 4
+knit + b127 4
+knit + f128 4
+knit + b129 4
+knit + f130 4
+knit + b131 4
+knit + f132 4
+knit + b133 4
+knit + f134 4
+knit + b135 4
+knit + f136 4
+knit + b137 4
+knit + f138 4
+knit + b139 4
+knit + f140 4
+knit + b141 4
+knit + f142 4
+knit + b143 4
+knit + f144 4
+knit + b145 4
+knit + f146 4
+knit + b147 4
+knit + f148 4
+knit + b149 4
+knit + f150 4
+knit + b151 4
+knit + f152 4
+knit + b153 4
+knit + f154 4
+knit + b155 4
+knit + f156 4
+knit + b157 4
+x-roller-advance 200
+knit - f157 6
+knit - f156 6
+knit - f155 6
+knit - f154 6
+knit - f153 6
+knit - f152 6
+knit - f151 6
+knit - f150 6
+knit - f149 6
+knit - f148 6
+knit - f147 6
+knit - f146 6
+knit - f145 6
+knit - f144 6
+knit - f143 6
+knit - f142 6
+knit - f141 6
+knit - f140 6
+knit - f139 6
+knit - f138 6
+knit - f137 6
+knit - f136 6
+knit - f135 6
+knit - f134 6
+knit - f133 6
+knit - f132 6
+knit - f131 6
+knit - f130 6
+knit - f129 6
+knit - f128 6
+knit - f127 6
+knit - f126 6
+knit - f125 6
+knit - f124 6
+knit - f123 6
+knit - f122 6
+knit - f121 6
+knit - f120 6
+knit - f119 6
+knit - f118 6
+knit - f117 6
+knit - f116 6
+knit - f115 6
+knit - f114 6
+knit - f113 6
+knit - f112 6
+knit - f111 6
+knit - f110 6
+knit - f109 6
+knit - f108 6
+knit - f107 6
+knit - f106 6
+knit - f105 6
+knit - f104 6
+knit - f103 6
+knit - f102 6
+knit - f101 6
+knit - f100 6
+knit - f99 6
+knit - f98 6
+knit - f97 6
+knit - f96 6
+knit + b96 6
+knit + b97 6
+knit + b98 6
+knit + b99 6
+knit + b100 6
+knit + b101 6
+knit + b102 6
+knit + b103 6
+knit + b104 6
+knit + b105 6
+knit + b106 6
+knit + b107 6
+knit + b108 6
+knit + b109 6
+knit + b110 6
+knit + b111 6
+knit + b112 6
+knit + b113 6
+knit + b114 6
+knit + b115 6
+knit + b116 6
+knit + b117 6
+knit + b118 6
+knit + b119 6
+knit + b120 6
+knit + b121 6
+knit + b122 6
+knit + b123 6
+knit + b124 6
+knit + b125 6
+knit + b126 6
+knit + b127 6
+knit + b128 6
+knit + b129 6
+knit + b130 6
+knit + b131 6
+knit + b132 6
+knit + b133 6
+knit + b134 6
+knit + b135 6
+knit + b136 6
+knit + b137 6
+knit + b138 6
+knit + b139 6
+knit + b140 6
+knit + b141 6
+knit + b142 6
+knit + b143 6
+knit + b144 6
+knit + b145 6
+knit + b146 6
+knit + b147 6
+knit + b148 6
+knit + b149 6
+knit + b150 6
+knit + b151 6
+knit + b152 6
+knit + b153 6
+knit + b154 6
+knit + b155 6
+knit + b156 6
+knit + b157 6
+in 1
+x-roller-advance 400
+knit + f96 1
+knit + b97 1
+knit + f98 1
+knit + b99 1
+knit + f100 1
+knit + b101 1
+knit + f102 1
+knit + b103 1
+knit + f104 1
+knit + b105 1
+knit + f106 1
+knit + b107 1
+knit + f108 1
+knit + b109 1
+knit + f110 1
+knit + b111 1
+knit + f112 1
+knit + b113 1
+knit + f114 1
+knit + b115 1
+knit + f116 1
+knit + b117 1
+knit + f118 1
+knit + b119 1
+knit + f120 1
+knit + b121 1
+knit + f122 1
+knit + b123 1
+knit + f124 1
+knit + b125 1
+knit + f126 1
+knit + b127 1
+knit + f128 1
+knit + b129 1
+knit + f130 1
+knit + b131 1
+knit + f132 1
+knit + b133 1
+knit + f134 1
+knit + b135 1
+knit + f136 1
+knit + b137 1
+knit + f138 1
+knit + b139 1
+knit + f140 1
+knit + b141 1
+knit + f142 1
+knit + b143 1
+knit + f144 1
+knit + b145 1
+knit + f146 1
+knit + b147 1
+knit + f148 1
+knit + b149 1
+knit + f150 1
+knit + b151 1
+knit + f152 1
+knit + b153 1
+knit + f154 1
+knit + b155 1
+knit + f156 1
+knit + b157 1
+x-roller-advance 200
+knit + f96 6
+knit + f97 6
+knit + f98 6
+knit + f99 6
+knit + f100 6
+knit + f101 6
+knit + f102 6
+knit + f103 6
+knit + f104 6
+knit + f105 6
+knit + f106 6
+knit + f107 6
+knit + f108 6
+knit + f109 6
+knit + f110 6
+knit + f111 6
+knit + f112 6
+knit + f113 6
+knit + f114 6
+knit + f115 6
+knit + f116 6
+knit + f117 6
+knit + f118 6
+knit + f119 6
+knit + f120 6
+knit + f121 6
+knit + f122 6
+knit + f123 6
+knit + f124 6
+knit + f125 6
+knit + f126 6
+knit + f127 6
+knit + f128 6
+knit + f129 6
+knit + f130 6
+knit + f131 6
+knit + f132 6
+knit + f133 6
+knit + f134 6
+knit + f135 6
+knit + f136 6
+knit + f137 6
+knit + f138 6
+knit + f139 6
+knit + f140 6
+knit + f141 6
+knit + f142 6
+knit + f143 6
+knit + f144 6
+knit + f145 6
+knit + f146 6
+knit + f147 6
+knit + f148 6
+knit + f149 6
+knit + f150 6
+knit + f151 6
+knit + f152 6
+knit + f153 6
+knit + f154 6
+knit + f155 6
+knit + f156 6
+knit + f157 6
+knit - b157 6
+knit - b156 6
+knit - b155 6
+knit - b154 6
+knit - b153 6
+knit - b152 6
+knit - b151 6
+knit - b150 6
+knit - b149 6
+knit - b148 6
+knit - b147 6
+knit - b146 6
+knit - b145 6
+knit - b144 6
+knit - b143 6
+knit - b142 6
+knit - b141 6
+knit - b140 6
+knit - b139 6
+knit - b138 6
+knit - b137 6
+knit - b136 6
+knit - b135 6
+knit - b134 6
+knit - b133 6
+knit - b132 6
+knit - b131 6
+knit - b130 6
+knit - b129 6
+knit - b128 6
+knit - b127 6
+knit - b126 6
+knit - b125 6
+knit - b124 6
+knit - b123 6
+knit - b122 6
+knit - b121 6
+knit - b120 6
+knit - b119 6
+knit - b118 6
+knit - b117 6
+knit - b116 6
+knit - b115 6
+knit - b114 6
+knit - b113 6
+knit - b112 6
+knit - b111 6
+knit - b110 6
+knit - b109 6
+knit - b108 6
+knit - b107 6
+knit - b106 6
+knit - b105 6
+knit - b104 6
+knit - b103 6
+knit - b102 6
+knit - b101 6
+knit - b100 6
+knit - b99 6
+knit - b98 6
+knit - b97 6
+knit - b96 6
+knit + f96 6
+knit + f97 6
+knit + f98 6
+knit + f99 6
+knit + f100 6
+knit + f101 6
+knit + f102 6
+knit + f103 6
+knit + f104 6
+knit + f105 6
+knit + f106 6
+knit + f107 6
+knit + f108 6
+knit + f109 6
+knit + f110 6
+knit + f111 6
+knit + f112 6
+knit + f113 6
+knit + f114 6
+knit + f115 6
+knit + f116 6
+knit + f117 6
+knit + f118 6
+knit + f119 6
+knit + f120 6
+knit + f121 6
+knit + f122 6
+knit + f123 6
+knit + f124 6
+knit + f125 6
+knit + f126 6
+knit + f127 6
+knit + f128 6
+knit + f129 6
+knit + f130 6
+knit + f131 6
+knit + f132 6
+knit + f133 6
+knit + f134 6
+knit + f135 6
+knit + f136 6
+knit + f137 6
+knit + f138 6
+knit + f139 6
+knit + f140 6
+knit + f141 6
+knit + f142 6
+knit + f143 6
+knit + f144 6
+knit + f145 6
+knit + f146 6
+knit + f147 6
+knit + f148 6
+knit + f149 6
+knit + f150 6
+knit + f151 6
+knit + f152 6
+knit + f153 6
+knit + f154 6
+knit + f155 6
+knit + f156 6
+knit + f157 6
+knit - b157 6
+knit - b156 6
+knit - b155 6
+knit - b154 6
+knit - b153 6
+knit - b152 6
+knit - b151 6
+knit - b150 6
+knit - b149 6
+knit - b148 6
+knit - b147 6
+knit - b146 6
+knit - b145 6
+knit - b144 6
+knit - b143 6
+knit - b142 6
+knit - b141 6
+knit - b140 6
+knit - b139 6
+knit - b138 6
+knit - b137 6
+knit - b136 6
+knit - b135 6
+knit - b134 6
+knit - b133 6
+knit - b132 6
+knit - b131 6
+knit - b130 6
+knit - b129 6
+knit - b128 6
+knit - b127 6
+knit - b126 6
+knit - b125 6
+knit - b124 6
+knit - b123 6
+knit - b122 6
+knit - b121 6
+knit - b120 6
+knit - b119 6
+knit - b118 6
+knit - b117 6
+knit - b116 6
+knit - b115 6
+knit - b114 6
+knit - b113 6
+knit - b112 6
+knit - b111 6
+knit - b110 6
+knit - b109 6
+knit - b108 6
+knit - b107 6
+knit - b106 6
+knit - b105 6
+knit - b104 6
+knit - b103 6
+knit - b102 6
+knit - b101 6
+knit - b100 6
+knit - b99 6
+knit - b98 6
+knit - b97 6
+knit - b96 6
+knit + f96 6
+knit + f97 6
+knit + f98 6
+knit + f99 6
+knit + f100 6
+knit + f101 6
+knit + f102 6
+knit + f103 6
+knit + f104 6
+knit + f105 6
+knit + f106 6
+knit + f107 6
+knit + f108 6
+knit + f109 6
+knit + f110 6
+knit + f111 6
+knit + f112 6
+knit + f113 6
+knit + f114 6
+knit + f115 6
+knit + f116 6
+knit + f117 6
+knit + f118 6
+knit + f119 6
+knit + f120 6
+knit + f121 6
+knit + f122 6
+knit + f123 6
+knit + f124 6
+knit + f125 6
+knit + f126 6
+knit + f127 6
+knit + f128 6
+knit + f129 6
+knit + f130 6
+knit + f131 6
+knit + f132 6
+knit + f133 6
+knit + f134 6
+knit + f135 6
+knit + f136 6
+knit + f137 6
+knit + f138 6
+knit + f139 6
+knit + f140 6
+knit + f141 6
+knit + f142 6
+knit + f143 6
+knit + f144 6
+knit + f145 6
+knit + f146 6
+knit + f147 6
+knit + f148 6
+knit + f149 6
+knit + f150 6
+knit + f151 6
+knit + f152 6
+knit + f153 6
+knit + f154 6
+knit + f155 6
+knit + f156 6
+knit + f157 6
+knit - b157 6
+knit - b156 6
+knit - b155 6
+knit - b154 6
+knit - b153 6
+knit - b152 6
+knit - b151 6
+knit - b150 6
+knit - b149 6
+knit - b148 6
+knit - b147 6
+knit - b146 6
+knit - b145 6
+knit - b144 6
+knit - b143 6
+knit - b142 6
+knit - b141 6
+knit - b140 6
+knit - b139 6
+knit - b138 6
+knit - b137 6
+knit - b136 6
+knit - b135 6
+knit - b134 6
+knit - b133 6
+knit - b132 6
+knit - b131 6
+knit - b130 6
+knit - b129 6
+knit - b128 6
+knit - b127 6
+knit - b126 6
+knit - b125 6
+knit - b124 6
+knit - b123 6
+knit - b122 6
+knit - b121 6
+knit - b120 6
+knit - b119 6
+knit - b118 6
+knit - b117 6
+knit - b116 6
+knit - b115 6
+knit - b114 6
+knit - b113 6
+knit - b112 6
+knit - b111 6
+knit - b110 6
+knit - b109 6
+knit - b108 6
+knit - b107 6
+knit - b106 6
+knit - b105 6
+knit - b104 6
+knit - b103 6
+knit - b102 6
+knit - b101 6
+knit - b100 6
+knit - b99 6
+knit - b98 6
+knit - b97 6
+knit - b96 6
+x-speed-number 120
+x-roller-advance 0
+x-xfer-stitch-number 0
+xfer f97 b97
+xfer f99 b99
+xfer f101 b101
+xfer f103 b103
+xfer f105 b105
+xfer f107 b107
+xfer f109 b109
+xfer f111 b111
+xfer f113 b113
+xfer f115 b115
+xfer f117 b117
+xfer f119 b119
+xfer f121 b121
+xfer f123 b123
+xfer f125 b125
+xfer f127 b127
+xfer f129 b129
+xfer f131 b131
+xfer f133 b133
+xfer f135 b135
+xfer f137 b137
+xfer f139 b139
+xfer f141 b141
+xfer f143 b143
+xfer f145 b145
+xfer f147 b147
+xfer f149 b149
+xfer f151 b151
+xfer f153 b153
+xfer f155 b155
+xfer f157 b157
+xfer b96 f96
+xfer b98 f98
+xfer b100 f100
+xfer b102 f102
+xfer b104 f104
+xfer b106 f106
+xfer b108 f108
+xfer b110 f110
+xfer b112 f112
+xfer b114 f114
+xfer b116 f116
+xfer b118 f118
+xfer b120 f120
+xfer b122 f122
+xfer b124 f124
+xfer b126 f126
+xfer b128 f128
+xfer b130 f130
+xfer b132 f132
+xfer b134 f134
+xfer b136 f136
+xfer b138 f138
+xfer b140 f140
+xfer b142 f142
+xfer b144 f144
+xfer b146 f146
+xfer b148 f148
+xfer b150 f150
+xfer b152 f152
+xfer b154 f154
+xfer b156 f156
+x-speed-number 200
+x-roller-advance 200
+knit + f96 6
+knit + f98 6
+knit + f100 6
+knit + f102 6
+knit + f104 6
+knit + f106 6
+knit + f108 6
+knit + f110 6
+knit + f112 6
+knit + f114 6
+knit + f116 6
+knit + f118 6
+knit + f120 6
+knit + f122 6
+knit + f124 6
+knit + f126 6
+knit + f128 6
+knit + f130 6
+knit + f132 6
+knit + f134 6
+knit + f136 6
+knit + f138 6
+knit + f140 6
+knit + f142 6
+knit + f144 6
+knit + f146 6
+knit + f148 6
+knit + f150 6
+knit + f152 6
+knit + f154 6
+knit + f156 6
+knit - b157 6
+knit - b155 6
+knit - b153 6
+knit - b151 6
+knit - b149 6
+knit - b147 6
+knit - b145 6
+knit - b143 6
+knit - b141 6
+knit - b139 6
+knit - b137 6
+knit - b135 6
+knit - b133 6
+knit - b131 6
+knit - b129 6
+knit - b127 6
+knit - b125 6
+knit - b123 6
+knit - b121 6
+knit - b119 6
+knit - b117 6
+knit - b115 6
+knit - b113 6
+knit - b111 6
+knit - b109 6
+knit - b107 6
+knit - b105 6
+knit - b103 6
+knit - b101 6
+knit - b99 6
+knit - b97 6
+knit + f96 6
+knit + f98 6
+knit + f100 6
+knit + f102 6
+knit + f104 6
+knit + f106 6
+knit + f108 6
+knit + f110 6
+knit + f112 6
+knit + f114 6
+knit + f116 6
+knit + f118 6
+knit + f120 6
+knit + f122 6
+knit + f124 6
+knit + f126 6
+knit + f128 6
+knit + f130 6
+knit + f132 6
+knit + f134 6
+knit + f136 6
+knit + f138 6
+knit + f140 6
+knit + f142 6
+knit + f144 6
+knit + f146 6
+knit + f148 6
+knit + f150 6
+knit + f152 6
+knit + f154 6
+knit + f156 6
+miss + f159 6
+x-speed-number 300
+x-roller-advance 450
+drop b97
+drop b99
+drop b101
+drop b103
+drop b105
+drop b107
+drop b109
+drop b111
+drop b113
+drop b115
+drop b117
+drop b119
+drop b121
+drop b123
+drop b125
+drop b127
+drop b129
+drop b131
+drop b133
+drop b135
+drop b137
+drop b139
+drop b141
+drop b143
+drop b145
+drop b147
+drop b149
+drop b151
+drop b153
+drop b155
+drop b157
+x-speed-number 200
+x-roller-advance 200
+x-stitch-number 8
+knit - f156 1
+knit - f154 1
+knit - f152 1
+knit - f150 1
+knit - f148 1
+knit - f146 1
+knit - f144 1
+knit - f142 1
+knit - f140 1
+knit - f138 1
+knit - f136 1
+knit - f134 1
+knit - f132 1
+knit - f130 1
+knit - f128 1
+knit - f126 1
+knit - f124 1
+knit - f122 1
+knit - f120 1
+knit - f118 1
+knit - f116 1
+knit - f114 1
+knit - f112 1
+knit - f110 1
+knit - f108 1
+knit - f106 1
+knit - f104 1
+knit - f102 1
+knit - f100 1
+knit - f98 1
+knit - f96 1
+miss - f93 1
+x-speed-number 300
+x-roller-advance 450
+x-stitch-number 4
+knit - b157 3
+knit - f156 3
+knit - b155 3
+knit - f154 3
+knit - b153 3
+knit - f152 3
+knit - b151 3
+knit - f150 3
+knit - b149 3
+knit - f148 3
+knit - b147 3
+knit - f146 3
+knit - b145 3
+knit - f144 3
+knit - b143 3
+knit - f142 3
+knit - b141 3
+knit - f140 3
+knit - b139 3
+knit - f138 3
+knit - b137 3
+knit - f136 3
+knit - b135 3
+knit - f134 3
+knit - b133 3
+knit - f132 3
+knit - b131 3
+knit - f130 3
+knit - b129 3
+knit - f128 3
+knit - b127 3
+knit - f126 3
+knit - b125 3
+knit - f124 3
+knit - b123 3
+knit - f122 3
+knit - b121 3
+knit - f120 3
+knit - b119 3
+knit - f118 3
+knit - b117 3
+knit - f116 3
+knit - b115 3
+knit - f114 3
+knit - b113 3
+knit - f112 3
+knit - b111 3
+knit - f110 3
+knit - b109 3
+knit - f108 3
+knit - b107 3
+knit - f106 3
+knit - b105 3
+knit - f104 3
+knit - b103 3
+knit - f102 3
+knit - b101 3
+knit - f100 3
+knit - b99 3
+knit - f98 3
+knit - b97 3
+knit - f96 3
+x-speed-number 200
+x-stitch-number 6
+knit + f96 3
+knit + f98 3
+knit + f100 3
+knit + f102 3
+knit + f104 3
+knit + f106 3
+knit + f108 3
+knit + f110 3
+knit + f112 3
+knit + f114 3
+knit + f116 3
+knit + f118 3
+knit + f120 3
+knit + f122 3
+knit + f124 3
+knit + f126 3
+knit + f128 3
+knit + f130 3
+knit + f132 3
+knit + f134 3
+knit + f136 3
+knit + f138 3
+knit + f140 3
+knit + f142 3
+knit + f144 3
+knit + f146 3
+knit + f148 3
+knit + f150 3
+knit + f152 3
+knit + f154 3
+knit + f156 3
+knit - b157 3
+knit - b155 3
+knit - b153 3
+knit - b151 3
+knit - b149 3
+knit - b147 3
+knit - b145 3
+knit - b143 3
+knit - b141 3
+knit - b139 3
+knit - b137 3
+knit - b135 3
+knit - b133 3
+knit - b131 3
+knit - b129 3
+knit - b127 3
+knit - b125 3
+knit - b123 3
+knit - b121 3
+knit - b119 3
+knit - b117 3
+knit - b115 3
+knit - b113 3
+knit - b111 3
+knit - b109 3
+knit - b107 3
+knit - b105 3
+knit - b103 3
+knit - b101 3
+knit - b99 3
+knit - b97 3
+miss - f96 3
+x-speed-number 120
+x-roller-advance 0
+xfer f96 b96
+xfer f100 b100
+xfer f104 b104
+xfer f108 b108
+xfer f112 b112
+xfer f116 b116
+xfer f120 b120
+xfer f124 b124
+xfer f128 b128
+xfer f132 b132
+xfer f136 b136
+xfer f140 b140
+xfer f144 b144
+xfer f148 b148
+xfer f152 b152
+xfer f156 b156
+xfer b97 f97
+xfer b101 f101
+xfer b105 f105
+xfer b109 f109
+xfer b113 f113
+xfer b117 f117
+xfer b121 f121
+xfer b125 f125
+xfer b129 f129
+xfer b133 f133
+xfer b137 f137
+xfer b141 f141
+xfer b145 f145
+xfer b149 f149
+xfer b153 f153
+xfer b157 f157
+; --- 2x2 RIB BODY ---
+x-speed-number 300
+x-roller-advance 500
+x-stitch-number 7
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+knit - f157 3
+x-stitch-number 7
+knit - b156 3
+knit - b155 3
+x-stitch-number 8
+knit - f154 3
+knit - f153 3
+x-stitch-number 7
+knit - b152 3
+knit - b151 3
+x-stitch-number 8
+knit - f150 3
+knit - f149 3
+x-stitch-number 7
+knit - b148 3
+knit - b147 3
+x-stitch-number 8
+knit - f146 3
+knit - f145 3
+x-stitch-number 7
+knit - b144 3
+knit - b143 3
+x-stitch-number 8
+knit - f142 3
+knit - f141 3
+x-stitch-number 7
+knit - b140 3
+knit - b139 3
+x-stitch-number 8
+knit - f138 3
+knit - f137 3
+x-stitch-number 7
+knit - b136 3
+knit - b135 3
+x-stitch-number 8
+knit - f134 3
+knit - f133 3
+x-stitch-number 7
+knit - b132 3
+knit - b131 3
+x-stitch-number 8
+knit - f130 3
+knit - f129 3
+x-stitch-number 7
+knit - b128 3
+knit - b127 3
+x-stitch-number 8
+knit - f126 3
+knit - f125 3
+x-stitch-number 7
+knit - b124 3
+knit - b123 3
+x-stitch-number 8
+knit - f122 3
+knit - f121 3
+x-stitch-number 7
+knit - b120 3
+knit - b119 3
+x-stitch-number 8
+knit - f118 3
+knit - f117 3
+x-stitch-number 7
+knit - b116 3
+knit - b115 3
+x-stitch-number 8
+knit - f114 3
+knit - f113 3
+x-stitch-number 7
+knit - b112 3
+knit - b111 3
+x-stitch-number 8
+knit - f110 3
+knit - f109 3
+x-stitch-number 7
+knit - b108 3
+knit - b107 3
+x-stitch-number 8
+knit - f106 3
+knit - f105 3
+x-stitch-number 7
+knit - b104 3
+knit - b103 3
+x-stitch-number 8
+knit - f102 3
+knit - f101 3
+x-stitch-number 7
+knit - b100 3
+knit - b99 3
+x-stitch-number 8
+knit - f98 3
+knit - f97 3
+x-stitch-number 7
+knit - b96 3
+knit + b96 3
+x-stitch-number 8
+knit + f97 3
+knit + f98 3
+x-stitch-number 7
+knit + b99 3
+knit + b100 3
+x-stitch-number 8
+knit + f101 3
+knit + f102 3
+x-stitch-number 7
+knit + b103 3
+knit + b104 3
+x-stitch-number 8
+knit + f105 3
+knit + f106 3
+x-stitch-number 7
+knit + b107 3
+knit + b108 3
+x-stitch-number 8
+knit + f109 3
+knit + f110 3
+x-stitch-number 7
+knit + b111 3
+knit + b112 3
+x-stitch-number 8
+knit + f113 3
+knit + f114 3
+x-stitch-number 7
+knit + b115 3
+knit + b116 3
+x-stitch-number 8
+knit + f117 3
+knit + f118 3
+x-stitch-number 7
+knit + b119 3
+knit + b120 3
+x-stitch-number 8
+knit + f121 3
+knit + f122 3
+x-stitch-number 7
+knit + b123 3
+knit + b124 3
+x-stitch-number 8
+knit + f125 3
+knit + f126 3
+x-stitch-number 7
+knit + b127 3
+knit + b128 3
+x-stitch-number 8
+knit + f129 3
+knit + f130 3
+x-stitch-number 7
+knit + b131 3
+knit + b132 3
+x-stitch-number 8
+knit + f133 3
+knit + f134 3
+x-stitch-number 7
+knit + b135 3
+knit + b136 3
+x-stitch-number 8
+knit + f137 3
+knit + f138 3
+x-stitch-number 7
+knit + b139 3
+knit + b140 3
+x-stitch-number 8
+knit + f141 3
+knit + f142 3
+x-stitch-number 7
+knit + b143 3
+knit + b144 3
+x-stitch-number 8
+knit + f145 3
+knit + f146 3
+x-stitch-number 7
+knit + b147 3
+knit + b148 3
+x-stitch-number 8
+knit + f149 3
+knit + f150 3
+x-stitch-number 7
+knit + b151 3
+knit + b152 3
+x-stitch-number 8
+knit + f153 3
+knit + f154 3
+x-stitch-number 7
+knit + b155 3
+knit + b156 3
+x-stitch-number 8
+knit + f157 3
+x-speed-number 120
+x-roller-advance 0
+xfer b96 f96
+xfer b99 f99
+xfer b100 f100
+xfer b103 f103
+xfer b104 f104
+xfer b107 f107
+xfer b108 f108
+xfer b111 f111
+xfer b112 f112
+xfer b115 f115
+xfer b116 f116
+xfer b119 f119
+xfer b120 f120
+xfer b123 f123
+xfer b124 f124
+xfer b127 f127
+xfer b128 f128
+xfer b131 f131
+xfer b132 f132
+xfer b135 f135
+xfer b136 f136
+xfer b139 f139
+xfer b140 f140
+xfer b143 f143
+xfer b144 f144
+xfer b147 f147
+xfer b148 f148
+xfer b151 f151
+xfer b152 f152
+xfer b155 f155
+xfer b156 f156
+; --- BIRDSEYE COLORWORK BODY ---
+x-speed-number 400
+x-roller-advance 450
+x-stitch-number 7
+rack 0.5
+knit - b157 3
+knit - f157 3
+knit - b156 3
+knit - f156 3
+knit - b155 3
+knit - f155 3
+knit - b154 3
+knit - f154 3
+knit - b153 3
+knit - f153 3
+knit - b152 3
+knit - f152 3
+knit - b151 3
+knit - f151 3
+knit - b150 3
+knit - f150 3
+knit - b149 3
+knit - f149 3
+knit - b148 3
+knit - f148 3
+knit - b147 3
+knit - f147 3
+knit - b146 3
+knit - f146 3
+knit - b145 3
+knit - f145 3
+knit - b144 3
+knit - f144 3
+knit - b143 3
+knit - f143 3
+knit - b142 3
+knit - f142 3
+knit - b141 3
+knit - f141 3
+knit - b140 3
+knit - f140 3
+knit - b139 3
+knit - f139 3
+knit - b138 3
+knit - f138 3
+knit - b137 3
+knit - f137 3
+knit - b136 3
+knit - f136 3
+knit - b135 3
+knit - f135 3
+knit - b134 3
+knit - f134 3
+knit - b133 3
+knit - f133 3
+knit - b132 3
+knit - f132 3
+knit - b131 3
+knit - f131 3
+knit - b130 3
+knit - f130 3
+knit - b129 3
+knit - f129 3
+knit - b128 3
+knit - f128 3
+knit - b127 3
+knit - f127 3
+knit - b126 3
+knit - f126 3
+knit - b125 3
+knit - f125 3
+knit - b124 3
+knit - f124 3
+knit - b123 3
+knit - f123 3
+knit - b122 3
+knit - f122 3
+knit - b121 3
+knit - f121 3
+knit - b120 3
+knit - f120 3
+knit - b119 3
+knit - f119 3
+knit - b118 3
+knit - f118 3
+knit - b117 3
+knit - f117 3
+knit - b116 3
+knit - f116 3
+knit - b115 3
+knit - f115 3
+knit - b114 3
+knit - f114 3
+knit - b113 3
+knit - f113 3
+knit - b112 3
+knit - f112 3
+knit - b111 3
+knit - f111 3
+knit - b110 3
+knit - f110 3
+knit - b109 3
+knit - f109 3
+knit - b108 3
+knit - f108 3
+knit - b107 3
+knit - f107 3
+knit - b106 3
+knit - f106 3
+knit - b105 3
+knit - f105 3
+knit - b104 3
+knit - f104 3
+knit - b103 3
+knit - f103 3
+knit - b102 3
+knit - f102 3
+knit - b101 3
+knit - f101 3
+knit - b100 3
+knit - f100 3
+knit - b99 3
+knit - f99 3
+knit - b98 3
+knit - f98 3
+knit - b97 3
+knit - f97 3
+knit - b96 3
+knit - f96 3
+rack 0
+knit + f96 3
+knit + f97 3
+knit + f98 3
+knit + f99 3
+knit + f100 3
+knit + f101 3
+knit + f102 3
+knit + f103 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit + f150 3
+knit + f151 3
+knit + f152 3
+knit + f153 3
+knit + f154 3
+knit + f155 3
+knit + f156 3
+knit + f157 3
+knit - b157 3
+knit - b156 3
+knit - b155 3
+knit - b154 3
+knit - b153 3
+knit - b152 3
+knit - b151 3
+knit - b150 3
+knit - b149 3
+knit - b148 3
+knit - b147 3
+knit - b146 3
+knit - b145 3
+knit - b144 3
+knit - b143 3
+knit - b142 3
+knit - b141 3
+knit - b140 3
+knit - b139 3
+knit - b138 3
+knit - b137 3
+knit - b136 3
+knit - b135 3
+knit - b134 3
+knit - b133 3
+knit - b132 3
+knit - b131 3
+knit - b130 3
+knit - b129 3
+knit - b128 3
+knit - b127 3
+knit - b126 3
+knit - b125 3
+knit - b124 3
+knit - b123 3
+knit - b122 3
+knit - b121 3
+knit - b120 3
+knit - b119 3
+knit - b118 3
+knit - b117 3
+knit - b116 3
+knit - b115 3
+knit - b114 3
+knit - b113 3
+knit - b112 3
+knit - b111 3
+knit - b110 3
+knit - b109 3
+knit - b108 3
+knit - b107 3
+knit - b106 3
+knit - b105 3
+knit - b104 3
+knit - b103 3
+knit - b102 3
+knit - b101 3
+knit - b100 3
+knit - b99 3
+knit - b98 3
+knit - b97 3
+knit - b96 3
+rack 0.5
+knit + f96 3
+knit + b96 3
+knit + f97 3
+knit + f98 3
+knit + b98 3
+knit + f99 3
+knit + f100 3
+knit + b100 3
+knit + f101 3
+knit + f102 3
+knit + b102 3
+knit + f103 3
+knit + f104 3
+knit + b104 3
+knit + f105 3
+knit + f106 3
+knit + b106 3
+knit + f107 3
+knit + f108 3
+knit + b108 3
+knit + f109 3
+knit + f110 3
+knit + b110 3
+knit + f111 3
+knit + f112 3
+knit + b112 3
+knit + f113 3
+knit + f114 3
+knit + b114 3
+knit + f115 3
+knit + f116 3
+knit + b116 3
+knit + f117 3
+knit + f118 3
+knit + b118 3
+knit + f119 3
+knit + f120 3
+knit + b120 3
+knit + f121 3
+knit + f122 3
+knit + b122 3
+knit + f123 3
+knit + f124 3
+knit + b124 3
+knit + f125 3
+knit + f126 3
+knit + b126 3
+knit + f127 3
+knit + f128 3
+knit + b128 3
+knit + f129 3
+knit + f130 3
+knit + b130 3
+knit + f131 3
+knit + f132 3
+knit + b132 3
+knit + f133 3
+knit + f134 3
+knit + b134 3
+knit + f135 3
+knit + f136 3
+knit + b136 3
+knit + f137 3
+knit + f138 3
+knit + b138 3
+knit + f139 3
+knit + f140 3
+knit + b140 3
+knit + f141 3
+knit + f142 3
+knit + b142 3
+knit + f143 3
+knit + f144 3
+knit + b144 3
+knit + f145 3
+knit + f146 3
+knit + b146 3
+knit + f147 3
+knit + f148 3
+knit + b148 3
+knit + f149 3
+knit + f150 3
+knit + b150 3
+knit + f151 3
+knit + f152 3
+knit + b152 3
+knit + f153 3
+knit + f154 3
+knit + b154 3
+knit + f155 3
+knit + f156 3
+knit + b156 3
+knit + f157 3
+knit - b157 4
+knit - b155 4
+knit - b153 4
+knit - b151 4
+knit - b149 4
+knit - b147 4
+knit - b145 4
+knit - b143 4
+knit - b141 4
+knit - b139 4
+knit - b137 4
+knit - b135 4
+knit - b133 4
+knit - b131 4
+knit - b129 4
+knit - b127 4
+knit - b125 4
+knit - b123 4
+knit - b121 4
+knit - b119 4
+knit - b117 4
+knit - b115 4
+knit - b113 4
+knit - b111 4
+knit - b109 4
+knit - b107 4
+knit - b105 4
+knit - b103 4
+knit - b101 4
+knit - b99 4
+knit - b97 4
+knit - b157 3
+knit - f157 3
+knit - f156 3
+knit - b155 3
+knit - f155 3
+knit - f154 3
+knit - b153 3
+knit - f153 3
+knit - f152 3
+knit - b151 3
+knit - f151 3
+knit - f150 3
+knit - b149 3
+knit - f149 3
+knit - f148 3
+knit - b147 3
+knit - f147 3
+knit - f146 3
+knit - b145 3
+knit - f145 3
+knit - f144 3
+knit - b143 3
+knit - f143 3
+knit - f142 3
+knit - b141 3
+knit - f141 3
+knit - f140 3
+knit - b139 3
+knit - f139 3
+knit - f138 3
+knit - b137 3
+knit - f137 3
+knit - f136 3
+knit - b135 3
+knit - f135 3
+knit - f134 3
+knit - b133 3
+knit - f133 3
+knit - f132 3
+knit - b131 3
+knit - f131 3
+knit - f130 3
+knit - b129 3
+knit - f129 3
+knit - f128 3
+knit - b127 3
+knit - f127 3
+knit - f126 3
+knit - b125 3
+knit - f125 3
+knit - f124 3
+knit - b123 3
+knit - f123 3
+knit - f122 3
+knit - b121 3
+knit - f121 3
+knit - f120 3
+knit - b119 3
+knit - f119 3
+knit - f118 3
+knit - b117 3
+knit - f117 3
+knit - f116 3
+knit - b115 3
+knit - f115 3
+knit - f114 3
+knit - b113 3
+knit - f113 3
+knit - f112 3
+knit - b111 3
+knit - f111 3
+knit - f110 3
+knit - b109 3
+knit - f109 3
+knit - f108 3
+knit - b107 3
+knit - f107 3
+knit - f106 3
+knit - b105 3
+knit - f105 3
+knit - f104 3
+knit - b103 3
+knit - f103 3
+knit - f102 3
+knit - b101 3
+knit - f101 3
+knit - f100 3
+knit - b99 3
+knit - f99 3
+knit - f98 3
+knit - b97 3
+knit - f97 3
+knit - f96 3
+knit + b96 4
+knit + b98 4
+knit + b100 4
+knit + b102 4
+knit + b104 4
+knit + b106 4
+knit + b108 4
+knit + b110 4
+knit + b112 4
+knit + b114 4
+knit + b116 4
+knit + b118 4
+knit + b120 4
+knit + b122 4
+knit + b124 4
+knit + b126 4
+knit + b128 4
+knit + b130 4
+knit + b132 4
+knit + b134 4
+knit + b136 4
+knit + b138 4
+knit + b140 4
+knit + b142 4
+knit + b144 4
+knit + b146 4
+knit + b148 4
+knit + b150 4
+knit + b152 4
+knit + b154 4
+knit + b156 4
+knit + f96 3
+knit + b96 3
+knit + f97 3
+knit + f98 3
+knit + b98 3
+knit + f99 3
+knit + f100 3
+knit + b100 3
+knit + f101 3
+knit + f102 3
+knit + b102 3
+knit + f103 3
+knit + f104 3
+knit + b104 3
+knit + f105 3
+knit + f106 3
+knit + b106 3
+knit + f107 3
+knit + f108 3
+knit + b108 3
+knit + f109 3
+knit + f110 3
+knit + b110 3
+knit + f111 3
+knit + f112 3
+knit + b112 3
+knit + f113 3
+knit + f114 3
+knit + b114 3
+knit + f115 3
+knit + f116 3
+knit + b116 3
+knit + f117 3
+knit + f118 3
+knit + b118 3
+knit + f119 3
+knit + f120 3
+knit + b120 3
+knit + f121 3
+knit + f122 3
+knit + b122 3
+knit + f123 3
+knit + f124 3
+knit + b124 3
+knit + f125 3
+knit + f126 3
+knit + b126 3
+knit + f127 3
+knit + f128 3
+knit + b128 3
+knit + f130 3
+knit + b130 3
+knit + f131 3
+knit + f132 3
+knit + b132 3
+knit + f133 3
+knit + f134 3
+knit + b134 3
+knit + f135 3
+knit + f136 3
+knit + b136 3
+knit + f137 3
+knit + f138 3
+knit + b138 3
+knit + f139 3
+knit + f140 3
+knit + b140 3
+knit + f141 3
+knit + f142 3
+knit + b142 3
+knit + f143 3
+knit + f144 3
+knit + b144 3
+knit + f145 3
+knit + f146 3
+knit + b146 3
+knit + f147 3
+knit + f148 3
+knit + b148 3
+knit + f149 3
+knit + f150 3
+knit + b150 3
+knit + f151 3
+knit + f152 3
+knit + b152 3
+knit + f153 3
+knit + f154 3
+knit + b154 3
+knit + f155 3
+knit + f156 3
+knit + b156 3
+knit + f157 3
+knit - b157 4
+knit - b155 4
+knit - b153 4
+knit - b151 4
+knit - b149 4
+knit - b147 4
+knit - b145 4
+knit - b143 4
+knit - b141 4
+knit - b139 4
+knit - b137 4
+knit - b135 4
+knit - b133 4
+knit - b131 4
+knit - b129 4
+knit - f129 4
+knit - b127 4
+knit - b125 4
+knit - b123 4
+knit - b121 4
+knit - b119 4
+knit - b117 4
+knit - b115 4
+knit - b113 4
+knit - b111 4
+knit - b109 4
+knit - b107 4
+knit - b105 4
+knit - b103 4
+knit - b101 4
+knit - b99 4
+knit - b97 4
+knit - b157 3
+knit - f157 3
+knit - f156 3
+knit - b155 3
+knit - f155 3
+knit - f154 3
+knit - b153 3
+knit - f153 3
+knit - f152 3
+knit - b151 3
+knit - f151 3
+knit - f150 3
+knit - b149 3
+knit - f149 3
+knit - f148 3
+knit - b147 3
+knit - f147 3
+knit - f146 3
+knit - b145 3
+knit - f145 3
+knit - f144 3
+knit - b143 3
+knit - f143 3
+knit - f142 3
+knit - b141 3
+knit - f141 3
+knit - f140 3
+knit - b139 3
+knit - f139 3
+knit - f138 3
+knit - b137 3
+knit - f137 3
+knit - f136 3
+knit - b135 3
+knit - f135 3
+knit - f134 3
+knit - b133 3
+knit - f133 3
+knit - f132 3
+knit - b131 3
+knit - f131 3
+knit - f130 3
+knit - b129 3
+knit - f128 3
+knit - b127 3
+knit - f127 3
+knit - f126 3
+knit - b125 3
+knit - f125 3
+knit - f124 3
+knit - b123 3
+knit - f123 3
+knit - f122 3
+knit - b121 3
+knit - f121 3
+knit - f120 3
+knit - b119 3
+knit - f119 3
+knit - f118 3
+knit - b117 3
+knit - f117 3
+knit - f116 3
+knit - b115 3
+knit - f115 3
+knit - f114 3
+knit - b113 3
+knit - f113 3
+knit - f112 3
+knit - b111 3
+knit - f111 3
+knit - f110 3
+knit - b109 3
+knit - f109 3
+knit - f108 3
+knit - b107 3
+knit - f107 3
+knit - f106 3
+knit - b105 3
+knit - f105 3
+knit - f104 3
+knit - b103 3
+knit - f103 3
+knit - f102 3
+knit - b101 3
+knit - f101 3
+knit - f100 3
+knit - b99 3
+knit - f99 3
+knit - f98 3
+knit - b97 3
+knit - f97 3
+knit - f96 3
+knit + b96 4
+knit + b98 4
+knit + b100 4
+knit + b102 4
+knit + b104 4
+knit + b106 4
+knit + b108 4
+knit + b110 4
+knit + b112 4
+knit + b114 4
+knit + b116 4
+knit + b118 4
+knit + b120 4
+knit + b122 4
+knit + b124 4
+knit + b126 4
+knit + b128 4
+knit + f129 4
+knit + b130 4
+knit + b132 4
+knit + b134 4
+knit + b136 4
+knit + b138 4
+knit + b140 4
+knit + b142 4
+knit + b144 4
+knit + b146 4
+knit + b148 4
+knit + b150 4
+knit + b152 4
+knit + b154 4
+knit + b156 4
+knit + f96 3
+knit + b96 3
+knit + f97 3
+knit + f98 3
+knit + b98 3
+knit + f99 3
+knit + f100 3
+knit + b100 3
+knit + f101 3
+knit + f102 3
+knit + b102 3
+knit + f103 3
+knit + f104 3
+knit + b104 3
+knit + f105 3
+knit + f106 3
+knit + b106 3
+knit + f107 3
+knit + f108 3
+knit + b108 3
+knit + f109 3
+knit + f110 3
+knit + b110 3
+knit + f111 3
+knit + f112 3
+knit + b112 3
+knit + f113 3
+knit + f114 3
+knit + b114 3
+knit + f115 3
+knit + f116 3
+knit + b116 3
+knit + f117 3
+knit + f118 3
+knit + b118 3
+knit + f119 3
+knit + f120 3
+knit + b120 3
+knit + f121 3
+knit + f122 3
+knit + b122 3
+knit + f123 3
+knit + f124 3
+knit + b124 3
+knit + f125 3
+knit + f126 3
+knit + b126 3
+knit + f127 3
+knit + b128 3
+knit + f130 3
+knit + b130 3
+knit + f131 3
+knit + f132 3
+knit + b132 3
+knit + f133 3
+knit + f134 3
+knit + b134 3
+knit + f135 3
+knit + f136 3
+knit + b136 3
+knit + f137 3
+knit + f138 3
+knit + b138 3
+knit + f139 3
+knit + f140 3
+knit + b140 3
+knit + f141 3
+knit + f142 3
+knit + b142 3
+knit + f143 3
+knit + f144 3
+knit + b144 3
+knit + f145 3
+knit + f146 3
+knit + b146 3
+knit + f147 3
+knit + f148 3
+knit + b148 3
+knit + f149 3
+knit + f150 3
+knit + b150 3
+knit + f151 3
+knit + f152 3
+knit + b152 3
+knit + f153 3
+knit + f154 3
+knit + b154 3
+knit + f155 3
+knit + f156 3
+knit + b156 3
+knit + f157 3
+knit - b157 4
+knit - b155 4
+knit - b153 4
+knit - b151 4
+knit - b149 4
+knit - b147 4
+knit - b145 4
+knit - b143 4
+knit - b141 4
+knit - b139 4
+knit - b137 4
+knit - b135 4
+knit - b133 4
+knit - b131 4
+knit - b129 4
+knit - f129 4
+knit - f128 4
+knit - b127 4
+knit - b125 4
+knit - b123 4
+knit - b121 4
+knit - b119 4
+knit - b117 4
+knit - b115 4
+knit - b113 4
+knit - b111 4
+knit - b109 4
+knit - b107 4
+knit - b105 4
+knit - b103 4
+knit - b101 4
+knit - b99 4
+knit - b97 4
+knit - b157 3
+knit - f157 3
+knit - f156 3
+knit - b155 3
+knit - f155 3
+knit - f154 3
+knit - b153 3
+knit - f153 3
+knit - f152 3
+knit - b151 3
+knit - f151 3
+knit - f150 3
+knit - b149 3
+knit - f149 3
+knit - f148 3
+knit - b147 3
+knit - f147 3
+knit - f146 3
+knit - b145 3
+knit - f145 3
+knit - f144 3
+knit - b143 3
+knit - f143 3
+knit - f142 3
+knit - b141 3
+knit - f141 3
+knit - f140 3
+knit - b139 3
+knit - f139 3
+knit - f138 3
+knit - b137 3
+knit - f137 3
+knit - f136 3
+knit - b135 3
+knit - f135 3
+knit - f134 3
+knit - b133 3
+knit - f133 3
+knit - f132 3
+knit - b131 3
+knit - f131 3
+knit - f130 3
+knit - b129 3
+knit - f129 3
+knit - f128 3
+knit - b127 3
+knit - f126 3
+knit - b125 3
+knit - b123 3
+knit - f123 3
+knit - f122 3
+knit - b121 3
+knit - f120 3
+knit - b119 3
+knit - f119 3
+knit - f118 3
+knit - b117 3
+knit - f117 3
+knit - f116 3
+knit - b115 3
+knit - f115 3
+knit - f114 3
+knit - b113 3
+knit - f113 3
+knit - f112 3
+knit - b111 3
+knit - f111 3
+knit - f110 3
+knit - b109 3
+knit - f109 3
+knit - f108 3
+knit - b107 3
+knit - f107 3
+knit - f106 3
+knit - b105 3
+knit - f105 3
+knit - f104 3
+knit - b103 3
+knit - f103 3
+knit - f102 3
+knit - b101 3
+knit - f101 3
+knit - f100 3
+knit - b99 3
+knit - f99 3
+knit - f98 3
+knit - b97 3
+knit - f97 3
+knit - f96 3
+knit + b96 4
+knit + b98 4
+knit + b100 4
+knit + b102 4
+knit + b104 4
+knit + b106 4
+knit + b108 4
+knit + b110 4
+knit + b112 4
+knit + b114 4
+knit + b116 4
+knit + b118 4
+knit + b120 4
+knit + f121 4
+knit + b122 4
+knit + f124 4
+knit + b124 4
+knit + f125 4
+knit + b126 4
+knit + f127 4
+knit + b128 4
+knit + b130 4
+knit + b132 4
+knit + b134 4
+knit + b136 4
+knit + b138 4
+knit + b140 4
+knit + b142 4
+knit + b144 4
+knit + b146 4
+knit + b148 4
+knit + b150 4
+knit + b152 4
+knit + b154 4
+knit + b156 4
+knit + f96 3
+knit + b96 3
+knit + f97 3
+knit + f98 3
+knit + b98 3
+knit + f99 3
+knit + f100 3
+knit + b100 3
+knit + f101 3
+knit + f102 3
+knit + b102 3
+knit + f103 3
+knit + f104 3
+knit + b104 3
+knit + f105 3
+knit + f106 3
+knit + b106 3
+knit + f107 3
+knit + f108 3
+knit + b108 3
+knit + f109 3
+knit + f110 3
+knit + b110 3
+knit + f111 3
+knit + f112 3
+knit + b112 3
+knit + f113 3
+knit + f114 3
+knit + b114 3
+knit + f115 3
+knit + f116 3
+knit + b116 3
+knit + f117 3
+knit + f118 3
+knit + b118 3
+knit + f119 3
+knit + f120 3
+knit + b120 3
+knit + f121 3
+knit + b122 3
+knit + f124 3
+knit + b124 3
+knit + f126 3
+knit + b126 3
+knit + f127 3
+knit + b128 3
+knit + f129 3
+knit + f130 3
+knit + b130 3
+knit + f131 3
+knit + f132 3
+knit + b132 3
+knit + f133 3
+knit + f134 3
+knit + b134 3
+knit + f135 3
+knit + f136 3
+knit + b136 3
+knit + f137 3
+knit + f138 3
+knit + b138 3
+knit + f139 3
+knit + f140 3
+knit + b140 3
+knit + f141 3
+knit + f142 3
+knit + b142 3
+knit + f143 3
+knit + f144 3
+knit + b144 3
+knit + f145 3
+knit + f146 3
+knit + b146 3
+knit + f147 3
+knit + f148 3
+knit + b148 3
+knit + f149 3
+knit + f150 3
+knit + b150 3
+knit + f151 3
+knit + f152 3
+knit + b152 3
+knit + f153 3
+knit + f154 3
+knit + b154 3
+knit + f155 3
+knit + f156 3
+knit + b156 3
+knit + f157 3
+knit - b157 4
+knit - b155 4
+knit - b153 4
+knit - b151 4
+knit - b149 4
+knit - b147 4
+knit - b145 4
+knit - b143 4
+knit - b141 4
+knit - b139 4
+knit - b137 4
+knit - b135 4
+knit - b133 4
+knit - b131 4
+knit - b129 4
+knit - f128 4
+knit - b127 4
+knit - b125 4
+knit - f125 4
+knit - b123 4
+knit - f123 4
+knit - f122 4
+knit - b121 4
+knit - b119 4
+knit - b117 4
+knit - b115 4
+knit - b113 4
+knit - b111 4
+knit - b109 4
+knit - b107 4
+knit - b105 4
+knit - b103 4
+knit - b101 4
+knit - b99 4
+knit - b97 4
+knit - b157 3
+knit - f157 3
+knit - f156 3
+knit - b155 3
+knit - f155 3
+knit - f154 3
+knit - b153 3
+knit - f153 3
+knit - f152 3
+knit - b151 3
+knit - f151 3
+knit - f150 3
+knit - b149 3
+knit - f149 3
+knit - f148 3
+knit - b147 3
+knit - f147 3
+knit - f146 3
+knit - b145 3
+knit - f145 3
+knit - f144 3
+knit - b143 3
+knit - f143 3
+knit - f142 3
+knit - b141 3
+knit - f141 3
+knit - f140 3
+knit - b139 3
+knit - f139 3
+knit - f138 3
+knit - b137 3
+knit - f137 3
+knit - f136 3
+knit - b135 3
+knit - f135 3
+knit - f134 3
+knit - b133 3
+knit - f133 3
+knit - f132 3
+knit - b131 3
+knit - f131 3
+knit - f130 3
+knit - b129 3
+knit - f128 3
+knit - b127 3
+knit - b125 3
+knit - f124 3
+knit - b123 3
+knit - f122 3
+knit - b121 3
+knit - f121 3
+knit - f120 3
+knit - b119 3
+knit - f119 3
+knit - f118 3
+knit - b117 3
+knit - f117 3
+knit - f116 3
+knit - b115 3
+knit - f115 3
+knit - f114 3
+knit - b113 3
+knit - f113 3
+knit - f112 3
+knit - b111 3
+knit - f111 3
+knit - f110 3
+knit - b109 3
+knit - f109 3
+knit - f108 3
+knit - b107 3
+knit - f107 3
+knit - f106 3
+knit - b105 3
+knit - f105 3
+knit - f104 3
+knit - b103 3
+knit - f103 3
+knit - f102 3
+knit - b101 3
+knit - f101 3
+knit - f100 3
+knit - b99 3
+knit - f99 3
+knit - f98 3
+knit - b97 3
+knit - f97 3
+knit - f96 3
+knit + b96 4
+knit + b98 4
+knit + b100 4
+knit + b102 4
+knit + b104 4
+knit + b106 4
+knit + b108 4
+knit + b110 4
+knit + b112 4
+knit + b114 4
+knit + b116 4
+knit + b118 4
+knit + b120 4
+knit + b122 4
+knit + f123 4
+knit + b124 4
+knit + f125 4
+knit + f126 4
+knit + b126 4
+knit + f127 4
+knit + b128 4
+knit + f129 4
+knit + b130 4
+knit + b132 4
+knit + b134 4
+knit + b136 4
+knit + b138 4
+knit + b140 4
+knit + b142 4
+knit + b144 4
+knit + b146 4
+knit + b148 4
+knit + b150 4
+knit + b152 4
+knit + b154 4
+knit + b156 4
+knit + f96 3
+knit + b96 3
+knit + f97 3
+knit + f98 3
+knit + b98 3
+knit + f99 3
+knit + f100 3
+knit + b100 3
+knit + f101 3
+knit + f102 3
+knit + b102 3
+knit + f103 3
+knit + f104 3
+knit + b104 3
+knit + f105 3
+knit + f106 3
+knit + b106 3
+knit + f107 3
+knit + f108 3
+knit + b108 3
+knit + f109 3
+knit + f110 3
+knit + b110 3
+knit + f111 3
+knit + f112 3
+knit + b112 3
+knit + f113 3
+knit + f114 3
+knit + b114 3
+knit + f115 3
+knit + f116 3
+knit + b116 3
+knit + f117 3
+knit + f118 3
+knit + b118 3
+knit + f119 3
+knit + f120 3
+knit + b120 3
+knit + f122 3
+knit + b122 3
+knit + f123 3
+knit + b124 3
+knit + b126 3
+knit + b128 3
+knit + f129 3
+knit + f130 3
+knit + b130 3
+knit + f131 3
+knit + f132 3
+knit + b132 3
+knit + f133 3
+knit + f134 3
+knit + b134 3
+knit + f135 3
+knit + f136 3
+knit + b136 3
+knit + f137 3
+knit + f138 3
+knit + b138 3
+knit + f139 3
+knit + f140 3
+knit + b140 3
+knit + f141 3
+knit + f142 3
+knit + b142 3
+knit + f143 3
+knit + f144 3
+knit + b144 3
+knit + f145 3
+knit + f146 3
+knit + b146 3
+knit + f147 3
+knit + f148 3
+knit + b148 3
+knit + f149 3
+knit + f150 3
+knit + b150 3
+knit + f151 3
+knit + f152 3
+knit + b152 3
+knit + f153 3
+knit + f154 3
+knit + b154 3
+knit + f155 3
+knit + f156 3
+knit + b156 3
+knit + f157 3
+knit - b157 4
+knit - b155 4
+knit - b153 4
+knit - b151 4
+knit - b149 4
+knit - b147 4
+knit - b145 4
+knit - b143 4
+knit - b141 4
+knit - b139 4
+knit - b137 4
+knit - b135 4
+knit - b133 4
+knit - b131 4
+knit - b129 4
+knit - f128 4
+knit - b127 4
+knit - f127 4
+knit - f126 4
+knit - b125 4
+knit - f125 4
+knit - f124 4
+knit - b123 4
+knit - b121 4
+knit - f121 4
+knit - b119 4
+knit - b117 4
+knit - b115 4
+knit - b113 4
+knit - b111 4
+knit - b109 4
+knit - b107 4
+knit - b105 4
+knit - b103 4
+knit - b101 4
+knit - b99 4
+knit - b97 4
+knit - b157 3
+knit - f157 3
+knit - f156 3
+knit - b155 3
+knit - f155 3
+knit - f154 3
+knit - b153 3
+knit - f153 3
+knit - f152 3
+knit - b151 3
+knit - f151 3
+knit - f150 3
+knit - b149 3
+knit - f149 3
+knit - f148 3
+knit - b147 3
+knit - f147 3
+knit - f146 3
+knit - b145 3
+knit - f145 3
+knit - f144 3
+knit - b143 3
+knit - f143 3
+knit - f142 3
+knit - b141 3
+knit - f141 3
+knit - f140 3
+knit - b139 3
+knit - f139 3
+knit - f138 3
+knit - b137 3
+knit - f137 3
+knit - f136 3
+knit - b135 3
+knit - f135 3
+knit - f134 3
+knit - b133 3
+knit - f133 3
+knit - b131 3
+knit - f130 3
+knit - b129 3
+knit - f128 3
+knit - b127 3
+knit - f127 3
+knit - f126 3
+knit - b125 3
+knit - f125 3
+knit - b123 3
+knit - f123 3
+knit - b121 3
+knit - f120 3
+knit - b119 3
+knit - f119 3
+knit - f118 3
+knit - b117 3
+knit - f117 3
+knit - f116 3
+knit - b115 3
+knit - f115 3
+knit - f114 3
+knit - b113 3
+knit - f113 3
+knit - f112 3
+knit - b111 3
+knit - f111 3
+knit - f110 3
+knit - b109 3
+knit - f109 3
+knit - f108 3
+knit - b107 3
+knit - f107 3
+knit - f106 3
+knit - b105 3
+knit - f105 3
+knit - f104 3
+knit - b103 3
+knit - f103 3
+knit - f102 3
+knit - b101 3
+knit - f101 3
+knit - f100 3
+knit - b99 3
+knit - f99 3
+knit - f98 3
+knit - b97 3
+knit - f97 3
+knit - f96 3
+knit + b96 4
+knit + b98 4
+knit + b100 4
+knit + b102 4
+knit + b104 4
+knit + b106 4
+knit + b108 4
+knit + b110 4
+knit + b112 4
+knit + b114 4
+knit + b116 4
+knit + b118 4
+knit + b120 4
+knit + f121 4
+knit + f122 4
+knit + b122 4
+knit + f124 4
+knit + b124 4
+knit + b126 4
+knit + b128 4
+knit + f129 4
+knit + b130 4
+knit + f131 4
+knit + f132 4
+knit + b132 4
+knit + b134 4
+knit + b136 4
+knit + b138 4
+knit + b140 4
+knit + b142 4
+knit + b144 4
+knit + b146 4
+knit + b148 4
+knit + b150 4
+knit + b152 4
+knit + b154 4
+knit + b156 4
+knit + f96 3
+knit + b96 3
+knit + f97 3
+knit + f98 3
+knit + b98 3
+knit + f99 3
+knit + f100 3
+knit + b100 3
+knit + f101 3
+knit + f102 3
+knit + b102 3
+knit + f103 3
+knit + f104 3
+knit + b104 3
+knit + f105 3
+knit + f106 3
+knit + b106 3
+knit + f107 3
+knit + f108 3
+knit + b108 3
+knit + f109 3
+knit + f110 3
+knit + b110 3
+knit + f111 3
+knit + f112 3
+knit + b112 3
+knit + f113 3
+knit + f114 3
+knit + b114 3
+knit + f115 3
+knit + f116 3
+knit + b116 3
+knit + f117 3
+knit + f118 3
+knit + b118 3
+knit + f119 3
+knit + f120 3
+knit + b120 3
+knit + b122 3
+knit + f123 3
+knit + f124 3
+knit + b124 3
+knit + f125 3
+knit + b126 3
+knit + b128 3
+knit + b130 3
+knit + f132 3
+knit + b132 3
+knit + f133 3
+knit + f134 3
+knit + b134 3
+knit + f135 3
+knit + f136 3
+knit + b136 3
+knit + f137 3
+knit + f138 3
+knit + b138 3
+knit + f139 3
+knit + f140 3
+knit + b140 3
+knit + f141 3
+knit + f142 3
+knit + b142 3
+knit + f143 3
+knit + f144 3
+knit + b144 3
+knit + f145 3
+knit + f146 3
+knit + b146 3
+knit + f147 3
+knit + f148 3
+knit + b148 3
+knit + f149 3
+knit + f150 3
+knit + b150 3
+knit + f151 3
+knit + f152 3
+knit + b152 3
+knit + f153 3
+knit + f154 3
+knit + b154 3
+knit + f155 3
+knit + f156 3
+knit + b156 3
+knit + f157 3
+knit - b157 4
+knit - b155 4
+knit - b153 4
+knit - b151 4
+knit - b149 4
+knit - b147 4
+knit - b145 4
+knit - b143 4
+knit - b141 4
+knit - b139 4
+knit - b137 4
+knit - b135 4
+knit - b133 4
+knit - b131 4
+knit - f131 4
+knit - f130 4
+knit - b129 4
+knit - f129 4
+knit - f128 4
+knit - b127 4
+knit - f127 4
+knit - f126 4
+knit - b125 4
+knit - b123 4
+knit - f122 4
+knit - b121 4
+knit - f121 4
+knit - b119 4
+knit - b117 4
+knit - b115 4
+knit - b113 4
+knit - b111 4
+knit - b109 4
+knit - b107 4
+knit - b105 4
+knit - b103 4
+knit - b101 4
+knit - b99 4
+knit - b97 4
+knit - b157 3
+knit - f157 3
+knit - f156 3
+knit - b155 3
+knit - f155 3
+knit - f154 3
+knit - b153 3
+knit - f153 3
+knit - f152 3
+knit - b151 3
+knit - f151 3
+knit - f150 3
+knit - b149 3
+knit - f149 3
+knit - f148 3
+knit - b147 3
+knit - f147 3
+knit - f146 3
+knit - b145 3
+knit - f145 3
+knit - f144 3
+knit - b143 3
+knit - f143 3
+knit - f142 3
+knit - b141 3
+knit - f141 3
+knit - f140 3
+knit - b139 3
+knit - f139 3
+knit - f138 3
+knit - b137 3
+knit - f137 3
+knit - f136 3
+knit - b135 3
+knit - f135 3
+knit - f134 3
+knit - b133 3
+knit - f133 3
+knit - f132 3
+knit - b131 3
+knit - f131 3
+knit - b129 3
+knit - f128 3
+knit - b127 3
+knit - b125 3
+knit - f125 3
+knit - f124 3
+knit - b123 3
+knit - f123 3
+knit - f122 3
+knit - b121 3
+knit - f121 3
+knit - f120 3
+knit - b119 3
+knit - f119 3
+knit - f118 3
+knit - b117 3
+knit - f117 3
+knit - f116 3
+knit - b115 3
+knit - f115 3
+knit - f114 3
+knit - b113 3
+knit - f113 3
+knit - f112 3
+knit - b111 3
+knit - f111 3
+knit - f110 3
+knit - b109 3
+knit - f109 3
+knit - f108 3
+knit - b107 3
+knit - f107 3
+knit - f106 3
+knit - b105 3
+knit - f105 3
+knit - f104 3
+knit - b103 3
+knit - f103 3
+knit - f102 3
+knit - b101 3
+knit - f101 3
+knit - f100 3
+knit - b99 3
+knit - f99 3
+knit - f98 3
+knit - b97 3
+knit - f97 3
+knit - f96 3
+knit + b96 4
+knit + b98 4
+knit + b100 4
+knit + b102 4
+knit + b104 4
+knit + b106 4
+knit + b108 4
+knit + b110 4
+knit + b112 4
+knit + b114 4
+knit + b116 4
+knit + b118 4
+knit + b120 4
+knit + b122 4
+knit + b124 4
+knit + f126 4
+knit + b126 4
+knit + f127 4
+knit + b128 4
+knit + f129 4
+knit + f130 4
+knit + b130 4
+knit + b132 4
+knit + b134 4
+knit + b136 4
+knit + b138 4
+knit + b140 4
+knit + b142 4
+knit + b144 4
+knit + b146 4
+knit + b148 4
+knit + b150 4
+knit + b152 4
+knit + b154 4
+knit + b156 4
+knit + f96 3
+knit + b96 3
+knit + f97 3
+knit + f98 3
+knit + b98 3
+knit + f99 3
+knit + f100 3
+knit + b100 3
+knit + f101 3
+knit + f102 3
+knit + b102 3
+knit + f103 3
+knit + f104 3
+knit + b104 3
+knit + f105 3
+knit + f106 3
+knit + b106 3
+knit + f107 3
+knit + f108 3
+knit + b108 3
+knit + f109 3
+knit + f110 3
+knit + b110 3
+knit + f111 3
+knit + f112 3
+knit + b112 3
+knit + f113 3
+knit + f114 3
+knit + b114 3
+knit + f115 3
+knit + f116 3
+knit + b116 3
+knit + f117 3
+knit + f118 3
+knit + b118 3
+knit + f119 3
+knit + f120 3
+knit + b120 3
+knit + f121 3
+knit + f122 3
+knit + b122 3
+knit + f123 3
+knit + f124 3
+knit + b124 3
+knit + f125 3
+knit + f126 3
+knit + b126 3
+knit + f127 3
+knit + f128 3
+knit + b128 3
+knit + f129 3
+knit + f130 3
+knit + b130 3
+knit + f131 3
+knit + f132 3
+knit + b132 3
+knit + f133 3
+knit + f134 3
+knit + b134 3
+knit + f135 3
+knit + f136 3
+knit + b136 3
+knit + f137 3
+knit + f138 3
+knit + b138 3
+knit + f139 3
+knit + f140 3
+knit + b140 3
+knit + f141 3
+knit + f142 3
+knit + b142 3
+knit + f143 3
+knit + f144 3
+knit + b144 3
+knit + f145 3
+knit + f146 3
+knit + b146 3
+knit + f147 3
+knit + f148 3
+knit + b148 3
+knit + f149 3
+knit + f150 3
+knit + b150 3
+knit + f151 3
+knit + f152 3
+knit + b152 3
+knit + f153 3
+knit + f154 3
+knit + b154 3
+knit + f155 3
+knit + f156 3
+knit + b156 3
+knit + f157 3
+knit - b157 4
+knit - b155 4
+knit - b153 4
+knit - b151 4
+knit - b149 4
+knit - b147 4
+knit - b145 4
+knit - b143 4
+knit - b141 4
+knit - b139 4
+knit - b137 4
+knit - b135 4
+knit - b133 4
+knit - b131 4
+knit - b129 4
+knit - b127 4
+knit - b125 4
+knit - b123 4
+knit - b121 4
+knit - b119 4
+knit - b117 4
+knit - b115 4
+knit - b113 4
+knit - b111 4
+knit - b109 4
+knit - b107 4
+knit - b105 4
+knit - b103 4
+knit - b101 4
+knit - b99 4
+knit - b97 4
+knit - b157 3
+knit - f157 3
+knit - f156 3
+knit - b155 3
+knit - f155 3
+knit - f154 3
+knit - b153 3
+knit - f153 3
+knit - f152 3
+knit - b151 3
+knit - f151 3
+knit - f150 3
+knit - b149 3
+knit - f149 3
+knit - f148 3
+knit - b147 3
+knit - f147 3
+knit - f146 3
+knit - b145 3
+knit - f145 3
+knit - f144 3
+knit - b143 3
+knit - f143 3
+knit - f142 3
+knit - b141 3
+knit - f141 3
+knit - f140 3
+knit - b139 3
+knit - f139 3
+knit - f138 3
+knit - b137 3
+knit - f137 3
+knit - f136 3
+knit - b135 3
+knit - f135 3
+knit - f134 3
+knit - b133 3
+knit - f133 3
+knit - f132 3
+knit - b131 3
+knit - f131 3
+knit - f130 3
+knit - b129 3
+knit - f129 3
+knit - f128 3
+knit - b127 3
+knit - f127 3
+knit - f126 3
+knit - b125 3
+knit - f125 3
+knit - f124 3
+knit - b123 3
+knit - f123 3
+knit - f122 3
+knit - b121 3
+knit - f121 3
+knit - f120 3
+knit - b119 3
+knit - f119 3
+knit - f118 3
+knit - b117 3
+knit - f117 3
+knit - f116 3
+knit - b115 3
+knit - f115 3
+knit - f114 3
+knit - b113 3
+knit - f113 3
+knit - f112 3
+knit - b111 3
+knit - f111 3
+knit - f110 3
+knit - b109 3
+knit - f109 3
+knit - f108 3
+knit - b107 3
+knit - f107 3
+knit - f106 3
+knit - b105 3
+knit - f105 3
+knit - f104 3
+knit - b103 3
+knit - f103 3
+knit - f102 3
+knit - b101 3
+knit - f101 3
+knit - f100 3
+knit - b99 3
+knit - f99 3
+knit - f98 3
+knit - b97 3
+knit - f97 3
+knit - f96 3
+knit + b96 4
+knit + b98 4
+knit + b100 4
+knit + b102 4
+knit + b104 4
+knit + b106 4
+knit + b108 4
+knit + b110 4
+knit + b112 4
+knit + b114 4
+knit + b116 4
+knit + b118 4
+knit + b120 4
+knit + b122 4
+knit + b124 4
+knit + b126 4
+knit + b128 4
+knit + b130 4
+knit + b132 4
+knit + b134 4
+knit + b136 4
+knit + b138 4
+knit + b140 4
+knit + b142 4
+knit + b144 4
+knit + b146 4
+knit + b148 4
+knit + b150 4
+knit + b152 4
+knit + b154 4
+knit + b156 4
+rack 0
+x-speed-number 120
+x-roller-advance 0
+xfer b96 f96
+xfer b97 f97
+xfer b98 f98
+xfer b99 f99
+xfer b100 f100
+xfer b101 f101
+xfer b102 f102
+xfer b103 f103
+xfer b104 f104
+xfer b105 f105
+xfer b106 f106
+xfer b107 f107
+xfer b108 f108
+xfer b109 f109
+xfer b110 f110
+xfer b111 f111
+xfer b112 f112
+xfer b113 f113
+xfer b114 f114
+xfer b115 f115
+xfer b116 f116
+xfer b117 f117
+xfer b118 f118
+xfer b119 f119
+xfer b120 f120
+xfer b121 f121
+xfer b122 f122
+xfer b123 f123
+xfer b124 f124
+xfer b125 f125
+xfer b126 f126
+xfer b127 f127
+xfer b128 f128
+xfer b129 f129
+xfer b130 f130
+xfer b131 f131
+xfer b132 f132
+xfer b133 f133
+xfer b134 f134
+xfer b135 f135
+xfer b136 f136
+xfer b137 f137
+xfer b138 f138
+xfer b139 f139
+xfer b140 f140
+xfer b141 f141
+xfer b142 f142
+xfer b143 f143
+xfer b144 f144
+xfer b145 f145
+xfer b146 f146
+xfer b147 f147
+xfer b148 f148
+xfer b149 f149
+xfer b150 f150
+xfer b151 f151
+xfer b152 f152
+xfer b153 f153
+xfer b154 f154
+xfer b155 f155
+xfer b156 f156
+xfer b157 f157
+x-speed-number 200
+x-roller-advance 450
+x-stitch-number 9
+knit + f96 3
+knit + f97 3
+knit + f98 3
+knit + f99 3
+knit + f100 3
+knit + f101 3
+knit + f102 3
+knit + f103 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit + f150 3
+knit + f151 3
+knit + f152 3
+knit + f153 3
+knit + f154 3
+knit + f155 3
+knit + f156 3
+knit + f157 3
+; --- 2x2 RIB CROWN (eight-line) ---
+x-speed-number 150
+x-roller-advance 0
+rack -2
+xfer f115 b117
+xfer f116 b118
+xfer f117 b119
+xfer f118 b120
+xfer f119 b121
+xfer f120 b122
+xfer f121 b123
+xfer f122 b124
+rack -4
+xfer f96 b100
+xfer f97 b101
+xfer f98 b102
+xfer f99 b103
+xfer f100 b104
+xfer f101 b105
+xfer f102 b106
+xfer f103 b107
+xfer f104 b108
+xfer f105 b109
+xfer f106 b110
+xfer f107 b111
+xfer f108 b112
+xfer f109 b113
+xfer f110 b114
+xfer f111 b115
+xfer f112 b116
+xfer f113 b117
+xfer f114 b118
+rack 0
+xfer b100 f100
+xfer b101 f101
+xfer b102 f102
+xfer b103 f103
+xfer b104 f104
+xfer b105 f105
+xfer b106 f106
+xfer b107 f107
+xfer b108 f108
+xfer b109 f109
+xfer b110 f110
+xfer b111 f111
+xfer b112 f112
+xfer b113 f113
+xfer b114 f114
+xfer b115 f115
+xfer b116 f116
+xfer b117 f117
+xfer b118 f118
+xfer b119 f119
+xfer b120 f120
+xfer b121 f121
+xfer b122 f122
+xfer b123 f123
+xfer b124 f124
+rack -2
+xfer f103 b105
+xfer f104 b106
+xfer f105 b107
+xfer f106 b108
+xfer f107 b109
+xfer f108 b110
+xfer f109 b111
+xfer f110 b112
+rack -4
+xfer f100 b104
+xfer f101 b105
+xfer f102 b106
+rack 0
+xfer b104 f104
+xfer b105 f105
+xfer b106 f106
+xfer b107 f107
+xfer b108 f108
+xfer b109 f109
+xfer b110 f110
+xfer b111 f111
+xfer b112 f112
+rack 2
+xfer f131 b129
+xfer f132 b130
+xfer f133 b131
+xfer f134 b132
+xfer f135 b133
+xfer f136 b134
+xfer f137 b135
+xfer f138 b136
+rack 4
+xfer f139 b135
+xfer f140 b136
+xfer f141 b137
+xfer f142 b138
+xfer f143 b139
+xfer f144 b140
+xfer f145 b141
+xfer f146 b142
+xfer f147 b143
+xfer f148 b144
+xfer f149 b145
+xfer f150 b146
+xfer f151 b147
+xfer f152 b148
+xfer f153 b149
+xfer f154 b150
+xfer f155 b151
+xfer f156 b152
+xfer f157 b153
+rack 0
+xfer b129 f129
+xfer b130 f130
+xfer b131 f131
+xfer b132 f132
+xfer b133 f133
+xfer b134 f134
+xfer b135 f135
+xfer b136 f136
+xfer b137 f137
+xfer b138 f138
+xfer b139 f139
+xfer b140 f140
+xfer b141 f141
+xfer b142 f142
+xfer b143 f143
+xfer b144 f144
+xfer b145 f145
+xfer b146 f146
+xfer b147 f147
+xfer b148 f148
+xfer b149 f149
+xfer b150 f150
+xfer b151 f151
+xfer b152 f152
+xfer b153 f153
+rack 2
+xfer f143 b141
+xfer f144 b142
+xfer f145 b143
+xfer f146 b144
+xfer f147 b145
+xfer f148 b146
+xfer f149 b147
+xfer f150 b148
+rack 4
+xfer f151 b147
+xfer f152 b148
+xfer f153 b149
+rack 0
+xfer b141 f141
+xfer b142 f142
+xfer b143 f143
+xfer b144 f144
+xfer b145 f145
+xfer b146 f146
+xfer b147 f147
+xfer b148 f148
+xfer b149 f149
+x-speed-number 300
+x-roller-advance 450
+x-stitch-number 6
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+x-speed-number 100
+x-roller-advance 300
+x-stitch-number 5
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+x-speed-number 250
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+knit - f149 3
+knit - f148 3
+knit - f147 3
+knit - f146 3
+knit - f145 3
+knit - f144 3
+knit - f143 3
+knit - f142 3
+knit - f141 3
+knit - f140 3
+knit - f139 3
+knit - f138 3
+knit - f137 3
+knit - f136 3
+knit - f135 3
+knit - f134 3
+knit - f133 3
+knit - f132 3
+knit - f131 3
+knit - f130 3
+knit - f129 3
+knit - f128 3
+knit - f127 3
+knit - f126 3
+knit - f125 3
+knit - f124 3
+knit - f123 3
+knit - f122 3
+knit - f121 3
+knit - f120 3
+knit - f119 3
+knit - f118 3
+knit - f117 3
+knit - f116 3
+knit - f115 3
+knit - f114 3
+knit - f113 3
+knit - f112 3
+knit - f111 3
+knit - f110 3
+knit - f109 3
+knit - f108 3
+knit - f107 3
+knit - f106 3
+knit - f105 3
+knit - f104 3
+knit + f104 3
+knit + f105 3
+knit + f106 3
+knit + f107 3
+knit + f108 3
+knit + f109 3
+knit + f110 3
+knit + f111 3
+knit + f112 3
+knit + f113 3
+knit + f114 3
+knit + f115 3
+knit + f116 3
+knit + f117 3
+knit + f118 3
+knit + f119 3
+knit + f120 3
+knit + f121 3
+knit + f122 3
+knit + f123 3
+knit + f124 3
+knit + f125 3
+knit + f126 3
+knit + f127 3
+knit + f128 3
+knit + f129 3
+knit + f130 3
+knit + f131 3
+knit + f132 3
+knit + f133 3
+knit + f134 3
+knit + f135 3
+knit + f136 3
+knit + f137 3
+knit + f138 3
+knit + f139 3
+knit + f140 3
+knit + f141 3
+knit + f142 3
+knit + f143 3
+knit + f144 3
+knit + f145 3
+knit + f146 3
+knit + f147 3
+knit + f148 3
+knit + f149 3
+x-roller-advance 0
+x-stitch-number 0
+drop f104
+drop f105
+drop f106
+drop f107
+drop f108
+drop f109
+drop f110
+drop f111
+drop f112
+drop f113
+drop f114
+drop f115
+drop f116
+drop f117
+drop f118
+drop f119
+drop f120
+drop f121
+drop f122
+drop f123
+drop f124
+drop f125
+drop f126
+drop f127
+drop f128
+drop f129
+drop f130
+drop f131
+drop f132
+drop f133
+drop f134
+drop f135
+drop f136
+drop f137
+drop f138
+drop f139
+drop f140
+drop f141
+drop f142
+drop f143
+drop f144
+drop f145
+drop f146
+drop f147
+drop f148
+drop f149
+out 1
+out 3
+out 4
+out 6

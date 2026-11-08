@@ -174,8 +174,20 @@ describe('fairisle.kc byte-parity (recipe path)', () => {
     expect(stitches.identicalPasses).toBe(280);
   });
 
-  it('Studio\'s Customist-matched fairisle input compiles to the same .kc as the recipe path', () => {
+  it('Studio\'s Customist-matched fairisle input is the recipe path plus Studio\'s start', () => {
     const input = buildCustomistMatchedCompileInputV1({ technique: 'fairisle', chart, keyPalette: PALETTE, yarnBindings: BINDINGS });
-    expect(toKc(compileChartToKnitout(input))).toBe(recipeKc);
+    const intro = input.fairisleCarrierIntro
+    if (typeof intro !== 'object') throw new Error('Studio fairisle input has no carrier intro')
+    expect(intro).toMatchObject({ catchNeedles: 20, firstRowRoller: 100 })
+    // Without Studio's start it is exactly the recipe path.
+    const { catchNeedles: _catch, firstRowRoller: _roller, ...reference } = intro
+    expect(toKc(compileChartToKnitout({ ...input, fairisleCarrierIntro: reference }))).toBe(recipeKc)
+    // With it: each of the four yarns (C6, C4, C3, C1) knits out and back over the piece's leftmost 20 needles first.
+    const parsed = parseKCodeDocument(toKc(compileChartToKnitout(input)), { profile: KNITERATE_7GG_KCODE_PROFILE_V2, dialect: 'knitout-vendor', strict: true })
+    if (!parsed.ok) throw new Error('Studio fairisle is not strict KCode')
+    const passes = projectKCodeMachineTrace(parsed.document, KNITERATE_7GG_KCODE_PROFILE_V2).passes
+    const knitting = passes.filter((pass) => pass.actions.some((action) => action.kind === 'knit'))
+    const catches = knitting.filter((pass) => pass.actions.filter((action) => action.kind === 'knit').length === 20)
+    expect(catches.map((pass) => pass.carrier)).toEqual(['6', '6', '4', '4', '3', '3', '1', '1'])
   });
 });

@@ -93,7 +93,8 @@ describe('authored CLI command receipts', () => {
     const described = cli(['describe', projectPath]);
     expect(described.status).toBe(0);
     expect(described.receipt.readiness).toMatchObject({ ready: true, blockers: [] });
-    expect(described.receipt.readiness.operatorChecks.join('\n')).toContain('Set carrier spacing to 2 on the machine');
+    // The file sets carrier spacing itself (x-carrier-spacing); the machine has no such setting to ask for.
+    expect(described.receipt.readiness.operatorChecks.join('\n')).not.toMatch(/carrier spacing|stopping distance/);
     expect(described.receipt.summary).toContain('Readiness: READY');
     expect(described.receipt.summary.join('\n')).toContain('Panel: 39 st × 41 rows');
     for (const view of ['chart', 'back', 'speed']) {
@@ -114,7 +115,10 @@ describe('authored CLI command receipts', () => {
   it('creates a beanie project sized from head, ease and gauge, and exports it with instructions', { timeout: 120_000 }, () => {
     const directory = mkdtempSync(resolve(tmpdir(), 'kniterate-studio-cli-'));
     const projectPath = resolve(directory, 'hat.json');
+    // A typed gauge is a guess unless it says it was measured.
     expect(cli(['new', '--object', 'beanie', '--head-cm', '56', '--body-cm', '18', '--gauge', '30,32', '--color', 'Black=#111111', '-o', projectPath]).status).toBe(0);
+    expect(cli(['plan', projectPath]).receipt.findings).toContainEqual(expect.objectContaining({ rule: 'gauge-assumed' }));
+    expect(cli(['new', '--object', 'beanie', '--head-cm', '56', '--body-cm', '18', '--gauge', '30,32', '--gauge-source', 'measured', '--color', 'Black=#111111', '-o', projectPath]).status).toBe(0);
     const plan = cli(['plan', projectPath]).receipt;
     expect(plan).toMatchObject({
       piece: 'beanie',
@@ -141,7 +145,7 @@ describe('authored CLI command receipts', () => {
   it('builds a folded-cuff toque with a placed motif and reports floats honestly', { timeout: 120_000 }, () => {
     const directory = mkdtempSync(resolve(tmpdir(), 'kniterate-studio-cli-'));
     const projectPath = resolve(directory, 'toque.json');
-    expect(cli(['new', '--object', 'beanie', '--head-cm', '56', '--body-cm', '13', '--gauge', '26,34', '--cuff-cm', '7', '--fold', '--rib-gauge', '30,32',
+    expect(cli(['new', '--object', 'beanie', '--head-cm', '56', '--body-cm', '13', '--gauge', '26,34', '--cuff-cm', '7', '--fold', '--rib-gauge', '30,32', '--gauge-source', 'measured',
       '--color', 'Black=#111111', '--accent', 'White=#F2F2F2', '-o', projectPath]).status).toBe(0);
     expect(cli(['plan', projectPath]).receipt).toMatchObject({
       piece: 'beanie', stitches: { value: 134 }, rows: { value: 89 },

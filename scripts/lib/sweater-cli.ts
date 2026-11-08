@@ -354,9 +354,9 @@ export async function sweaterCommand(args: readonly string[], io: SweaterCliIo):
       const yarnValue = yarn(parsed);
       const source = choice(parsed, '--gauge-source', ['measured', 'assumed'] as const);
       const body = gauge(parsed, '--gauge');
-      if (body || (source && !parsed.options.has('--rib-gauge'))) { extra.push({ kind: 'set-gauge', gauge: { ...(body ?? before.gauge), source: source ?? before.gauge.source } }); labels.push(`body gauge ${(body ?? before.gauge).stitchesPer10cm}/${(body ?? before.gauge).rowsPer10cm}`); }
+      if (body || (source && !parsed.options.has('--rib-gauge'))) { extra.push({ kind: 'set-gauge', gauge: { ...(body ?? before.gauge), source: source ?? (body ? 'assumed' : before.gauge.source) } }); labels.push(`body gauge ${(body ?? before.gauge).stitchesPer10cm}/${(body ?? before.gauge).rowsPer10cm}`); }
       const ribGauge = gauge(parsed, '--rib-gauge');
-      if (ribGauge || (source && parsed.options.has('--rib-gauge'))) { object.ribGauge = { ...(ribGauge ?? before.ribGauge), source: source ?? before.ribGauge.source }; labels.push('rib gauge'); }
+      if (ribGauge || (source && parsed.options.has('--rib-gauge'))) { object.ribGauge = { ...(ribGauge ?? before.ribGauge), source: source ?? (ribGauge ? 'assumed' : before.ribGauge.source) }; labels.push('rib gauge'); }
       // A new style or size redraws the shapes: hand-shaped edges reset, as in the browser.
       if ((silhouette || size || fit) && object.shapes) { delete object.shapes; labels.push('your shapes reset'); }
       const edits: ProjectEdit[] = [];

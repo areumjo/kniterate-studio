@@ -33,7 +33,7 @@ export const REFERENCES: readonly Reference[] = [
   { id: 'color-swatch-bindoff', group: 'colorwork', waste: '5', strategy: { technique: 'fairisle', floatLimit: 30 }, gaps: ['reference-specific cast-on and finish'] },
   { id: 'dbj', group: 'colorwork', waste: '6', strategy: { technique: 'birdseye', floatLimit: 30, birdseyeMode: 'full' }, gaps: ['full-needle jacquard backing (rack 0.5)', 'jacquard border closing'] },
   { id: 'fox-baby-beanie', group: 'rib + beanie', waste: '6', gaps: ['rib', 'rib-to-jersey transfers', 'decrease transfers', 'colorwork within a shaped piece'] },
-  { id: '2x2-rib-beanie', group: 'rib + beanie', waste: '6', generator: 'customist-rib-beanie', gaps: ['crown generalised beyond 194 needles'] },
+  { id: '2x2-rib-beanie', group: 'rib + beanie', waste: '6', generator: 'customist-rib-beanie', gaps: ['crown generalised beyond 194 needles', 'Studio knits the fairisle start and a waste top instead (issue #9 run 3); the generator\'s reference mode reproduces this file exactly'] },
   { id: 'front', group: 'sweater panel', waste: '6', gaps: ['rib hem', 'increase/decrease transfers', 'neckline split', 'partial bind-off'] },
   { id: 'back', group: 'sweater panel', waste: '6', gaps: ['rib hem', 'increase/decrease transfers', 'partial bind-off'] },
   { id: 'sleeves', group: 'sweater panel', waste: '6', gaps: ['rib cuff', 'increase transfers (racks ±2)', 'sleeve-cap decreases'] },

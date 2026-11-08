@@ -29,6 +29,13 @@ export function ribBed(offset: number): 'f' | 'b' {
   return residue === 1 || residue === 2 ? 'f' : 'b'
 }
 
+/**
+ * The smallest stitch size Studio's crowns knit a jersey (front-only) row
+ * at: Kniterate's single-jersey setting for Nm7. The reference's top rows
+ * knit at 5, and the knitted crown came out tight and stiff (issue #9 run 3).
+ */
+export const STUDIO_CROWN_JERSEY_STITCH_V1 = 6
+
 export const EIGHT_LINE_CROWN_V1 = Object.freeze({
   lines: 8,
   stepsPerGroup: 4,

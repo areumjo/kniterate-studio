@@ -19,8 +19,27 @@ Why this order:
 
 **A. Now: knit what exists, make it easier**
 
-- [ ] Knit the waiting beanie trial candidate as a development run and
+- [x] Knit the waiting beanie trial candidate as a development run and
   register the result, pass or fail ([`V1-PHYSICAL-TRIAL.md`](./V1-PHYSICAL-TRIAL.md)).
+  Knitted as issue #9's mini bird toque; it failed at the start and is
+  registered. The flat start, the beanie top and crown settings were fixed
+  from it (STATUS, 2026-11-07).
+- [ ] Knit a new mini toque from the fixed start, with a larger motif and a
+  taller body, and Kniterate's `fairisle.kc` again in run 2's yarns; register both.
+  (Handoff 2 on issue #9: `output/machine-handoff-2`, from 687e45b.)
+- [ ] After handoff 2's results, file changes from Kniterate's own practice,
+  checked against our files first:
+  - spread crown decreases over rows (Kniterate's beanie: 4 per row; the
+    mini toque makes 16 in one), and knit the last crown row one stitch
+    size larger and the first top-waste row one smaller (Kniterate blog,
+    "Decreases in depth", "3 ways of finishing");
+  - for sweater pieces: Kniterate's bind-off settings and roller steps, two
+    knit rows before a bind-off, armholes not bound off on the same row
+    (Kniterate blog, staff).
+  Owners' tips to validate before adopting: cutting C1/C6 after the cast-on
+  and re-catching C6 for a waste top (EcoKnitware); transferring edge needles
+  first and by pass direction (CMU converter issues 5 and 35; needs a
+  converter change).
 - [ ] Give the swatch one place: download and enter it under Your swatch, and
   have the status panel's button go there.
 - [ ] Start the left panel folded except Size; a Show or fix button opens the

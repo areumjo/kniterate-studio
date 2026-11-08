@@ -173,10 +173,18 @@ export function readKnitFile(kcode: KCodeArtifact, options: { zoneOfRow: (row: n
     const row = rowOf(index);
     if (row !== null) section.rows = section.rows ? { from: Math.min(section.rows.from, row), to: Math.max(section.rows.to, row) } : { from: row, to: row };
   });
-  // A beanie's crown ends in straight rows that come off open and are gathered by hand: their own section.
+  // A beanie's crown ends in straight rows that are gathered by hand, held by waste yarn on top: each its own section.
   const crown = kind === 'beanie' ? sections.findIndex((section) => section.kind === 'top') : -1;
   if (crown !== -1) {
     const section = sections[crown]!;
+    let wasteFrom = -1;
+    for (let index = section.passes.from; index <= section.passes.to && wasteFrom === -1; index++) if (trace.passes[index]!.carrier === carriers.waste && knits(index)) wasteFrom = index;
+    if (wasteFrom > section.passes.from) {
+      sections.splice(crown + 1, 0, { kind: 'top', label: '', carriers: [carriers.waste], joins: [], passes: { from: wasteFrom, to: section.passes.to }, rows: null });
+      section.passes.to = wasteFrom - 1;
+      section.carriers = section.carriers.filter((carrier) => carrier !== carriers.waste);
+      for (let index = wasteFrom; index < passSection.length; index++) passSection[index] = passSection[index]! + 1;
+    }
     const knitted = (index: number) => trace.passes[index]!.actions.flatMap((action) => (action.kind === 'knit' ? [`${action.at.bed}${action.at.traceCoordinate}`] : [])).sort().join(' ');
     const knitPasses: number[] = [];
     for (let index = section.passes.from; index <= section.passes.to; index++) if (knitted(index) !== '') knitPasses.push(index);
@@ -335,7 +343,7 @@ function sectionLabel(section: KnitFileSection, carriers: KnitFileCarriers, kind
     }
     case 'body': return kind === 'panel' ? 'Pattern' : 'Body';
     case 'shoulders': return carriers.second ? `Neck split: left shoulder on C${carriers.main}, right on C${carriers.second}` : 'Shoulders';
-    case 'top': return kind === 'beanie' ? (nextTop() === 0 ? 'Crown' : 'Gathered top') : section.carriers.includes(carriers.waste) ? 'Waste yarn on top' : 'Bind-off';
+    case 'top': return section.carriers.includes(carriers.waste) ? 'Waste yarn on top' : kind === 'beanie' ? (nextTop() === 0 ? 'Crown' : 'Gathered top') : 'Bind-off';
     case 'carriers-out': return 'Carriers out';
   }
 }

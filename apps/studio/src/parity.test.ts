@@ -28,12 +28,13 @@ describe('Customist parity verdict', () => {
     expect(result.candidateSha256).not.toBe(result.referenceSha256);
   });
 
-  it('scores the actual 64x50 trial with C4/C3 and discloses its six differing passes', { timeout: 30_000 }, async () => {
+  it('scores the actual 64x50 trial with C4/C3, eight passes longer for Studio’s yarn catch', { timeout: 30_000 }, async () => {
+    // The recipe path without Studio's start pins the six differing passes (fairisle-parity.test.ts).
     const result = await scoreReference(REFERENCES.find((item) => item.id === 'fairisle')!);
     expect(result).toMatchObject({
       status: 'partial', verdict: 'Surface-proven',
       input: { kind: 'checked-in-chart', width: 64, height: 50, droppedPartialRows: 0 },
-      stitches: { actualPasses: 286, expectedPasses: 286, identicalPasses: 280, offset: 0, differingPassIndices: [116, 149, 173, 197, 221, 245] },
+      stitches: { actualPasses: 294, expectedPasses: 286 },
       machine: { identical: false },
       faces: { carrierMap: { '3': '3', '4': '4' }, referenceBoundary: 'after-last-draw' },
     });
@@ -43,11 +44,13 @@ describe('Customist parity verdict', () => {
     expect(await scoreReference(REFERENCES.find((item) => item.id === 'fox-baby-beanie')!)).toMatchObject({ status: 'unsupported' });
   });
 
-  it('reproduces the 2x2 rib beanie exactly through its construction generator', { timeout: 60_000 }, async () => {
+  it('matches the 2x2 rib beanie’s construction, with Studio’s own start and top', { timeout: 60_000 }, async () => {
+    // Authored beanies knit the knit-tested fairisle start and a waste top (issue #9 run 3);
+    // the generator's reference mode still reproduces the file exactly (customist-rib-beanie.test.ts).
     expect(await scoreReference(REFERENCES.find((item) => item.id === '2x2-rib-beanie')!)).toMatchObject({
-      status: 'reproduced', verdict: 'Surface-proven',
-      machine: { identical: true, deltaCount: 0 },
-      stitches: { expectedPasses: 530, actualPasses: 530, identicalPasses: 530 },
+      status: 'partial', verdict: 'Surface-proven',
+      machine: { identical: false },
+      stitches: { expectedPasses: 530, actualPasses: 542 },
     });
   });
 });

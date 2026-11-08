@@ -15,6 +15,7 @@ export const CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES: RecipeOverrides = Object.f
   body: {
     stitchNumber: 7,
     speedNumber: 400,
+    // dbj.kc's; Studio knits STUDIO_BIRDSEYE_BODY_ROLLER_V1 unless a project sets its own.
     rollerAdvance: 450,
     xferStitchNumber: 5,
     backBedStyle: 'birdseye',
@@ -55,3 +56,11 @@ export const CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES: RecipeOverrides = Object.f
     },
   },
 }) as RecipeOverrides
+
+/**
+ * Studio's birdseye body roller: Kniterate's settings table for jacquard at
+ * Nm7 (stitch 6-7, roller 700, speed 200-400), over dbj.kc's 450. Right-edge
+ * stitches dropped in the birdseye body at 450 (issue #9 run 3), and Kniterate
+ * staff fix birdseye edge drops with a stronger pull.
+ */
+export const STUDIO_BIRDSEYE_BODY_ROLLER_V1 = 700

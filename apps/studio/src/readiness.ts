@@ -54,13 +54,25 @@ function title(rule: string, severity: Finding['severity'], message: string): st
 }
 
 /**
- * The vendor converter drops Knitout extension headers it does not encode
- * (e.g. carrier spacing and stopping distance). Those settings then live only
- * on the controller, so they become an operator check with the intended value.
+ * The vendor converter ignores Knitout extension headers it does not encode
+ * (e.g. carrier spacing and stopping distance). When the program also sets
+ * the value with its own op line (`x-carrier-spacing 2`), the converter
+ * applied it and there is nothing to report (`headerSetByOp`); the Kniterate
+ * controller has no setting for either. A header alone becomes an operator
+ * check with the intended value.
  */
 /** A Knitout header's setting in words: `X-carrier-spacing` is carrier spacing. */
 export function settingName(header: string): string {
   return header.replace(/^X-/, '').replace(/-/g, ' ');
+}
+
+/** A converter note about a header whose value the program also sets with its own op line, which the converter applied. */
+export function headerSetByOp(rule: string, message: string, knitoutLines: readonly string[]): boolean {
+  if (rule !== 'vendor-converter-note') return false;
+  const match = /WARNING: Unknown comment header '([^']+)'/.exec(message);
+  if (match === null) return false;
+  const op = match[1]!.toLowerCase();
+  return knitoutLines.some((line) => line.split(/\s+/, 1)[0] === op);
 }
 
 function operatorHeader(rule: string, message: string, knitoutLines: readonly string[]): string | null {
@@ -123,6 +135,7 @@ export function collectFindings(plan: ProjectPlan, result: AuthoredPipelineResul
   }
   const knitoutLines = result.compiled?.knitoutText?.split('\n') ?? [];
   for (const message of result.kcode?.messages ?? []) {
+    if (headerSetByOp(message.rule, message.message, knitoutLines)) continue;
     const header = operatorHeader(message.rule, message.message, knitoutLines);
     findings.push({
       stage: 'kcode',
@@ -154,10 +167,19 @@ const PLAN_BLOCKER_KIND: Partial<Record<string, 'assumed-value' | 'missing-input
 /**
  * What every machine file assumes when the job starts. No file can show
  * these, so each one is the operator's to check at the machine, every time.
+ * The feeder check is Kniterate's: a feeder whose sliding part is loose on
+ * the rail is pushed ahead of the carriage, and needles hit it
+ * (support.kniterate.com article 20142428697885, "Needles hitting feeders").
+ * The brush check is an experienced owner's (EcoKnitware, community post
+ * 4419488970129): yarn caught on brushes set too close loses its tension and
+ * drops stitches on the right. The needles are meant to push through the
+ * brushes.
  */
 export const MACHINE_START_CHECKS: readonly string[] = [
   'Start with no fabric or loops on the needles: every check assumes an empty bed.',
   'Park every yarn feeder at home on the left (C1 to C6) before you start: every check assumes they start there.',
+  'Check that each yarn feeder slides smoothly but firmly along its rail, with only a tiny bit of play: a loose feeder is pushed ahead of the carriage, where the needles hit it.',
+  'Check that the brushes clear the yarn feeders and the yarn: yarn caught on a brush loses its tension, and stitches drop on the right.',
   'Knit a swatch to try the stitch size, speed and roller with your yarn: the file keeps inside Studio’s machine limits, which say nothing about your yarn.',
 ];
 

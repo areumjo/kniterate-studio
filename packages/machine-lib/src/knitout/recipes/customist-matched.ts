@@ -7,7 +7,9 @@
  * (reference/dbj.kc frame, generic Birdseye body). Frame, carrier roles, and
  * machine settings come from those configurations, not from the caller.
  * This routes through `buildCompileInputForExport` so the input is the one
- * the parity harnesses verify.
+ * the parity harnesses verify. Studio's own start choices are applied over
+ * it: a yarn catch and a gentle first row for fairisle, and Studio's
+ * birdseye body roller.
  */
 
 import type { KnitlabChartState, KnitlabKeyDefinition } from '../../colorwork/knitlab1-contract.js'
@@ -16,10 +18,13 @@ import { buildCompileInputForExport, carrierModeForColorCount } from '../export-
 import type { FloatPolicy } from '../plan/bed-state.js'
 import type { YarnBinding } from '../types.js'
 import type { RecipeOverrides } from '../wizard-config.js'
-import { CUSTOMIST_RIB_BEANIE_SETTINGS_V1, type SectionSettingsV1 } from '../passes/customist-flat-start.js'
+import { STUDIO_FLAT_START_SETTINGS_V1, type SectionSettingsV1 } from '../passes/customist-flat-start.js'
+import { EIGHT_LINE_CROWN_V1, STUDIO_CROWN_JERSEY_STITCH_V1 } from '../passes/rib-crown-plan.js'
 import { SHAPED_PANEL_TOP_WASTE_ROWS } from '../passes/shaped-panel.js'
-import { CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES } from './customist-studio-birdseye-7gg.js'
+import { CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES, STUDIO_BIRDSEYE_BODY_ROLLER_V1 } from './customist-studio-birdseye-7gg.js'
 import { CUSTOMIST_STUDIO_FAIRISLE_7GG_RECIPE } from './customist-studio-fairisle-7gg.js'
+import { STUDIO_YARN_CATCH_NEEDLES_V1 } from '../passes/carrier-intro.js'
+import { STUDIO_FIRST_ROW_AFTER_TRANSFERS_ROLLER_V1 } from '../passes/first-row-speed.js'
 
 export type CustomistMatchedTechniqueV1 = 'fairisle' | 'birdseye'
 
@@ -61,15 +66,17 @@ function referenceWaste(technique: CustomistMatchedTechniqueV1) {
     : CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.start!.wasteMachineConfig!
 }
 
-const FLAT = CUSTOMIST_RIB_BEANIE_SETTINGS_V1
-/** The waste pass after the flat start's speed ramp: its steady speed. */
-const FLAT_STEADY_WASTE_PASS = 19
+const FLAT = STUDIO_FLAT_START_SETTINGS_V1
+/** The first leftward waste pass after the flat start's slow passes: its steady speed and pulling roller. */
+const FLAT_STEADY_WASTE_PASS = FLAT.wasteRampPasses + 1 - (FLAT.wasteRampPasses % 2)
 
 /**
  * The reference's settings for each section a project can set, per
  * construction: what it knits with unless it sets its own. A chart sets its
  * waste section; the flat start (beanies, sweaters, scarves) its waste,
- * cast-on, rib and transfers. A rib's stitch size is its front bed's.
+ * cast-on, rib and transfers, and a beanie its crown. A rib's stitch size is
+ * its front bed's. The crown's reference changes row by row; its standard is
+ * the top rows'.
  */
 export const CUSTOMIST_STANDARD_SECTION_SETTINGS_V1 = {
   fairisle: { waste: { stitch: referenceWaste('fairisle').stitchNumber!, speed: referenceWaste('fairisle').wasteSpeed!, roller: referenceWaste('fairisle').rampRollerLeft! } },
@@ -79,13 +86,15 @@ export const CUSTOMIST_STANDARD_SECTION_SETTINGS_V1 = {
     castOn: { stitch: FLAT.castOnStitch, speed: FLAT.castOnSpeed, roller: FLAT.castOnRoller },
     rib: { stitch: FLAT.ribStitchFront, speed: FLAT.ribSpeed, roller: FLAT.ribRoller },
     transfers: { stitch: FLAT.xferStitch, speed: FLAT.xferSpeed, roller: FLAT.xferRoller },
+    crown: { stitch: Math.max(EIGHT_LINE_CROWN_V1.topStitch, STUDIO_CROWN_JERSEY_STITCH_V1), speed: EIGHT_LINE_CROWN_V1.topSpeed, roller: EIGHT_LINE_CROWN_V1.topRoller },
   },
 } as const
 
 /**
- * The reference's body settings for each backing: what a project knits with
- * unless it sets its own. Fairisle's is also the jersey body of every flat
- * piece and of a beanie with a fairisle back.
+ * The body settings for each backing: what a project knits with unless it
+ * sets its own. The reference's, except birdseye's roller, which is Studio's
+ * (`STUDIO_BIRDSEYE_BODY_ROLLER_V1`). Fairisle's is also the jersey body of
+ * every flat piece and of a beanie with a fairisle back.
  */
 export const CUSTOMIST_STANDARD_BODY_SETTINGS_V1 = {
   fairisle: {
@@ -95,7 +104,7 @@ export const CUSTOMIST_STANDARD_BODY_SETTINGS_V1 = {
   },
   birdseye: {
     speed: CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.body!.speedNumber!,
-    roller: CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.body!.rollerAdvance!,
+    roller: STUDIO_BIRDSEYE_BODY_ROLLER_V1,
     stitch: CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.body!.stitchNumber!,
   },
 } as const
@@ -128,7 +137,7 @@ export const CUSTOMIST_STANDARD_WASTE_PASSES_V1 = {
   fairisle: CUSTOMIST_STUDIO_FAIRISLE_7GG_RECIPE.sections.start.wastePasses,
   birdseye: CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES.start!.wastePasses!,
   /** Beanies, sweaters, scarves and blankets: the shared flat start. */
-  flat: CUSTOMIST_RIB_BEANIE_SETTINGS_V1.wastePasses,
+  flat: STUDIO_FLAT_START_SETTINGS_V1.wastePasses,
 } as const
 
 /**
@@ -164,18 +173,30 @@ export function buildCustomistMatchedCompileInputV1(request: CustomistMatchedCom
         ],
       }
     : request.chart
-  return buildCompileInputForExport({
+  const input = buildCompileInputForExport({
     chart,
     recipe: request.technique === 'fairisle' ? CUSTOMIST_STUDIO_FAIRISLE_7GG_RECIPE : null,
     yarns: request.yarnBindings,
     allocationMode: carrierModeForColorCount(request.yarnBindings.length),
     ...(request.needleOffset !== undefined ? { needleOffset: request.needleOffset } : {}),
     protectFirstBodyRow: true,
-    recipeOverrides: withWaste(withBody(withFinish(withWastePasses(request.technique === 'birdseye' ? CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES : {}, request.wastePasses), request), request.body), request),
+    recipeOverrides: withWaste(withBody(withFinish(withWastePasses(request.technique === 'birdseye' ? CUSTOMIST_STUDIO_BIRDSEYE_7GG_OVERRIDES : {}, request.wastePasses), request), request.technique === 'birdseye' ? { roller: STUDIO_BIRDSEYE_BODY_ROLLER_V1, ...request.body } : request.body), request),
   }, {
     keyPalette: request.keyPalette,
     ...(request.floatPolicy ? { floatPolicy: request.floatPolicy } : {}),
   })
+  // Studio's fairisle start: a yarn catch before each yarn's first row and a
+  // gentle first body row after the frame's transfers (issue #9 runs 1 and
+  // 2). The recipe path itself still reproduces reference/fairisle.kc.
+  if (request.technique !== 'fairisle' || !input.fairisleCarrierIntro) return input
+  return {
+    ...input,
+    fairisleCarrierIntro: {
+      ...(typeof input.fairisleCarrierIntro === 'object' ? input.fairisleCarrierIntro : {}),
+      catchNeedles: STUDIO_YARN_CATCH_NEEDLES_V1,
+      firstRowRoller: STUDIO_FIRST_ROW_AFTER_TRANSFERS_ROLLER_V1,
+    },
+  }
 }
 
 function withWastePasses(overrides: RecipeOverrides, wastePasses: number | undefined): RecipeOverrides {

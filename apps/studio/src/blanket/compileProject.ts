@@ -362,8 +362,9 @@ export const BEANIE_WIDTH_LIMITS = { min: 60, max: 244 } as const;
 
 /**
  * A beanie project: the chart is the rib body (width = needles, height = rib
- * rows, one color); the construction supplies Customist's frame, the crown,
- * and the knit-off. At the reference width the crown is Customist's own.
+ * rows, one color); the construction supplies Customist's frame (with
+ * Studio's start), the crown and the waste top. At the reference width the
+ * crown is Customist's own.
  */
 function compileBeanieProject(
   project: ColorworkProjectV1,
@@ -412,7 +413,7 @@ function compileBeanieProject(
     wastePasses: 81,
     wasteCarrier: '6',
     drawCarrier: state.setup?.drawThread === false ? null : '1',
-    bindOff: 'knit-off',
+    bindOff: 'waste-and-drop',
     frameCarriers: state.setup?.drawThread === false ? [] : ['1'],
   };
   const base = {
@@ -437,6 +438,7 @@ function compileBeanieProject(
     ribRows: cuffRows,
     crown,
     ...(state.setup?.wasteRows !== undefined ? { startWastePasses: customistWastePassesV1('flat', state.setup.wasteRows) } : {}),
+    ...(state.setup?.topWasteRows !== undefined ? { topWasteRows: state.setup.topWasteRows } : {}),
     ...(state.setup?.body !== undefined ? { bodySettings: state.setup.body } : {}),
     ...(flatSections(state.setup) ?? {}),
     ...(withBody ? { jerseyBody: { rows: bodyCells.map((cells) => cells.map(carrierOf)), backing: backing === 'birdseye' ? 'birdseye' as const : 'fairisle' as const } } : {}),
@@ -461,13 +463,15 @@ function compileBeanieProject(
   const paths = withBody
     ? beanieYarnPaths(input.jerseyBody!.rows, input.bodyCarrier, backing === 'birdseye', state.strategy.floatLimit, cuffRows, (bodyRow) => state.rowIds[height - 1 - (cuffRows + bodyRow)]!)
     : { messages: [], rowIds: [] };
+  // The waste top: the waste yarn parks beside the piece's right edge after the start and is carried up it to the top.
+  const wasteCarry: ValidationMessage = { severity: 'info', rule: 'carried-yarn', message: `C${input.wasteCarrier} (waste) is carried from the waste section up the right edge of the piece, past the cast-on, ${withBody ? 'cuff, body' : 'rib'} and crown, to the waste rows on top. Leave the strand slack while knitting; it comes away with the waste.` };
   return {
     ...base,
     capacity: exactCapacity,
     ok,
     compileVerdict: ok ? 'surface' : 'blocked',
     inputHash: ok ? computeInputHash({ construction: 'customist-2x2-rib-beanie@1', ...input }) : null,
-    messages: [...paths.messages, ...capacityMessages],
+    messages: [...paths.messages, wasteCarry, ...capacityMessages],
     knitoutText: ok ? knitoutText : null,
     passes: built.predictedPasses,
     // Rib and body operations carry their knit row (machine row); the frame and crown belong to the construction.
@@ -475,6 +479,7 @@ function compileBeanieProject(
     rowProvenance,
     diagnostics: [
       ...paths.messages.map((message, index) => ({ ...message, opIndex: null, rowId: paths.rowIds[index] ?? null, passIndices: [] })),
+      { ...wasteCarry, opIndex: null, rowId: null, passIndices: [] },
       ...capacityMessages.map((message) => ({ ...message, opIndex: null, rowId: null, passIndices: [] })),
     ],
     stats: { ...base.stats, passCount: built.predictedPasses.length, opCount: built.program.ops.length },

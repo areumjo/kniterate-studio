@@ -1,0 +1,66 @@
+{
+  "$schema": "../_schema.json",
+  "kind": "kniterate-run-observation-v1",
+  "schemaVersion": 1,
+  "operator": "not recorded",
+  "startedAt": "2026-10-30T00:00:00-07:00",
+  "endedAt": "2026-10-30T23:59:59-07:00",
+  "outcome": "partial",
+  "physicalPlacement": {
+    "verified": false,
+    "compilerCoordinateStart": 95,
+    "compilerCoordinateEnd": 158,
+    "physicalNeedleStart": null,
+    "physicalNeedleEnd": null,
+    "orientation": null,
+    "method": null,
+    "verifiedBy": null,
+    "verifiedAt": null
+  },
+  "artifact": {
+    "loadedKcodeSha256": "3607b0ff3081980203f7fbb73916543e8dee64e93f35f0ea196003385489b8a1",
+    "displayedPassCount": null,
+    "manualProgramEdits": false
+  },
+  "manualInterventions": [
+    {
+      "section": "waste",
+      "passIndex": null,
+      "kind": "other",
+      "alteredProgramOrSettings": false,
+      "description": "Cleared the startup tangle and continued without restarting. The operator later put it down to a loose, unsecured yarn tail; the cause is not confirmed."
+    }
+  ],
+  "observations": {
+    "sections": {
+      "waste": "issue",
+      "castOn": "clean",
+      "drawThread": "issue",
+      "carrierBringIn": "clean",
+      "body": "issue",
+      "backing": "not-applicable",
+      "leftEdge": "clean",
+      "rightEdge": "clean",
+      "bindOff": "clean"
+    },
+    "stops": [
+      {
+        "section": "waste",
+        "passIndex": null,
+        "description": "Paused at the start: C6 travelled but its first row did not catch; the second row caught the loose span and tangled (photos IMG_1010, IMG_1011)."
+      }
+    ],
+    "dimensionsCm": {
+      "offMachine": {
+        "status": "not-measured",
+        "reason": "No dimensions were measured or claimed for this run."
+      },
+      "rested24h": {
+        "status": "not-measured",
+        "reason": "No dimensions were measured or claimed for this run."
+      }
+    },
+    "photos": [],
+    "notes": "Session date only (2026-10-30, reported in issue #9 comment 6711473394); start and end times were not recorded, so startedAt/endedAt bound the calendar day and are not run timing. Machine cleaned and oiled, then Kniterate's official warm-up run without yarn, before testing. Knitted to the end, so the outcome is partial: knitted through with defects, not clean. Defects: the C6 startup miss and tangle (above); C1 sometimes missed its entire first pass while later passes worked; yarn broke at the first fairisle row, which also happened in Kniterate's own fairisle.kc (run 1), identical to this file there. The pattern colours now look matched in stitch size and the later patterned fabric looked good. Sections marked clean had no issue reported; they were not individually inspected or photographed. Backing is not applicable: fairisle has floats, not a backing layer. Run 1 used different yarns (C3 one strand 2/14 acrylic, C4 two strands 2/30 acrylic, C6 one strand 2/30), so runs 1 and 2 are not a same-yarn comparison. Machine serial, software version, displayed pass count, yarn brands and lots, and row numbers were not recorded."
+  }
+}
