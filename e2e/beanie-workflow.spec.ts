@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
-import { menu, openStatusDisclosure, statusDisclosure, settledHeadline } from './menu';
+import { menu, openPanelSections, openStatusDisclosure, statusDisclosure, settledHeadline } from './menu';
 import { materializeColorworkProject, type ColorworkProjectV1 } from '../packages/project-contract/src/index';
 import { encodePng } from '../scripts/lib/png';
 
@@ -23,6 +23,7 @@ async function createBeanie(page: Page) {
   await dialog.getByLabel('Project name').fill('Ring toque');
   await dialog.getByRole('button', { name: 'Create beanie' }).click();
   await expect(settledHeadline(page)).toHaveText('File checks passed, sizes not confirmed', { timeout: 30_000 });
+  await openPanelSections(page);
 }
 
 async function placeImage(page: Page, heightCm: string) {
@@ -160,6 +161,25 @@ test('the status panel leads with the swatch, then the package, and reveals deta
   await expect(page.getByLabel('Status: File checks passed', { exact: true })).toBeVisible();
 });
 
+test('the left panel starts folded except Size, and a button opens only the section it points to', async ({ page }) => {
+  test.setTimeout(120_000);
+  await page.goto('/?theme=light');
+  await page.getByRole('button', { name: /^Beanie/ }).click();
+  await page.getByRole('dialog', { name: 'New project' }).getByRole('button', { name: 'Create beanie' }).click();
+  await expect(settledHeadline(page)).toHaveText('File checks passed, sizes not confirmed', { timeout: 30_000 });
+  const open = page.locator('.design-section.open > .design-section-head');
+  await expect(open).toHaveCount(1);
+  await expect(open).toContainText('Size');
+  expect(await page.locator('.design-section > .design-section-head').count()).toBeGreaterThan(2);
+  // A folded section keeps its fields hidden.
+  await expect(page.getByLabel(/^Body \(.+ fabric\) stitches per 10 cm$/)).toBeHidden();
+  // The status panel's swatch button opens Your swatch, and no other section.
+  await page.getByRole('complementary', { name: 'Status' }).locator('.primary-button:visible').click();
+  await expect(page.locator('#swatch')).toHaveClass(/\bopen\b/);
+  await expect(page.getByLabel(/^Body \(.+ fabric\) stitches per 10 cm$/)).toBeFocused();
+  await expect(open).toHaveCount(2);
+});
+
 test('a change keeps the status in place while it is checked', async ({ page }) => {
   test.setTimeout(120_000);
   await createBeanie(page);
@@ -195,6 +215,7 @@ test('a one-yarn beanie is one layer or two; adding a colour and painting it mak
   await expect(dialog.getByRole('button', { name: 'Double layer' })).toHaveAttribute('aria-pressed', 'true');
   await dialog.getByRole('button', { name: 'Create beanie' }).click();
   await expect(settledHeadline(page)).toHaveText('File checks passed, sizes not confirmed', { timeout: 30_000 });
+  await openPanelSections(page);
   const backing = page.locator('#backing .section-aside');
   await expect(backing).toHaveText('Double layer');
 
@@ -203,6 +224,8 @@ test('a one-yarn beanie is one layer or two; adding a colour and painting it mak
   await page.getByLabel('New colour name').fill('Snow');
   await page.getByRole('form', { name: 'New colour' }).getByRole('button', { name: 'Add' }).click();
   await expect(page.getByRole('button', { name: 'Use Snow' })).toHaveClass(/active/);
+  // A second colour brings its own sections (its yarn, the backing), folded like the rest.
+  await openPanelSections(page);
   await expect(page.getByRole('combobox', { name: 'Snow carrier' })).toHaveValue('4');
   await page.getByRole('button', { name: 'Brush size 5', exact: true }).click();
   const canvas = page.locator('canvas.chart-canvas').first();
@@ -492,6 +515,7 @@ for (const sameId of [false, true]) {
 
     // No operation from the closed document may enter the reopened document's history.
     expect(await savedProject()).toEqual(reopened);
+    await openPanelSections(page);
     await page.getByRole('button', { name: /^motif-1/ }).click();
     const reopenedHeight = page.getByRole('spinbutton', { name: 'Visible height cm', exact: true });
     await expect(reopenedHeight).toHaveValue('4');

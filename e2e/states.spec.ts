@@ -1,6 +1,6 @@
 import { mkdir } from 'node:fs/promises';
 import { expect, test, type Page } from '@playwright/test';
-import { menu } from './menu';
+import { menu, openPanelSections } from './menu';
 import { encodePng } from '../scripts/lib/png';
 
 /**
@@ -74,6 +74,7 @@ async function sweater(page: Page, stitch = 'Stockinette') {
   await dialog.getByLabel('Stitch').selectOption({ label: stitch });
   await dialog.getByRole('button', { name: 'Create sweater' }).click();
   await expect(dialog).toBeHidden();
+  await openPanelSections(page);
 }
 
 async function beanie(page: Page) {
@@ -81,6 +82,7 @@ async function beanie(page: Page) {
   await dialog.getByLabel('Project name').fill('Ring toque');
   await dialog.getByRole('button', { name: 'Create beanie' }).click();
   await expect(dialog).toBeHidden();
+  await openPanelSections(page);
 }
 
 /** A dark ring with an empty middle: on a fairisle back, its yarn floats across the middle. */

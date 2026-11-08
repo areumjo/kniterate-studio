@@ -42,7 +42,7 @@ Why this order:
   converter change).
 - [x] Give the swatch one place: download and enter it under Your swatch, and
   have the status panel's button go there.
-- [ ] Start the left panel folded except Size; a Show or fix button opens the
+- [x] Start the left panel folded except Size; a Show or fix button opens the
   section it points to.
 - [ ] Offer Undo right after a one-click fix ("Switched to a birdseye back ·
   Undo").

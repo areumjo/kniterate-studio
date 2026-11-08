@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { menu, openStatusDisclosure, statusDisclosure, settledHeadline, settledStatus } from './menu';
+import { menu, openPanelSections, openStatusDisclosure, statusDisclosure, settledHeadline, settledStatus } from './menu';
 
 async function createSweater(page: Page, style: 'Drop shoulder' | 'J-sleeve' | 'Set-in sleeve', stitch: string) {
   await page.goto('/?theme=light');
@@ -11,6 +11,7 @@ async function createSweater(page: Page, style: 'Drop shoulder' | 'J-sleeve' | '
   await dialog.getByLabel('Stitch').selectOption({ label: stitch });
   await dialog.getByRole('button', { name: 'Create sweater' }).click();
   await expect(dialog).toBeHidden();
+  await openPanelSections(page);
 }
 
 const status = (page: Page) => settledStatus(page).locator('.status-card');

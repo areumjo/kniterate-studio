@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
-import { kcDownload, openStatusDisclosure, settledHeadline, settledStatus } from './menu';
+import { kcDownload, openPanelSections, openStatusDisclosure, settledHeadline, settledStatus } from './menu';
 import type { ColorworkChartV1 } from '@kniterate-studio/chart-contract';
 
 interface DecodedReference {
@@ -70,6 +70,7 @@ for (const name of ['fairisle', 'jacquard', 'dbj'] as const) {
       name: `${name}.colorwork.json`, mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(chart)),
     });
     await expect(page.locator('.brand-copy small')).toContainText(`${name} reference pattern`);
+    await openPanelSections(page);
     if (name === 'jacquard') {
       // In Fairisle, C3's final stitch is at 126 but it parks at 84.5 while
       // C2 keeps knitting underneath. This is final-use parking, not a float

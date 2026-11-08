@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { menu, openStatusDisclosure, statusDisclosure, settledStatus } from './menu';
+import { menu, openPanelSections, openStatusDisclosure, settledStatus, statusDisclosure } from './menu';
 
 test('a one-colour scarf in any stitch: sized in cm, rib ends, the whole run in its schematic, one machine file', async ({ page }) => {
   test.setTimeout(180_000);
@@ -14,6 +14,7 @@ test('a one-colour scarf in any stitch: sized in cm, rib ends, the whole run in 
   await dialog.getByLabel('Length (cm)').fill('120');
   await dialog.getByLabel('Stitch').selectOption({ label: 'Seed stitch' });
   await dialog.getByRole('button', { name: 'Create' }).click();
+  await openPanelSections(page);
 
   const status = settledStatus(page).locator('.status-card');
   await expect(status).toContainText('File checks passed, sizes not confirmed', { timeout: 90_000 });

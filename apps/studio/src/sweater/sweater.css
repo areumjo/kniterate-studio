@@ -12,6 +12,7 @@
 .section-aside.warn { color: var(--warning); }
 .section-aside.ok { color: var(--proven); }
 .design-section-body { display: grid; gap: 10px; padding: 0 16px 16px; }
+.design-section-body[hidden] { display: none; }
 .design-hint { margin: 0; color: var(--ink-3); font-size: 12px; line-height: 1.45; }
 
 .silhouette-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }

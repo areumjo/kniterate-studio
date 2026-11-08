@@ -65,6 +65,9 @@ ship," trust this file and the working tree instead.
   - The swatch has one place: its file downloads in Your swatch (Yarn &
     swatch for sweaters and scarves), beside its gauge, and the status
     panel's button ("Knit a swatch", then "Enter your swatch") goes there.
+  - The left panel starts folded except Size. A folded section keeps its
+    fields hidden, so a Show, fix or swatch button opens only the section
+    that holds its target (`openSectionOf`).
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are

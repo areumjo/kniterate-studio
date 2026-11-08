@@ -66,7 +66,7 @@ export function SweaterDesignPanel({ state, plan, swatchFile, operate }: { state
       <div className="field-row"><span>Neck</span><Chips label="Neckline" value={object.neckline} options={SWEATER_CHOICES.necklines} onPick={(neckline) => change(SWEATER_CHOICES.necklines.find((choice) => choice.id === neckline)!.name, withNeckline(object, neckline))} /></div>
     </Section>
 
-    <Section title="Size" aside={<em className="section-aside">{custom ? 'Custom' : `${size} · ${fit}`}</em>}>
+    <Section title="Size" defaultOpen aside={<em className="section-aside">{custom ? 'Custom' : `${size} · ${fit}`}</em>}>
       <div className="field-row"><span>Size</span><Chips label="Size" value={custom ? null : size} options={SIZES.map((id) => ({ id, name: id }))} onPick={(id) => applySize(id, fit ?? 'classic')} /></div>
       <div className="field-row"><span>Fit</span><Chips label="Fit" value={custom ? null : fit} options={FITS.map((id) => ({ id, name: id[0]!.toUpperCase() + id.slice(1) }))} onPick={(id) => applySize(size ?? 'M', id)} /></div>
       <div className="measure-table" role="group" aria-label="Finished measurements">

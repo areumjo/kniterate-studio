@@ -1,6 +1,6 @@
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import { expect, test, type Page } from '@playwright/test';
-import { kcDownload, menu, openStatusDisclosure } from './menu';
+import { kcDownload, menu, openPanelSections, openStatusDisclosure } from './menu';
 
 async function waitForExport(page: Page, timeout = 20_000) {
   await openStatusDisclosure(page, 'Files and printing');
@@ -23,6 +23,7 @@ test('exports validated k-code and reproduces it byte-identically after project 
   await page.locator('input[accept=".json,application/json"]').setInputFiles('fixtures/colorwork-chart-v1/four-color-checker.json');
   // The 4-stitch checker can be knitted; it warns that it is narrow.
   await expect(page.getByLabel(/^Status: (File checks passed|1 thing to check)$/)).toBeVisible({ timeout: 15_000 });
+  await openPanelSections(page);
 
   await page.getByRole('button', { name: /Fairisle/ }).click();
   await page.getByRole('button', { name: /Birdseye/ }).click();

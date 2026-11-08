@@ -76,7 +76,7 @@ export function GarmentFitSection({ state, plan, swatchFile, onFit }: { state: P
   const off = (wanted: number | undefined, knitted: Valued<number> | null | undefined) => wanted !== undefined && knitted != null && Math.abs(knitted.value - wanted) >= 1;
   const fitName = fit ? fit.name.toLowerCase() : `${easePercent}%`;
   return <>
-    <Section title="Size" aside={<em className="section-aside">{intent.headCircumferenceCm} cm · {fitName}</em>}>
+    <Section title="Size" defaultOpen aside={<em className="section-aside">{intent.headCircumferenceCm} cm · {fitName}</em>}>
       <div className="field-row"><span>Fit</span><Chips label="Fit" value={fit?.id ?? 'custom'}
         options={[...FITS.map((choice) => ({ id: choice.id, name: choice.name, note: `Knitted ${Math.round(-choice.ease * 100)}% smaller than the head, so it stays on.` })), ...(fit ? [] : [{ id: 'custom' as const, name: `${easePercent}%`, note: 'Your own ease: how much smaller than the head the hat is knitted.' }])]}
         onPick={(id) => { const choice = FITS.find((item) => item.id === id); if (choice) onFit({ ease: choice.ease }, `${choice.name} fit`); }} /></div>

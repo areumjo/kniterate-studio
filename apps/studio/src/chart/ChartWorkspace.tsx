@@ -18,7 +18,7 @@ import { RunSchematic } from '../workspace/RunSchematic';
 import { StatusPanel, storyTone, type StatusTone, type SwatchStep } from '../workspace/StatusPanel';
 import { statusNotes } from '../workspace/statusNotes';
 import { machineFileName, onePieceName } from '../workspace/fileNames';
-import { revealSection } from '../workspace/panel';
+import { openSectionOf, revealSection } from '../workspace/panel';
 import type { SwatchFile } from '../useSwatchFile';
 import { ViewSwitch, type WorkspaceView } from '../workspace/ViewSwitch';
 import type { AuthoredVerdict } from '../engine';import { PaletteRail } from './PaletteRail';
@@ -220,8 +220,9 @@ export function ChartWorkspace({ project, onProject, generation, plan, story, st
     if (target === 'program') { onView('file'); return; }
     if (target.startsWith('placement:')) { setSelectedPlacement(target.slice(10)); setWholeHat(false); onView('design'); }
     else if (target.startsWith('rows/')) { setFocusedRowId(target.slice(5)); setWholeHat(false); onView('design'); }
-    // A folded section hides its fields: open the folded ones so the target can be shown.
-    if (!document.getElementById(target)) document.querySelectorAll<HTMLButtonElement>('.chart-design .design-section:not(.open) > .design-section-head').forEach((head) => head.click());
+    // A folded section keeps its fields hidden: open the one that holds the target.
+    const held = document.getElementById(target);
+    if (held) openSectionOf(held);
     requestAnimationFrame(() => {
       const element = document.getElementById(target);
       element?.scrollIntoView({ block: 'center', behavior: 'smooth' });

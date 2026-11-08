@@ -36,7 +36,7 @@ export function ChartSizeSection({ state, swatchFile, onSize, onGauge, onNeedles
   const knitted = gauge ? { widthCm: round1(chart.width / gauge.stitchesPer10cm * 10), heightCm: round1(chart.height / gauge.rowsPer10cm * 10) } : null;
   const off = (wanted: number | undefined, value: number) => wanted !== undefined && Math.abs(wanted - value) >= 1;
   return <>
-    <Section id="size" title="Size" aside={<em className="section-aside">{knitted ? `${knitted.widthCm} × ${knitted.heightCm} cm` : `${chart.width} × ${chart.height}`}</em>}>
+    <Section id="size" title="Size" defaultOpen aside={<em className="section-aside">{knitted ? `${knitted.widthCm} × ${knitted.heightCm} cm` : `${chart.width} × ${chart.height}`}</em>}>
       {knitted ? <div className="measure-table" role="group" aria-label="Finished measurements">
         <div className="measure-head garment-measure"><span /><span>Wanted</span><span>Knitted</span><span>Count</span></div>
         <MeasureRow label="Width" hint={`${chart.width} needles at ${gauge!.stitchesPer10cm} stitches per 10 cm.`}
