@@ -113,7 +113,9 @@ it is registered):
 | Neckband | built | no |
 | Assembly from the written pattern | built | no |
 | Fit: swatch gauge to finished size | built | no |
-| Colourwork on shaped pieces | not built (M7) | no |
+| Knit/purl, tuck and slip textures | built, one yarn | no |
+| Colourwork on shaped pieces, with rib trims | not built (M7); the beanie has a rib cuff under colourwork | no |
+| Texture and colour pattern in the same fabric | not built | no |
 | Hand-drawn piece outlines | `sweater shape` key points | no |
 
 - [ ] A mini sweater in one yarn: front, back, two sleeves and neckband,
@@ -133,7 +135,13 @@ it is registered):
 - [ ] Colourwork on sweater pieces (M7 colourwork below), as strips first:
   increases, armhole bind-off and the neck split, each in colourwork. Then
   the mini sweater again, in colourwork.
-- [ ] The user's own design, full size, in fairisle or reversible jacquard.
+- [ ] Texture with a colour pattern in the same fabric: ribs, purls, tucks
+  or slips inside the pattern, as a strip first. Start from what Kniterate's
+  own tools make: its old template editor maps stitch symbols per colour
+  (parity row CP-A9). Check it with our own reasoning, since a purl stitch
+  sits where fairisle floats run.
+- [ ] The user's own design, full size, in fairisle or reversible jacquard,
+  with ribs and textures.
 
 - [ ] Draw a piece: any outline in any stitch, through the sweater piece
   pipeline.
