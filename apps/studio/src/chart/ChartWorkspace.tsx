@@ -12,7 +12,7 @@ import { GarmentFitSection } from '../garment/GarmentFitSection';
 import { ImageIntakeDialog, MotifSection, placementPixels } from '../garment/MotifPanel';
 import { MeasureDialog } from '../garment/MeasureDialog';
 import { BeanieWornView } from '../garment/BeanieWornView';
-import { readKnitFile, type KnitFileCarriers } from '../sweater/knitFile';
+import { chartKnitFileCarriers, chartRibRows, readKnitFile, type KnitFileCarriers } from '../sweater/knitFile';
 import { KnitFileView } from '../sweater/KnitFileView';
 import { RunSchematic } from '../workspace/RunSchematic';
 import { StatusPanel, storyTone, type StatusTone, type SwatchStep } from '../workspace/StatusPanel';
@@ -175,7 +175,7 @@ export function ChartWorkspace({ project, onProject, generation, plan, story, st
   }), [resolvedPlacements, boxes, chart.palette]);
   const stalePlacements = useMemo(() => new Set(plan.findings.filter((finding) => finding.rule === 'placement-size-off').map((finding) => finding.path.replace('placements/', ''))), [plan]);
   // A beanie's bottom rows are rib in its main yarn (all of them without a cuff), and the machine shapes the crown above the chart.
-  const ribRows = isGarment && plan.sections ? (plan.sections.cuff?.rows ?? (plan.sections.body.fabric === 'rib' ? chart.height : 0)) : 0;
+  const ribRows = chartRibRows(materialized.state, plan);
   // A beanie mirrors within its body: the cuff below it is rib in one yarn.
   const mirrorBox = useMemo<Rect | null>(() => (ribRows > 0 && ribRows < chart.height ? { left: 0, top: 0, right: chart.width - 1, bottom: chart.height - ribRows - 1 } : null), [ribRows, chart.width, chart.height]);
   const piece = useMemo(() => (isGarment && plan.sections ? {
@@ -246,13 +246,7 @@ export function ChartWorkspace({ project, onProject, generation, plan, story, st
   };
 
   // The machine file, read back: what the machine knits, for the schematic and the Machine file view.
-  const carriers = useMemo<KnitFileCarriers | null>(() => {
-    const frame = compile.artifact?.frame;
-    const assignments = materialized.state.machine.yarnAssignments;
-    if (!frame || assignments.length === 0) return null;
-    const yarns = Object.fromEntries(assignments.map((item) => [item.carrier, { name: item.yarnName, hex: chart.palette.find((color) => color.id === item.paletteId)?.hex ?? '#888888' }]));
-    return { main: assignments[0]!.carrier, second: null, waste: frame.wasteCarrier ?? '6', draw: frame.frameCarriers[0] ?? '1', yarns };
-  }, [compile.artifact, materialized.state.machine.yarnAssignments, chart.palette]);
+  const carriers = useMemo<KnitFileCarriers | null>(() => chartKnitFileCarriers(compile.artifact?.frame, materialized.state.machine.yarnAssignments, chart.palette), [compile.artifact, materialized.state.machine.yarnAssignments, chart.palette]);
   // Read only when a view shows it: a large chart's file is a lot of work for the main thread.
   const knitFile = useMemo(() => (view !== 'design' && kcode && carriers ? readKnitFile(kcode, { zoneOfRow: (row) => (row < ribRows ? 'rib' : 'body'), carriers, kind: isGarment ? 'beanie' : 'panel' }) : null), [view === 'design', kcode, carriers, ribRows, isGarment]);
   const gauge = materialized.state.gauge;

@@ -2,7 +2,9 @@ import { materializeColorworkProject, type ColorworkProjectV1 } from '@kniterate
 import type { PanelPlan } from './rasterize';
 import { edgeRhythm, pairedRhythm, type RhythmStep } from './rhythm';
 import type { PiecesPlan, SweaterPiecePlan, SweaterPlan } from './sweater';
-import { readinessStory, storyLines } from '../handoff';
+import { readinessStory, runRecordMarkdown, storyLines } from '../handoff';
+import type { KnitFileCarriers } from './knitFile';
+import { MEASUREMENT_FIELDS } from './measurementFields';
 import type { SweaterRunSummary } from './sweaterRun';
 import { sweaterSchematicSvg } from './schematic';
 import { ribName, textureMatching } from './textures';
@@ -125,6 +127,65 @@ export function sweaterInstructions(project: ColorworkProjectV1, plan: SweaterPl
   return lines.join('\n');
 }
 
+/** The yarns each carrier holds, for a piece's run record. */
+function runCarriers(plan: PiecesPlan, yarn: { name: string; hex: string }): KnitFileCarriers {
+  const { main, second, waste, draw } = plan.carriers;
+  return { main, second, waste, draw, yarns: { [main]: yarn, ...(second ? { [second]: { name: `${yarn.name}, second cone`, hex: yarn.hex } } : {}) } };
+}
+
+/** One run record for each piece knitted, each copy its own (a sweater's two sleeves). */
+export function pieceRunRecords(plan: PiecesPlan, summary: SweaterRunSummary, yarn: { name: string; hex: string }, fileName: (piece: SweaterRunSummary['pieces'][number]) => string): string[] {
+  const lines: string[] = [];
+  for (const piece of summary.pieces) {
+    if (piece.file === null) continue;
+    for (let copy = 1; copy <= piece.copies; copy++) {
+      const name = piece.copies > 1 ? `${piece.name} ${copy}` : piece.name;
+      lines.push('', ...runRecordMarkdown(piece.file, runCarriers(plan, yarn), `Run record: ${name} (\`${fileName(piece)}\`)`));
+    }
+  }
+  return lines;
+}
+
+/** The gauge lines every piece form starts with: what the plan assumed, to be measured on the knitted fabric. */
+export function gaugeRows(plan: PiecesPlan, rib: boolean): string[] {
+  const { gauge, ribGauge } = plan;
+  return [
+    `| Body gauge | stitches and rows over 10 cm in a plain area of the body, face side | ${gauge.stitchesPer10cm} st / ${gauge.rowsPer10cm} rows (${gauge.source}) | ___ st / ___ rows |`,
+    ...(rib ? [`| Rib gauge | stitches and rows over 10 cm in the rib, unstretched | ${ribGauge.stitchesPer10cm} st / ${ribGauge.rowsPer10cm} rows (${ribGauge.source}) | ___ st / ___ rows |`] : []),
+  ];
+}
+
+/**
+ * The form returned with a knitted sweater: each piece's exact file, the
+ * sizes the plan predicts beside the measured ones, and a run record for
+ * each piece knitted. The pieces are measured flat before sewing up, so each
+ * measure belongs to one piece.
+ */
+export function sweaterMeasurementForm(project: ColorworkProjectV1, plan: SweaterPlan, summary: SweaterRunSummary): string {
+  const { state } = materializeColorworkProject(project);
+  const fileName = (piece: SweaterRunSummary['pieces'][number]) => `${piece.id}.kc`;
+  const measures = MEASUREMENT_FIELDS.filter((field) => plan.knitted[field.key] !== undefined);
+  return `${[
+    `# Measurement form: ${project.title}`,
+    '',
+    'Measure only pieces knitted from these exact files.',
+    '',
+    '| Piece | File | KCode SHA-256 |',
+    '|---|---|---|',
+    ...summary.pieces.map((piece) => `| ${piece.name}${piece.copies > 1 ? ` × ${piece.copies}` : ''} | \`${fileName(piece)}\` | \`${piece.kcHash ?? 'not exported'}\` |`),
+    '',
+    'Wash or steam each piece as the yarn label says, let it dry flat and rest 24 h. Then lay it flat without stretching and measure it with a rigid rule, before sewing up.',
+    '',
+    '| Measure | On the flat pieces | Predicted | Measured |',
+    '|---|---|---|---|',
+    ...gaugeRows(plan, true),
+    ...measures.map((field) => `| ${field.label} | ${field.onPiece} | ${plan.knitted[field.key]} cm | ___ cm |`),
+    '',
+    'Also: the outcome of each piece (clean / issues / failed), every machine stop and what was done, and photographs of each piece, the sewn sweater and any defect with a ruler in frame.',
+    ...pieceRunRecords(plan, summary, state.chart.palette[0]!, fileName),
+  ].join('\n')}\n`;
+}
+
 /** Every file of the package, with a manifest of their SHA-256. Throws when a piece has no validated program. */
 export async function sweaterPackageFiles(input: {
   project: ColorworkProjectV1;
@@ -154,7 +215,10 @@ export async function sweaterPackageFiles(input: {
     ready: summary.readiness.ready,
     pieces: summary.pieces.map((piece) => ({ id: piece.id, name: piece.name, copies: piece.copies, file: `${piece.id}.kc`, passes: piece.passCount, kcodeSha256: piece.kcHash, verdict: piece.verdict.label })),
     files: Object.fromEntries(await Promise.all(Object.entries(files).map(async ([name, bytes]) => [name, await input.sha256(bytes)] as const))),
+    /** Filled in and returned by the knitter; not hashed. */
+    forms: ['measurement-form.md'],
   };
+  files['measurement-form.md'] = encode(sweaterMeasurementForm(project, plan, summary));
   files['manifest.json'] = encode(`${JSON.stringify(manifest, null, 2)}\n`);
   return files;
 }

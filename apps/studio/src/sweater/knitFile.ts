@@ -1,4 +1,7 @@
+import type { ProjectState } from '@kniterate-studio/project-contract';
+import type { CompiledFrame } from '../blanket/compileProject';
 import type { KCodeArtifact } from '../kcode/kcodeProtocol';
+import type { ProjectPlan } from '../plan';
 
 /**
  * What a .kc file makes the machine do, read back from the emitted file
@@ -88,6 +91,24 @@ export interface KnitFileCarriers {
 }
 
 export type KnitFileKind = 'body' | 'sleeve' | 'band' | 'panel' | 'beanie';
+
+/** A beanie's bottom rows are rib in its main yarn (all of them without a cuff); a colour chart has none. */
+export function chartRibRows(state: Pick<ProjectState, 'object' | 'chart'>, plan: Pick<ProjectPlan, 'sections'>): number {
+  if (state.object?.kind !== 'beanie' || !plan.sections) return 0;
+  return plan.sections.cuff?.rows ?? (plan.sections.body.fabric === 'rib' ? state.chart.height : 0);
+}
+
+/**
+ * A colour chart's or beanie's carriers, for reading its file back: the
+ * compiled frame's waste and draw yarns and the chart's yarn assignments.
+ * The Machine file view and the handoff's run record both read the file with
+ * these, so their sections and pass numbers agree.
+ */
+export function chartKnitFileCarriers(frame: Pick<CompiledFrame, 'wasteCarrier' | 'frameCarriers'> | null | undefined, assignments: ProjectState['machine']['yarnAssignments'], palette: ProjectState['chart']['palette']): KnitFileCarriers | null {
+  if (!frame || assignments.length === 0) return null;
+  const yarns = Object.fromEntries(assignments.map((item) => [item.carrier, { name: item.yarnName, hex: palette.find((color) => color.id === item.paletteId)?.hex ?? '#888888' }]));
+  return { main: assignments[0]!.carrier, second: null, waste: frame.wasteCarrier ?? '6', draw: frame.frameCarriers[0] ?? '1', yarns };
+}
 
 export function readKnitFile(kcode: KCodeArtifact, options: { zoneOfRow: (row: number) => 'rib' | 'body'; carriers: KnitFileCarriers; kind: KnitFileKind }): KnitFile | null {
   const { zoneOfRow, carriers, kind } = options;

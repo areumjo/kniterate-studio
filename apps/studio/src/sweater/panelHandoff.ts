@@ -1,6 +1,6 @@
 import { materializeColorworkProject, type ColorworkProjectV1 } from '@kniterate-studio/project-contract';
 import type { PanelPlan } from './panel';
-import { pieceSteps } from './sweaterHandoff';
+import { gaugeRows, pieceRunRecords, pieceSteps } from './sweaterHandoff';
 import { readinessStory, storyLines } from '../handoff';
 import type { SweaterRunSummary } from './sweaterRun';
 import { machineFileName } from '../workspace/fileNames';
@@ -40,6 +40,30 @@ export function panelInstructions(project: ColorworkProjectV1, plan: PanelPlan, 
   return `${lines.filter((line, index, all) => line !== '' || all[index - 1] !== '').join('\n')}\n`;
 }
 
+/** The form returned with a knitted scarf or blanket: its exact file, its size beside the plan's, and the run record. */
+export function panelMeasurementForm(project: ColorworkProjectV1, plan: PanelPlan, summary: SweaterRunSummary): string {
+  const { state } = materializeColorworkProject(project);
+  const piece = summary.pieces[0]!;
+  const file = machineFileName(piece.name);
+  const predicted = (value: number | undefined) => (value === undefined ? '—' : `${value} cm`);
+  return `${[
+    `# Measurement form: ${project.title}`,
+    '',
+    `Candidate: \`${file}\`, KCode SHA-256 \`${piece.kcHash ?? 'not exported'}\`. Measure only the ${piece.name.toLowerCase()} knitted from this exact file.`,
+    '',
+    'Wash or steam it as the yarn label says, let it dry flat and rest 24 h. Then lay it flat without stretching and measure it with a rigid rule.',
+    '',
+    '| Measure | How | Predicted | Measured |',
+    '|---|---|---|---|',
+    ...gaugeRows(plan, plan.object.ends.cm > 0),
+    `| Width | straight across the middle | ${predicted(plan.knitted?.widthCm)} | ___ cm |`,
+    `| Length | from end to end, along the middle | ${predicted(plan.knitted?.lengthCm)} | ___ cm |`,
+    '',
+    'Also: the outcome (clean / issues / failed), every machine stop and what was done, and photographs of both faces and any defect with a ruler in frame.',
+    ...pieceRunRecords(plan, summary, state.chart.palette[0]!, () => file),
+  ].join('\n')}\n`;
+}
+
 export async function panelPackageFiles(input: {
   project: ColorworkProjectV1;
   serializedProject: string;
@@ -65,7 +89,10 @@ export async function panelPackageFiles(input: {
     ready: summary.readiness.ready,
     pieces: [{ id: piece.id, name: piece.name, copies: 1, file: 'panel.kc', passes: piece.passCount, kcodeSha256: piece.kcHash, verdict: piece.verdict.label }],
     files: Object.fromEntries(await Promise.all(Object.entries(files).map(async ([name, bytes]) => [name, await input.sha256(bytes)] as const))),
+    /** Filled in and returned by the knitter; not hashed. */
+    forms: ['measurement-form.md'],
   };
+  files['measurement-form.md'] = encode(panelMeasurementForm(project, plan, summary));
   files['manifest.json'] = encode(`${JSON.stringify(manifest, null, 2)}\n`);
   return files;
 }

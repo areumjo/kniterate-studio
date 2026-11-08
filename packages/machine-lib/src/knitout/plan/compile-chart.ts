@@ -924,6 +924,10 @@ export function compileChartToKniteratePlan(
     floatsBodyAutoMovePresser: wantsIntro
       ? CUSTOMIST_FLOATS_BODY_AUTO_MOVE_PRESSER
       : undefined,
+    // Only a chain bind-off knits on with a pattern yarn (the first one,
+    // which holds the live stitches); every other finish takes the pattern
+    // yarns out, so their last stitches are in the body.
+    floatsYarnsEndingInBody: new Set(settings.bindOff === 'machine-bindoff' ? patternCarriers.filter((carrier) => carrier !== patternCarrier) : patternCarriers),
     // Customist's first body row, right after the frame's transfers, runs at
     // ramp speed and the handoff stitch (reference/fairisle.kc pass 112)
     // whether or not protection is on. Studio's start (`firstRowRoller`)

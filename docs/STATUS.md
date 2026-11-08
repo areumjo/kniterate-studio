@@ -82,6 +82,51 @@ ship," trust this file and the working tree instead.
   - A stitch row that knits and tucks on one bed has a one-click fix in the
     texture editor: "Knit the row plain" (front tucks knit), or "Purl the
     row plain" for the back bed (`texturePlainRowFix`).
+- **Run record and the start's rules (2026-11-08).** Neither changes a
+  machine file, and neither is inside the compiler fingerprint.
+  - A colour chart's or beanie's `measurement-form.md` ends with a run
+    record. It holds the facts every run needs: date, machine serial,
+    controller version, the yarn on each carrier, whether each yarn caught,
+    and settings changed. It also lists each section of the file with its
+    passes, numbered as the Machine file view numbers them, so a stop at a
+    pass number says what was knitting. The view and the form read the file
+    with the same helpers (`chartKnitFileCarriers`, `chartRibRows`).
+  - Sweater and one-yarn scarf packages now include a
+    `measurement-form.md`, listed in the manifest's `forms` and not hashed.
+    It lists each piece's exact file and hash, the gauges, and each size
+    Studio predicts beside a blank for the measured one. The pieces are
+    measured flat before sewing up, so each measure belongs to one piece.
+    The form ends with a run record for each piece knitted, two for the
+    sleeves. Measurement names come from `sweater/measurementFields.ts`,
+    shared with the design panel. The registration script doesn't accept
+    these packages yet.
+  - `apps/studio/src/flatStart.test.ts` pins run 3's lessons for every
+    beanie, the one-yarn scarf, every sweater piece and the fairisle chart:
+    - no yarn knits faster than 300 before the piece begins;
+    - each yarn is caught out and back over the leftmost 20 needles, then
+      knits its first row, all at speed 100;
+    - no float advisory falls in the start.
+    Setting the yarn introduction back to 200 fails it. The birdseye chart's
+    start is not covered: it still knits at 400 and brings yarns in at 200
+    without a catch.
+- **Fairisle colours end at the edge (2026-11-08).** Most fairisle colour
+  charts were refused by `machine-safety.attached-yarn`. The refused cases
+  included a centred motif, any chart whose colour stops short of the edges
+  on its last row, and every dither. The colour's yarn parked at the edge
+  across needles that the waste on top knitted under.
+  - Kniterate's `fairisle.kc` ends each colour with its last stitch at the
+    edge it travels to. Studio now does the same: on a colour's last row in
+    the body, the edge needle is tucked in that colour when its last stitch
+    is more than 7 needles from that edge (`yarnsEndingHere` in
+    `jacquard-floats.ts`, set by `compile-chart.ts`). A chain bind-off's yarn
+    knits on, so it is left alone.
+  - Every file that compiled before is byte-identical. That includes
+    handoff 2 (`092076f4`, `948f39de`, `3cd3b1ea`) and the Kniterate
+    fairisle reproduction.
+  - The edge tuck itself hasn't been knitted.
+  - Found by opening a Colorworks dither in Studio. Colorworks' knit style
+    now exports a `ColorworkChartV1` exactly, stitch for stitch, on its
+    branch `kniterate-studio-chart-export`.
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are

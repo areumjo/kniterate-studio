@@ -104,6 +104,8 @@ export interface EmitChartBodyWalkerInput extends ChooseChartBodyWalkerDispatchI
    *  (Customist fairisle: 600/0). Forwarded to the floats walker;
    *  omitted leaves the vendor default. */
   readonly floatsBodyAutoMovePresser?: { speed: number; roller: number };
+  /** Fairisle carriers that knit nothing after the body; see `JacquardFloatsInput.yarnsEndingHere`. */
+  readonly floatsYarnsEndingInBody?: ReadonlySet<CarrierId>;
   readonly firstRowSpeedOverride?: FirstRowSpeedOverride;
   readonly needleStart: number;
   readonly needleEnd: number;
@@ -275,6 +277,7 @@ const CHART_BODY_WALKER_RECORDS: readonly ChartBodyWalkerRecord[] = [
         initialNextDirection: ctx.currentNextDirection(),
         bodyAutoMovePresser: input.floatsBodyAutoMovePresser,
         firstRowSpeedOverride: input.firstRowSpeedOverride,
+        yarnsEndingHere: input.floatsYarnsEndingInBody,
       }));
     },
   },

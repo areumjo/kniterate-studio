@@ -26,9 +26,15 @@ Why this order:
   from it (STATUS, 2026-11-07).
 - [ ] Knit a new mini toque from the fixed start, with a larger motif and a
   taller body, and Kniterate's `fairisle.kc` again in run 2's yarns; register both.
-  (Handoff 2 on issue #9: `output/machine-handoff-2`, from 687e45b.)
+  (Handoff 2 on issue #9: `output/machine-handoff-2`, from 687e45b. The
+  exact files are also served from the site at `handoff-2/`, copied into
+  `apps/studio/public/handoff-2/`.)
+- [x] Give each handoff a run record with the file's sections and passes, and
+  pin the fixed start in a test (`flatStart.test.ts`).
 - [ ] After handoff 2's results, file changes from Kniterate's own practice,
   checked against our files first:
+  - the yarn catch and Kniterate's fairisle start for the birdseye chart,
+    whose start still knits at 400 and brings yarns in at 200;
   - spread crown decreases over rows (Kniterate's beanie: 4 per row; the
     mini toque makes 16 in one), and knit the last crown row one stitch
     size larger and the first top-waste row one smaller (Kniterate blog,
@@ -66,6 +72,24 @@ sequences, compiler fingerprint coverage and one sweater capacity check.
 - [x] Check the last stitch to final-use parking span, preserving continuing
   colourwork floats; reference and authored comparisons add no findings.
 - [x] Test sequences on one needle: transfer, tuck, drop, cast on again.
+- [x] **Most fairisle colour charts are blocked (found and fixed 2026-11-08).** On a
+  colour's last row, its yarn travels to the edge of the piece. When its
+  last stitch isn't near that edge, the strand lies across needles that the
+  waste rows on top then knit under. The final-use parking check
+  (`machine-safety.attached-yarn`) blocks this. Its comparison set had every
+  colour reaching the edges, so it found nothing then.
+  - Blocked: a centred heart on a 60 × 40 chart, simple motifs with a
+    ground-colour top row, and a Colorworks dither.
+  - Still compile: stripes, Kniterate's own `fairisle.kc` chart (handoff 2
+    run 2), and fairisle beanies.
+  - Fixed as Kniterate's `fairisle.kc` ends its colours: each one's last
+    stitch is at the edge it travels to, and it parks just outside. On a
+    colour's last row in the body, if its last stitch is more than a float
+    (7 needles) from that edge, the edge needle is tucked in that colour.
+    A yarn that knits on afterwards (a chain bind-off's) is left alone.
+    Every file that compiled before is byte-identical, including handoff 2.
+    The tuck is our own reasoning: Kniterate's chart never needed one, and
+    it hasn't been knitted yet.
 - [ ] A chart using all 252 needles is refused by machine safety (a
   half-rack pass off the bed, the waste carrier left of home), though the
   authored width limit allows it: lower the limit or keep the frame on the bed.
@@ -75,6 +99,76 @@ sequences, compiler fingerprint coverage and one sweater capacity check.
   swatches tied to exact file hashes.
 
 **C. Make more things (each with a development knit)**
+
+Toward the user's own colourwork sweater (set 2026-11-08), once handoff 2
+shows the start works.
+- **The goal:** a sweater of the user's own design and shape, with
+  dithered images from Colorworks (`~/pro/colorworks`, imported as a chart
+  PNG), in fairisle (one layer) or reversible jacquard.
+- **The construction reference:** Kniterate's own sweater, Customist design
+  `rp3AXUm` ("Kniterate sweater (reversible jacquard)"): three fully
+  fashioned panels in 2 ends of merino Nm 2/28. The captured Customist
+  panels `reference/front.kc`, `back.kc` and `sleeves.kc` use the same
+  construction (`jacquard-complement.ts`). They are probably this design,
+  but that is not confirmed.
+- **How to get there:** knit every mechanism small first, from the same code
+  a full design uses, so the full piece knits nothing new.
+
+Every mechanism the sweater needs, and where it stands (tick when a knit of
+it is registered):
+
+| Mechanism | In Studio | Knitted |
+|---|---|---|
+| Start: waste yarn, draw thread, yarn catch | built | failed in run 3; fix in handoff 2 |
+| 2×2 rib cast-on and rib | built | run 3 (hand-edited speed-100 copy): neat |
+| Rib to body transfer | built | run 3 (same copy) |
+| Fairisle colourwork | built | runs 1–2 broke at the first two-colour row; handoff 2 |
+| Birdseye colourwork | built | run 3; edge drops, stiff crown |
+| Reversible jacquard | blocked for designed pieces | no |
+| Waste yarn on top (for linking) | built | handoff 2 run 3 |
+| Chain bind-off | built | handoff 2 run 4 |
+| Sleeve increases | built, one yarn | no |
+| Armhole bind-offs and decreases; sleeve cap | built, one yarn | no |
+| Neck split on two yarns, central bind-off, shoulders | built, one yarn | no |
+| Neckband | built | no |
+| Assembly from the written pattern | built | no |
+| Fit: swatch gauge to finished size | built | no |
+| Knit/purl, tuck and slip textures | built, one yarn | no |
+| Colourwork on shaped pieces, with rib trims | not built (M7); the beanie has a rib cuff under colourwork | no |
+| Texture and colour pattern in the same fabric | not built | no |
+| Hand-drawn piece outlines | `sweater shape` key points | no |
+
+- [x] Measurement forms and run records for sweater and scarf packages.
+- [ ] Register a sweater or scarf package, one piece per entry. Today
+  `release:register` reads only chart and beanie packages, and the registry
+  re-compiles only those. Needed before the mini sweater's pieces can be
+  recorded.
+- [ ] A mini sweater in one yarn: front, back, two sleeves and neckband,
+  about 30 cm long, from a measured swatch, then assembled and measured.
+  This works today (~410–530 passes a piece). It covers every shaping
+  mechanism, every bind-off and fit.
+- [ ] A short strip, then a scarf, of a dithered two-colour chart in
+  fairisle (single jacquard). Colorworks' knit style exports the chart
+  (branch `kniterate-studio-chart-export` there, not merged), and Studio
+  opens and compiles it. The strip tests how fairisle
+  handles the dither's single stitches and frequent colour changes before a
+  full length.
+- [ ] Reversible jacquard (Studio's `complement` backing: each colour knits
+  the front where it shows and the back elsewhere, so the back is the
+  inverse image). Today it is blocked for designed pieces
+  (`project-technique-unmatched`; parity row CP-B4, "Invert Colors"). It
+  needs a start, body and finish matched to those files, then a strip and a
+  scarf. It takes exactly two colours.
+- [ ] Colourwork on sweater pieces (M7 colourwork below), as strips first:
+  increases, armhole bind-off and the neck split, each in colourwork. Then
+  the mini sweater again, in colourwork.
+- [ ] Texture with a colour pattern in the same fabric: ribs, purls, tucks
+  or slips inside the pattern, as a strip first. Start from what Kniterate's
+  own tools make: its old template editor maps stitch symbols per colour
+  (parity row CP-A9). Check it with our own reasoning, since a purl stitch
+  sits where fairisle floats run.
+- [ ] The user's own design, full size, in fairisle or reversible jacquard,
+  with ribs and textures.
 
 - [ ] Draw a piece: any outline in any stitch, through the sweater piece
   pipeline.

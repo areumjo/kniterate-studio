@@ -223,6 +223,48 @@ describe('compileChartToKnitout — floats jacquard (Customist fairisle)', () =>
     expect(ops[1]).toMatchObject({ kind: 'comment', text: 'row 0' });
   });
 
+  describe('a yarn that ends in the body ends at the edge it travels to', () => {
+    // 20 needles: navy knits only columns 4–6 on rows 0–1, so its last
+    // stitch on each row is far from both edges; cream knits the rest.
+    const K = KEY_ID_KNIT_DEFAULT;
+    const row = Array.from({ length: 20 }, (_, c) => (c >= 4 && c <= 6 ? 'navy' : K));
+    const cells = [row, row, Array.from({ length: 20 }, () => K)];
+    const walk = (yarnsEndingHere?: ReadonlySet<CarrierId>, chart = cells) => emitJacquardFloatsWalk({
+      resolved: resolvedCells(chart),
+      bindings: DIRECT_FLOAT_BINDINGS,
+      needleStart: 50,
+      handoff: activeHandoff({ '4': 'left', '3': 'right' }),
+      initialNextDirection: '+',
+      yarnsEndingHere,
+    }).ops;
+    const tucks = (ops: readonly KnitoutOp[]) => ops.filter((op) => op.kind === 'tuck');
+
+    it('tucks the edge needle on the colour\'s last row when its last stitch is more than a float from it', () => {
+      const ops = walk(new Set<CarrierId>(['3']));
+      const tucked = tucks(ops);
+      expect(tucked).toHaveLength(1);
+      const tuck = tucked[0] as Extract<KnitoutOp, { kind: 'tuck' }>;
+      expect(tuck.carriers).toEqual(['3']);
+      // Navy's last row is row 1; the tuck closes that row's navy pass, at the edge it was heading to.
+      const lastNavyKnit = ops.map((op, i) => [op, i] as const).filter(([op]) => op.kind === 'knit' && op.carriers.includes('3')).at(-1)!;
+      const tuckAt = ops.indexOf(tuck);
+      expect(tuckAt).toBeGreaterThan(lastNavyKnit[1]);
+      const edge = tuck.direction === '+' ? 'f69' : 'f50';
+      expect(`${tuck.needle.bed}${tuck.needle.needle}`).toBe(edge);
+      // Cream knits the whole last row itself, so it needs nothing.
+      expect(tucked.some((op) => op.kind === 'tuck' && op.carriers.includes('4'))).toBe(false);
+    });
+
+    it('changes nothing when no yarn ends here, or when the last stitch is within a float of the edge', () => {
+      const plain = walk();
+      expect(tucks(plain)).toHaveLength(0);
+      expect(walk(new Set<CarrierId>())).toEqual(plain);
+      // Navy within 7 needles of both edges: columns 7 and 12 of 20.
+      const near = Array.from({ length: 20 }, (_, c) => (c === 7 || c === 12 ? 'navy' : K));
+      expect(tucks(walk(new Set<CarrierId>(['3', '4']), [near, cells[2]!]))).toHaveLength(0);
+    });
+  });
+
   it('does not preposition when two body carriers already alternate sides', () => {
     const result = emitJacquardFloatsWalk({
       resolved: resolvedCells([[KEY_ID_KNIT_DEFAULT, 'navy']]),
