@@ -30936,7 +30936,7 @@
     ]
   },
   "contract": {
-    "sha256": "5cfbd4b724d88faef002696fbfe9982221e957435e9fd6b9f407d0254ae376a5",
+    "sha256": "5bb7333dfe040e94954175c0c41aafbb6e313931948de90a78023f36ca8af147",
     "files": [
       {
         "path": "../../.github/workflows/ci.yml",
@@ -31005,8 +31005,8 @@
       },
       {
         "path": "../../apps/studio/src/authoredPipeline.test.ts",
-        "sha256": "3b678fbbb832bbc16863423d77cf96047ffbcc64c0aedd5155387745fafd8973",
-        "bytes": 4916
+        "sha256": "6071f42974210d792a493a1a8d18f9dd282adeb63053d059113a4a9f6d2fbbb6",
+        "bytes": 7029
       },
       {
         "path": "../../apps/studio/src/authoredPipeline.ts",
@@ -31810,8 +31810,8 @@
       },
       {
         "path": "../../e2e/reference-patterns.spec.ts",
-        "sha256": "22b125ce8c1112bf0bb19753f32165314bce0d1fccb8a9651d56532fdeab25c7",
-        "bytes": 5283
+        "sha256": "c8cfa68c6d4e29afe65187a857a6c751b3319791757771a306b8ea97778fd4a9",
+        "bytes": 5193
       },
       {
         "path": "../../e2e/states.spec.ts",
@@ -32070,7 +32070,7 @@
       },
       {
         "path": "registry/knit-proven.json",
-        "sha256": "b95a8fe835699d4d9d7d487cc24ccfbc3b70aef7fe4381880f3eb48d4a9b78f2",
+        "sha256": "9ebf99b92fd9173d261225bcdd88ea89997175d373e3f122e053715cb0abb14c",
         "bytes": 179
       },
       {
@@ -32715,8 +32715,8 @@
       },
       {
         "path": "src/knitout/passes/jacquard-floats.ts",
-        "sha256": "21f64c4893a30a1d2d9b9435fcdfdc9bca58c24eac1cf8eb733c4e59d5825596",
-        "bytes": 9671
+        "sha256": "6090f477f48a9efb13746e315b31ede3152e9b4cd48902a11864c7f6d5c67ffd",
+        "bytes": 11096
       },
       {
         "path": "src/knitout/passes/jacquard-ladder.ts",
@@ -32800,13 +32800,13 @@
       },
       {
         "path": "src/knitout/plan/chart-body-walker.ts",
-        "sha256": "ad5c73929fac0c0cce369d19f42156e784d495bdada6d4e167cbf4d2c6d87d3e",
-        "bytes": 20670
+        "sha256": "c36aab5c39a77d7c49af345f6affdca4180c9204412311eab6c2bf3774763bd3",
+        "bytes": 20891
       },
       {
         "path": "src/knitout/plan/compile-chart.ts",
-        "sha256": "b4d63f2d2c7efe0d5880525a03949e865e8bf3e24049621419246be01bd00d3f",
-        "bytes": 71229
+        "sha256": "fb6354a1bc5b03030e95f8f33e1078bf651f95549eed90d07e29790a60968fa1",
+        "bytes": 71599
       },
       {
         "path": "src/knitout/plan/kniterate-settings-ops.ts",
@@ -33115,8 +33115,8 @@
       },
       {
         "path": "test/knitout/from-chart-jacquard-floats.test.ts",
-        "sha256": "726a7db0b19d971c1fedb32116b44f079b706f8448b78afe748fb95be27d80d4",
-        "bytes": 26699
+        "sha256": "ac3ce76f22e31b2845fc7360e4a0a9a0d48679ada1db5ca8dd6752ceb2c209ea",
+        "bytes": 29044
       },
       {
         "path": "test/knitout/from-chart-jacquard.test.ts",
