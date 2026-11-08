@@ -80,15 +80,46 @@ sequences, compiler fingerprint coverage and one sweater capacity check.
 
 **C. Make more things (each with a development knit)**
 
-Colourwork path to a reversible jacquard sweater (set 2026-11-08), once
-handoff 2 shows the start works. The target is Kniterate's own sweater
-(Customist design `rp3AXUm`, "Kniterate sweater (reversible jacquard)",
-three fully fashioned panels in 2 ends of merino Nm 2/28). The captured
-Customist panels `reference/front.kc`, `back.kc` and `sleeves.kc` use the
-same construction (`jacquard-complement.ts`). They are probably this design,
-but that is not confirmed. Images are dithered in Colorworks
-(`~/pro/colorworks`) and imported as a chart PNG.
+Toward the user's own colourwork sweater (set 2026-11-08), once handoff 2
+shows the start works.
+- **The goal:** a sweater of the user's own design and shape, with
+  dithered images from Colorworks (`~/pro/colorworks`, imported as a chart
+  PNG), in fairisle (one layer) or reversible jacquard.
+- **The construction reference:** Kniterate's own sweater, Customist design
+  `rp3AXUm` ("Kniterate sweater (reversible jacquard)"): three fully
+  fashioned panels in 2 ends of merino Nm 2/28. The captured Customist
+  panels `reference/front.kc`, `back.kc` and `sleeves.kc` use the same
+  construction (`jacquard-complement.ts`). They are probably this design,
+  but that is not confirmed.
+- **How to get there:** knit every mechanism small first, from the same code
+  a full design uses, so the full piece knits nothing new.
 
+Every mechanism the sweater needs, and where it stands (tick when a knit of
+it is registered):
+
+| Mechanism | In Studio | Knitted |
+|---|---|---|
+| Start: waste yarn, draw thread, yarn catch | built | failed in run 3; fix in handoff 2 |
+| 2×2 rib cast-on and rib | built | run 3 (hand-edited speed-100 copy): neat |
+| Rib to body transfer | built | run 3 (same copy) |
+| Fairisle colourwork | built | runs 1–2 broke at the first two-colour row; handoff 2 |
+| Birdseye colourwork | built | run 3; edge drops, stiff crown |
+| Reversible jacquard | blocked for designed pieces | no |
+| Waste yarn on top (for linking) | built | handoff 2 run 3 |
+| Chain bind-off | built | handoff 2 run 4 |
+| Sleeve increases | built, one yarn | no |
+| Armhole bind-offs and decreases; sleeve cap | built, one yarn | no |
+| Neck split on two yarns, central bind-off, shoulders | built, one yarn | no |
+| Neckband | built | no |
+| Assembly from the written pattern | built | no |
+| Fit: swatch gauge to finished size | built | no |
+| Colourwork on shaped pieces | not built (M7) | no |
+| Hand-drawn piece outlines | `sweater shape` key points | no |
+
+- [ ] A mini sweater in one yarn: front, back, two sleeves and neckband,
+  about 30 cm long, from a measured swatch, then assembled and measured.
+  This works today (~410–530 passes a piece). It covers every shaping
+  mechanism, every bind-off and fit.
 - [ ] A short strip, then a scarf, of a dithered two-colour chart in
   fairisle (single jacquard). This works today. The strip tests how fairisle
   handles the dither's single stitches and frequent colour changes before a
@@ -100,8 +131,9 @@ but that is not confirmed. Images are dithered in Colorworks
   needs a start, body and finish matched to those files, then a strip and a
   scarf. It takes exactly two colours.
 - [ ] Colourwork on sweater pieces (M7 colourwork below), as strips first:
-  increases, armhole bind-off and the neck split, each in colourwork.
-- [ ] The full sweater, in fairisle or reversible jacquard.
+  increases, armhole bind-off and the neck split, each in colourwork. Then
+  the mini sweater again, in colourwork.
+- [ ] The user's own design, full size, in fairisle or reversible jacquard.
 
 - [ ] Draw a piece: any outline in any stitch, through the sweater piece
   pipeline.
