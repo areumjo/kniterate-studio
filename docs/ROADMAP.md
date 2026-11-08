@@ -26,7 +26,9 @@ Why this order:
   from it (STATUS, 2026-11-07).
 - [ ] Knit a new mini toque from the fixed start, with a larger motif and a
   taller body, and Kniterate's `fairisle.kc` again in run 2's yarns; register both.
-  (Handoff 2 on issue #9: `output/machine-handoff-2`, from 687e45b.)
+  (Handoff 2 on issue #9: `output/machine-handoff-2`, from 687e45b. The
+  exact files are also served from the site at `handoff-2/`, copied into
+  `apps/studio/public/handoff-2/`.)
 - [x] Give each handoff a run record with the file's sections and passes, and
   pin the fixed start in a test (`flatStart.test.ts`).
 - [ ] After handoff 2's results, file changes from Kniterate's own practice,

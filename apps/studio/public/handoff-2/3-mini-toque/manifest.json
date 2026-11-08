@@ -1,0 +1,44 @@
+{
+  "kind": "kniterate-studio-handoff",
+  "schemaVersion": 1,
+  "title": "Mini bird toque test 2",
+  "projectId": "4c3285e8e5ee",
+  "historyCursor": 10,
+  "identity": {
+    "kcodeSha256": "948f39deb4825c64e5e0f106818bfcf8d34a53bb530a94c89bdd61beef38ddb4",
+    "compileHash": "d4233d35",
+    "passCount": 570
+  },
+  "verdict": "Surface-proven",
+  "readiness": {
+    "ready": false,
+    "headline": "File checks passed, sizes not confirmed",
+    "evidence": "Software checks passed · Surface-proven · physical knit pending",
+    "unresolved": [
+      {
+        "part": "Fit",
+        "rule": "gauge-assumed",
+        "severity": "warning"
+      },
+      {
+        "part": "Cuff fit",
+        "rule": "gauge-assumed",
+        "severity": "warning"
+      }
+    ],
+    "notices": []
+  },
+  "files": {
+    "project.kniterate-studio.json": "7f60316b65a90e8b5e1927beac9c2c356202bdc9861ab85ea780c039ce2e6219",
+    "program.k": "2d3499a7834337a4820c2d1436897b90302fe64e38f2d34a72796069222f5904",
+    "program.kc": "948f39deb4825c64e5e0f106818bfcf8d34a53bb530a94c89bdd61beef38ddb4",
+    "instructions.md": "51a19fddcfb41a8738ad6eeaea66cdfc3a4b84abc35b817e9e1ce1ec420f20c9",
+    "schematic.svg": "ae415ec7a4e09b9c7cdba0c4908a6df32e34f883283ea02c718392d11cf14dab",
+    "chart.png": "005b3ea47085f5e06175a2b3dc139e7d89f627abca7b1565e9cc18e147624104"
+  },
+  "forms": [
+    "measurement-form.md",
+    "measurements.json"
+  ],
+  "trials": []
+}

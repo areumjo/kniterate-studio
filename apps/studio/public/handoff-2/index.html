@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23262b29'/%3E%3Cpath d='M8 9h16M8 16h16M8 23h16' stroke='%23f8f7f3' stroke-width='2.5'/%3E%3C/svg%3E" />
+<title>Machine handoff 2</title>
+<style>
+  :root { color-scheme: light dark;
+    --paper: #f8faf9; --panel: #ffffff; --ink: #202624; --ink-2: #59635f; --line: #cdd4d0; --accent: #d4553d; --surface: #13785a; }
+  @media (prefers-color-scheme: dark) { :root {
+    --paper: #202623; --panel: #252c29; --ink: #edf2ef; --ink-2: #bac4bf; --line: #3c4742; --accent: #ef8a6e; --surface: #70c7a2; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.6rem; margin: 0 0 8px; }
+  h2 { font-size: 1.1rem; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent); }
+  .muted { color: var(--ink-2); }
+  .all { display: inline-block; margin: 8px 0 24px; padding: 10px 16px; border-radius: 6px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; }
+  section { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin: 0 0 16px; }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  code { font: 0.8rem/1.4 "SFMono-Regular", Consolas, monospace; overflow-wrap: anywhere; }
+  .hash { color: var(--ink-2); }
+  .kc { font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Machine handoff 2</h1>
+  <p>Four files to knit on the Kniterate, in this order. Each passed Studio's checks (Surface-proven). None has been knitted yet.</p>
+  <p class="muted">Check each file's SHA-256 before loading it. Fill in the run record at the machine, then post the results on <a href="https://github.com/xjhc/kniterate-studio/issues/9">issue #9</a>.</p>
+  <a class="all" href="./handoff-2.zip" download>Download all four (zip)</a>
+
+  <section>
+    <h2>1. Kniterate's fairisle, the control</h2>
+    <p>Kniterate's own <code>fairisle.kc</code>, unchanged, knitted in run 2's yarns. Was the break at the first fairisle row caused by the yarn and setup, or by the file? 286 passes.</p>
+    <ul>
+      <li><a class="kc" href="./1-kniterate-fairisle.kc" download>1-kniterate-fairisle.kc</a> <code class="hash">0dba85bca3f3251030bd2302a539b26a14870692261313c948007fb99ccae8e7</code></li>
+      <li><a href="./1-kniterate-fairisle-run-record.md">Run record</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. Studio's fairisle</h2>
+    <p>Do the yarn catch and the gentle first row fix the startup tangle, the draw-thread miss and the yarn break? 294 passes.</p>
+    <ul>
+      <li><a class="kc" href="./2-studio-fairisle/program.kc" download="2-studio-fairisle.kc">program.kc</a> <code class="hash">092076f4a15dca100f27f444c2bf5875aec7505ec9df00a638d969f50a2189fb</code></li>
+      <li><a href="./2-studio-fairisle/instructions.md">Instructions</a> · <a href="./2-studio-fairisle/measurement-form.md">Measurement form and run record</a> · <a href="./2-studio-fairisle/chart.png">Chart</a></li>
+      <li class="muted"><a href="./2-studio-fairisle/program.k" download="2-studio-fairisle.k">program.k</a> · <a href="./2-studio-fairisle/project.kniterate-studio.json" download="2-studio-fairisle.kniterate-studio.json">Studio project</a> · <a href="./2-studio-fairisle/manifest.json">manifest</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Mini toque</h2>
+    <p>Does the fixed start knit at the file's own speeds? Does the waste yarn on top hold the crown? Is the crown still stiff? 570 passes.</p>
+    <ul>
+      <li><a class="kc" href="./3-mini-toque/program.kc" download="3-mini-toque.kc">program.kc</a> <code class="hash">948f39deb4825c64e5e0f106818bfcf8d34a53bb530a94c89bdd61beef38ddb4</code></li>
+      <li><a href="./3-mini-toque/instructions.md">Instructions</a> · <a href="./3-mini-toque/measurement-form.md">Measurement form and run record</a> · <a href="./3-mini-toque/chart.png">Chart</a> · <a href="./3-mini-toque/schematic.svg">Schematic</a></li>
+      <li class="muted"><a href="./3-mini-toque/program.k" download="3-mini-toque.k">program.k</a> · <a href="./3-mini-toque/project.kniterate-studio.json" download="3-mini-toque.kniterate-studio.json">Studio project</a> · <a href="./3-mini-toque/manifest.json">manifest</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Bind-off strip</h2>
+    <p>Does the chain bind-off hold? It's the only test of it, and every sweater piece ends with one. 258 passes.</p>
+    <ul>
+      <li><a class="kc" href="./4-bindoff-strip/program.kc" download="4-bindoff-strip.kc">program.kc</a> <code class="hash">3cd3b1eab8a1c4010de441b9cbe2c88acf7cc4209817f8bc0e716ca3348bbb83</code></li>
+      <li><a href="./4-bindoff-strip/instructions.md">Instructions</a> · <a href="./4-bindoff-strip/measurement-form.md">Measurement form and run record</a> · <a href="./4-bindoff-strip/chart.png">Chart</a></li>
+      <li class="muted"><a href="./4-bindoff-strip/program.k" download="4-bindoff-strip.k">program.k</a> · <a href="./4-bindoff-strip/project.kniterate-studio.json" download="4-bindoff-strip.kniterate-studio.json">Studio project</a> · <a href="./4-bindoff-strip/manifest.json">manifest</a></li>
+    </ul>
+  </section>
+
+  <p class="muted">These are the exact files from the handoff 2 comment on issue #9. Use them as they are: an edited or re-exported file can't be registered as this run. <a href="../">Open Studio</a></p>
+</main>
+</body>
+</html>

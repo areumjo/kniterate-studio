@@ -1,0 +1,38 @@
+{
+  "kind": "kniterate-studio-handoff",
+  "schemaVersion": 1,
+  "title": "Customist fairisle reference",
+  "projectId": "customist-fairisle-reference-93650dc61da5",
+  "historyCursor": 0,
+  "identity": {
+    "kcodeSha256": "092076f4a15dca100f27f444c2bf5875aec7505ec9df00a638d969f50a2189fb",
+    "compileHash": "1de71c28",
+    "passCount": 294
+  },
+  "verdict": "Surface-proven",
+  "readiness": {
+    "ready": false,
+    "headline": "1 thing to check",
+    "evidence": "Software checks passed · Surface-proven · physical knit pending",
+    "unresolved": [
+      {
+        "part": "Yarns",
+        "rule": "name-encodes-carrier",
+        "severity": "warning"
+      }
+    ],
+    "notices": []
+  },
+  "files": {
+    "project.kniterate-studio.json": "958691f3d05007ab379b80815ce78790fcf6761a49f098d2b80261b6f3e91480",
+    "program.k": "9ecb74c9d0157e9ca91d85ee1d728044758eefb6b5f2fb602167e02754ea2cbc",
+    "program.kc": "092076f4a15dca100f27f444c2bf5875aec7505ec9df00a638d969f50a2189fb",
+    "instructions.md": "06c3d284a06c3ca093751715faa963023f943ba3e2aee5dd4b3d144989005ebe",
+    "chart.png": "06eb40775308fff7ca49374a504edb9751989c7935eb917b2097999efde83eba"
+  },
+  "forms": [
+    "measurement-form.md",
+    "measurements.json"
+  ],
+  "trials": []
+}
