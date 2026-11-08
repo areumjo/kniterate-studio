@@ -30936,7 +30936,7 @@
     ]
   },
   "contract": {
-    "sha256": "023b1e8b8a3fc44fcef032efa63cf2c52e1223bdf0361926a66ea6b6619bb828",
+    "sha256": "d5d9c06aa55e500a5f6e85ba042ded4f0f7e2be179436ec8762853699c1c3e2c",
     "files": [
       {
         "path": "../../.github/workflows/ci.yml",
@@ -31060,8 +31060,8 @@
       },
       {
         "path": "../../apps/studio/src/blanket/compileProject.ts",
-        "sha256": "9c9e04ffe9a5c64a1bd5d876fac6954acd34b5722c2efef5107d8847e46ec52b",
-        "bytes": 26935
+        "sha256": "c17f720b0d949d0b393536f4189227777129e902f6e8c298062db4f064e41687",
+        "bytes": 27489
       },
       {
         "path": "../../apps/studio/src/blanket/useBlanketCompiler.ts",
@@ -31195,8 +31195,8 @@
       },
       {
         "path": "../../apps/studio/src/explain.ts",
-        "sha256": "240159c9c2d508f74f986c58baa75c772bb5f8e03f3ea528e5f86732d3f87edd",
-        "bytes": 6660
+        "sha256": "940f86577c05102a8c309a12eaf0ca66a6c8367d440eb202cafb8cc3ecb4c89a",
+        "bytes": 6776
       },
       {
         "path": "../../apps/studio/src/fabric.test.ts",
@@ -31435,8 +31435,8 @@
       },
       {
         "path": "../../apps/studio/src/machineSetup.test.ts",
-        "sha256": "a56d9499b9def4760f8d26526713334ec938159264fc399b0594861e9c54eaf0",
-        "bytes": 24013
+        "sha256": "f529644fe08f2d6ce57acedd4fda58c1c7ca99c90d2208afd286701605eb9f18",
+        "bytes": 24331
       },
       {
         "path": "../../apps/studio/src/machineSetup.ts",
@@ -32060,7 +32060,7 @@
       },
       {
         "path": "registry/knit-proven.json",
-        "sha256": "e91750d8d138fcefb7a2a983233b40dd52e6232eef25dc6ef52eaa2d9c7db19e",
+        "sha256": "7bc5f89541314e8da4b1c23019ddefc91cedb0233ce7cc7d1c1a39e40b25ed65",
         "bytes": 179
       },
       {

@@ -21,7 +21,7 @@ const GLOSSARY: Record<string, string> = {
   fairisle: 'Stranded backing: unused colors float behind the work. Float length is limited by strategy.floatLimit (warnings above it).',
   birdseye: 'Double-bed backing: unused colors are knitted on the rear bed in a speckled pattern, so there are no long floats. A scarf or blanket chart takes two to four colors (the Customist-matched frame brings in only the carriers the chart uses); a beanie birdseye body takes two to four, ties each into the back every N needles, and knits 3 extra ground rows to start and join the back layer.',
   placement: 'A motif placed as intent (studio place): its anchor (centred or a column, and rows above the cuff), color mapping and source image are stored, and it is drawn over the chart whenever the project is materialized, so it follows resizes. A placement that does not fit is a conflict that blocks export; it is never clipped.',
-  'carried-yarn': 'An info check: a pattern yarn is carried from the waste section to its first stitch. Leave the strand slack while knitting and trim it after finishing.',
+  'carried-yarn': 'An info check: a pattern yarn is carried from the waste section to its first stitch, or a beanie\'s waste yarn up its edge to the waste on top. Leave the strand slack while knitting; trim a pattern yarn after finishing, and the waste strand comes away with the waste.',
   'stitch-aspect': 'Knitted stitches are wider than they are tall. Charts made from images use the gauge to pick the row count; one pixel per stitch squashes a motif vertically.',
 };
 

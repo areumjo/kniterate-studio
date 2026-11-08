@@ -277,8 +277,11 @@ describe('every section’s speed, roller and stitch size', () => {
   it('of a beanie: the top is waste yarn over the crown’s stitches, its rows your own', async () => {
     const topOf = (knitout: string) => knitout.slice(knitout.indexOf('WASTE ON TOP'));
     const rows = (knitout: string) => topOf(knitout).split('\n').filter((line) => /^knit [+-] f\d+ 6$/.test(line)).length;
-    const standard = compileColorworkProject(hat()).knitoutText!;
+    const compiled = compileColorworkProject(hat());
+    const standard = compiled.knitoutText!;
     expect(standard).toContain('WASTE ON TOP');
+    // The operator is told the waste yarn runs up the right edge to the top.
+    expect(compiled.diagnostics).toContainEqual(expect.objectContaining({ rule: 'carried-yarn', message: expect.stringMatching(/^C6 \(waste\) is carried .* up the right edge .* to the waste rows on top/) }));
     const stitches = new Set(topOf(standard).match(/^drop f\d+$/gm)).size;
     expect(rows(standard)).toBe(8 * stitches);
     const result = await runAuthoredPipeline(appendProjectEdit(hat(), { id: 'top-rows', source: 'human', edit: { kind: 'set-machine-setup', setup: { topWasteRows: 12 } } }));

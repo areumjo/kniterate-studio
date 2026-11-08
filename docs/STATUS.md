@@ -54,7 +54,9 @@ ship," trust this file and the working tree instead.
       Kniterate's jacquard setting) for charts and beanies, and crown jersey
       rows knit at stitch 6 or more (`STUDIO_CROWN_JERSEY_STITCH_V1`);
     - a setting the file sets with its own op (carrier spacing, stopping
-      distance) is no longer turned into a "Set … on the machine" check.
+      distance) is no longer turned into a "Set … on the machine" check;
+    - a beanie's operator checks say the waste yarn (C6) is carried up the
+      piece's right edge from the waste section to the waste on top.
     The recipe path and the rib-beanie generator's reference mode still
     reproduce Kniterate's files; none of this is knitted yet.
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
