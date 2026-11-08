@@ -30936,7 +30936,7 @@
     ]
   },
   "contract": {
-    "sha256": "b8ee38c31b74988735c2bffa9a988d22ef957a749b73369940e229c9e33d7a8a",
+    "sha256": "5cfbd4b724d88faef002696fbfe9982221e957435e9fd6b9f407d0254ae376a5",
     "files": [
       {
         "path": "../../.github/workflows/ci.yml",
@@ -31305,8 +31305,8 @@
       },
       {
         "path": "../../apps/studio/src/handoff.ts",
-        "sha256": "f16fca590754a04e831527a0071392a5a8d90df9e9638963da4a36967a0b697f",
-        "bytes": 38770
+        "sha256": "968a5628459f93842bf7cc824a3249d1eab0c8118f1ae68e55de5d23a09eb7c2",
+        "bytes": 38794
       },
       {
         "path": "../../apps/studio/src/imageChart.ts",
@@ -31560,8 +31560,8 @@
       },
       {
         "path": "../../apps/studio/src/sweater/SweaterDesignPanel.tsx",
-        "sha256": "452c37c9a93fe5f8b751d91a16a0d5e422cad75e486935540c9b0b7e6642dbff",
-        "bytes": 9812
+        "sha256": "58a967f0d17a39f9c21a8c8eed80f66a52350f216ea6a6d69edac4f0bc95e196",
+        "bytes": 10046
       },
       {
         "path": "../../apps/studio/src/sweater/SweaterStatusPanel.tsx",
@@ -31594,9 +31594,14 @@
         "bytes": 20554
       },
       {
+        "path": "../../apps/studio/src/sweater/measurementFields.ts",
+        "sha256": "85a3191cc2fcbe4258ef436f574e42e7687bf3326236a68d97d352733516d004",
+        "bytes": 1858
+      },
+      {
         "path": "../../apps/studio/src/sweater/panel.test.ts",
-        "sha256": "87d9ef944911f61930e4cc63195f125009144be83a4d226d6edbfc1d6c9f3425",
-        "bytes": 3356
+        "sha256": "d7aa720c89591d69eede9368cadf80858a01f1b87432ebea0721ff56cf49e8e3",
+        "bytes": 4128
       },
       {
         "path": "../../apps/studio/src/sweater/panel.ts",
@@ -31605,8 +31610,8 @@
       },
       {
         "path": "../../apps/studio/src/sweater/panelHandoff.ts",
-        "sha256": "130ffba34e86ca797873921a9e50eaf9e067b9628db1c7b72939fd3a63330c42",
-        "bytes": 4139
+        "sha256": "344312750c18928524093cefa301232604f82913cad2fc68d3bac4ea1f35cbd3",
+        "bytes": 5803
       },
       {
         "path": "../../apps/studio/src/sweater/rasterize.ts",
@@ -31630,8 +31635,8 @@
       },
       {
         "path": "../../apps/studio/src/sweater/sweater.test.ts",
-        "sha256": "90b0d0017be95145d38527b0c33804611c6af49c735bf0dd41df1a174d47d302",
-        "bytes": 21675
+        "sha256": "e15b6906522cb5273efc91786a21bca844c7a4c42c94a559aaea9bf159ba1e09",
+        "bytes": 23006
       },
       {
         "path": "../../apps/studio/src/sweater/sweater.ts",
@@ -31645,8 +31650,8 @@
       },
       {
         "path": "../../apps/studio/src/sweater/sweaterHandoff.ts",
-        "sha256": "123e2b13ad5d21089cd951007641240c491510a7773295f0ce106b84d6ce292c",
-        "bytes": 11840
+        "sha256": "d130c45f699ed4496c752b70feb2020528304033c8a81db4ffde01f7c8242995",
+        "bytes": 15548
       },
       {
         "path": "../../apps/studio/src/sweater/sweaterPipeline.ts",
