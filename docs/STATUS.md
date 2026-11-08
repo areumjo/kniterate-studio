@@ -56,7 +56,10 @@ ship," trust this file and the working tree instead.
     - a setting the file sets with its own op (carrier spacing, stopping
       distance) is no longer turned into a "Set … on the machine" check;
     - a beanie's operator checks say the waste yarn (C6) is carried up the
-      piece's right edge from the waste section to the waste on top.
+      piece's right edge from the waste section to the waste on top;
+    - every file's start checks add the feeder check from Kniterate's
+      "Needles hitting feeders" article and an owner's brush check (yarn
+      caught on brushes drops stitches on the right).
     The recipe path and the rib-beanie generator's reference mode still
     reproduce Kniterate's files; none of this is knitted yet.
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler

@@ -30936,7 +30936,7 @@
     ]
   },
   "contract": {
-    "sha256": "d5d9c06aa55e500a5f6e85ba042ded4f0f7e2be179436ec8762853699c1c3e2c",
+    "sha256": "e442f3d537c7f08f7eb4489821b323a2cfb0ca40f27888ad0baa274a5585bb6f",
     "files": [
       {
         "path": "../../.github/workflows/ci.yml",
@@ -31475,8 +31475,8 @@
       },
       {
         "path": "../../apps/studio/src/readiness.ts",
-        "sha256": "a8948b38982a6fb2114a4436a4f3dee9969fa53fb3b86360859a8b6cf2cd0ac9",
-        "bytes": 10175
+        "sha256": "5eaf0947bc2311154cc6c94cd524e8cc88aaad176a392307b8871a4d995ec6d6",
+        "bytes": 10950
       },
       {
         "path": "../../apps/studio/src/sourceWindow.test.tsx",
@@ -32060,7 +32060,7 @@
       },
       {
         "path": "registry/knit-proven.json",
-        "sha256": "7bc5f89541314e8da4b1c23019ddefc91cedb0233ce7cc7d1c1a39e40b25ed65",
+        "sha256": "4a1cd25b356449084630ed6020830682962702d4d596d60fa8a3939cb910a5b0",
         "bytes": 179
       },
       {

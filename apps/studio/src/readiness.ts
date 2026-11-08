@@ -167,10 +167,19 @@ const PLAN_BLOCKER_KIND: Partial<Record<string, 'assumed-value' | 'missing-input
 /**
  * What every machine file assumes when the job starts. No file can show
  * these, so each one is the operator's to check at the machine, every time.
+ * The feeder check is Kniterate's: a feeder whose sliding part is loose on
+ * the rail is pushed ahead of the carriage, and needles hit it
+ * (support.kniterate.com article 20142428697885, "Needles hitting feeders").
+ * The brush check is an experienced owner's (EcoKnitware, community post
+ * 4419488970129): yarn caught on brushes set too close loses its tension and
+ * drops stitches on the right. The needles are meant to push through the
+ * brushes.
  */
 export const MACHINE_START_CHECKS: readonly string[] = [
   'Start with no fabric or loops on the needles: every check assumes an empty bed.',
   'Park every yarn feeder at home on the left (C1 to C6) before you start: every check assumes they start there.',
+  'Check that each yarn feeder slides smoothly but firmly along its rail, with only a tiny bit of play: a loose feeder is pushed ahead of the carriage, where the needles hit it.',
+  'Check that the brushes clear the yarn feeders and the yarn: yarn caught on a brush loses its tension, and stitches drop on the right.',
   'Knit a swatch to try the stitch size, speed and roller with your yarn: the file keeps inside Studio’s machine limits, which say nothing about your yarn.',
 ];
 
