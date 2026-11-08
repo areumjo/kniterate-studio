@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Pencil } from 'lucide-react';
 import type { ProjectEdit } from '@kniterate-studio/project-contract';
 import type { gaugeFabrics } from '../fabric';
-import { GaugeFields, SwatchAside, swatchWords, type GaugeValue } from '../workspace/gauge';
+import { GaugeFields, SwatchAside, SwatchFileButton, swatchWords, type GaugeValue } from '../workspace/gauge';
+import type { SwatchFile } from '../useSwatchFile';
 import { Section } from '../workspace/panel';
 import { TEXTURES, textureMatching } from './textures';
 import { TextureEditor, TextureSwatch } from './TextureSwatch';
@@ -39,7 +40,7 @@ export function StitchSection({ body, hex, onChange }: { body: { name: string; t
 }
 
 /** The yarn (colour and name) and the gauges, with whether each was measured. */
-export function YarnGaugeSection({ yarn, carrier, bodyName, fabrics, gauge, ribGauge, operate, onRibGauge }: {
+export function YarnGaugeSection({ yarn, carrier, bodyName, fabrics, gauge, ribGauge, swatchFile, operate, onRibGauge }: {
   yarn: { id: string; name: string; hex: string };
   carrier: string;
   bodyName: string;
@@ -48,6 +49,8 @@ export function YarnGaugeSection({ yarn, carrier, bodyName, fabrics, gauge, ribG
   gauge: GaugeValue;
   /** Null when the project has no rib. */
   ribGauge: GaugeValue | null;
+  /** The swatch's machine file, downloaded here beside its gauges. */
+  swatchFile?: SwatchFile;
   operate: Operate;
   onRibGauge: (next: GaugeValue, label: string) => void;
 }) {
@@ -58,6 +61,7 @@ export function YarnGaugeSection({ yarn, carrier, bodyName, fabrics, gauge, ribG
       <input type="text" defaultValue={yarn.name} key={yarn.name} aria-label="Yarn name" onBlur={(event) => { const name = event.currentTarget.value.trim(); if (name && name !== yarn.name) operate(`Yarn: ${name}`, [{ kind: 'set-palette-entry', paletteId: yarn.id, name, hex: yarn.hex }, { kind: 'set-yarn-assignment', assignment: { paletteId: yarn.id, carrier: carrier as '2' | '3' | '4' | '5', yarnName: name } }]); }} />
     </label>
     <p className="design-hint">{swatch.hint}</p>
+    <SwatchFileButton file={swatchFile} />
     <GaugeFields id="gauge.body" label={`${bodyName} gauge`} gauge={gauge} onCommit={(next) => setGauge(next, `Body gauge ${next.stitchesPer10cm}/${next.rowsPer10cm} (${next.source})`)} />
     {ribGauge && <GaugeFields id="gauge.rib" label="Rib gauge" gauge={ribGauge} onCommit={(next) => onRibGauge(next, `Rib gauge ${next.stitchesPer10cm}/${next.rowsPer10cm} (${next.source})`)} />}
   </Section>;

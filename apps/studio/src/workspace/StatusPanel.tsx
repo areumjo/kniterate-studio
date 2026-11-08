@@ -40,7 +40,12 @@ export interface StatusFile {
   error?: string | null;
 }
 
-/** The swatch step: each fabric the sizes come from, whether its gauge was measured, where to enter it, and the swatch's machine file. */
+/**
+ * The swatch step: each fabric the sizes come from, whether its gauge was
+ * measured, and where the swatch is. The swatch has one place, its section:
+ * its file is downloaded and its gauge entered there, and the panel's button
+ * goes there. The file says whether one can be knitted and was downloaded.
+ */
 export interface SwatchStep {
   gauges: { name: string; measured: boolean }[];
   onEnter: () => void;
@@ -99,9 +104,9 @@ export function StatusPanel(props: StatusPanelProps) {
   const swatchDownloaded = swatchFile?.downloaded === true;
   const lead = tone === 'blocked' || tone === 'warn' ? notes.find((note) => note.severity === 'error') ?? notes[0] : undefined;
   const others = notes.filter((note) => note !== lead);
-  // The one next step: fix what blocks, else measure a swatch, else download, else print and go to the machine.
+  // The one next step: fix what blocks, else go to the swatch, else download, else print and go to the machine.
   const next = waiting || lead ? null
-    : swatch && !measured ? (swatchFile && !swatchDownloaded ? 'swatch-file' : 'swatch-enter')
+    : swatch && !measured ? 'swatch'
       : canPackage ? (downloaded && canPrint ? 'print' : 'package')
         : null;
   const startChecks = [...new Set([...atTheMachine, ...(swatchFile ? MACHINE_START_CHECKS : [])])];
@@ -110,8 +115,9 @@ export function StatusPanel(props: StatusPanelProps) {
   useEffect(() => { if (downloaded || swatchDownloaded) setMachineOpen(true); }, [downloaded, swatchDownloaded]);
   const why = lead ? lead.why : tone === 'blocked' ? null : detail;
 
-  const swatchDownload = (primary: boolean) => swatchFile && <button type="button" className={primary ? 'primary-button' : 'secondary-button'} disabled={swatchFile.writing} onClick={swatchFile.onDownload!}>{swatchFile.writing ? <LoaderCircle size={15} className="spin" aria-hidden="true" /> : <Download size={15} aria-hidden="true" />}{swatchFile.writing ? 'Writing the swatch file…' : 'Download swatch file'}</button>;
-  const swatchEnter = (primary: boolean) => swatch && <button type="button" className={primary ? 'primary-button' : 'secondary-button'} onClick={swatch.onEnter}><Ruler size={15} aria-hidden="true" />{measured ? 'Change your swatch' : 'Enter your swatch'}</button>;
+  // Goes to the swatch's section, where its file is downloaded and its gauge entered.
+  const swatchLabel = measured ? 'Change your swatch' : swatchFile && !swatchDownloaded ? 'Knit a swatch' : 'Enter your swatch';
+  const swatchButton = (primary: boolean) => swatch && <button type="button" className={primary ? 'primary-button' : 'secondary-button'} onClick={swatch.onEnter}><Ruler size={15} aria-hidden="true" />{swatchLabel}</button>;
   const packageButton = (primary: boolean) => <button type="button" className={primary ? 'primary-button' : 'secondary-button'} disabled={checking || !canPackage || packaging} onClick={onPackage}>{packaging ? <LoaderCircle size={16} className="spin" aria-hidden="true" /> : <Package size={16} aria-hidden="true" />}{packaging ? 'Writing the knitting package…' : 'Download knitting package'}</button>;
   const printButton = (primary: boolean) => <button type="button" className={primary ? 'primary-button' : 'secondary-button'} disabled={checking || !canPrint} onClick={onPrint}><Printer size={16} aria-hidden="true" />Print knitting sheet</button>;
 
@@ -129,13 +135,11 @@ export function StatusPanel(props: StatusPanelProps) {
     </section>}
     {next && <div className="status-actions" aria-label="Next step">
       {next === 'print' && <p className="status-done"><Check size={14} aria-hidden="true" />Downloaded</p>}
-      {next === 'swatch-enter' && swatchDownloaded && <p className="status-done"><Check size={14} aria-hidden="true" />Swatch file downloaded</p>}
-      {next === 'swatch-file' && swatchDownload(true)}
-      {next === 'swatch-enter' && swatchEnter(true)}
+      {next === 'swatch' && swatchDownloaded && <p className="status-done"><Check size={14} aria-hidden="true" />Swatch file downloaded</p>}
+      {next === 'swatch' && swatchButton(true)}
       {next === 'package' && packageButton(true)}
       {next === 'print' && printButton(true)}
     </div>}
-    {swatch?.file?.problem && <p className="piece-error" role="alert">{swatch.file.problem}</p>}
     <div className="status-disclosures">
       {(why || waiting || others.length > 0) && <details id="status-why" className="status-disclosure">
         <summary>Why?{others.length > 0 && <span className="status-more">{others.length} more to check</span>}</summary>
@@ -150,10 +154,7 @@ export function StatusPanel(props: StatusPanelProps) {
         <div className="status-disclosure-body">
           <ul className="swatch-gauges">{swatch.gauges.map((gauge) => <li key={gauge.name} className={gauge.measured ? 'measured' : ''}>{gauge.name}<span>{gauge.measured ? 'measured' : 'typical values'}</span></li>)}</ul>
           {!measured && <p className="step-hint">Knit a swatch, wash and dry it like the finished piece, then measure 10 cm in the middle.</p>}
-          <div className="step-buttons">
-            {next !== 'swatch-file' && swatchDownload(false)}
-            {next !== 'swatch-enter' && swatchEnter(false)}
-          </div>
+          {next !== 'swatch' && <div className="step-buttons">{swatchButton(false)}</div>}
         </div>
       </details>}
       <details className="status-disclosure">

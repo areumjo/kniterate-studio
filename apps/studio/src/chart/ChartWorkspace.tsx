@@ -325,9 +325,9 @@ export function ChartWorkspace({ project, onProject, generation, plan, story, st
     <BlanketSetupRail state={materialized.state} compile={compile} outputError={outputError}
       onSetup={(setup, label) => { operate(label, [{ kind: 'set-machine-setup', setup }]); }}
       size={isGarment ? <>
-        <GarmentFitSection key={`fit-${project.id}`} state={materialized.state} plan={plan} onFit={fit} />
+        <GarmentFitSection key={`fit-${project.id}`} state={materialized.state} plan={plan} swatchFile={status.swatchFile} onFit={fit} />
         <MotifSection key={`motifs-${project.id}-${renderedGeneration}`} latestState={latestMotifState} state={materialized.state} placements={resolvedPlacements} selected={selectedPlacement} staleIds={stalePlacements} onSelect={(id) => { setSelectedPlacement(id); if (id !== null) setWholeHat(false); }} onOperation={operate} onAddImage={() => setIntake({ replacing: null })} onReplaceImage={(placement, refresh) => setIntake({ replacing: placement, refresh })} />
-      </> : <ChartSizeSection key={`size-${project.id}`} state={materialized.state}
+      </> : <ChartSizeSection key={`size-${project.id}`} state={materialized.state} swatchFile={status.swatchFile}
         onSize={(change, label) => operate(label, withSizingFixes(project, [{ kind: 'set-target', target: { ...materialized.state.target, ...change } }]))}
         onGauge={(next, label) => operate(label, withSizingFixes(project, [{ kind: 'set-gauge', gauge: { ...next } }]))}
         onNeedles={(width) => Number.isInteger(width) && width > 0 && width <= AUTHORED_CAPACITY_LIMITS_V1.chartWidth && width !== chart.width && commit({ kind: 'set-width', width, fillPaletteIndex: activePaletteIndex })}

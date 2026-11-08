@@ -111,7 +111,7 @@ test('the status panel leads with the swatch, then the package, and reveals deta
   await createBeanie(page);
   const status = page.getByRole('complementary', { name: 'Status' });
   const primary = status.locator('.primary-button:visible');
-  await expect(primary).toHaveText('Download swatch file');
+  await expect(primary).toHaveText('Knit a swatch');
   for (const label of ['Why?', 'Swatch', 'Files and printing', 'Before knitting'] as const) {
     await expect(statusDisclosure(page, label)).toHaveJSProperty('open', false);
   }
@@ -130,11 +130,16 @@ test('the status panel leads with the swatch, then the package, and reveals deta
   await expect(before).toHaveJSProperty('open', false);
   await expect(before.locator('summary')).toBeFocused();
 
+  // The swatch has one place: the panel's button goes to Your swatch, where its file and its gauge both are.
+  await primary.click();
+  await expect(page.getByLabel(/^Body \(.+ fabric\) stitches per 10 cm$/)).toBeFocused();
+  await expect(status.getByRole('button', { name: 'Download swatch file' })).toHaveCount(0);
   // The swatch is its own checked machine file, in the hat's yarns, backing and gauge.
   const swatch = page.waitForEvent('download');
-  await primary.click();
+  await page.locator('#swatch').getByRole('button', { name: 'Download swatch file' }).click();
   expect((await swatch).suggestedFilename()).toMatch(/-swatch\.kc$/);
   // Then the machine: its checks open once, and entering the swatch is next.
+  await expect(page.locator('#swatch')).toContainText('Swatch file downloaded');
   await expect(status).toContainText('Swatch file downloaded');
   await expect(before).toHaveJSProperty('open', true);
   await expect(primary).toHaveText('Enter your swatch');

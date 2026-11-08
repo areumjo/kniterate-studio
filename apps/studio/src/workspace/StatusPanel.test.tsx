@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { storyItems } from '../handoff';
 import { MACHINE_START_CHECKS, type Finding } from '../readiness';
 import { StatusPanel, type SwatchStep } from './StatusPanel';
+import { SwatchFileButton } from './gauge';
 import { statusNotes } from './statusNotes';
 
 const noop = () => {};
@@ -87,12 +88,13 @@ describe('status panel progressive disclosure', () => {
     disclosure(html, 'Before knitting');
   });
 
-  it('leads with the swatch download before measurements are entered', () => {
+  it('leads to the swatch before measurements are entered; its file is downloaded there, not here', () => {
     const html = panel({ swatch: swatch(false) });
-    expect(primaryLabels(html)).toEqual(['Download swatch file']);
-    expectDisabled(initiallyVisible(html), 'Download swatch file', false);
+    expect(primaryLabels(html)).toEqual(['Knit a swatch']);
+    expectDisabled(initiallyVisible(html), 'Knit a swatch', false);
     expect(initiallyVisible(html)).not.toContain('Download knitting package');
-    expect(disclosure(html, 'Swatch')).toContain('Enter your swatch');
+    expect(html).not.toContain('Download swatch file');
+    expect(buttons(html).filter((candidate) => textContent(candidate) === 'Knit a swatch')).toHaveLength(1);
     expectDisabled(disclosure(html, 'Files and printing'), 'Download knitting package', false);
   });
 
@@ -100,7 +102,7 @@ describe('status panel progressive disclosure', () => {
     const html = panel({ swatch: swatch(false, true, true) });
     expect(primaryLabels(html)).toEqual(['Enter your swatch']);
     expect(initiallyVisible(html)).toContain('Swatch file downloaded');
-    expect(disclosure(html, 'Swatch')).toContain('Download swatch file');
+    expect(html).not.toContain('Download swatch file');
     expect(occurrences(html, 'Enter your swatch')).toBe(1);
   });
 
@@ -165,8 +167,8 @@ describe('status panel progressive disclosure', () => {
     expectDisabled(html, 'Download knitting package', true);
     expectDisabled(html, 'Download body.kc', true);
     expectDisabled(html, 'Print knitting sheet', true);
-    expectDisabled(disclosure(html, 'Swatch'), 'Download swatch file', false);
-    expect(initiallyVisible(html)).not.toContain('Download swatch file');
+    expectDisabled(disclosure(html, 'Swatch'), 'Change your swatch', false);
+    expect(html).not.toContain('Download swatch file');
   });
 
   it('retains file inspection, per-file gates, printing and swatch controls inside their disclosures', () => {
@@ -191,7 +193,7 @@ describe('status panel progressive disclosure', () => {
     const swatchDetails = disclosure(html, 'Swatch');
     expect(swatchDetails).toContain('measured');
     expectDisabled(swatchDetails, 'Change your swatch', false);
-    expectDisabled(swatchDetails, 'Download swatch file', false);
+    expect(swatchDetails).not.toContain('Download swatch file');
   });
 });
 
@@ -209,7 +211,8 @@ describe('status panel start checks', () => {
 
   it('keeps a validated swatch and its startup checks available when the design is blocked', () => {
     const html = panel({ tone: 'blocked', canPackage: false, canPrint: false, atTheMachine: [], swatch: swatch(false) });
-    expectDisabled(html, 'Download swatch file', false);
+    // The swatch is a click away: its section has the file, whatever blocks the piece.
+    expectDisabled(html, 'Knit a swatch', false);
     expectDisabled(html, 'Download knitting package', true);
     const before = disclosure(html, 'Before knitting');
     for (const check of MACHINE_START_CHECKS) {
@@ -222,6 +225,22 @@ describe('status panel start checks', () => {
   it('does not invent startup checks for a blocked design without a downloadable swatch', () => {
     const html = panel({ tone: 'blocked', canPackage: false, canPrint: false, atTheMachine: [], swatch: swatch(false, false) });
     for (const check of MACHINE_START_CHECKS) expect(occurrences(html, check), check).toBe(0);
+  });
+});
+
+describe('the swatch section’s file', () => {
+  const file = (over: Partial<{ writing: boolean; problem: string | null; downloaded: boolean }> = {}) => ({ onDownload: noop, writing: false, problem: null, downloaded: false, ...over });
+  it('downloads beside the gauge, says when it is downloaded, and shows its problem', () => {
+    const ready = renderToStaticMarkup(<SwatchFileButton file={file()} />);
+    expectDisabled(ready, 'Download swatch file', false);
+    expect(ready).toContain('measure 10 cm in the middle');
+    expect(ready).not.toContain('Swatch file downloaded');
+    expect(renderToStaticMarkup(<SwatchFileButton file={file({ downloaded: true })} />)).toContain('Swatch file downloaded');
+    expectDisabled(renderToStaticMarkup(<SwatchFileButton file={file({ writing: true })} />), 'Writing the swatch file…', true);
+    expect(renderToStaticMarkup(<SwatchFileButton file={file({ problem: 'The swatch can’t be knitted.' })} />)).toContain('The swatch can’t be knitted.');
+  });
+  it('is not offered when there is no swatch to knit', () => {
+    expect(renderToStaticMarkup(<SwatchFileButton file={{ onDownload: null, writing: false, problem: null, downloaded: false }} />)).toBe('');
   });
 });
 

@@ -40,7 +40,7 @@ Why this order:
   and re-catching C6 for a waste top (EcoKnitware); transferring edge needles
   first and by pass direction (CMU converter issues 5 and 35; needs a
   converter change).
-- [ ] Give the swatch one place: download and enter it under Your swatch, and
+- [x] Give the swatch one place: download and enter it under Your swatch, and
   have the status panel's button go there.
 - [ ] Start the left panel folded except Size; a Show or fix button opens the
   section it points to.

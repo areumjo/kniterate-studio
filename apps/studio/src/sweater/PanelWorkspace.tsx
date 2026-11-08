@@ -87,7 +87,7 @@ export function PanelWorkspace({ project, onProject, plan, run, view, onView, on
         </div>
         <p className="design-hint">0 cm: no rib ends.</p>
       </Section>
-      <YarnGaugeSection yarn={yarn} carrier={plan.carriers.main} bodyName={object.body.name} fabrics={gaugeFabrics(state)} gauge={plan.gauge} ribGauge={object.ends.cm > 0 ? plan.ribGauge : null} operate={operate} onRibGauge={(next, label) => change(label, { ...object, ribGauge: { ...next } })} />
+      <YarnGaugeSection swatchFile={swatchFile} yarn={yarn} carrier={plan.carriers.main} bodyName={object.body.name} fabrics={gaugeFabrics(state)} gauge={plan.gauge} ribGauge={object.ends.cm > 0 ? plan.ribGauge : null} operate={operate} onRibGauge={(next, label) => change(label, { ...object, ribGauge: { ...next } })} />
       <MachineSetupSection state={state} onChange={(setup, label) => { operate(label, [{ kind: 'set-machine-setup', setup }]); }}
         objectTop={{ value: object.top ?? 'bind-off', onChange: (top) => change(top === 'waste' ? 'Finish on waste yarn' : 'Bind off the top', { ...object, top }) }} />
     </aside>

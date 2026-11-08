@@ -5,7 +5,8 @@ import { BEANIE_FITS, beanieIntentOf } from '../beanie';
 import { projectBackingWords } from '../backing';
 import { gaugeFabrics } from '../fabric';
 import type { ProjectPlan, Valued } from '../plan';
-import { GaugeFields, SwatchAside, swatchWords } from '../workspace/gauge';
+import { GaugeFields, SwatchAside, SwatchFileButton, swatchWords } from '../workspace/gauge';
+import type { SwatchFile } from '../useSwatchFile';
 import { Chips, Section } from '../workspace/panel';
 
 /**
@@ -55,7 +56,7 @@ export function MeasureRow({ label, hint, wanted, knitted, count, off = false }:
   </div>;
 }
 
-export function GarmentFitSection({ state, plan, onFit }: { state: ProjectState; plan: ProjectPlan; onFit: (change: BeanieFitChange, label: string) => void }) {
+export function GarmentFitSection({ state, plan, swatchFile, onFit }: { state: ProjectState; plan: ProjectPlan; swatchFile?: SwatchFile; onFit: (change: BeanieFitChange, label: string) => void }) {
   const [resizedFrom, setResizedFrom] = useState<{ needles: number; rows: number } | null>(null);
   const intent = beanieIntentOf(state);
   if (intent === null) return null;
@@ -101,6 +102,7 @@ export function GarmentFitSection({ state, plan, onFit }: { state: ProjectState;
     </Section>
     <Section id="swatch" title="Your swatch" aside={<SwatchAside aside={swatch.aside} />}>
       <p className="garment-help">{swatch.hint}</p>
+      <SwatchFileButton file={swatchFile} />
       <GaugeFields id="gauge.body" label={cuff ? `Body (${fabric})` : 'Rib'} gauge={state.gauge} onCommit={(bodyGauge) => setGauge({ bodyGauge }, `Body gauge ${bodyGauge.stitchesPer10cm}/${bodyGauge.rowsPer10cm} (${bodyGauge.source})`)} />
       {cuff && <GaugeFields id="gauge.rib" label="Cuff (2x2 rib)" gauge={state.object?.ribGauge} onCommit={(ribGauge) => setGauge({ ribGauge }, `Rib gauge ${ribGauge.stitchesPer10cm}/${ribGauge.rowsPer10cm} (${ribGauge.source})`)} />}
       {resized && <p className="garment-derived" role="status">Resized: {resized.needles} → {counts.needles} needles, {resized.rows} → {counts.rows} rows.</p>}
