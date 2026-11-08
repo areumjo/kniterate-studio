@@ -109,6 +109,24 @@ ship," trust this file and the working tree instead.
     Setting the yarn introduction back to 200 fails it. The birdseye chart's
     start is not covered: it still knits at 400 and brings yarns in at 200
     without a catch.
+- **Fairisle colours end at the edge (2026-11-08).** Most fairisle colour
+  charts were refused by `machine-safety.attached-yarn`. The refused cases
+  included a centred motif, any chart whose colour stops short of the edges
+  on its last row, and every dither. The colour's yarn parked at the edge
+  across needles that the waste on top knitted under.
+  - Kniterate's `fairisle.kc` ends each colour with its last stitch at the
+    edge it travels to. Studio now does the same: on a colour's last row in
+    the body, the edge needle is tucked in that colour when its last stitch
+    is more than 7 needles from that edge (`yarnsEndingHere` in
+    `jacquard-floats.ts`, set by `compile-chart.ts`). A chain bind-off's yarn
+    knits on, so it is left alone.
+  - Every file that compiled before is byte-identical. That includes
+    handoff 2 (`092076f4`, `948f39de`, `3cd3b1ea`) and the Kniterate
+    fairisle reproduction.
+  - The edge tuck itself hasn't been knitted.
+  - Found by opening a Colorworks dither in Studio. Colorworks' knit style
+    now exports a `ColorworkChartV1` exactly, stitch for stitch, on its
+    branch `kniterate-studio-chart-export`.
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { appendProjectEdit, createColorworkProjectV1 } from '@kniterate-studio/project-contract';
+import { appendProjectEdit, createColorworkProjectV1, materializeColorworkProject } from '@kniterate-studio/project-contract';
 import { runAuthoredPipeline } from './authoredPipeline';
 
 const chart = {
@@ -27,6 +27,39 @@ describe('headless authored pipeline', () => {
     expect(result.verdict.state).toBe('blocked');
     expect(result.exportReady).toBe(false);
     expect(result.kcode).toBeNull();
+  });
+});
+
+describe('a fairisle motif that stops short of the edges', () => {
+  // A centred heart: the red's last row ends in the middle. Its yarn used to
+  // park at the edge across needles the waste on top then knitted under,
+  // and machine safety (attached-yarn) refused every such chart.
+  const W = 60;
+  const H = 40;
+  const heart = (x: number, y: number) => { const dx = (x - 30) / 12; const dy = (20 - y) / 12; return (dx * dx + dy * dy - 1) ** 3 - dx * dx * dy ** 3 < 0 ? 1 : 0; };
+  const motif = {
+    kind: 'knitlab-colorwork-chart', version: 1, title: 'Heart', width: W, height: H, rowNumbering: 'bottom-up',
+    palette: [{ id: 'natural', name: 'Natural', hex: '#F4F0E6' }, { id: 'red', name: 'Red', hex: '#C2413A' }],
+    cells: Array.from({ length: H }, (_, y) => Array.from({ length: W }, (_, x) => heart(x, y))),
+  };
+
+  it('knits: the red ends its yarn at the edge with one tuck, and nothing else changes', { timeout: 60_000 }, async () => {
+    const project = createColorworkProjectV1(motif, { id: 'heart' });
+    const result = await runAuthoredPipeline(project);
+    expect(result.verdict.state).toBe('surface');
+    expect(result.exportReady).toBe(true);
+    const knitout = result.compiled!.knitoutText!;
+    const tucks = knitout.split('\n').filter((line) => line.startsWith('tuck '));
+    expect(tucks).toHaveLength(1);
+    // In the red, on an edge needle of the chart (the needles the two pattern yarns knit).
+    const { yarnAssignments } = materializeColorworkProject(project).state.machine;
+    const red = yarnAssignments.find((item) => item.paletteId === 'red')!.carrier;
+    const pattern = yarnAssignments.map((item) => item.carrier).join('');
+    const chartNeedles = [...knitout.matchAll(new RegExp(`^knit [+-] f(\\d+) [${pattern}]$`, 'gm'))].map((match) => Number(match[1]));
+    const [, , needle, carrier] = tucks[0]!.split(' ');
+    expect(carrier).toBe(red);
+    expect([`f${Math.min(...chartNeedles)}`, `f${Math.max(...chartNeedles)}`]).toContain(needle);
+    expect(Math.max(...chartNeedles) - Math.min(...chartNeedles) + 1).toBe(W);
   });
 });
 

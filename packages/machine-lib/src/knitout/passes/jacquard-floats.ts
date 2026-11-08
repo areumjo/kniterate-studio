@@ -33,6 +33,7 @@ import {
 import { CarriageSimulator } from '../sim/carriage-simulator.js';
 import type { CarrierSimState, PredictedPass } from '../sim/types.js';
 import type { ResolvedChart } from './resolve-chart.js';
+import { DEFAULT_MAX_FLOAT_DISTANCE_V1 } from '../kcode/machine-advisories.js';
 import {
   applyFirstRowSpeedOverride,
   restoreFirstRowSpeedOverride,
@@ -60,6 +61,18 @@ export interface JacquardFloatsInput {
    *  fairisle keeps the handoff row at ramp speed 100, then restores the
    *  normal body speed for row 1+. */
   firstRowSpeedOverride?: FirstRowSpeedOverride;
+  /**
+   * Carriers that knit nothing after this walk. Each one's last row ends its
+   * yarn at the edge it travels to, as every colour does in Kniterate's
+   * `reference/fairisle.kc`: when the row's last stitch of that colour is
+   * more than a float's length ({@link DEFAULT_MAX_FLOAT_DISTANCE_V1}) from
+   * that edge, the edge needle is tucked in the colour instead of missed.
+   * Otherwise the strand from the last stitch to where the carrier parks
+   * lies across needles that later rows knit under, which
+   * `machine-safety.attached-yarn` refuses. A colour that ends near the
+   * edge, or knits on afterwards (a chain bind-off's yarn), is unchanged.
+   */
+  yarnsEndingHere?: ReadonlySet<CarrierId>;
 }
 
 /** Customist fairisle body auto-move presser (fast move, no yarn
@@ -133,6 +146,14 @@ export function emitJacquardFloatsWalk(input: JacquardFloatsInput): JacquardFloa
     carrierPriority.filter(c => firstRowColors.has(c)),
   );
 
+  // Each ending carrier's last row in this walk.
+  const lastRowOf = new Map<CarrierId, number>();
+  for (let r = 0; r < resolved.rows; r++) {
+    for (const c of colorsPresentInRow(resolved, r, bindings)) {
+      if (input.yarnsEndingHere?.has(c)) lastRowOf.set(c, r);
+    }
+  }
+
   for (let r = 0; r < resolved.rows; r++) {
     sim.setSourceRows([r]);
     ops.push(...sim.drainOps());
@@ -149,7 +170,7 @@ export function emitJacquardFloatsWalk(input: JacquardFloatsInput): JacquardFloa
       if (!c) continue;
       const keyId = keyIdForCarrier.get(c)!;
       const dir = directionForCarrier(sim, c);
-      pushFrontPassForColor(sim, r, dir, resolved, keyId, c, needleStart);
+      pushFrontPassForColor(sim, r, dir, resolved, keyId, c, needleStart, lastRowOf.get(c) === r);
     }
     restoreFirstRowSpeedOverride(sim, r, input.firstRowSpeedOverride);
   }
@@ -223,24 +244,29 @@ function pushFrontPassForColor(
   keyId: string,
   carrier: CarrierId,
   needleStart: number,
+  endsYarn: boolean,
 ): void {
   // chart-core/color-binding-read-ok: drive the per-needle knit/miss
   // pattern from the row's resolved keyIds — `cell === keyId` is an
   // identity check picking which color this front-pass belongs to.
   const cells = resolved.cells[row]!;
+  // On the colour's last row, its yarn ends at the edge it travels to.
+  let edgeTuck = -1;
+  if (endsYarn) {
+    const edge = direction === '+' ? cells.length - 1 : 0;
+    const columns = cells.flatMap((cell, c) => (cell === keyId ? [c] : []));
+    const last = direction === '+' ? Math.max(...columns) : Math.min(...columns);
+    if (Math.abs(edge - last) > DEFAULT_MAX_FLOAT_DISTANCE_V1) edgeTuck = edge;
+  }
+  const work = (c: number) => {
+    const needle = f(needleStart + c);
+    if (cells[c] === keyId) sim.knit(carrier, direction, needle);
+    else if (c === edgeTuck) sim.tuck(carrier, direction, needle);
+    else sim.miss(carrier, direction, needle);
+  };
   if (direction === '+') {
-    for (let c = 0; c < cells.length; c++) {
-      const cell = cells[c]!;
-      const needle = f(needleStart + c);
-      if (cell === keyId) sim.knit(carrier, direction, needle);
-      else sim.miss(carrier, direction, needle);
-    }
+    for (let c = 0; c < cells.length; c++) work(c);
   } else {
-    for (let c = cells.length - 1; c >= 0; c--) {
-      const cell = cells[c]!;
-      const needle = f(needleStart + c);
-      if (cell === keyId) sim.knit(carrier, direction, needle);
-      else sim.miss(carrier, direction, needle);
-    }
+    for (let c = cells.length - 1; c >= 0; c--) work(c);
   }
 }

@@ -70,7 +70,7 @@ sequences, compiler fingerprint coverage and one sweater capacity check.
 - [x] Check the last stitch to final-use parking span, preserving continuing
   colourwork floats; reference and authored comparisons add no findings.
 - [x] Test sequences on one needle: transfer, tuck, drop, cast on again.
-- [ ] **Most fairisle colour charts are blocked (found 2026-11-08).** On a
+- [x] **Most fairisle colour charts are blocked (found and fixed 2026-11-08).** On a
   colour's last row, its yarn travels to the edge of the piece. When its
   last stitch isn't near that edge, the strand lies across needles that the
   waste rows on top then knit under. The final-use parking check
@@ -80,8 +80,14 @@ sequences, compiler fingerprint coverage and one sweater capacity check.
     ground-colour top row, and a Colorworks dither.
   - Still compile: stripes, Kniterate's own `fairisle.kc` chart (handoff 2
     run 2), and fairisle beanies.
-  - Needs a decision on how a pattern yarn should end, from Kniterate's own
-    practice, before the dithered strip can be made.
+  - Fixed as Kniterate's `fairisle.kc` ends its colours: each one's last
+    stitch is at the edge it travels to, and it parks just outside. On a
+    colour's last row in the body, if its last stitch is more than a float
+    (7 needles) from that edge, the edge needle is tucked in that colour.
+    A yarn that knits on afterwards (a chain bind-off's) is left alone.
+    Every file that compiled before is byte-identical, including handoff 2.
+    The tuck is our own reasoning: Kniterate's chart never needed one, and
+    it hasn't been knitted yet.
 - [ ] A chart using all 252 needles is refused by machine safety (a
   half-rack pass off the bed, the waste carrier left of home), though the
   authored width limit allows it: lower the limit or keep the frame on the bed.
@@ -140,9 +146,9 @@ it is registered):
   This works today (~410–530 passes a piece). It covers every shaping
   mechanism, every bind-off and fit.
 - [ ] A short strip, then a scarf, of a dithered two-colour chart in
-  fairisle (single jacquard). A chart export from Colorworks' knit style is
-  written but not yet committed in that repo. Studio opens the chart, but
-  blocks it until the fairisle ending above is fixed. The strip tests how fairisle
+  fairisle (single jacquard). Colorworks' knit style exports the chart
+  (branch `kniterate-studio-chart-export` there, not merged), and Studio
+  opens and compiles it. The strip tests how fairisle
   handles the dither's single stitches and frequent colour changes before a
   full length.
 - [ ] Reversible jacquard (Studio's `complement` backing: each colour knits
