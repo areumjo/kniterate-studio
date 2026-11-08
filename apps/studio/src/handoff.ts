@@ -538,14 +538,14 @@ export function measurementTemplate(project: ColorworkProjectV1, kcodeSha256: st
  * Machine file view numbers them), so a stop at a pass number says what was
  * knitting.
  */
-export function runRecordMarkdown(file: KnitFile, carriers: KnitFileCarriers): string[] {
+export function runRecordMarkdown(file: KnitFile, carriers: KnitFileCarriers, heading = 'Run record'): string[] {
   const order: string[] = [];
   for (const section of file.sections) for (const carrier of [...section.carriers, ...section.joins]) if (!order.includes(carrier)) order.push(carrier);
   const yarnOf = (carrier: string) => (carrier === carriers.waste ? 'waste yarn' : carrier === carriers.draw ? 'draw thread' : carriers.yarns?.[carrier]?.name ?? 'yarn');
   const passes = ({ from, to }: KnitFileSection['passes']) => (from === to ? `${from + 1}` : `${from + 1}–${to + 1}`);
   const yarns = (section: KnitFileSection) => [section.carriers.map((carrier) => `C${carrier}`).join(', '), ...(section.joins.length > 0 ? [`brings in ${section.joins.map((carrier) => `C${carrier}`).join(', ')}`] : [])].filter(Boolean).join('; ') || '—';
   return [
-    '## Run record',
+    `## ${heading}`,
     '',
     `Fill this in at the machine. Passes are numbered from 1 in the order this file knits them, as in Studio's Machine file view: ${file.passCount} in all. If the controller counts differently, write down its number and what was knitting.`,
     '',

@@ -118,6 +118,11 @@ it is registered):
 | Texture and colour pattern in the same fabric | not built | no |
 | Hand-drawn piece outlines | `sweater shape` key points | no |
 
+- [x] Measurement forms and run records for sweater and scarf packages.
+- [ ] Register a sweater or scarf package, one piece per entry. Today
+  `release:register` reads only chart and beanie packages, and the registry
+  re-compiles only those. Needed before the mini sweater's pieces can be
+  recorded.
 - [ ] A mini sweater in one yarn: front, back, two sleeves and neckband,
   about 30 cm long, from a measured swatch, then assembled and measured.
   This works today (~410–530 passes a piece). It covers every shaping

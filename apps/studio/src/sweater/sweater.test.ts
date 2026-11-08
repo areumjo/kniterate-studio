@@ -310,9 +310,21 @@ describe('sweater pipeline', () => {
     const summary = summarizeSweaterRun(result);
     const plan = sweaterPlanOf(result.plan);
     const files = await sweaterPackageFiles({ project, serializedProject: JSON.stringify(project), plan, summary, sha256: async (bytes) => String(bytes.length) });
-    expect(Object.keys(files).sort()).toEqual(['back.k', 'back.kc', 'front.k', 'front.kc', 'instructions.md', 'manifest.json', 'neckband.k', 'neckband.kc', 'project.json', 'schematic.svg', 'sleeve.k', 'sleeve.kc']);
+    expect(Object.keys(files).sort()).toEqual(['back.k', 'back.kc', 'front.k', 'front.kc', 'instructions.md', 'manifest.json', 'measurement-form.md', 'neckband.k', 'neckband.kc', 'project.json', 'schematic.svg', 'sleeve.k', 'sleeve.kc']);
     const manifest = JSON.parse(new TextDecoder().decode(files['manifest.json']));
     expect(manifest.pieces.find((piece: { id: string }) => piece.id === 'sleeve')).toMatchObject({ copies: 2, file: 'sleeve.kc', verdict: 'Surface-proven' });
+    // The form is filled in and returned, so it is listed but not hashed.
+    expect(manifest.forms).toEqual(['measurement-form.md']);
+    expect(Object.keys(manifest.files)).not.toContain('measurement-form.md');
+    const form = new TextDecoder().decode(files['measurement-form.md']);
+    for (const piece of summary.pieces) expect(form).toContain(`\`${piece.id}.kc\` | \`${piece.kcHash}\``);
+    expect(form).toContain(`| Chest | front and back, each straight across just below the armhole; add the two | ${plan.knitted.chest} cm | ___ cm |`);
+    expect(form).toContain(`| Body gauge | stitches and rows over 10 cm in a plain area of the body, face side | ${plan.gauge.stitchesPer10cm} st / ${plan.gauge.rowsPer10cm} rows (assumed) |`);
+    // One run record per piece knitted: two sleeves, each with every pass of its file in a section.
+    expect(form.match(/^## Run record: .*$/gm)).toEqual(['## Run record: Back (`back.kc`)', '## Run record: Front (`front.kc`)', '## Run record: Sleeve 1 (`sleeve.kc`)', '## Run record: Sleeve 2 (`sleeve.kc`)', '## Run record: Neckband (`neckband.kc`)']);
+    expect(form).toContain('C3 Oatmeal ___ · C4 Oatmeal, second cone ___');
+    const sleeve = summary.pieces.find((piece) => piece.id === 'sleeve')!;
+    expect(form).toContain(`${sleeve.passCount} in all`);
     const pattern = sweaterInstructions(project, plan, summary);
     // The panel's headline: a typical gauge leaves the sizes unconfirmed, not the sweater unknittable.
     expect(readinessStory({ findings: summary.findings, readiness: summary.readiness, verdict: summary.verdict, exportReady: summary.exportReady }).headline).toBe('File checks passed, sizes not confirmed');

@@ -90,8 +90,16 @@ ship," trust this file and the working tree instead.
     and settings changed. It also lists each section of the file with its
     passes, numbered as the Machine file view numbers them, so a stop at a
     pass number says what was knitting. The view and the form read the file
-    with the same helpers (`chartKnitFileCarriers`, `chartRibRows`). The
-    sweater and one-yarn panel packages don't have it yet.
+    with the same helpers (`chartKnitFileCarriers`, `chartRibRows`).
+  - Sweater and one-yarn scarf packages now include a
+    `measurement-form.md`, listed in the manifest's `forms` and not hashed.
+    It lists each piece's exact file and hash, the gauges, and each size
+    Studio predicts beside a blank for the measured one. The pieces are
+    measured flat before sewing up, so each measure belongs to one piece.
+    The form ends with a run record for each piece knitted, two for the
+    sleeves. Measurement names come from `sweater/measurementFields.ts`,
+    shared with the design panel. The registration script doesn't accept
+    these packages yet.
   - `apps/studio/src/flatStart.test.ts` pins run 3's lessons for every
     beanie, the one-yarn scarf, every sweater piece and the fairisle chart:
     - no yarn knits faster than 300 before the piece begins;

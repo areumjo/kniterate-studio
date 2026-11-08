@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { materializeColorworkProject } from '@kniterate-studio/project-contract';
 import { createPanelProject, planPanel, type PanelIntent } from './panel';
-import { panelInstructions } from './panelHandoff';
+import { panelInstructions, panelMeasurementForm } from './panelHandoff';
 import { runSweaterPipeline } from './sweaterPipeline';
 import { summarizeSweaterRun } from './sweaterRun';
 
@@ -43,6 +43,16 @@ describe('one-yarn scarf or blanket', () => {
     const pattern = panelInstructions(create(), planPanel(materializeColorworkProject(create()).state), summarizeSweaterRun(result));
     expect(pattern).toContain('**File checks passed, sizes not confirmed.** Sizes use a typical gauge until you measure a swatch.');
     expect(pattern).not.toMatch(/Not ready|assumed gauge/);
+    // Its form: the size beside the plan's, and a run record of the one file.
+    const plan = planPanel(materializeColorworkProject(create()).state);
+    const summary = summarizeSweaterRun(result);
+    const form = panelMeasurementForm(create(), plan, summary);
+    expect(form).toContain(`KCode SHA-256 \`${summary.pieces[0]!.kcHash}\``);
+    expect(form).toContain(`| Width | straight across the middle | ${plan.knitted!.widthCm} cm | ___ cm |`);
+    expect(form).toContain(`| Length | from end to end, along the middle | ${plan.knitted!.lengthCm} cm | ___ cm |`);
+    expect(form).toContain('| Rib gauge |');
+    expect(form.match(/^## Run record: .*$/gm)).toHaveLength(1);
+    expect(form).toContain(`${summary.pieces[0]!.passCount} in all`);
   });
 
   it('refuses a panel wider than the bed in words', () => {

@@ -8,6 +8,7 @@ import { StitchSection, YarnGaugeSection } from './DesignSections';
 import { MachineSetupSection } from '../workspace/MachineSetupSection';
 import { gaugeFabrics } from '../fabric';
 import type { SwatchFile } from '../useSwatchFile';
+import { MEASUREMENT_LABELS } from './measurementFields';
 
 /**
  * The design: style, size, measurements, stitch, trims, yarn and gauge.
@@ -17,17 +18,17 @@ import type { SwatchFile } from '../useSwatchFile';
 export type Operate = (label: string, edits: ProjectEdit[]) => boolean;
 
 const FIELDS: { key: keyof Measurements; label: string; hint: string; show?: (object: SweaterObject) => boolean }[] = [
-  { key: 'chest', label: 'Chest', hint: 'All the way round the finished sweater, under the arms' },
-  { key: 'length', label: 'Length', hint: 'From the hem up to the shoulder, next to the neck' },
-  { key: 'armholeDepth', label: 'Armhole depth', hint: 'From the underarm straight up to the shoulder' },
-  { key: 'shoulderWidth', label: 'Shoulder width', hint: 'Across the back, from shoulder point to shoulder point', show: (object) => object.silhouette !== 'drop-shoulder' },
-  { key: 'sleeveLength', label: 'Sleeve length', hint: 'From the underarm to the edge of the cuff' },
-  { key: 'upperArm', label: 'Upper arm', hint: 'Round the sleeve at the underarm' },
-  { key: 'cuff', label: 'Cuff', hint: 'Round the cuff' },
-  { key: 'neckWidth', label: 'Neck width', hint: 'Across the neck opening' },
-  { key: 'frontNeckDepth', label: 'Front neck depth', hint: 'How far the front neck dips below the shoulders', show: (object) => object.neckline !== 'boat' },
-  { key: 'backNeckDepth', label: 'Back neck depth', hint: '0 keeps the back neck straight', show: (object) => object.neckline !== 'boat' },
-  { key: 'shoulderDrop', label: 'Shoulder slope', hint: 'How much lower the shoulder point sits than the neck', show: (object) => object.neckline !== 'boat' },
+  { key: 'chest', label: MEASUREMENT_LABELS.chest, hint: 'All the way round the finished sweater, under the arms' },
+  { key: 'length', label: MEASUREMENT_LABELS.length, hint: 'From the hem up to the shoulder, next to the neck' },
+  { key: 'armholeDepth', label: MEASUREMENT_LABELS.armholeDepth, hint: 'From the underarm straight up to the shoulder' },
+  { key: 'shoulderWidth', label: MEASUREMENT_LABELS.shoulderWidth, hint: 'Across the back, from shoulder point to shoulder point', show: (object) => object.silhouette !== 'drop-shoulder' },
+  { key: 'sleeveLength', label: MEASUREMENT_LABELS.sleeveLength, hint: 'From the underarm to the edge of the cuff' },
+  { key: 'upperArm', label: MEASUREMENT_LABELS.upperArm, hint: 'Round the sleeve at the underarm' },
+  { key: 'cuff', label: MEASUREMENT_LABELS.cuff, hint: 'Round the cuff' },
+  { key: 'neckWidth', label: MEASUREMENT_LABELS.neckWidth, hint: 'Across the neck opening' },
+  { key: 'frontNeckDepth', label: MEASUREMENT_LABELS.frontNeckDepth, hint: 'How far the front neck dips below the shoulders', show: (object) => object.neckline !== 'boat' },
+  { key: 'backNeckDepth', label: MEASUREMENT_LABELS.backNeckDepth, hint: '0 keeps the back neck straight', show: (object) => object.neckline !== 'boat' },
+  { key: 'shoulderDrop', label: MEASUREMENT_LABELS.shoulderDrop, hint: 'How much lower the shoulder point sits than the neck', show: (object) => object.neckline !== 'boat' },
 ];
 
 
