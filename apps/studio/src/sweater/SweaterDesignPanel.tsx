@@ -7,6 +7,7 @@ import { SilhouetteIcon } from './SilhouetteIcon';
 import { StitchSection, YarnGaugeSection } from './DesignSections';
 import { MachineSetupSection } from '../workspace/MachineSetupSection';
 import { gaugeFabrics } from '../fabric';
+import type { SwatchFile } from '../useSwatchFile';
 
 /**
  * The design: style, size, measurements, stitch, trims, yarn and gauge.
@@ -30,7 +31,7 @@ const FIELDS: { key: keyof Measurements; label: string; hint: string; show?: (ob
 ];
 
 
-export function SweaterDesignPanel({ state, plan, operate }: { state: ProjectState; plan: SweaterPlan; operate: Operate }) {
+export function SweaterDesignPanel({ state, plan, swatchFile, operate }: { state: ProjectState; plan: SweaterPlan; swatchFile?: SwatchFile; operate: Operate }) {
   const object = plan.object;
   const yarn = state.chart.palette[0]!;
   const change = (label: string, next: SweaterObject, extra: ProjectEdit[] = []) => operate(label, [sweaterEdit(next), ...extra]);
@@ -65,7 +66,7 @@ export function SweaterDesignPanel({ state, plan, operate }: { state: ProjectSta
       <div className="field-row"><span>Neck</span><Chips label="Neckline" value={object.neckline} options={SWEATER_CHOICES.necklines} onPick={(neckline) => change(SWEATER_CHOICES.necklines.find((choice) => choice.id === neckline)!.name, withNeckline(object, neckline))} /></div>
     </Section>
 
-    <Section title="Size" aside={<em className="section-aside">{custom ? 'Custom' : `${size} · ${fit}`}</em>}>
+    <Section title="Size" defaultOpen aside={<em className="section-aside">{custom ? 'Custom' : `${size} · ${fit}`}</em>}>
       <div className="field-row"><span>Size</span><Chips label="Size" value={custom ? null : size} options={SIZES.map((id) => ({ id, name: id }))} onPick={(id) => applySize(id, fit ?? 'classic')} /></div>
       <div className="field-row"><span>Fit</span><Chips label="Fit" value={custom ? null : fit} options={FITS.map((id) => ({ id, name: id[0]!.toUpperCase() + id.slice(1) }))} onPick={(id) => applySize(size ?? 'M', id)} /></div>
       <div className="measure-table" role="group" aria-label="Finished measurements">
@@ -100,7 +101,7 @@ export function SweaterDesignPanel({ state, plan, operate }: { state: ProjectSta
       <div className="field-row"><span>Shaping</span><Chips label="Shaping line" value={String(object.fashion ?? 1) as '1' | '2' | '3'} options={[{ id: '1', name: 'At the edge', note: 'Decreases and increases at the very edge.' }, { id: '2', name: '2 in', note: 'A fashioning line 2 stitches in from the edge.' }, { id: '3', name: '3 in', note: 'A fashioning line 3 stitches in.' }]} onPick={(fashion) => change(fashion === '1' ? 'Shape at the edge' : `Fashion ${fashion} stitches in`, { ...object, fashion: Number(fashion) })} /></div>
     </Section>
 
-    <YarnGaugeSection yarn={yarn} carrier={plan.carriers.main} bodyName={object.body.name} fabrics={gaugeFabrics(state)} gauge={gauge} ribGauge={plan.ribGauge} operate={operate} onRibGauge={setRibGauge} />
+    <YarnGaugeSection swatchFile={swatchFile} yarn={yarn} carrier={plan.carriers.main} bodyName={object.body.name} fabrics={gaugeFabrics(state)} gauge={gauge} ribGauge={plan.ribGauge} operate={operate} onRibGauge={setRibGauge} />
     <MachineSetupSection state={state} onChange={(setup, label) => { operate(label, [{ kind: 'set-machine-setup', setup }]); }}
       objectTop={{ value: object.top ?? 'bind-off', onChange: (top) => change(top === 'waste' ? 'Finish on waste yarn' : 'Bind off the tops', { ...object, top }) }} />
   </aside>;

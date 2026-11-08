@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
-import { menu } from './menu';
+import { menu, openPanelSections } from './menu';
 
 test('blanket setup persists intent and the Worker owns live compile verdicts', async ({ page }, testInfo) => {
   const errors: string[] = [];
@@ -10,6 +10,7 @@ test('blanket setup persists intent and the Worker owns live compile verdicts', 
   await page.locator('input[accept=".json,application/json"]').setInputFiles('fixtures/colorwork-chart-v1/four-color-checker.json');
   // The small checker can be knitted; it warns that it is narrow.
   await expect(page.getByLabel(/^Status: (File checks passed|1 thing to check)$/)).toBeVisible({ timeout: 15_000 });
+  await openPanelSections(page);
   await expect(page.getByRole('button', { name: /Fairisle/ })).not.toContainText('Calculating', { timeout: 15_000 });
   // Only backings with a Customist-matched reference program are offered.
   await expect(page.locator('.strategy-segments button')).toHaveCount(2);

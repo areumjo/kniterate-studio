@@ -129,7 +129,7 @@ export function SweaterWorkspace({ project, onProject, plan, run, view, onView, 
   })();
 
   return <main className="sweater-workspace">
-    <SweaterDesignPanel state={state} plan={plan} operate={operate} />
+    <SweaterDesignPanel state={state} plan={plan} swatchFile={swatchFile} operate={operate} />
     <section className="sweater-stage" aria-label="Sweater">
       <header className="stage-head">
         <nav className="stage-tabs" aria-label="Pieces">

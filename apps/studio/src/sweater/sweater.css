@@ -12,6 +12,7 @@
 .section-aside.warn { color: var(--warning); }
 .section-aside.ok { color: var(--proven); }
 .design-section-body { display: grid; gap: 10px; padding: 0 16px 16px; }
+.design-section-body[hidden] { display: none; }
 .design-hint { margin: 0; color: var(--ink-3); font-size: 12px; line-height: 1.45; }
 
 .silhouette-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
@@ -218,6 +219,8 @@ ul.status-notes li.note-error { color: var(--blocked); }
 fieldset.note-actions { min-width: 0; margin-bottom: 0; margin-left: 0; margin-right: 0; padding: 0; border: 0; }
 .note-actions button:disabled { opacity: .45; cursor: default; }
 .status-done { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0; color: var(--proven); font-size: 12px; font-weight: 700; }
+.status-fixed { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 0; color: var(--ink-2); font-size: 12px; }
+.status-fixed svg { color: var(--proven); }
 .status-more { margin-left: 8px; color: var(--ink-3); font-weight: 500; }
 /* Why a number was not applied, under its field; the fields beside it stay level. */
 .number-kept { grid-column: 1 / -1; color: var(--warning); font-size: 11px; line-height: 1.35; }

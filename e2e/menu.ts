@@ -33,3 +33,14 @@ export async function openStatusDisclosure(page: Page, label: Parameters<typeof 
 export function kcDownload(page: Page) {
   return page.locator('.status-pieces').getByRole('button', { name: /^Download .+\.kc$/ });
 }
+
+/**
+ * Unfold the left panel's sections, as someone working down it would: each
+ * starts folded except Size. Machine settings stays as it is (it was always
+ * folded until opened).
+ */
+export async function openPanelSections(page: Page) {
+  await page.locator('.design-section-head').first().waitFor();
+  const folded = page.locator('.design-section:not(.open):not(#machine) > .design-section-head');
+  for (let guard = 0; guard < 20 && await folded.count() > 0; guard++) await folded.first().click();
+}

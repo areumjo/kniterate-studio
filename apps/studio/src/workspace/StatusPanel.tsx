@@ -40,7 +40,12 @@ export interface StatusFile {
   error?: string | null;
 }
 
-/** The swatch step: each fabric the sizes come from, whether its gauge was measured, where to enter it, and the swatch's machine file. */
+/**
+ * The swatch step: each fabric the sizes come from, whether its gauge was
+ * measured, and where the swatch is. The swatch has one place, its section:
+ * its file is downloaded and its gauge entered there, and the panel's button
+ * goes there. The file says whether one can be knitted and was downloaded.
+ */
 export interface SwatchStep {
   gauges: { name: string; measured: boolean }[];
   onEnter: () => void;
@@ -52,6 +57,8 @@ interface StatusPanelProps {
   title: string;
   detail: string;
   notes: StatusNote[];
+  /** A one-click fix just made, with its Undo, while it is still the latest change. */
+  justFixed?: { text: string; onUndo: () => void } | null;
   files: StatusFile[];
   onOpenFile: (id: string) => void;
   onDownloadFile: (id: string) => void;
@@ -85,7 +92,7 @@ function Notes({ notes, disabled }: { notes: StatusNote[]; disabled: boolean }) 
 }
 
 export function StatusPanel(props: StatusPanelProps) {
-  const { files, onOpenFile, onDownloadFile, onPackage, onPrint, packaging, downloaded, swatch, footer, fileDetail } = props;
+  const { files, onOpenFile, onDownloadFile, onPackage, onPrint, packaging, downloaded, swatch, footer, fileDetail, justFixed } = props;
   const checking = props.tone === 'checking';
   // Read in render on purpose: the result shown until the next one is the last one checked.
   const settled = useRef<Result | null>(null);
@@ -99,19 +106,21 @@ export function StatusPanel(props: StatusPanelProps) {
   const swatchDownloaded = swatchFile?.downloaded === true;
   const lead = tone === 'blocked' || tone === 'warn' ? notes.find((note) => note.severity === 'error') ?? notes[0] : undefined;
   const others = notes.filter((note) => note !== lead);
-  // The one next step: fix what blocks, else measure a swatch, else download, else print and go to the machine.
+  // The one next step: fix what blocks, else go to the swatch, else download, else print and go to the machine.
   const next = waiting || lead ? null
-    : swatch && !measured ? (swatchFile && !swatchDownloaded ? 'swatch-file' : 'swatch-enter')
+    : swatch && !measured ? 'swatch'
       : canPackage ? (downloaded && canPrint ? 'print' : 'package')
         : null;
-  const startChecks = [...new Set([...atTheMachine, ...(swatchFile ? MACHINE_START_CHECKS : [])])];
+  // The piece's checks; the swatch's own are with the swatch, in its section.
+  const startChecks = [...new Set(atTheMachine)];
   // A download sends you to the machine: its checks open once, and stay as you leave them.
   const [machineOpen, setMachineOpen] = useState(false);
-  useEffect(() => { if (downloaded || swatchDownloaded) setMachineOpen(true); }, [downloaded, swatchDownloaded]);
+  useEffect(() => { if (downloaded) setMachineOpen(true); }, [downloaded]);
   const why = lead ? lead.why : tone === 'blocked' ? null : detail;
 
-  const swatchDownload = (primary: boolean) => swatchFile && <button type="button" className={primary ? 'primary-button' : 'secondary-button'} disabled={swatchFile.writing} onClick={swatchFile.onDownload!}>{swatchFile.writing ? <LoaderCircle size={15} className="spin" aria-hidden="true" /> : <Download size={15} aria-hidden="true" />}{swatchFile.writing ? 'Writing the swatch file…' : 'Download swatch file'}</button>;
-  const swatchEnter = (primary: boolean) => swatch && <button type="button" className={primary ? 'primary-button' : 'secondary-button'} onClick={swatch.onEnter}><Ruler size={15} aria-hidden="true" />{measured ? 'Change your swatch' : 'Enter your swatch'}</button>;
+  // Goes to the swatch's section, where its file is downloaded and its gauge entered.
+  const swatchLabel = measured ? 'Change your swatch' : swatchFile && !swatchDownloaded ? 'Knit a swatch' : 'Enter your swatch';
+  const swatchButton = (primary: boolean) => swatch && <button type="button" className={primary ? 'primary-button' : 'secondary-button'} onClick={swatch.onEnter}><Ruler size={15} aria-hidden="true" />{swatchLabel}</button>;
   const packageButton = (primary: boolean) => <button type="button" className={primary ? 'primary-button' : 'secondary-button'} disabled={checking || !canPackage || packaging} onClick={onPackage}>{packaging ? <LoaderCircle size={16} className="spin" aria-hidden="true" /> : <Package size={16} aria-hidden="true" />}{packaging ? 'Writing the knitting package…' : 'Download knitting package'}</button>;
   const printButton = (primary: boolean) => <button type="button" className={primary ? 'primary-button' : 'secondary-button'} disabled={checking || !canPrint} onClick={onPrint}><Printer size={16} aria-hidden="true" />Print knitting sheet</button>;
 
@@ -122,6 +131,7 @@ export function StatusPanel(props: StatusPanelProps) {
       {/* Shown only if the check takes a moment, so a quick one changes nothing on screen. */}
       {checking && !waiting && <span className="status-busy" aria-hidden="true"><LoaderCircle size={14} className="spin" /></span>}
     </section>
+    {justFixed && <p className="status-fixed" role="status"><Check size={14} aria-hidden="true" />{justFixed.text}<span aria-hidden="true">·</span><button type="button" className="link-button" onClick={justFixed.onUndo}>Undo</button></p>}
     {lead && <section className="status-next" aria-label="Next step">
       <p className="status-reason">{lead.text}</p>
       {lead.action && <p className="step-hint">{lead.action}</p>}
@@ -129,13 +139,11 @@ export function StatusPanel(props: StatusPanelProps) {
     </section>}
     {next && <div className="status-actions" aria-label="Next step">
       {next === 'print' && <p className="status-done"><Check size={14} aria-hidden="true" />Downloaded</p>}
-      {next === 'swatch-enter' && swatchDownloaded && <p className="status-done"><Check size={14} aria-hidden="true" />Swatch file downloaded</p>}
-      {next === 'swatch-file' && swatchDownload(true)}
-      {next === 'swatch-enter' && swatchEnter(true)}
+      {next === 'swatch' && swatchDownloaded && <p className="status-done"><Check size={14} aria-hidden="true" />Swatch file downloaded</p>}
+      {next === 'swatch' && swatchButton(true)}
       {next === 'package' && packageButton(true)}
       {next === 'print' && printButton(true)}
     </div>}
-    {swatch?.file?.problem && <p className="piece-error" role="alert">{swatch.file.problem}</p>}
     <div className="status-disclosures">
       {(why || waiting || others.length > 0) && <details id="status-why" className="status-disclosure">
         <summary>Why?{others.length > 0 && <span className="status-more">{others.length} more to check</span>}</summary>
@@ -150,10 +158,7 @@ export function StatusPanel(props: StatusPanelProps) {
         <div className="status-disclosure-body">
           <ul className="swatch-gauges">{swatch.gauges.map((gauge) => <li key={gauge.name} className={gauge.measured ? 'measured' : ''}>{gauge.name}<span>{gauge.measured ? 'measured' : 'typical values'}</span></li>)}</ul>
           {!measured && <p className="step-hint">Knit a swatch, wash and dry it like the finished piece, then measure 10 cm in the middle.</p>}
-          <div className="step-buttons">
-            {next !== 'swatch-file' && swatchDownload(false)}
-            {next !== 'swatch-enter' && swatchEnter(false)}
-          </div>
+          {next !== 'swatch' && <div className="step-buttons">{swatchButton(false)}</div>}
         </div>
       </details>}
       <details className="status-disclosure">
@@ -183,7 +188,7 @@ export function StatusPanel(props: StatusPanelProps) {
       {startChecks.length > 0 && <details className="status-disclosure" open={machineOpen} onToggle={(event) => setMachineOpen(event.currentTarget.open)}>
         <summary>Before knitting</summary>
         <section className="status-disclosure-body at-the-machine" aria-label="At the machine">
-          <p className="step-hint">Check these at the machine before every run, including a swatch.</p>
+          <p className="step-hint">Check these at the machine before knitting this piece. The swatch's own checks are with the swatch.</p>
           <ul className="status-notes operator">{startChecks.map((note) => <li key={note}>{note}</li>)}</ul>
         </section>
       </details>}

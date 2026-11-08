@@ -1,5 +1,5 @@
-import { Minus, Plus } from 'lucide-react';
-import { textureProblem } from './textures';
+import { Minus, Plus, Wrench } from 'lucide-react';
+import { texturePlainRowFix, textureProblem } from './textures';
 
 /** Symbols drawn for each stitch, as seen from the right side. */
 function StitchMark({ stitch, x, y, size, ink }: { stitch: string; x: number; y: number; size: number; ink: string }) {
@@ -40,6 +40,8 @@ export const STITCH_NAMES: Record<string, string> = { k: 'Knit', p: 'Purl', t: '
 export function TextureEditor({ rows, hex, onChange }: { rows: readonly string[]; hex: string; onChange: (rows: string[]) => void }) {
   const width = rows[0]!.length;
   const problem = textureProblem(rows);
+  // Only for the problem it fixes: the first problem is the one shown.
+  const fix = problem !== null && /(knits|purls) and tucks on the/.test(problem) ? texturePlainRowFix(rows) : null;
   const set = (r: number, c: number) => {
     const next = rows.map((line, index) => index !== r ? line : line.slice(0, c) + CYCLE[(CYCLE.indexOf(line[c] as typeof CYCLE[number]) + 1) % CYCLE.length] + line.slice(c + 1));
     onChange(next);
@@ -69,5 +71,6 @@ export function TextureEditor({ rows, hex, onChange }: { rows: readonly string[]
     </div>
     <p className="texture-legend">{CYCLE.map((stitch) => <span key={stitch}><svg width={14} height={14} aria-hidden="true"><rect width={14} height={14} fill={hex} /><StitchMark stitch={stitch} x={0} y={0} size={14} ink={inkFor(hex)} /></svg>{STITCH_NAMES[stitch]}</span>)}</p>
     {problem && <p className="sweater-error" role="alert">{problem}</p>}
+    {fix && <button type="button" className="secondary-button" onClick={() => onChange(fix.rows)}><Wrench size={13} aria-hidden="true" /> {fix.label}</button>}
   </div>;
 }

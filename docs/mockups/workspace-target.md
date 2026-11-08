@@ -24,7 +24,9 @@ runs, and the workspace shows exactly what those files knit.
   - Edit: undo, redo, name and colours.
   - View: Design, Schematic, Machine file, History, Dark mode.
 - **Left panel:** what you are making, as folding sections, each with a
-  one-line summary beside its name.
+  one-line summary beside its name. They start folded except Size; a
+  button that points into the panel (Show, a fix, the swatch step) opens
+  just the section it points to.
   - Sweater: style, size, measurements, stitch, edges, yarn and swatch.
   - Beanie: size (Snug, Classic or Loose, and a Wanted / Knitted / Rows
     table for head, cuff, body, crown and height, the same counts the

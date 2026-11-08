@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { kcDownload, menu, openStatusDisclosure } from './menu';
+import { kcDownload, menu, openPanelSections, openStatusDisclosure } from './menu';
 
 test('every project has one layout: a menu bar, Design / Schematic / Machine file, and status with the files', async ({ page }) => {
   const errors: string[] = [];
@@ -7,6 +7,7 @@ test('every project has one layout: a menu bar, Design / Schematic / Machine fil
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
   await page.locator('input[accept=".json,application/json"]').setInputFiles('fixtures/colorwork-chart-v1/four-color-checker.json');
+  await openPanelSections(page);
 
   // One menu bar; no developer columns.
   await expect(page.getByRole('navigation', { name: 'Menu' })).toBeVisible();

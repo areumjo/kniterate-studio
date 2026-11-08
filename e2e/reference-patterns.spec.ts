@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
-import { kcDownload, openStatusDisclosure, settledHeadline, settledStatus } from './menu';
+import { kcDownload, openPanelSections, openStatusDisclosure, settledHeadline, settledStatus } from './menu';
 import type { ColorworkChartV1 } from '@kniterate-studio/chart-contract';
 
 interface DecodedReference {
@@ -70,12 +70,15 @@ for (const name of ['fairisle', 'jacquard', 'dbj'] as const) {
       name: `${name}.colorwork.json`, mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(chart)),
     });
     await expect(page.locator('.brand-copy small')).toContainText(`${name} reference pattern`);
+    await openPanelSections(page);
     if (name === 'jacquard') {
       // In Fairisle, C3's final stitch is at 126 but it parks at 84.5 while
       // C2 keeps knitting underneath. This is final-use parking, not a float
       // between knitting uses: the authored file must remain blocked.
       await expect(settledHeadline(page)).toHaveText("Can't knit yet", { timeout: 20_000 });
-      await expect(settledStatus(page).locator('.status-reason')).toContainText('under its yarn');
+      // In plain words first; the file's own words (pass, needle, carrier) wait in Why?.
+      await expect(settledStatus(page).locator('.status-reason')).toContainText('a move that could damage the machine');
+      await expect(await openStatusDisclosure(page, 'Why?')).toContainText('under its yarn');
       await openStatusDisclosure(page, 'Files and printing');
       await expect(kcDownload(page)).toBeDisabled();
     }

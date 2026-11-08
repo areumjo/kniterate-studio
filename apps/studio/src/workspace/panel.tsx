@@ -3,13 +3,19 @@ import { ChevronDown } from 'lucide-react';
 
 /** The pieces every design panel is built from: a collapsible section, a number field and a row of choices. */
 
-export function Section({ id, title, children, defaultOpen = true, aside }: { id?: string; title: string; children: ReactNode; defaultOpen?: boolean; aside?: ReactNode }) {
+/**
+ * A section of the left panel. Sections start folded, except the one a panel
+ * opens (its Size); a folded section keeps its fields, hidden, so a Show or
+ * fix button can find the field it points to and open just that section
+ * (`openSectionOf`).
+ */
+export function Section({ id, title, children, defaultOpen = false, aside }: { id?: string; title: string; children: ReactNode; defaultOpen?: boolean; aside?: ReactNode }) {
   const [open, setOpen] = useState(defaultOpen);
   return <section id={id} className={`design-section${open ? ' open' : ''}`}>
     <button type="button" className="design-section-head" onClick={() => setOpen(!open)} aria-expanded={open}>
       <span>{title}</span>{aside}<ChevronDown size={15} />
     </button>
-    {open && <div className="design-section-body">{children}</div>}
+    <div className="design-section-body" hidden={!open}>{children}</div>
   </section>;
 }
 
@@ -42,9 +48,15 @@ export function Chips<T extends string>({ value, options, onPick, label }: { val
 export function revealSection(id: string) {
   const section = document.getElementById(id);
   if (!section) return;
-  if (section.classList.contains('design-section') && !section.classList.contains('open')) section.querySelector<HTMLButtonElement>('.design-section-head')?.click();
+  openSectionOf(section);
   requestAnimationFrame(() => {
     section.scrollIntoView({ block: 'center', behavior: 'smooth' });
     section.querySelector<HTMLElement>('input, select')?.focus({ preventScroll: true });
   });
+}
+
+/** Opens the folded section that holds `element` (or is it), and no other. */
+export function openSectionOf(element: Element) {
+  const section = element.closest('.design-section');
+  if (section && !section.classList.contains('open')) section.querySelector<HTMLButtonElement>(':scope > .design-section-head')?.click();
 }

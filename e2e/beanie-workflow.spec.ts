@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
-import { menu, openStatusDisclosure, statusDisclosure, settledHeadline } from './menu';
+import { menu, openPanelSections, openStatusDisclosure, statusDisclosure, settledHeadline } from './menu';
 import { materializeColorworkProject, type ColorworkProjectV1 } from '../packages/project-contract/src/index';
 import { encodePng } from '../scripts/lib/png';
 
@@ -23,6 +23,7 @@ async function createBeanie(page: Page) {
   await dialog.getByLabel('Project name').fill('Ring toque');
   await dialog.getByRole('button', { name: 'Create beanie' }).click();
   await expect(settledHeadline(page)).toHaveText('File checks passed, sizes not confirmed', { timeout: 30_000 });
+  await openPanelSections(page);
 }
 
 async function placeImage(page: Page, heightCm: string) {
@@ -104,6 +105,16 @@ test('long floats are one thing to check, however many there are', async ({ page
   await expect(page.locator('#backing .section-aside')).toHaveText('Fairisle', { timeout: 30_000 });
   await expect(page.locator('.status-reason, .status-notes:not(.operator) > li').filter({ hasText: 'Body colourwork' })).toHaveCount(1, { timeout: 30_000 });
   await expect(settledHeadline(page)).toHaveText(/^[12] things? to check$/);
+  // One click fixes it, and says so with an Undo for as long as it is the latest change.
+  const status = page.getByRole('complementary', { name: 'Status' });
+  await openStatusDisclosure(page, 'Why?');
+  await status.getByRole('button', { name: 'Use a birdseye back' }).first().click();
+  await expect(page.locator('#backing .section-aside')).toHaveText('Birdseye', { timeout: 30_000 });
+  const fixed = status.locator('.status-fixed');
+  await expect(fixed).toContainText('Switched to a birdseye back');
+  await fixed.getByRole('button', { name: 'Undo' }).click();
+  await expect(page.locator('#backing .section-aside')).toHaveText('Fairisle', { timeout: 30_000 });
+  await expect(fixed).toHaveCount(0);
 });
 
 test('the status panel leads with the swatch, then the package, and reveals details by keyboard', async ({ page }) => {
@@ -111,7 +122,7 @@ test('the status panel leads with the swatch, then the package, and reveals deta
   await createBeanie(page);
   const status = page.getByRole('complementary', { name: 'Status' });
   const primary = status.locator('.primary-button:visible');
-  await expect(primary).toHaveText('Download swatch file');
+  await expect(primary).toHaveText('Knit a swatch');
   for (const label of ['Why?', 'Swatch', 'Files and printing', 'Before knitting'] as const) {
     await expect(statusDisclosure(page, label)).toHaveJSProperty('open', false);
   }
@@ -130,13 +141,21 @@ test('the status panel leads with the swatch, then the package, and reveals deta
   await expect(before).toHaveJSProperty('open', false);
   await expect(before.locator('summary')).toBeFocused();
 
+  // The swatch has one place: the panel's button goes to Your swatch, where its file and its gauge both are.
+  await primary.click();
+  await expect(page.getByLabel(/^Body \(.+ fabric\) stitches per 10 cm$/)).toBeFocused();
+  await expect(status.getByRole('button', { name: 'Download swatch file' })).toHaveCount(0);
   // The swatch is its own checked machine file, in the hat's yarns, backing and gauge.
   const swatch = page.waitForEvent('download');
-  await primary.click();
+  await page.locator('#swatch').getByRole('button', { name: 'Download swatch file' }).click();
   expect((await swatch).suggestedFilename()).toMatch(/-swatch\.kc$/);
-  // Then the machine: its checks open once, and entering the swatch is next.
+  // Then the machine: the swatch's own checks are with it, and entering the swatch is next.
+  await expect(page.locator('#swatch')).toContainText('Swatch file downloaded');
   await expect(status).toContainText('Swatch file downloaded');
-  await expect(before).toHaveJSProperty('open', true);
+  const swatchChecks = page.locator('#swatch').getByRole('region', { name: 'Before knitting the swatch' });
+  for (const check of ['every check assumes an empty bed', 'Park every yarn feeder at home']) await expect(swatchChecks).toContainText(check);
+  // The piece's checks stay where they are, closed until the piece is downloaded.
+  await expect(before).toHaveJSProperty('open', false);
   await expect(primary).toHaveText('Enter your swatch');
   await primary.click();
   await expect(page.getByLabel(/^Body \(.+ fabric\) stitches per 10 cm$/)).toBeFocused();
@@ -153,6 +172,25 @@ test('the status panel leads with the swatch, then the package, and reveals deta
   await expect(primary).toHaveText('Print knitting sheet');
   await expect(settledHeadline(page)).toHaveText('File checks passed');
   await expect(page.getByLabel('Status: File checks passed', { exact: true })).toBeVisible();
+});
+
+test('the left panel starts folded except Size, and a button opens only the section it points to', async ({ page }) => {
+  test.setTimeout(120_000);
+  await page.goto('/?theme=light');
+  await page.getByRole('button', { name: /^Beanie/ }).click();
+  await page.getByRole('dialog', { name: 'New project' }).getByRole('button', { name: 'Create beanie' }).click();
+  await expect(settledHeadline(page)).toHaveText('File checks passed, sizes not confirmed', { timeout: 30_000 });
+  const open = page.locator('.design-section.open > .design-section-head');
+  await expect(open).toHaveCount(1);
+  await expect(open).toContainText('Size');
+  expect(await page.locator('.design-section > .design-section-head').count()).toBeGreaterThan(2);
+  // A folded section keeps its fields hidden.
+  await expect(page.getByLabel(/^Body \(.+ fabric\) stitches per 10 cm$/)).toBeHidden();
+  // The status panel's swatch button opens Your swatch, and no other section.
+  await page.getByRole('complementary', { name: 'Status' }).locator('.primary-button:visible').click();
+  await expect(page.locator('#swatch')).toHaveClass(/\bopen\b/);
+  await expect(page.getByLabel(/^Body \(.+ fabric\) stitches per 10 cm$/)).toBeFocused();
+  await expect(open).toHaveCount(2);
 });
 
 test('a change keeps the status in place while it is checked', async ({ page }) => {
@@ -190,6 +228,7 @@ test('a one-yarn beanie is one layer or two; adding a colour and painting it mak
   await expect(dialog.getByRole('button', { name: 'Double layer' })).toHaveAttribute('aria-pressed', 'true');
   await dialog.getByRole('button', { name: 'Create beanie' }).click();
   await expect(settledHeadline(page)).toHaveText('File checks passed, sizes not confirmed', { timeout: 30_000 });
+  await openPanelSections(page);
   const backing = page.locator('#backing .section-aside');
   await expect(backing).toHaveText('Double layer');
 
@@ -198,6 +237,8 @@ test('a one-yarn beanie is one layer or two; adding a colour and painting it mak
   await page.getByLabel('New colour name').fill('Snow');
   await page.getByRole('form', { name: 'New colour' }).getByRole('button', { name: 'Add' }).click();
   await expect(page.getByRole('button', { name: 'Use Snow' })).toHaveClass(/active/);
+  // A second colour brings its own sections (its yarn, the backing), folded like the rest.
+  await openPanelSections(page);
   await expect(page.getByRole('combobox', { name: 'Snow carrier' })).toHaveValue('4');
   await page.getByRole('button', { name: 'Brush size 5', exact: true }).click();
   const canvas = page.locator('canvas.chart-canvas').first();
@@ -375,7 +416,7 @@ test('refreshing a motif reviews newly visible colors before changing its source
     await page.getByRole('button', { name: 'Refresh', exact: true }).click();
     // The saved PNG is loaded automatically; no replacement file is supplied.
     await expect(review.getByRole('img', { name: 'The supplied image' })).toBeVisible();
-    await expect(review.getByRole('alert').filter({ hasText: 'Image colour 2 (9 stitches) has no matching yarn' })).toBeVisible();
+    await expect(review.getByRole('alert').filter({ hasText: 'The colour of 9 stitches has no matching yarn' })).toBeVisible();
     await expect(review.getByRole('button', { name: 'Apply refresh' })).toBeDisabled();
   };
   await openReview();
@@ -435,7 +476,10 @@ test('edits made while a motif refresh is decoding are never lost, and colors ar
   await intake.getByLabel('Image file').setInputFiles({ name: 'two-shapes.png', mimeType: 'image/png', buffer: twoShapesPng() });
   await intake.getByLabel('Visible height (cm)').fill('4');
   await intake.getByLabel('Colours').selectOption('3');
-  await expect(intake.getByRole('alert').filter({ hasText: /Image colour 2 \(\d+ stitches\) has no matching yarn/ })).toBeVisible();
+  await expect(intake.getByRole('alert').filter({ hasText: /The colour of \d+ stitches has no matching yarn/ })).toBeVisible();
+  // Each image colour shows as its own colour, beside the yarn chosen for it.
+  await expect(intake.locator('.motif-colors .colour-chip')).toHaveCount(4);
+  await expect(intake.locator('.motif-colors')).not.toContainText('Image colour');
   await expect(intake.getByRole('button', { name: 'Place' })).toBeDisabled();
   await intake.getByLabel('Image colour 2').selectOption({ label: 'Black' });
   await expect(intake.getByRole('button', { name: 'Place' })).toBeEnabled();
@@ -487,6 +531,7 @@ for (const sameId of [false, true]) {
 
     // No operation from the closed document may enter the reopened document's history.
     expect(await savedProject()).toEqual(reopened);
+    await openPanelSections(page);
     await page.getByRole('button', { name: /^motif-1/ }).click();
     const reopenedHeight = page.getByRole('spinbutton', { name: 'Visible height cm', exact: true });
     await expect(reopenedHeight).toHaveValue('4');

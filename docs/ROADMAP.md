@@ -40,19 +40,21 @@ Why this order:
   and re-catching C6 for a waste top (EcoKnitware); transferring edge needles
   first and by pass direction (CMU converter issues 5 and 35; needs a
   converter change).
-- [ ] Give the swatch one place: download and enter it under Your swatch, and
+- [x] Give the swatch one place: download and enter it under Your swatch, and
   have the status panel's button go there.
-- [ ] Start the left panel folded except Size; a Show or fix button opens the
+- [x] Start the left panel folded except Size; a Show or fix button opens the
   section it points to.
-- [ ] Offer Undo right after a one-click fix ("Switched to a birdseye back ·
+- [x] Offer Undo right after a one-click fix ("Switched to a birdseye back ·
   Undo").
-- [ ] Give the swatch its own Before knitting checks, not the piece's.
-- [ ] Put the warnings that still reach the panel raw into plain words,
-  starting with the narrow-chart "below ~30" note.
-- [ ] Show colour chips when matching motif colours, instead of "Image colour 0".
+- [x] Give the swatch its own Before knitting checks, not the piece's.
+- [x] Put the warnings that still reach the panel raw into plain words,
+  starting with the narrow-chart "below ~30" note. (Checked across charts,
+  beanies, sweaters and scarves: the narrow chart and machine-safety
+  refusals were the raw ones.)
+- [x] Show colour chips when matching motif colours, instead of "Image colour 0".
 - [ ] Add yarn presets for yarns that suit 7 gauge: a starting gauge and stitch
   size.
-- [ ] Add a fix button for a stitch row that knits and tucks on one bed
+- [x] Add a fix button for a stitch row that knits and tucks on one bed
   ("Knit the row plain").
 
 **B. Safety, before new constructions**
@@ -64,6 +66,9 @@ sequences, compiler fingerprint coverage and one sweater capacity check.
 - [x] Check the last stitch to final-use parking span, preserving continuing
   colourwork floats; reference and authored comparisons add no findings.
 - [x] Test sequences on one needle: transfer, tuck, drop, cast on again.
+- [ ] A chart using all 252 needles is refused by machine safety (a
+  half-rack pass off the bed, the waste carrier left of home), though the
+  authored width limit allows it: lower the limit or keep the frame on the bed.
 - [ ] Define a pickup-stability check from paired accepted/unstable examples.
 - [ ] Bound held-fabric and increase behavior before affected new constructions.
 - [ ] Qualify inferred limits, the 36-knit clearance rule first, with small

@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { AUTHORED_CAPACITY_LIMITS_V1, type ProjectGauge, type ProjectState } from '@kniterate-studio/project-contract';
 import { gaugeFabrics } from '../fabric';
 import { MeasureRow, NumberField } from '../garment/GarmentFitSection';
-import { GaugeFields, SwatchAside, swatchWords } from '../workspace/gauge';
+import { GaugeFields, SwatchAside, SwatchFileButton, swatchWords } from '../workspace/gauge';
+import type { SwatchFile } from '../useSwatchFile';
 import { Section } from '../workspace/panel';
 
 /** A typical 7gg colourwork gauge, until a swatch is measured. */
@@ -17,8 +18,10 @@ const round1 = (value: number) => Math.round(value * 10) / 10;
  * the needles and rows it knits; a new size or a new swatch resizes the chart
  * in one change. Without one, the size is in needles and rows.
  */
-export function ChartSizeSection({ state, onSize, onGauge, onNeedles, onRows, onNeedleOffset }: {
+export function ChartSizeSection({ state, swatchFile, onSize, onGauge, onNeedles, onRows, onNeedleOffset }: {
   state: ProjectState;
+  /** The swatch's machine file, downloaded here beside its gauge. */
+  swatchFile?: SwatchFile;
   onSize: (target: { widthCm?: number; heightCm?: number }, label: string) => void;
   onGauge: (gauge: Gauge, label: string) => void;
   onNeedles: (width: number) => void;
@@ -33,7 +36,7 @@ export function ChartSizeSection({ state, onSize, onGauge, onNeedles, onRows, on
   const knitted = gauge ? { widthCm: round1(chart.width / gauge.stitchesPer10cm * 10), heightCm: round1(chart.height / gauge.rowsPer10cm * 10) } : null;
   const off = (wanted: number | undefined, value: number) => wanted !== undefined && Math.abs(wanted - value) >= 1;
   return <>
-    <Section id="size" title="Size" aside={<em className="section-aside">{knitted ? `${knitted.widthCm} × ${knitted.heightCm} cm` : `${chart.width} × ${chart.height}`}</em>}>
+    <Section id="size" title="Size" defaultOpen aside={<em className="section-aside">{knitted ? `${knitted.widthCm} × ${knitted.heightCm} cm` : `${chart.width} × ${chart.height}`}</em>}>
       {knitted ? <div className="measure-table" role="group" aria-label="Finished measurements">
         <div className="measure-head garment-measure"><span /><span>Wanted</span><span>Knitted</span><span>Count</span></div>
         <MeasureRow label="Width" hint={`${chart.width} needles at ${gauge!.stitchesPer10cm} stitches per 10 cm.`}
@@ -50,6 +53,7 @@ export function ChartSizeSection({ state, onSize, onGauge, onNeedles, onRows, on
     </Section>
     <Section id="swatch" title="Your swatch" aside={swatch ? <SwatchAside aside={swatch.aside} /> : <em className="section-aside warn">none</em>}>
       <p className="garment-help">{swatch?.hint ?? 'Enter what 10 cm of your swatch measures, and the chart is sized in cm from it.'}</p>
+      <SwatchFileButton file={swatchFile} />
       <GaugeFields id="gauge.body" label="Colourwork" gauge={gauge ?? TYPICAL_COLOURWORK_GAUGE} onCommit={(next) => { setResizedFrom(counts); onGauge(next, `Gauge ${next.stitchesPer10cm}/${next.rowsPer10cm} (${next.source})`); }} />
       {resized && <p className="garment-derived" role="status">Resized: {resized.needles} → {counts.needles} needles, {resized.rows} → {counts.rows} rows.</p>}
     </Section>

@@ -151,12 +151,37 @@ const RULE_STORIES: Record<string, RuleStory> = {
     action: 'Apply the offered rename.',
     target: () => 'yarns',
   },
+  'track-a-narrow-chart': {
+    part: 'Size',
+    problem: 'too narrow for the rollers',
+    consequence: 'Under 30 stitches the rollers may not grip the fabric, so the cast-on edge can curl up and the knitting can fail.',
+    action: 'Make the chart at least 30 stitches wide, or knit it inside a wider swatch.',
+    target: () => 'size',
+  },
 };
+
+/**
+ * A machine-safety refusal: Studio found a move in the machine file that
+ * could damage the Kniterate. Its own words (pass, needle, carrier) are
+ * machine-file words: they wait in Why?, after the plain ones.
+ */
+const MACHINE_SAFETY_STORY: RuleStory = {
+  part: 'Machine file',
+  problem: 'a move that could damage the machine',
+  consequence: 'Studio found a move in the machine file that could damage the Kniterate, so no file is made.',
+  action: 'Change the design: another backing, a narrower chart or other settings. If it stays, report it.',
+  target: () => 'program',
+};
+
+/** The plain words for a rule, if it has them. */
+function storyOf(rule: string): RuleStory | undefined {
+  return RULE_STORIES[rule] ?? (rule.startsWith('machine-safety.') ? MACHINE_SAFETY_STORY : undefined);
+}
 
 /** Each finding as a person reads it: which part, what it leads to, what to do next, and where. */
 export function storyItems(findings: readonly Finding[]): StoryItem[] {
   return findings.filter((finding) => finding.severity !== 'info').map((finding) => {
-    const story = RULE_STORIES[finding.rule];
+    const story = storyOf(finding.rule);
     return {
       part: finding.path === 'object.ribGauge' ? 'Cuff fit' : story?.part ?? (finding.owner === 'compiler' ? 'Machine program' : 'Design'),
       severity: finding.severity,
@@ -173,12 +198,13 @@ export function storyItems(findings: readonly Finding[]): StoryItem[] {
 
 /** A note's words on screen and in a pattern: a known problem as its part and next step, with what it leads to; any other as its own message. */
 export function noteWords(item: StoryItem): { text: string; why: string | null } {
-  return RULE_STORIES[item.rule] ? { text: `${item.part}: ${item.action}`, why: item.consequence } : { text: item.message, why: null };
+  return storyOf(item.rule) ? { text: `${item.part}: ${item.action}`, why: item.consequence } : { text: item.message, why: null };
 }
 
 /** A note's words in the status panel: what is wrong in a few words, the next step and what it leads to; any other as its own message. */
 export function statusWords(item: StoryItem): { text: string; action: string | null; why: string | null } {
-  const story = RULE_STORIES[item.rule];
+  const story = storyOf(item.rule);
+  if (story === MACHINE_SAFETY_STORY) return { text: `${item.part}: ${story.problem}`, action: item.action, why: `${item.consequence} In the file: ${item.message}` };
   return story ? { text: `${item.part}: ${story.problem}`, action: item.action, why: item.consequence } : { text: item.message, action: null, why: null };
 }
 

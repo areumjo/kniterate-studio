@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Check, Download, LoaderCircle } from 'lucide-react';
 import type { ProjectGauge } from '@kniterate-studio/project-contract';
+import type { SwatchFile } from '../useSwatchFile';
 
 /**
  * A gauge, the same for every kind of project: one editor, the words for
@@ -34,6 +36,27 @@ export function swatchWords(gauges: readonly { gauge: GaugeValue | undefined; fa
 
 export function SwatchAside({ aside }: { aside: ReturnType<typeof swatchWords>['aside'] }) {
   return <em className={`section-aside ${aside === 'measured' ? 'ok' : 'warn'}`}>{aside}</em>;
+}
+
+/**
+ * The swatch's machine file, downloaded where its gauge is entered: the swatch
+ * has one place. Nothing when the project has no swatch to knit.
+ */
+export function SwatchFileButton({ file }: { file: SwatchFile | null | undefined }) {
+  if (!file?.onDownload) return null;
+  return <div className="swatch-file">
+    <p className="design-hint">Knit the swatch file in your yarn, wash and dry it like the finished piece, then measure 10 cm in the middle.</p>
+    <button type="button" className="secondary-button" disabled={file.writing} onClick={file.onDownload}>
+      {file.writing ? <LoaderCircle size={15} className="spin" aria-hidden="true" /> : <Download size={15} aria-hidden="true" />}
+      {file.writing ? 'Writing the swatch file…' : 'Download swatch file'}
+    </button>
+    {file.downloaded && <p className="status-done"><Check size={14} aria-hidden="true" />Swatch file downloaded</p>}
+    {file.problem && <p className="piece-error" role="alert">{file.problem}</p>}
+    {file.downloaded && file.checks.length > 0 && <section className="swatch-checks" aria-label="Before knitting the swatch">
+      <p className="design-hint">Before knitting the swatch, check at the machine:</p>
+      <ul className="status-notes operator">{file.checks.map((check) => <li key={check}>{check}</li>)}</ul>
+    </section>}
+  </div>;
 }
 
 /**

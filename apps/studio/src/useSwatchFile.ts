@@ -9,6 +9,8 @@ export interface SwatchFile {
   problem: string | null;
   /** The swatch for the settings as they are now has been downloaded. */
   downloaded: boolean;
+  /** What to check at the machine before knitting the downloaded swatch: its own checks, not the piece's. */
+  checks: string[];
 }
 
 /**
@@ -17,7 +19,7 @@ export interface SwatchFile {
  * and only for the settings it was asked for.
  */
 export function useSwatchFile(project: ColorworkProjectV1, enabled: boolean, download: (name: string, blob: Blob) => void): SwatchFile {
-  const [state, setState] = useState<{ writing: boolean; problem: string | null; for: string; downloaded: string | null }>({ writing: false, problem: null, for: '', downloaded: null });
+  const [state, setState] = useState<{ writing: boolean; problem: string | null; for: string; downloaded: string | null; checks: string[] }>({ writing: false, problem: null, for: '', downloaded: null, checks: [] });
   const workerRef = useRef<Worker | null>(null);
   const request = useRef(0);
   // The project as it is now, for a result that arrives after it changed.
@@ -40,7 +42,7 @@ export function useSwatchFile(project: ColorworkProjectV1, enabled: boolean, dow
     workerRef.current = worker;
     setState((previous) => ({ ...previous, writing: true, problem: null, for: project.id }));
     const fileName = `${project.id}-swatch.kc`;
-    const done = (problem: string | null, downloaded?: string | null) => setState((previous) => ({ writing: false, problem, for: project.id, downloaded: downloaded === undefined ? previous.downloaded : downloaded }));
+    const done = (problem: string | null, downloaded?: string | null, checks?: string[]) => setState((previous) => ({ writing: false, problem, for: project.id, downloaded: downloaded === undefined ? previous.downloaded : downloaded, checks: checks ?? previous.checks }));
     worker.onmessage = (event: MessageEvent<SwatchResponse>) => {
       const response = event.data;
       if (response.requestId !== request.current) return;
@@ -50,10 +52,11 @@ export function useSwatchFile(project: ColorworkProjectV1, enabled: boolean, dow
       // Settings changed while it was written: it would knit the old ones under the same name.
       if (swatchKey(latest.current) !== requested) { done('The settings changed while the swatch was being written. Download it again.'); return; }
       download(fileName, new Blob([response.kcText], { type: 'text/plain' }));
-      done(null, requested);
+      done(null, requested, response.checks);
     };
     worker.onerror = (event) => done(event.message || 'The swatch could not be written.');
     worker.postMessage({ requestId, project: swatch });
   };
-  return { onDownload, writing: current && state.writing, problem: current ? state.problem : null, downloaded: current && key !== null && state.downloaded === key };
+  const downloaded = current && key !== null && state.downloaded === key;
+  return { onDownload, writing: current && state.writing, problem: current ? state.problem : null, downloaded, checks: downloaded ? state.checks : [] };
 }

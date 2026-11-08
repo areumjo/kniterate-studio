@@ -62,6 +62,26 @@ ship," trust this file and the working tree instead.
       caught on brushes drops stitches on the right).
     The recipe path and the rib-beanie generator's reference mode still
     reproduce Kniterate's files; none of this is knitted yet.
+  - The swatch has one place: its file downloads in Your swatch (Yarn &
+    swatch for sweaters and scarves), beside its gauge, and the status
+    panel's button ("Knit a swatch", then "Enter your swatch") goes there.
+  - The left panel starts folded except Size. A folded section keeps its
+    fields hidden, so a Show, fix or swatch button opens only the section
+    that holds its target (`openSectionOf`).
+  - A one-click fix in the status panel says what it did, with an Undo,
+    while its operation is still the latest change ("Switched to a birdseye
+    back · Undo"; other fixes "Done: …").
+  - The swatch has its own Before knitting checks, worked out from the
+    swatch file as a piece's are and listed under its download once it is
+    downloaded. The status panel's Before knitting is the piece's alone.
+  - Plain words for the last raw notes: a narrow chart ("Size: too narrow
+    for the rollers") and every machine-safety refusal ("Machine file: a
+    move that could damage the machine", the file's own words in Why?).
+  - Matching a motif's colours shows each image colour as a chip, beside a
+    chip of the yarn chosen for it, instead of "Image colour 0".
+  - A stitch row that knits and tucks on one bed has a one-click fix in the
+    texture editor: "Knit the row plain" (front tucks knit), or "Purl the
+    row plain" for the back bed (`texturePlainRowFix`).
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are

@@ -53,6 +53,19 @@ export function ribName(rib: string): string {
   return RIBS.find((item) => item.rib === rib)?.name ?? rib;
 }
 
+/**
+ * The one-click fix for a row that knits and tucks on the same bed: its tucks
+ * on that bed become plain stitches (front tucks knit, back tucks purl), the
+ * first such row only. Null when no row needs it.
+ */
+export function texturePlainRowFix(rows: readonly string[]): { label: string; rows: string[] } | null {
+  for (const [index, row] of rows.entries()) {
+    if (row.includes('k') && row.includes('t')) return { label: 'Knit the row plain', rows: rows.map((line, at) => (at === index ? line.replace(/t/g, 'k') : line)) };
+    if (row.includes('p') && row.includes('u')) return { label: 'Purl the row plain', rows: rows.map((line, at) => (at === index ? line.replace(/u/g, 'p') : line)) };
+  }
+  return null;
+}
+
 /** Why a texture cannot be knitted, or null. */
 export function textureProblem(rows: readonly string[]): string | null {
   if (rows.length === 0 || rows[0]!.length === 0) return 'A texture needs at least one stitch.';
