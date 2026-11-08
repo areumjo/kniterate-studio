@@ -2,6 +2,7 @@ import { beanieObjectOf, materializeColorworkProject, type ColorworkProjectV1, t
 import type { AuthoredPipelineResult } from './authoredPipeline';
 import type { ProjectPlan, Valued } from './plan';
 import { MEASUREMENT_RULES, type Finding, type Readiness } from './readiness';
+import { chartKnitFileCarriers, chartRibRows, readKnitFile, type KnitFile, type KnitFileCarriers, type KnitFileSection } from './sweater/knitFile';
 
 /**
  * Everything a person reads about a project, from one place, so the CLI, the
@@ -531,7 +532,35 @@ export function measurementTemplate(project: ColorworkProjectV1, kcodeSha256: st
   };
 }
 
-export function measurementFormMarkdown(project: ColorworkProjectV1, plan: ProjectPlan, kcodeSha256: string): string {
+/**
+ * The run record the operator fills in at the machine: the facts every run
+ * needs, then each section of the file with its passes (numbered as the
+ * Machine file view numbers them), so a stop at a pass number says what was
+ * knitting.
+ */
+export function runRecordMarkdown(file: KnitFile, carriers: KnitFileCarriers): string[] {
+  const order: string[] = [];
+  for (const section of file.sections) for (const carrier of [...section.carriers, ...section.joins]) if (!order.includes(carrier)) order.push(carrier);
+  const yarnOf = (carrier: string) => (carrier === carriers.waste ? 'waste yarn' : carrier === carriers.draw ? 'draw thread' : carriers.yarns?.[carrier]?.name ?? 'yarn');
+  const passes = ({ from, to }: KnitFileSection['passes']) => (from === to ? `${from + 1}` : `${from + 1}–${to + 1}`);
+  const yarns = (section: KnitFileSection) => [section.carriers.map((carrier) => `C${carrier}`).join(', '), ...(section.joins.length > 0 ? [`brings in ${section.joins.map((carrier) => `C${carrier}`).join(', ')}`] : [])].filter(Boolean).join('; ') || '—';
+  return [
+    '## Run record',
+    '',
+    `Fill this in at the machine. Passes are numbered from 1 in the order this file knits them, as in Studio's Machine file view: ${file.passCount} in all. If the controller counts differently, write down its number and what was knitting.`,
+    '',
+    '- Date: ___ · Machine serial: ___ · Controller software version: ___',
+    `- Yarn on each carrier (brand, colour, strands): ${order.map((carrier) => `C${carrier} ${yarnOf(carrier)} ___`).join(' · ')}`,
+    `- Did each yarn catch on its first pass? ${order.map((carrier) => `C${carrier} ___`).join(' · ')}`,
+    '- Any setting changed at the machine, and from which pass: ___',
+    '',
+    '| Section | Passes | Yarns | Clean, or stopped at pass | Edge drops (left or right, pass) and notes |',
+    '|---|---|---|---|---|',
+    ...file.sections.map((section) => `| ${section.label} | ${passes(section.passes)} | ${yarns(section)} | | |`),
+  ];
+}
+
+export function measurementFormMarkdown(project: ColorworkProjectV1, plan: ProjectPlan, kcodeSha256: string, run?: { file: KnitFile; carriers: KnitFileCarriers } | null): string {
   const sections = plan.sections;
   const predicted = (value: Valued<number> | null | undefined) => (value ? `${value.value} cm` : '—');
   return `${[
@@ -553,6 +582,7 @@ export function measurementFormMarkdown(project: ColorworkProjectV1, plan: Proje
     ] : []),
     '',
     'Also: outcome (clean / issues / failed), every machine stop and what was done, and photographs of the front, the inside, the crown and any defect with a ruler in frame.',
+    ...(run ? ['', ...runRecordMarkdown(run.file, run.carriers)] : []),
   ].join('\n')}\n`;
 }
 
@@ -593,12 +623,15 @@ export async function handoffFiles(input: {
   const { state } = materializeColorworkProject(project);
   const story = readinessStory({ findings, readiness, verdict: result.verdict, trials: state.trials ?? [] });
   const svg = schematicSvg(project, plan);
+  const carriers = chartKnitFileCarriers(result.compiled.frame, state.machine.yarnAssignments, state.chart.palette);
+  const ribRows = chartRibRows(state, plan);
+  const file = carriers ? readKnitFile(result.kcode, { zoneOfRow: (row) => (row < ribRows ? 'rib' : 'body'), carriers, kind: state.object?.kind === 'beanie' ? 'beanie' : 'panel' }) : null;
   const files: Record<string, string | Uint8Array> = {
     'project.kniterate-studio.json': input.serializedProject,
     'program.k': result.compiled.knitoutText,
     'program.kc': result.kcode.kcText,
     'instructions.md': instructionsMarkdown(project, plan, result, findings, readiness),
-    'measurement-form.md': measurementFormMarkdown(project, plan, result.kcode.kcHash),
+    'measurement-form.md': measurementFormMarkdown(project, plan, result.kcode.kcHash, file && carriers ? { file, carriers } : null),
     'measurements.json': `${JSON.stringify(measurementTemplate(project, result.kcode.kcHash, plan), null, 2)}\n`,
     ...(svg ? { 'schematic.svg': svg } : {}),
     ...input.extra,

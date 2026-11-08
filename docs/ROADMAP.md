@@ -27,8 +27,12 @@ Why this order:
 - [ ] Knit a new mini toque from the fixed start, with a larger motif and a
   taller body, and Kniterate's `fairisle.kc` again in run 2's yarns; register both.
   (Handoff 2 on issue #9: `output/machine-handoff-2`, from 687e45b.)
+- [x] Give each handoff a run record with the file's sections and passes, and
+  pin the fixed start in a test (`flatStart.test.ts`).
 - [ ] After handoff 2's results, file changes from Kniterate's own practice,
   checked against our files first:
+  - the yarn catch and Kniterate's fairisle start for the birdseye chart,
+    whose start still knits at 400 and brings yarns in at 200;
   - spread crown decreases over rows (Kniterate's beanie: 4 per row; the
     mini toque makes 16 in one), and knit the last crown row one stitch
     size larger and the first top-waste row one smaller (Kniterate blog,
@@ -75,6 +79,29 @@ sequences, compiler fingerprint coverage and one sweater capacity check.
   swatches tied to exact file hashes.
 
 **C. Make more things (each with a development knit)**
+
+Colourwork path to a reversible jacquard sweater (set 2026-11-08), once
+handoff 2 shows the start works. The target is Kniterate's own sweater
+(Customist design `rp3AXUm`, "Kniterate sweater (reversible jacquard)",
+three fully fashioned panels in 2 ends of merino Nm 2/28). The captured
+Customist panels `reference/front.kc`, `back.kc` and `sleeves.kc` use the
+same construction (`jacquard-complement.ts`). They are probably this design,
+but that is not confirmed. Images are dithered in Colorworks
+(`~/pro/colorworks`) and imported as a chart PNG.
+
+- [ ] A short strip, then a scarf, of a dithered two-colour chart in
+  fairisle (single jacquard). This works today. The strip tests how fairisle
+  handles the dither's single stitches and frequent colour changes before a
+  full length.
+- [ ] Reversible jacquard (Studio's `complement` backing: each colour knits
+  the front where it shows and the back elsewhere, so the back is the
+  inverse image). Today it is blocked for designed pieces
+  (`project-technique-unmatched`; parity row CP-B4, "Invert Colors"). It
+  needs a start, body and finish matched to those files, then a strip and a
+  scarf. It takes exactly two colours.
+- [ ] Colourwork on sweater pieces (M7 colourwork below), as strips first:
+  increases, armhole bind-off and the neck split, each in colourwork.
+- [ ] The full sweater, in fairisle or reversible jacquard.
 
 - [ ] Draw a piece: any outline in any stitch, through the sweater piece
   pipeline.

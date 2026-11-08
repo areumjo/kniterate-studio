@@ -187,6 +187,18 @@ describe('handoff', () => {
     expect(files['instructions.md']).toContain('**File checks passed, sizes not confirmed.**');
     expect(files['instructions.md']).toContain('Fold the rib cuff up');
     expect(JSON.parse(files['manifest.json'] as string).identity.kcodeSha256).toBe(result.kcode!.kcHash);
+    // The run record lists every section with its passes, so a stop at a pass number says what was knitting.
+    const form = files['measurement-form.md'] as string;
+    const passCount = result.kcode!.passCount;
+    expect(form).toContain(`## Run record`);
+    expect(form).toContain(`${passCount} in all`);
+    expect(form).toContain('Machine serial: ___');
+    expect(form).toMatch(/C6 waste yarn ___ .*C1 draw thread ___/);
+    const rows = form.split('\n').filter((line) => /^\| [A-Z]/.test(line) && line.includes(' | ') && !line.startsWith('| Measure') && !line.startsWith('| Section'));
+    const sectionRows = rows.filter((line) => /^\| [^|]+ \| \d+(–\d+)? \|/.test(line));
+    expect(sectionRows.map((line) => line.split(' | ')[0]!.slice(2))).toEqual(['Waste yarn', 'Draw thread', 'Waste yarn', 'Draw thread', 'Cast-on', 'Cuff rib', 'Body', 'Crown', 'Gathered top', 'Waste yarn on top', 'Carriers out']);
+    expect(sectionRows[0]).toMatch(/^\| Waste yarn \| 1–\d+ \| C6; brings in C3, C4 \|/);
+    expect(sectionRows.at(-1)).toMatch(new RegExp(`–${passCount} \\|`));
   });
 
   it('tells a problem found in many places as one thing to check, keeping every place a finding', async () => {

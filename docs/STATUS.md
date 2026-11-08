@@ -82,6 +82,25 @@ ship," trust this file and the working tree instead.
   - A stitch row that knits and tucks on one bed has a one-click fix in the
     texture editor: "Knit the row plain" (front tucks knit), or "Purl the
     row plain" for the back bed (`texturePlainRowFix`).
+- **Run record and the start's rules (2026-11-08).** Neither changes a
+  machine file, and neither is inside the compiler fingerprint.
+  - A colour chart's or beanie's `measurement-form.md` ends with a run
+    record. It holds the facts every run needs: date, machine serial,
+    controller version, the yarn on each carrier, whether each yarn caught,
+    and settings changed. It also lists each section of the file with its
+    passes, numbered as the Machine file view numbers them, so a stop at a
+    pass number says what was knitting. The view and the form read the file
+    with the same helpers (`chartKnitFileCarriers`, `chartRibRows`). The
+    sweater and one-yarn panel packages don't have it yet.
+  - `apps/studio/src/flatStart.test.ts` pins run 3's lessons for every
+    beanie, the one-yarn scarf, every sweater piece and the fairisle chart:
+    - no yarn knits faster than 300 before the piece begins;
+    - each yarn is caught out and back over the leftmost 20 needles, then
+      knits its first row, all at speed 100;
+    - no float advisory falls in the start.
+    Setting the yarn introduction back to 200 fails it. The birdseye chart's
+    start is not covered: it still knits at 400 and brings yarns in at 200
+    without a catch.
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are
