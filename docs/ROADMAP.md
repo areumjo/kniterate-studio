@@ -44,7 +44,7 @@ Why this order:
   have the status panel's button go there.
 - [x] Start the left panel folded except Size; a Show or fix button opens the
   section it points to.
-- [ ] Offer Undo right after a one-click fix ("Switched to a birdseye back ·
+- [x] Offer Undo right after a one-click fix ("Switched to a birdseye back ·
   Undo").
 - [ ] Give the swatch its own Before knitting checks, not the piece's.
 - [ ] Put the warnings that still reach the panel raw into plain words,

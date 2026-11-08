@@ -105,6 +105,16 @@ test('long floats are one thing to check, however many there are', async ({ page
   await expect(page.locator('#backing .section-aside')).toHaveText('Fairisle', { timeout: 30_000 });
   await expect(page.locator('.status-reason, .status-notes:not(.operator) > li').filter({ hasText: 'Body colourwork' })).toHaveCount(1, { timeout: 30_000 });
   await expect(settledHeadline(page)).toHaveText(/^[12] things? to check$/);
+  // One click fixes it, and says so with an Undo for as long as it is the latest change.
+  const status = page.getByRole('complementary', { name: 'Status' });
+  await openStatusDisclosure(page, 'Why?');
+  await status.getByRole('button', { name: 'Use a birdseye back' }).first().click();
+  await expect(page.locator('#backing .section-aside')).toHaveText('Birdseye', { timeout: 30_000 });
+  const fixed = status.locator('.status-fixed');
+  await expect(fixed).toContainText('Switched to a birdseye back');
+  await fixed.getByRole('button', { name: 'Undo' }).click();
+  await expect(page.locator('#backing .section-aside')).toHaveText('Fairisle', { timeout: 30_000 });
+  await expect(fixed).toHaveCount(0);
 });
 
 test('the status panel leads with the swatch, then the package, and reveals details by keyboard', async ({ page }) => {

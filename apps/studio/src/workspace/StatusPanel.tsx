@@ -57,6 +57,8 @@ interface StatusPanelProps {
   title: string;
   detail: string;
   notes: StatusNote[];
+  /** A one-click fix just made, with its Undo, while it is still the latest change. */
+  justFixed?: { text: string; onUndo: () => void } | null;
   files: StatusFile[];
   onOpenFile: (id: string) => void;
   onDownloadFile: (id: string) => void;
@@ -90,7 +92,7 @@ function Notes({ notes, disabled }: { notes: StatusNote[]; disabled: boolean }) 
 }
 
 export function StatusPanel(props: StatusPanelProps) {
-  const { files, onOpenFile, onDownloadFile, onPackage, onPrint, packaging, downloaded, swatch, footer, fileDetail } = props;
+  const { files, onOpenFile, onDownloadFile, onPackage, onPrint, packaging, downloaded, swatch, footer, fileDetail, justFixed } = props;
   const checking = props.tone === 'checking';
   // Read in render on purpose: the result shown until the next one is the last one checked.
   const settled = useRef<Result | null>(null);
@@ -128,6 +130,7 @@ export function StatusPanel(props: StatusPanelProps) {
       {/* Shown only if the check takes a moment, so a quick one changes nothing on screen. */}
       {checking && !waiting && <span className="status-busy" aria-hidden="true"><LoaderCircle size={14} className="spin" /></span>}
     </section>
+    {justFixed && <p className="status-fixed" role="status"><Check size={14} aria-hidden="true" />{justFixed.text}<span aria-hidden="true">·</span><button type="button" className="link-button" onClick={justFixed.onUndo}>Undo</button></p>}
     {lead && <section className="status-next" aria-label="Next step">
       <p className="status-reason">{lead.text}</p>
       {lead.action && <p className="step-hint">{lead.action}</p>}

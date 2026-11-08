@@ -68,6 +68,9 @@ ship," trust this file and the working tree instead.
   - The left panel starts folded except Size. A folded section keeps its
     fields hidden, so a Show, fix or swatch button opens only the section
     that holds its target (`openSectionOf`).
+  - A one-click fix in the status panel says what it did, with an Undo,
+    while its operation is still the latest change ("Switched to a birdseye
+    back · Undo"; other fixes "Done: …").
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are

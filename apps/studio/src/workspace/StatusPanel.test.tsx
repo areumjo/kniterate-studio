@@ -197,6 +197,15 @@ describe('status panel progressive disclosure', () => {
   });
 });
 
+describe('status panel undo after a fix', () => {
+  it('says what a one-click fix did and offers its Undo, only while it is the latest change', () => {
+    const html = panel({ justFixed: { text: 'Switched to a birdseye back', onUndo: noop } });
+    expect(initiallyVisible(html)).toContain('Switched to a birdseye back');
+    expectDisabled(initiallyVisible(html), 'Undo', false);
+    expect(panel({ justFixed: null })).not.toContain('>Undo<');
+  });
+});
+
 describe('status panel start checks', () => {
   it('keeps each startup check once in the closed Before knitting disclosure', () => {
     const html = panel({ atTheMachine: [...MACHINE_START_CHECKS, 'Set the yarn tension for this swatch.'] });

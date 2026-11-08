@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { clear, copy, cut, paste, type MirrorAxes, type PixelClipboard, type Rect } from '@knitlab/colorwork-core';
-import { beanieObjectOf, AUTHORED_CAPACITY_LIMITS_V1, appendProjectEdit, materializeColorworkProject, type ColorworkProjectV1, type ProjectEdit, type ProjectPlacement, type ProjectState } from '@kniterate-studio/project-contract';
+import { beanieObjectOf, AUTHORED_CAPACITY_LIMITS_V1, appendProjectEdit, materializeColorworkProject, undoProjectEdit, type ColorworkProjectV1, type ProjectEdit, type ProjectPlacement, type ProjectState } from '@kniterate-studio/project-contract';
 import { BRUSH_SIZES, ChartToolbar, type ChartTool } from './ChartToolbar';
 import { ColorworkCanvas, MIN_CHART_ZOOM, type CanvasPlacement } from './ColorworkCanvas';
 import { beanieFitEdits, withSizingFixes, type BeanieFitChange } from '../beanie';
@@ -138,13 +138,28 @@ export function ChartWorkspace({ project, onProject, generation, plan, story, st
     try { onProject(appendProjectEdit(projectRef.current, entry(edit))); setIssue(null); return true; }
     catch (error) { setIssue(error instanceof Error ? error.message : String(error)); return false; }
   };
+  // A one-click fix offers its Undo while it is still the latest change: the
+  // operation it makes is known by its history group.
+  const fixing = useRef<string | null>(null);
+  const [fixed, setFixed] = useState<{ text: string; group: string } | null>(null);
   /** Several edits as one undoable operation. */
   const operate = (label: string, edits: readonly ProjectEdit[]): boolean => {
     if (edits.length === 0) return false;
     // Always against the latest project: an asynchronous result must never replay an older one over later edits.
-    try { onProject(appendDesignOperation(projectRef.current, label, edits)); setIssue(null); return true; }
-    catch (error) { setIssue(error instanceof Error ? error.message : String(error)); return false; }
+    try {
+      const next = appendDesignOperation(projectRef.current, label, edits);
+      onProject(next);
+      const group = next.history.entries[next.history.cursor - 1]?.group;
+      if (fixing.current !== null && group !== undefined) setFixed({ text: fixing.current, group });
+      setIssue(null);
+      return true;
+    } catch (error) { setIssue(error instanceof Error ? error.message : String(error)); return false; }
   };
+  const applyFix = (text: string, apply: () => void) => { fixing.current = text; try { apply(); } finally { fixing.current = null; } };
+  const latestGroup = project.history.entries[project.history.cursor - 1]?.group ?? null;
+  const justFixed = fixed !== null && fixed.group === latestGroup
+    ? { text: fixed.text, onUndo: () => { setFixed(null); onProject(undoProjectEdit(projectRef.current)); } }
+    : null;
   const resolvedPlacements = materialized.placements;
   const boxes = useMemo(() => placementBoxes(materialized.state, resolvedPlacements), [materialized]);
   const lockedCells = useMemo(() => placedCells(materialized.state, resolvedPlacements), [materialized]);
@@ -290,7 +305,12 @@ export function ChartWorkspace({ project, onProject, generation, plan, story, st
   // A beanie's floats and carries go away on a birdseye back: offered unless its comparison compile says it cannot knit.
   const birdseyeBlocked = compile.comparisons.find((item) => item.technique === 'birdseye')?.compileVerdict === 'blocked';
   const birdseye = isGarment && materialized.state.strategy.technique === 'fairisle' && !birdseyeBlocked ? () => setBacking('birdseye') : null;
-  const notes = statusNotes(story?.items ?? [], { swatchStep: swatch !== undefined, goTo, operate: (label, edits) => { operate(label, edits); }, birdseye });
+  const notes = statusNotes(story?.items ?? [], {
+    swatchStep: swatch !== undefined,
+    goTo,
+    operate: (label, edits) => applyFix(`Done: ${label}`, () => { operate(label, edits); }),
+    birdseye: birdseye && (() => applyFix('Switched to a birdseye back', birdseye)),
+  });
   const fileState = status.exportReady && kcode ? 'ok' as const : tone === 'blocked' && !storyPending ? 'blocked' as const : 'checking' as const;
 
   const center: ReactNode = (() => {
@@ -354,6 +374,7 @@ export function ChartWorkspace({ project, onProject, generation, plan, story, st
       title={story?.headline ?? (storyPending ? 'Checking…' : "Can't knit yet")}
       detail={story?.detail ?? ''}
       notes={notes}
+      justFixed={justFixed}
       files={[{ id: 'file', name: kindName, fileName, facts: `${chart.width} st · ${chart.height} rows${kcode ? ` · ${kcode.passCount.toLocaleString()} passes` : ''}`, state: fileState, error: fileState === 'blocked' ? story?.detail ?? null : null }]}
       onOpenFile={() => onView('file')}
       onDownloadFile={status.onDownloadKc}
