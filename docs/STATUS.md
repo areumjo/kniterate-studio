@@ -74,6 +74,9 @@ ship," trust this file and the working tree instead.
   - The swatch has its own Before knitting checks, worked out from the
     swatch file as a piece's are and listed under its download once it is
     downloaded. The status panel's Before knitting is the piece's alone.
+  - Plain words for the last raw notes: a narrow chart ("Size: too narrow
+    for the rollers") and every machine-safety refusal ("Machine file: a
+    move that could damage the machine", the file's own words in Why?).
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are

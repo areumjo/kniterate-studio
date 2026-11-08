@@ -76,7 +76,9 @@ for (const name of ['fairisle', 'jacquard', 'dbj'] as const) {
       // C2 keeps knitting underneath. This is final-use parking, not a float
       // between knitting uses: the authored file must remain blocked.
       await expect(settledHeadline(page)).toHaveText("Can't knit yet", { timeout: 20_000 });
-      await expect(settledStatus(page).locator('.status-reason')).toContainText('under its yarn');
+      // In plain words first; the file's own words (pass, needle, carrier) wait in Why?.
+      await expect(settledStatus(page).locator('.status-reason')).toContainText('a move that could damage the machine');
+      await expect(await openStatusDisclosure(page, 'Why?')).toContainText('under its yarn');
       await openStatusDisclosure(page, 'Files and printing');
       await expect(kcDownload(page)).toBeDisabled();
     }

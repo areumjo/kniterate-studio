@@ -268,6 +268,22 @@ describe('status notes', () => {
     expect(buttons.indexOf('Use a birdseye back')).toBeLessThan(buttons.indexOf('Show'));
   });
 
+  it('puts a narrow chart in plain words, pointing to its size', () => {
+    const [note] = statusNotes(storyItems([finding('track-a-narrow-chart')]), { swatchStep: false, goTo: noop });
+    expect(note!.text).toBe('Size: too narrow for the rollers');
+    expect(note!.action).toBe('Make the chart at least 30 stitches wide, or knit it inside a wider swatch.');
+    expect(note!.text).not.toContain('~');
+    expect(renderToStaticMarkup(<>{note!.actions}</>)).toContain('Show');
+  });
+
+  it('puts every machine-safety refusal in plain words, with the file’s own words in Why?', () => {
+    const refusal = { ...finding('machine-safety.attached-yarn'), severity: 'error' as const, owner: 'compiler' as const, message: 'Pass 3 works needle 12, under its yarn to where it rests at 20.' };
+    const [note] = statusNotes(storyItems([refusal, { ...refusal, rule: 'machine-safety.unsafe-bed-range', message: 'Pass 9 knits front KCode column 0 at rack 0.5.' }]), { swatchStep: false, goTo: noop });
+    expect(note!.text).toBe('Machine file: a move that could damage the machine');
+    expect(note!.action).toContain('another backing, a narrower chart or other settings');
+    expect(note!.why).toContain('In the file: Pass 3 works needle 12');
+  });
+
   it('keeps the next step in words where no fix is offered', () => {
     const [note] = statusNotes(storyItems([finding('long-float')]), { swatchStep: true, goTo: noop, birdseye: null });
     expect(note!.action).toBe('Switch the body to a birdseye back, or make the motif bolder or more compact.');

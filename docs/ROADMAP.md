@@ -47,8 +47,10 @@ Why this order:
 - [x] Offer Undo right after a one-click fix ("Switched to a birdseye back ·
   Undo").
 - [x] Give the swatch its own Before knitting checks, not the piece's.
-- [ ] Put the warnings that still reach the panel raw into plain words,
-  starting with the narrow-chart "below ~30" note.
+- [x] Put the warnings that still reach the panel raw into plain words,
+  starting with the narrow-chart "below ~30" note. (Checked across charts,
+  beanies, sweaters and scarves: the narrow chart and machine-safety
+  refusals were the raw ones.)
 - [ ] Show colour chips when matching motif colours, instead of "Image colour 0".
 - [ ] Add yarn presets for yarns that suit 7 gauge: a starting gauge and stitch
   size.
@@ -64,6 +66,9 @@ sequences, compiler fingerprint coverage and one sweater capacity check.
 - [x] Check the last stitch to final-use parking span, preserving continuing
   colourwork floats; reference and authored comparisons add no findings.
 - [x] Test sequences on one needle: transfer, tuck, drop, cast on again.
+- [ ] A chart using all 252 needles is refused by machine safety (a
+  half-rack pass off the bed, the waste carrier left of home), though the
+  authored width limit allows it: lower the limit or keep the frame on the bed.
 - [ ] Define a pickup-stability check from paired accepted/unstable examples.
 - [ ] Bound held-fabric and increase behavior before affected new constructions.
 - [ ] Qualify inferred limits, the 36-knit clearance rule first, with small
