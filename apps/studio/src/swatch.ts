@@ -116,5 +116,6 @@ function swatchOf(project: ColorworkProjectV1): ColorworkProjectV1 | null {
 
 /** What the swatch worker sends back: the verdict decides, and only a knittable swatch has a file. */
 export type SwatchResponse =
-  | { kind: 'swatch-complete'; requestId: number; exportReady: boolean; verdictLabel: string; kcText: string | null; problem: string | null }
+  /** `checks`: what to check at the machine before knitting this swatch file, its own and not the piece's. */
+  | { kind: 'swatch-complete'; requestId: number; exportReady: boolean; verdictLabel: string; kcText: string | null; problem: string | null; checks: string[] }
   | { kind: 'swatch-failed'; requestId: number; error: string };

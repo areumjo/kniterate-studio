@@ -52,6 +52,10 @@ export function SwatchFileButton({ file }: { file: SwatchFile | null | undefined
     </button>
     {file.downloaded && <p className="status-done"><Check size={14} aria-hidden="true" />Swatch file downloaded</p>}
     {file.problem && <p className="piece-error" role="alert">{file.problem}</p>}
+    {file.downloaded && file.checks.length > 0 && <section className="swatch-checks" aria-label="Before knitting the swatch">
+      <p className="design-hint">Before knitting the swatch, check at the machine:</p>
+      <ul className="status-notes operator">{file.checks.map((check) => <li key={check}>{check}</li>)}</ul>
+    </section>}
   </div>;
 }
 

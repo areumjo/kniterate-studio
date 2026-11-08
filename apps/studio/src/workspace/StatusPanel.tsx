@@ -111,10 +111,11 @@ export function StatusPanel(props: StatusPanelProps) {
     : swatch && !measured ? 'swatch'
       : canPackage ? (downloaded && canPrint ? 'print' : 'package')
         : null;
-  const startChecks = [...new Set([...atTheMachine, ...(swatchFile ? MACHINE_START_CHECKS : [])])];
+  // The piece's checks; the swatch's own are with the swatch, in its section.
+  const startChecks = [...new Set(atTheMachine)];
   // A download sends you to the machine: its checks open once, and stay as you leave them.
   const [machineOpen, setMachineOpen] = useState(false);
-  useEffect(() => { if (downloaded || swatchDownloaded) setMachineOpen(true); }, [downloaded, swatchDownloaded]);
+  useEffect(() => { if (downloaded) setMachineOpen(true); }, [downloaded]);
   const why = lead ? lead.why : tone === 'blocked' ? null : detail;
 
   // Goes to the swatch's section, where its file is downloaded and its gauge entered.
@@ -187,7 +188,7 @@ export function StatusPanel(props: StatusPanelProps) {
       {startChecks.length > 0 && <details className="status-disclosure" open={machineOpen} onToggle={(event) => setMachineOpen(event.currentTarget.open)}>
         <summary>Before knitting</summary>
         <section className="status-disclosure-body at-the-machine" aria-label="At the machine">
-          <p className="step-hint">Check these at the machine before every run, including a swatch.</p>
+          <p className="step-hint">Check these at the machine before knitting this piece. The swatch's own checks are with the swatch.</p>
           <ul className="status-notes operator">{startChecks.map((note) => <li key={note}>{note}</li>)}</ul>
         </section>
       </details>}

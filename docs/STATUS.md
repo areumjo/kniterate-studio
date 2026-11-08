@@ -71,6 +71,9 @@ ship," trust this file and the working tree instead.
   - A one-click fix in the status panel says what it did, with an Undo,
     while its operation is still the latest change ("Switched to a birdseye
     back · Undo"; other fixes "Done: …").
+  - The swatch has its own Before knitting checks, worked out from the
+    swatch file as a piece's are and listed under its download once it is
+    downloaded. The status panel's Before knitting is the piece's alone.
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are

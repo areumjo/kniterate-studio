@@ -149,10 +149,13 @@ test('the status panel leads with the swatch, then the package, and reveals deta
   const swatch = page.waitForEvent('download');
   await page.locator('#swatch').getByRole('button', { name: 'Download swatch file' }).click();
   expect((await swatch).suggestedFilename()).toMatch(/-swatch\.kc$/);
-  // Then the machine: its checks open once, and entering the swatch is next.
+  // Then the machine: the swatch's own checks are with it, and entering the swatch is next.
   await expect(page.locator('#swatch')).toContainText('Swatch file downloaded');
   await expect(status).toContainText('Swatch file downloaded');
-  await expect(before).toHaveJSProperty('open', true);
+  const swatchChecks = page.locator('#swatch').getByRole('region', { name: 'Before knitting the swatch' });
+  for (const check of ['every check assumes an empty bed', 'Park every yarn feeder at home']) await expect(swatchChecks).toContainText(check);
+  // The piece's checks stay where they are, closed until the piece is downloaded.
+  await expect(before).toHaveJSProperty('open', false);
   await expect(primary).toHaveText('Enter your swatch');
   await primary.click();
   await expect(page.getByLabel(/^Body \(.+ fabric\) stitches per 10 cm$/)).toBeFocused();

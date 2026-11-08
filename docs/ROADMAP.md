@@ -46,7 +46,7 @@ Why this order:
   section it points to.
 - [x] Offer Undo right after a one-click fix ("Switched to a birdseye back ·
   Undo").
-- [ ] Give the swatch its own Before knitting checks, not the piece's.
+- [x] Give the swatch its own Before knitting checks, not the piece's.
 - [ ] Put the warnings that still reach the panel raw into plain words,
   starting with the narrow-chart "below ~30" note.
 - [ ] Show colour chips when matching motif colours, instead of "Image colour 0".
