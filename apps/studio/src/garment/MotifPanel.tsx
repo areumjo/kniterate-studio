@@ -164,11 +164,12 @@ export function ImageIntakeDialog({ state, replacing, refresh, onPlace, onClose 
         </div>}
         {converted && imageColors.length > 0 && <fieldset className="motif-colors"><legend>Colours</legend>{imageColors.map((color) => {
           const stitches = converted.motif.cells.flat().filter((cell) => cell === color).length;
-          return <label key={color}><span>Image colour {color} · {stitches} stitches</span><select aria-label={`Image colour ${color}`} value={chosen[String(color)] ?? ''} onChange={(event) => { const value = event.currentTarget.value; setDecisions((current) => ({ ...current, [String(color)]: value })); }}>
+          const yarn = state.chart.palette.find((entry) => entry.id === chosen[String(color)]);
+          return <label key={color}><span className="motif-color-name"><ColourChip hex={converted.motif.palette[color]?.hex} />{stitches} stitches</span><select aria-label={`Image colour ${color}`} value={chosen[String(color)] ?? ''} onChange={(event) => { const value = event.currentTarget.value; setDecisions((current) => ({ ...current, [String(color)]: value })); }}>
             <option value="" disabled>Choose…</option><option value={GROUND}>Leave the ground</option>{state.chart.palette.map((entry) => <option key={entry.id} value={entry.id}>{entry.name}</option>)}
-          </select></label>;
+          </select><ColourChip hex={yarn?.hex} /></label>;
         })}</fieldset>}
-        {undecided.length > 0 && <p className="setup-error" role="alert">{undecided.map((item) => `Image colour ${item.color} (${item.stitches} stitches)`).join(' and ')} {undecided.length === 1 ? 'has' : 'have'} no matching yarn. Choose a yarn, or Leave the ground to drop {undecided.length === 1 ? 'it' : 'them'} on purpose.</p>}
+        {undecided.length > 0 && <p className="setup-error" role="alert">{undecided.map((item, index) => `${index === 0 ? 'The' : 'the'} colour of ${item.stitches} stitches`).join(' and ')} {undecided.length === 1 ? 'has' : 'have'} no matching yarn. Choose a yarn, or Leave the ground to drop {undecided.length === 1 ? 'it' : 'them'} on purpose.</p>}
         <p className="garment-help">The image is cropped to its artwork: the height is the visible motif's, measured to its lowest stitch. The background colour is left as the ground.</p>
         {error && <p className="setup-error" role="alert">{error}</p>}
         <footer><button className="secondary-button" type="button" onClick={onClose}>Cancel</button><button className="primary-button" type="submit" disabled={loading || !converted || undecided.length > 0}><Check size={16} /> {refresh ? 'Apply refresh' : replacing ? 'Replace' : 'Place'}</button></footer>
@@ -232,11 +233,11 @@ export function MotifSection({ latestState, state, placements, selected, staleId
       <label className="check-label">Centred on the front<input type="checkbox" checked={current.placement.x === 'center'} onChange={(event) => update({ ...current.placement, x: event.currentTarget.checked ? 'center' : Math.max(0, Math.floor((state.chart.width - current.placement.motif.width) / 2)) }, event.currentTarget.checked ? `Centre ${current.placement.id}` : `Pin ${current.placement.id} to a column`)} /></label>
       {current.placement.x !== 'center' && <label className="strategy-field"><span>From stitch</span><input type="number" min="1" max={state.chart.width} defaultValue={current.placement.x + 1} key={`x-${current.placement.x}`} onBlur={(event) => { const column = Math.round(Number(event.currentTarget.value)) - 1; if (column >= 0 && column !== current.placement.x) update({ ...current.placement, x: column }, `Move ${current.placement.id}`); }} /></label>}
       <label className="strategy-field"><span>Rows above the {beanieObjectOf(state)?.construction === 'rib-cuff-jersey-body' ? 'cuff' : 'cast-on'}</span><input type="number" min="0" max="1200" defaultValue={current.placement.rowsAboveCuff} key={`r-${current.placement.rowsAboveCuff}`} onBlur={(event) => { const rows = Math.round(Number(event.currentTarget.value)); if (rows >= 0 && rows !== current.placement.rowsAboveCuff) update({ ...current.placement, rowsAboveCuff: rows }, `Move ${current.placement.id}`); }} /></label>
-      <fieldset className="motif-colors"><legend>Colours</legend>{motifColors.map((color) => <label key={color}><span>Image colour {color}{color === 0 ? ' (background)' : ''}</span><select value={current.placement.colors[String(color)] ?? ''} onChange={(event) => {
+      <fieldset className="motif-colors"><legend>Colours</legend>{motifColors.map((color) => <label key={color}><span className="motif-color-name"><ColourChip hex={current.placement.motif.palette[color]?.hex} />{color === 0 ? 'Background' : `Colour ${color}`}</span><select aria-label={`Image colour ${color}`} value={current.placement.colors[String(color)] ?? ''} onChange={(event) => {
         const colors = { ...current.placement.colors };
         if (event.currentTarget.value === '') delete colors[String(color)]; else colors[String(color)] = event.currentTarget.value;
         update({ ...current.placement, colors }, `Recolour ${current.placement.id}`);
-      }}><option value="">Leave the ground</option>{state.chart.palette.map((entry) => <option key={entry.id} value={entry.id}>{entry.name}</option>)}</select></label>)}</fieldset>
+      }}><option value="">Leave the ground</option>{state.chart.palette.map((entry) => <option key={entry.id} value={entry.id}>{entry.name}</option>)}</select><ColourChip hex={state.chart.palette.find((entry) => entry.id === current.placement.colors[String(color)])?.hex} /></label>)}</fieldset>
       <div className="readiness-buttons">
         {current.placement.source && <button type="button" className="secondary-button" disabled={busy !== null} onClick={() => void reconvert(current.placement, {}, `Refresh ${current.placement.id} at the current gauge`)}><RefreshCw size={13} /> Refresh</button>}
         <button type="button" className="secondary-button" onClick={() => onReplaceImage(current.placement)}><ImagePlus size={13} /> Replace image</button>
@@ -245,4 +246,9 @@ export function MotifSection({ latestState, state, placements, selected, staleId
       </div>
     </div>}
   </Section>;
+}
+
+/** A colour as a small square: an image's colour, or the yarn it is knitted in. Nothing for no colour (the ground left as it is). */
+function ColourChip({ hex }: { hex: string | undefined }) {
+  return hex ? <span className="colour-chip" style={{ background: hex }} title={hex} aria-hidden="true" /> : <span className="colour-chip empty" aria-hidden="true" />;
 }

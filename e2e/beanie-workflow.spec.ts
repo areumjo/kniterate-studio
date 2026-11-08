@@ -416,7 +416,7 @@ test('refreshing a motif reviews newly visible colors before changing its source
     await page.getByRole('button', { name: 'Refresh', exact: true }).click();
     // The saved PNG is loaded automatically; no replacement file is supplied.
     await expect(review.getByRole('img', { name: 'The supplied image' })).toBeVisible();
-    await expect(review.getByRole('alert').filter({ hasText: 'Image colour 2 (9 stitches) has no matching yarn' })).toBeVisible();
+    await expect(review.getByRole('alert').filter({ hasText: 'The colour of 9 stitches has no matching yarn' })).toBeVisible();
     await expect(review.getByRole('button', { name: 'Apply refresh' })).toBeDisabled();
   };
   await openReview();
@@ -476,7 +476,10 @@ test('edits made while a motif refresh is decoding are never lost, and colors ar
   await intake.getByLabel('Image file').setInputFiles({ name: 'two-shapes.png', mimeType: 'image/png', buffer: twoShapesPng() });
   await intake.getByLabel('Visible height (cm)').fill('4');
   await intake.getByLabel('Colours').selectOption('3');
-  await expect(intake.getByRole('alert').filter({ hasText: /Image colour 2 \(\d+ stitches\) has no matching yarn/ })).toBeVisible();
+  await expect(intake.getByRole('alert').filter({ hasText: /The colour of \d+ stitches has no matching yarn/ })).toBeVisible();
+  // Each image colour shows as its own colour, beside the yarn chosen for it.
+  await expect(intake.locator('.motif-colors .colour-chip')).toHaveCount(4);
+  await expect(intake.locator('.motif-colors')).not.toContainText('Image colour');
   await expect(intake.getByRole('button', { name: 'Place' })).toBeDisabled();
   await intake.getByLabel('Image colour 2').selectOption({ label: 'Black' });
   await expect(intake.getByRole('button', { name: 'Place' })).toBeEnabled();

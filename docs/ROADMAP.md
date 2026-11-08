@@ -51,7 +51,7 @@ Why this order:
   starting with the narrow-chart "below ~30" note. (Checked across charts,
   beanies, sweaters and scarves: the narrow chart and machine-safety
   refusals were the raw ones.)
-- [ ] Show colour chips when matching motif colours, instead of "Image colour 0".
+- [x] Show colour chips when matching motif colours, instead of "Image colour 0".
 - [ ] Add yarn presets for yarns that suit 7 gauge: a starting gauge and stitch
   size.
 - [ ] Add a fix button for a stitch row that knits and tucks on one bed

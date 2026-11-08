@@ -77,6 +77,8 @@ ship," trust this file and the working tree instead.
   - Plain words for the last raw notes: a narrow chart ("Size: too narrow
     for the rollers") and every machine-safety refusal ("Machine file: a
     move that could damage the machine", the file's own words in Why?).
+  - Matching a motif's colours shows each image colour as a chip, beside a
+    chip of the yarn chosen for it, instead of "Image colour 0".
 - **Runtime fingerprint and replay capacity (2026-10-30).** The compiler
   fingerprint includes sweater production and authored eligibility helpers;
   a runtime-import regression checks that closure. Earlier registrations are
