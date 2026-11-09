@@ -30,12 +30,14 @@ Why this order:
   variant (4B) and reversible beanies (PR #14) instead of runs 3 and 4.
   Run 1 wasn't knitted. The start's held waste loop is fixed (STATUS,
   2026-11-08).
-- [ ] Handoff 3, small and targeted: the bind-off strip with the fixed start.
-  It answers two questions: does the corner still break, and does the
-  bind-off break again where it starts? If the corner breaks again, knit
-  Kniterate's `fairisle.kc` in the same yarns next. It has the same cast-on
-  and no catch, so it separates the yarn and cast-on settings from Studio's
-  start.
+- [ ] Knit handoff 3 (files at the site's `handoff-3/`), two bind-off strips.
+  Strip 1 is the strip with the fixed start. It answers two questions: does
+  the corner still break, and does the bind-off break again where it starts?
+  Strip 2 adds three of Kniterate's settings: the circular rows at roller 200,
+  the bind-off at stitch 4, and "Knit first stitch" at roller 350. If the
+  corner breaks again, knit Kniterate's `fairisle.kc` in the same yarns next.
+  It has the same cast-on and no catch, so it separates the yarn and cast-on
+  settings from Studio's start.
 - [x] Give each handoff a run record with the file's sections and passes, and
   pin the fixed start in a test (`flatStart.test.ts`).
 - [ ] After handoff 2's results, file changes from Kniterate's own practice,

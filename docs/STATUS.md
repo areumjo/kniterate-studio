@@ -109,6 +109,55 @@ ship," trust this file and the working tree instead.
     Setting the yarn introduction back to 200 fails it. The birdseye chart's
     start is not covered: it still knits at 400 and brings yarns in at 200
     without a catch.
+- **Cast-on and bind-off settings, setup checks, handoff 3 (2026-11-09).**
+  - **Settings.** A project's `machineSetup` can now set, besides each
+    section's stitch, speed and roller:
+    - a fairisle chart's cast-on (PR #14's meaning): roller and stitch set
+      the first zigzag row, and speed sets all three cast-on rows. Studio's
+      slow first body row keeps its 100: PR #14's version also sped it up;
+    - `castOn.tubularRoller`, the two circular rows after the zigzag, on a
+      fairisle chart or a flat piece;
+    - on a chart with a bind-off top, `bindOff.stitch` (the chain's knit
+      stitch size) and `bindOff.knitFirstStitch`.
+    A setting the construction doesn't use is kept and ignored, as a chart's
+    rib settings are, so switching the backing or the top never leaves a
+    project blocked by a section the panel no longer shows. Values outside
+    the machine limits block the compile. The panel shows the fairisle
+    cast-on's stitch, speed and roller. The tubular roller and the bind-off
+    are set in the project file or with `studio edit`, not in the panel.
+    Nothing changes unless a project sets them.
+  - **Knit first stitch.** This is Kniterate's bind-off option: the first
+    needle is knitted once more at roller 350 before its first transfer. It
+    knits in the chain knits' direction, as Kniterate's bind-off command does,
+    so the yarn waits outside the edge. Knitted the other way, the yarn sat
+    between the first two needles, and the converter moved it while the beds
+    were racked. The test fails on that version.
+  - **Flat-start speed cap (PR #14).** A flat piece's own waste speed now also
+    caps its insert rows and every waste tube row, the top waste's included
+    (which already knits at the waste's stitch size). Its cast-on speed caps
+    the tubular rows. Before, a section set to 100 still knitted those rows at
+    200. Carrier moves keep 600, as in Kniterate's files: they knit nothing.
+  - **Review.** An independent review of this change found the cast-on speed
+    reaching the first body row, and the refusals that the panel couldn't
+    clear. Both are fixed, and their tests fail on the earlier code.
+  - **Setup checks.** Every handoff's operator checks gain three of
+    Kniterate's support-page checks (`MACHINE_START_CHECKS` in
+    `readiness.ts`):
+    - the side tension arms almost upright, with the yarn tense on a
+      right-to-left pass;
+    - each cone straight under its first guide, with no yarns crossing;
+    - the knot sensor not clamping, and a little more brake on thin or
+      slippery yarn.
+  - **Handoff 3.** The site's `handoff-3/` has two bind-off strips, copied
+    byte for byte from `output/machine-handoff-3`.
+    - Strip 1 (`d91041a8`, 256 passes) is handoff 2's strip with the fixed
+      start.
+    - Strip 2 (`8fd76ea3`, 258 passes) adds three settings: the circular rows
+      at roller 200 instead of 400, the bind-off at stitch 4 instead of 6, and
+      Knit first stitch.
+
+    `compare` shows strip 2 differs from strip 1 only in those passes.
+    Neither strip has been knitted.
 - **Machine-file tools (2026-11-09).** Five CLI commands read what a file
   does and check it against Kniterate's own files, so an engine fix or a knit
   report takes minutes to check. They are listed in `pnpm --silent studio --
