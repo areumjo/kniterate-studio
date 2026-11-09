@@ -30936,7 +30936,7 @@
     ]
   },
   "contract": {
-    "sha256": "c8e40904ac58ef2187195710147eca42ca78d1f8f5950700502e9235d0a50e6d",
+    "sha256": "7959af30198551a0ebe748dd9e151f2ae5cb336192347e73fbb98617425f67bb",
     "files": [
       {
         "path": "../../.github/workflows/ci.yml",
@@ -31780,8 +31780,8 @@
       },
       {
         "path": "../../e2e/launch-polish.spec.ts",
-        "sha256": "c349329260e09a98fcebbf20c7041a48d82fc35f920f85bcd51f9d63d6c8050f",
-        "bytes": 14983
+        "sha256": "60d18af4378849ffbdefccf32b5a9663993c6651eacd50d1f1851673e875d523",
+        "bytes": 15204
       },
       {
         "path": "../../e2e/m2.spec.ts",
