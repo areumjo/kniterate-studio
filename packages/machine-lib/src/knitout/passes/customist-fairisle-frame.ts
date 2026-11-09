@@ -196,14 +196,14 @@ export function emitCustomistFairisleFrame(input: CustomistFairisleFrameInput): 
   sim.setPresserRoller(FRAME_CHOREOGRAPHY.autoMovePresserRoller)
   const [rampCastOn = 3, rampTubular = 5] = intro.rampStitches
   sim.setRacking(0.5)
-  sim.setSpeed(intro.rampSpeed)
+  sim.setSpeed(intro.castOnSpeed ?? intro.rampSpeed)
   sim.setRoller(intro.rampRoller)
   sim.setStitch(rampCastOn)
   for (let n = hi; n >= lo; n--) {
     sim.knit(primary, '-', backBed(n))
     sim.knit(primary, '-', f(n))
   }
-  sim.setRoller(intro.introRoller)
+  sim.setRoller(intro.tubularRoller ?? intro.introRoller)
   sim.setStitch(rampTubular)
   bedRow(primary, '+', 'f')
   sim.setRacking(0)

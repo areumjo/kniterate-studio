@@ -59,6 +59,17 @@ measurements.json` records the trial, makes the gauges measured and re-sizes
 in one undoable operation; the knitted candidate's files stay as they were.
 Mark made-up values `"synthetic": true`; never present them as a real knit.
 
+**Machine settings per project** go in one `set-machine-setup` edit
+(`studio -- schema` lists every field): `wasteRows`, `top`, and each
+section's `stitch`/`speed`/`roller` (a chart: `waste` and `body`, and on
+fairisle `castOn`; a flat piece: `waste`, `castOn`, `rib`, `body`,
+`transfers`, `crown`). `castOn.tubularRoller` sets the two tubular rows after
+the zig-zag. A chart with `top: "bind-off"` also takes `bindOff.stitch` and
+`bindOff.knitFirstStitch` (Kniterate's "Knit first stitch" at roller 350).
+A value outside Studio's machine limits blocks the compile. Handoff 3's strip B,
+for example:
+`edit p.json '{"kind":"set-machine-setup","setup":{"top":"bind-off","castOn":{"tubularRoller":200},"bindOff":{"stitch":4,"knitFirstStitch":true}}}'`.
+
 For both kinds:
 - The target width is the finished circumference; the plan adds the seam
   stitches and keeps the rib symmetric. `plan`, `describe`, `readiness`,

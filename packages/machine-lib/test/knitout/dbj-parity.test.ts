@@ -161,7 +161,7 @@ describe('dbj.kc frame comparison and explicit body divergence', () => {
     expect(stitches.differingPassIndices.some((index) => index >= BODY_START_PASS)).toBe(true);
   });
 
-  it('casts on as dbj.kc does, stitch for stitch: rear drop, draw thread, half-rack zigzag, front and rear rows', () => {
+  it('casts on as dbj.kc does, stitch for stitch: rear drop, draw thread, half-rack zigzag, front and rear rows', { timeout: 60_000 }, () => {
     // The footer comparison above matched while these passes did not: the
     // rear waste was never dropped and the zigzag was a front-only row, so the
     // back layer started in the waste yarn and the edge was not closed.

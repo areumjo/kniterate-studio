@@ -98,7 +98,8 @@ export const STUDIO_FLAT_START_SETTINGS_V1: FlatStartSettingsV1 = Object.freeze(
 /** A piece's own settings for the sections of the flat start and its rib, over the reference's. */
 export interface FlatSectionSettingsV1 {
   readonly waste?: SectionSettingsV1
-  readonly castOn?: SectionSettingsV1
+  /** The cast-on row's settings; `tubularRoller` sets the two tubular rows after it. */
+  readonly castOn?: SectionSettingsV1 & { readonly tubularRoller?: number }
   readonly rib?: SectionSettingsV1
   readonly transfers?: SectionSettingsV1
   /** A beanie crown's knitted rows; other pieces have none. */
@@ -120,11 +121,20 @@ export function flatStartSettingsV1(own: FlatSectionSettingsV1 = {}, base: FlatS
   return Object.freeze({
     ...base,
     wasteStitch: waste.stitch ?? base.wasteStitch,
+    // A slower waste or cast-on speed also caps that section's other knitting:
+    // the yarns' insert rows and every waste tube row (the top waste too, which
+    // already knits at the waste's stitch size), and the cast-on's tubular
+    // rows. Otherwise a section set to 100 still knits rows at 200 (PR #14).
+    // Carrier moves keep their speed: they knit nothing.
+    insertSpeed: waste.speed === undefined ? base.insertSpeed : Math.min(base.insertSpeed, waste.speed),
+    tubeSpeed: waste.speed === undefined ? base.tubeSpeed : Math.min(base.tubeSpeed, waste.speed),
+    tubularSpeed: castOn.speed === undefined ? base.tubularSpeed : Math.min(base.tubularSpeed, castOn.speed),
     wasteSpeed: waste.speed === undefined ? base.wasteSpeed : (p: number) => (p < base.wasteRampPasses ? Math.min(base.wasteSpeed(p), waste.speed!) : waste.speed!),
     wasteRoller: waste.roller === undefined ? base.wasteRoller : (p: number) => (base.wasteRoller(p) === 0 ? 0 : waste.roller!),
     castOnSpeed: castOn.speed ?? base.castOnSpeed,
     castOnRoller: castOn.roller ?? base.castOnRoller,
     castOnStitch: castOn.stitch ?? base.castOnStitch,
+    tubularRoller: castOn.tubularRoller ?? base.tubularRoller,
     ribSpeed: rib.speed ?? base.ribSpeed,
     ribRoller: rib.roller ?? base.ribRoller,
     ribStitchFront: rib.stitch ?? base.ribStitchFront,
