@@ -205,7 +205,9 @@ test('a change made just before the page closes is saved', async ({ page }) => {
     window.setTimeout = ((handler: TimerHandler, delay?: number, ...rest: unknown[]) => (delay === 350 ? 0 : original(handler, delay, ...rest))) as typeof window.setTimeout;
   });
   await rename(page, 'Closed in a hurry');
-  await page.reload();
+  await expect(page.locator('.app-shell')).toHaveAttribute('data-autosave', 'saving');
+  // Reloaded from the page, as a person does: Playwright's own reload skips Firefox's unload events.
+  await page.evaluate(() => window.location.reload());
   await expect(page.locator('.brand-copy small')).toContainText('Closed in a hurry');
 });
 
