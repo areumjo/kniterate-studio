@@ -30936,7 +30936,7 @@
     ]
   },
   "contract": {
-    "sha256": "6efcf47fb950de173f45f5f59d88f51065d688be8483557e19ce3da2a7defb29",
+    "sha256": "0f7f1044eff2b8726d2c4567fb974db67c6ef8058d7a4d692d12737cba174725",
     "files": [
       {
         "path": "../../.github/workflows/ci.yml",
@@ -31055,8 +31055,8 @@
       },
       {
         "path": "../../apps/studio/src/blanket/compileProject.test.ts",
-        "sha256": "673f89f95aff350b76ef8a2e8af348e9c26f5206d58981445138899ffa5d2f77",
-        "bytes": 22536
+        "sha256": "95d13cd31ef574babfe3f708ce47467ac5831f23b01e71ca5a82915f6edeedf5",
+        "bytes": 22769
       },
       {
         "path": "../../apps/studio/src/blanket/compileProject.ts",
@@ -31245,8 +31245,8 @@
       },
       {
         "path": "../../apps/studio/src/flatStart.test.ts",
-        "sha256": "717c25fc270c25a3c0ce7107d712a367a9d34c71669a551f6ec5417a6e06d4cd",
-        "bytes": 8987
+        "sha256": "3613d7d4c74aa965c6c180c93aee223ef9ecbef4326e7596e4165c025cfa852c",
+        "bytes": 10707
       },
       {
         "path": "../../apps/studio/src/foreignRunSheetFindings.test.tsx",
@@ -32070,7 +32070,7 @@
       },
       {
         "path": "registry/knit-proven.json",
-        "sha256": "7f25e24ac7fda90b2c9f6e8b6f79d38f02972815966d088b00916d9fcdf4a9ff",
+        "sha256": "c7611a6b9bf881b5bec7f527e2cb6522338f34a10bf779525ae3cf3488e8260c",
         "bytes": 179
       },
       {
@@ -32715,13 +32715,13 @@
       },
       {
         "path": "src/knitout/passes/customist-fairisle-frame.ts",
-        "sha256": "b58a6ac59fdcdc8f8f11195d179275e85e7913641fdb94f52d5049db217c082d",
-        "bytes": 9824
+        "sha256": "68236bb4494a5784e73905b0582fda4473a57bfd9e3b844c33cfa765828595fb",
+        "bytes": 10495
       },
       {
         "path": "src/knitout/passes/customist-flat-start.ts",
-        "sha256": "538ca7143a4d1bec6856dc15f9750f86da4c6e6a57dd845e8c1fbd6db49e22e1",
-        "bytes": 14957
+        "sha256": "139b5790bee4409a26be614d2581b5f617660334192f3161a6c8821f99373e2c",
+        "bytes": 15190
       },
       {
         "path": "src/knitout/passes/customist-rib-beanie-crown.ts",
@@ -32755,8 +32755,8 @@
       },
       {
         "path": "src/knitout/passes/jacquard-dbj-full.ts",
-        "sha256": "d40b8435b7a2fda2065f3d1fd84fb3cb99646ac1908f944610d55564db9bbb09",
-        "bytes": 9696
+        "sha256": "3d64518d27c85c71cb850fa7f4efac7bff2b90a19fc3ea1e0391a2981252a128",
+        "bytes": 11635
       },
       {
         "path": "src/knitout/passes/jacquard-floats.ts",
@@ -33135,8 +33135,8 @@
       },
       {
         "path": "test/knitout/dbj-parity.test.ts",
-        "sha256": "c9c533ab89e99b802dd7b4f0ae4272e7df714ed79e486b9602f2885794ca8937",
-        "bytes": 8831
+        "sha256": "004de2c278b906d856c5d2d95536b1c3b6aa7bf809c7894388f197446a0f0da4",
+        "bytes": 12529
       },
       {
         "path": "test/knitout/fairisle-parity.test.ts",
