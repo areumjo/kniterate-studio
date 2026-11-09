@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { KNITERATE_7GG_KCODE_PROFILE_V2, deriveMachineTraceAdvisoriesV1 } from '@kniterate-studio/machine-lib/browser';
+import { KNITERATE_7GG_KCODE_PROFILE_V2, auditTraceV1, deriveMachineTraceAdvisoriesV1 } from '@kniterate-studio/machine-lib/browser';
 import type { KCodeArtifact } from './kcode/kcodeProtocol';
-import { createColorworkProjectV1, materializeColorworkProject } from '@kniterate-studio/project-contract';
+import { appendProjectEdit, createColorworkProjectV1, materializeColorworkProject } from '@kniterate-studio/project-contract';
 import { createBeanieProject } from './beanie';
 import { runAuthoredPipeline } from './authoredPipeline';
 import { planProject } from './plan';
@@ -23,38 +23,16 @@ import { readKnitFile, type KnitFileCarriers, type KnitFileKind } from './sweate
  */
 
 const CATCH_NEEDLES = 20;
-/** Kniterate's fairisle, jacquard, DBJ and 2×2 rib beanie starts hold no loop longer than 7 passes. */
-const MAX_START_HOLD_PASSES = 12;
-
 /**
- * The longest any loop made before pass `end` waits on its needle until a
- * stitch is knitted through it, following transfers. Handoff 2's yarn catch
- * left a waste loop on the rear-left needle for about 90 passes, at the
- * corner where the main yarn then broke (issue #9).
+ * Replay every loop with the machine-lib audit (the same one `pnpm studio -- audit` runs):
+ * no start loop held long (handoff 2 held one ~90 passes at the corner that broke), no waste
+ * yarn knitting through doubled body loops, nothing dropped unheld, nothing left on the needles.
  */
-function longestStartHold(kcode: KCodeArtifact, end: number) {
-  type At = { bed: string; traceCoordinate: number };
-  const key = (at: At) => `${at.bed} ${at.traceCoordinate}`;
-  const made = new Map<string, number[]>();
-  let worst = { passes: 0, needle: '', from: 0, to: 0 };
-  for (const [index, pass] of kcode.trace!.passes.entries()) {
-    for (const action of pass.actions) {
-      if (action.kind === 'knit' || action.kind === 'tuck' || action.kind === 'drop') {
-        const loops = made.get(key(action.at)) ?? [];
-        if (action.kind === 'knit') {
-          for (const at of loops) if (at < end && index - at > worst.passes) worst = { passes: index - at, needle: key(action.at), from: at + 1, to: index + 1 };
-          made.set(key(action.at), [index]);
-        } else if (action.kind === 'tuck') made.set(key(action.at), [...loops, index]);
-        else made.delete(key(action.at));
-      } else if (action.kind === 'xfer' || action.kind === 'split') {
-        const moved = made.get(key(action.source)) ?? [];
-        made.set(key(action.target), [...(made.get(key(action.target)) ?? []), ...moved]);
-        if (action.kind === 'split') made.set(key(action.source), [index]);
-        else made.delete(key(action.source));
-      }
-    }
-  }
-  return worst;
+function auditRules(name: string, kcode: KCodeArtifact, file: NonNullable<ReturnType<typeof readKnitFile>>, carriers: KnitFileCarriers) {
+  const sections = file.sections.map((section) => ({ name: section.kind, from: section.passes.from + 1, to: section.passes.to + 1 }));
+  const audit = auditTraceV1(kcode.trace!, { sections, roles: { waste: carriers.waste, draw: carriers.draw } });
+  const failing = audit.checks.filter((check) => !check.ok && check.severity === 'issue').map((check) => `${check.id} ${check.value}${check.at ? `: ${check.at.join('; ')}` : ''}`);
+  expect(failing, name).toEqual([]);
 }
 
 function startRules(name: string, kcode: KCodeArtifact, read: { kind: KnitFileKind; carriers: KnitFileCarriers; zoneOfRow: (row: number) => 'rib' | 'body' }) {
@@ -87,9 +65,7 @@ function startRules(name: string, kcode: KCodeArtifact, read: { kind: KnitFileKi
     .filter((advisory) => advisory.rule === 'machine-advisory.float-distance' && advisory.passIndex < end);
   expect(floats.map((advisory) => advisory.message), name).toEqual([]);
 
-  // No loop made in the start waits long on its needle before it is knitted again.
-  const hold = longestStartHold(kcode, end);
-  expect(hold.passes, `${name}: ${hold.needle} holds a loop from pass ${hold.from} to ${hold.to}`).toBeLessThanOrEqual(MAX_START_HOLD_PASSES);
+  auditRules(name, kcode, file, read.carriers);
 }
 
 const gauge = { stitchesPer10cm: 20, rowsPer10cm: 28, source: 'assumed' as const };
@@ -154,5 +130,19 @@ describe('the start every flat piece knits (issue #9 run 3)', () => {
     } as const;
     const result = await runAuthoredPipeline(createColorworkProjectV1(chart, { id: 'dither' }));
     startRules('fairisle chart', result.kcode!, { kind: 'panel', carriers: { main: '2', second: null, waste: '6', draw: '1' }, zoneOfRow: () => 'body' });
+  });
+
+  it('a birdseye colour chart: no yarn catch yet, but the same loop audit', { timeout: 60_000 }, async () => {
+    // Its start is still Kniterate's dbj.kc start (queued in docs/ROADMAP.md); the audit is what it shares.
+    const cells = Array.from({ length: 30 }, (_, row) => Array.from({ length: 40 }, (_, column) => ((row * 7 + column * 3) % 5 < 2 ? 1 : 0)));
+    const chart = {
+      kind: 'knitlab-colorwork-chart', version: 1, title: 'Birdseye', width: 40, height: 30, rowNumbering: 'bottom-up',
+      palette: [{ id: 'natural', name: 'Natural', hex: '#F4F0E6' }, { id: 'red', name: 'Red', hex: '#C2413A' }], cells,
+    } as const;
+    let project = createColorworkProjectV1(chart, { id: 'birdseye' });
+    project = appendProjectEdit(project, { id: 'birdseye', source: 'human', edit: { kind: 'set-strategy', strategy: { technique: 'birdseye', floatLimit: 7 } } });
+    const result = await runAuthoredPipeline(project);
+    const carriers: KnitFileCarriers = { main: '2', second: null, waste: '6', draw: '1' };
+    auditRules('birdseye chart', result.kcode!, readKnitFile(result.kcode!, { kind: 'panel', carriers, zoneOfRow: () => 'body' })!, carriers);
   });
 });
