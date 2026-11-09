@@ -109,6 +109,29 @@ ship," trust this file and the working tree instead.
     Setting the yarn introduction back to 200 fails it. The birdseye chart's
     start is not covered: it still knits at 400 and brings yarns in at 200
     without a catch.
+- **No held loop in the start (2026-11-08).** Handoff 2 was knitted (issue
+  #9). Run 2 (`092076f4`) is registered as partial
+  (`registry/swatches/2026-11-09-handoff2-run2-studio-fairisle`). It was the
+  best fabric so far, but the main yarn frayed at the bottom-left corner on
+  its first row after the waste.
+  - The yarn catch's return knits the rear-left needle. Kniterate's waste
+    rows never knit that needle, so the waste loop made there at pass 2 was
+    held until the first colour's catch knitted it, about 90 passes later
+    (47 under roller pull). That is the corner that broke. It's not shown to
+    be the cause.
+  - Every handoff 2 Studio file had it. Kniterate's files and the first
+    handoff don't.
+  - The fix: with the catch on, the waste's leftward rows also knit the
+    rear-left needle, in both `customist-fairisle-frame.ts` and
+    `customist-flat-start.ts`. The operator's PR #14 makes the same change
+    to the fairisle routine, and their reversible v2 knitted that start
+    cleanly. The flat start's version hasn't been knitted.
+  - Each file changes by 40 waste stitches, and two empty waste-yarn moves
+    drop out. The recipe path without the catch is unchanged.
+  - `flatStart.test.ts` now also checks that no loop made in the start waits
+    more than 12 passes to be knitted again. Kniterate's own fairisle,
+    jacquard, DBJ and rib-beanie starts wait at most 7, and so do Studio's
+    starts now. The old start fails this rule in every kind.
 - **Fairisle colours end at the edge (2026-11-08).** Most fairisle colour
   charts were refused by `machine-safety.attached-yarn`. The refused cases
   included a centred motif, any chart whose colour stops short of the edges

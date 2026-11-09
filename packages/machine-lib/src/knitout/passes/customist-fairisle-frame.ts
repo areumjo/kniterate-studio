@@ -97,12 +97,18 @@ export function emitCustomistFairisleFrame(input: CustomistFairisleFrameInput): 
   const interlock = (c: CarrierId, dir: Direction, frontEven: boolean) => {
     for (const n of needles(dir, () => true)) sim.knit(c, dir, even(n) === frontEven ? f(n) : backBed(n))
   }
-  /** Leftward interior interlock: front on odd offsets, rear on even, edges skipped. */
-  const interiorInterlock = (c: CarrierId) => {
-    for (const n of needles('-', (m) => m > lo && m < hi)) sim.knit(c, '-', even(n) ? backBed(n) : f(n))
-  }
   /** Studio's yarn catch: out and back over the piece's leftmost needles, both beds alternating, at the intro settings. */
   const catchNeedles = Math.min(input.catchNeedles ?? 0, hi - lo + 1)
+  /**
+   * Leftward interior interlock: front on odd offsets, rear on even, edges
+   * skipped. With the yarn catch it also knits the rear-left needle: the
+   * catch leaves a waste loop there that the reference's rows never knit,
+   * and it was held until the first colour knitted it, about 90 passes later
+   * (issue #9, handoff 2). The operator's reversible v2 knitted this start.
+   */
+  const interiorInterlock = (c: CarrierId) => {
+    for (const n of needles('-', (m) => (m > lo || (m === lo && catchNeedles > 0)) && m < hi)) sim.knit(c, '-', even(n) ? backBed(n) : f(n))
+  }
   const catchYarn = (c: CarrierId) => {
     if (catchNeedles <= 0) return
     sim.setSpeed(intro.introSpeed)

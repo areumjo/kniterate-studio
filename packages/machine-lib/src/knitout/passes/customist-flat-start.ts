@@ -257,7 +257,11 @@ export function emitCustomistFlatStart(sim: CarriageSimulator, kit: FlatPieceKit
 
   // Waste interlock. Rightward passes knit the full 1×1 (front even, rear
   // odd); leftward passes knit the interior with the parities swapped. The
-  // start pass skips the outermost needles.
+  // start pass skips the outermost needles. With the yarn catch, leftward
+  // passes also knit the rear-left needle: the catch leaves a waste loop
+  // there that these rows would never knit, held until the first colour
+  // knitted it about 90 passes later (issue #9, handoff 2).
+  const rearLeft = Math.min(s.catchNeedles, width) > 0 ? 0 : 1
   sim.bringIn(waste, { side: 'left' })
   catchYarn(waste)
   for (let p = 0; p < (input.wastePasses ?? s.wastePasses); p++) {
@@ -266,7 +270,7 @@ export function emitCustomistFlatStart(sim: CarriageSimulator, kit: FlatPieceKit
       row(waste, '+', (o) => even(o) && o > 0, (o) => !even(o) && o < width - 1)
       sim.miss(waste, '+', f(hi - 1 + WASTE_START_EXTEND))
     }
-    else if (p % 2 === 1) row(waste, '-', (o) => !even(o) && o < width - 1, (o) => even(o) && o > 0)
+    else if (p % 2 === 1) row(waste, '-', (o) => !even(o) && o < width - 1, (o) => even(o) && o >= rearLeft)
     else row(waste, '+', even, (o) => !even(o))
   }
   drain()

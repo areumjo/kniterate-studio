@@ -23,6 +23,39 @@ import { readKnitFile, type KnitFileCarriers, type KnitFileKind } from './sweate
  */
 
 const CATCH_NEEDLES = 20;
+/** Kniterate's fairisle, jacquard, DBJ and 2×2 rib beanie starts hold no loop longer than 7 passes. */
+const MAX_START_HOLD_PASSES = 12;
+
+/**
+ * The longest any loop made before pass `end` waits on its needle until a
+ * stitch is knitted through it, following transfers. Handoff 2's yarn catch
+ * left a waste loop on the rear-left needle for about 90 passes, at the
+ * corner where the main yarn then broke (issue #9).
+ */
+function longestStartHold(kcode: KCodeArtifact, end: number) {
+  type At = { bed: string; traceCoordinate: number };
+  const key = (at: At) => `${at.bed} ${at.traceCoordinate}`;
+  const made = new Map<string, number[]>();
+  let worst = { passes: 0, needle: '', from: 0, to: 0 };
+  for (const [index, pass] of kcode.trace!.passes.entries()) {
+    for (const action of pass.actions) {
+      if (action.kind === 'knit' || action.kind === 'tuck' || action.kind === 'drop') {
+        const loops = made.get(key(action.at)) ?? [];
+        if (action.kind === 'knit') {
+          for (const at of loops) if (at < end && index - at > worst.passes) worst = { passes: index - at, needle: key(action.at), from: at + 1, to: index + 1 };
+          made.set(key(action.at), [index]);
+        } else if (action.kind === 'tuck') made.set(key(action.at), [...loops, index]);
+        else made.delete(key(action.at));
+      } else if (action.kind === 'xfer' || action.kind === 'split') {
+        const moved = made.get(key(action.source)) ?? [];
+        made.set(key(action.target), [...(made.get(key(action.target)) ?? []), ...moved]);
+        if (action.kind === 'split') made.set(key(action.source), [index]);
+        else made.delete(key(action.source));
+      }
+    }
+  }
+  return worst;
+}
 
 function startRules(name: string, kcode: KCodeArtifact, read: { kind: KnitFileKind; carriers: KnitFileCarriers; zoneOfRow: (row: number) => 'rib' | 'body' }) {
   const file = readKnitFile(kcode, read)!;
@@ -52,6 +85,10 @@ function startRules(name: string, kcode: KCodeArtifact, read: { kind: KnitFileKi
   const floats = deriveMachineTraceAdvisoriesV1(kcode.trace!, KNITERATE_7GG_KCODE_PROFILE_V2, {}).advisories
     .filter((advisory) => advisory.rule === 'machine-advisory.float-distance' && advisory.passIndex < end);
   expect(floats.map((advisory) => advisory.message), name).toEqual([]);
+
+  // No loop made in the start waits long on its needle before it is knitted again.
+  const hold = longestStartHold(kcode, end);
+  expect(hold.passes, `${name}: ${hold.needle} holds a loop from pass ${hold.from} to ${hold.to}`).toBeLessThanOrEqual(MAX_START_HOLD_PASSES);
 }
 
 const gauge = { stitchesPer10cm: 20, rowsPer10cm: 28, source: 'assumed' as const };

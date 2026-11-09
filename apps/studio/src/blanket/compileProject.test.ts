@@ -211,8 +211,9 @@ describe('blanket project compiler', () => {
     const compiled = compileColorworkProject(project);
     expect(compiled.ok).toBe(true);
     if (compiled.capacity.status === 'blocked') throw new Error(compiled.capacity.message);
-    // Includes Studio's yarn catch: out and back for each of the four yarns.
-    expect(compiled.passes).toHaveLength(166);
+    // Includes Studio's yarn catch: out and back for each of the four yarns. The waste's
+    // leftward rows knit the rear-left needle the catch uses, so two empty waste moves drop out.
+    expect(compiled.passes).toHaveLength(164);
     const emitted = await compileKCodeArtifact({
       kind: 'convert-kcode',
       requestId: 1,
@@ -225,7 +226,7 @@ describe('blanket project compiler', () => {
     });
 
     expect(emitted.ok).toBe(true);
-    expect(emitted.passCount).toBe(166);
+    expect(emitted.passCount).toBe(164);
     const needleRange = authoredKnitoutNeedleRange(materializeColorworkProject(project).state);
     expect(emitted.coordinateBridge?.compilerProject).toMatchObject(needleRange);
     expect(emitted.rowPasses[0]!.passIndices.some((passIndex) => emitted.passKnitoutNeedles[passIndex] !== null)).toBe(true);
@@ -235,12 +236,12 @@ describe('blanket project compiler', () => {
       expect(needles!.start).toBeGreaterThanOrEqual(needleRange.start);
       expect(needles!.end).toBeLessThanOrEqual(needleRange.end);
     }
-    // Studio's yarn catch puts 8 passes before the first row.
-    expect(compiled.rowProvenance[0]).toMatchObject({ rowId: 'row_0001', passIndices: [140, 141] });
-    expect(emitted.rowPasses[0]).toEqual({ rowId: 'row_0001', passIndices: [138, 139] });
+    // Studio's yarn catch puts 8 passes before the first row; 2 empty waste moves drop out.
+    expect(compiled.rowProvenance[0]).toMatchObject({ rowId: 'row_0001', passIndices: [138, 139] });
+    expect(emitted.rowPasses[0]).toEqual({ rowId: 'row_0001', passIndices: [136, 137] });
     expect(compiled.diagnostics.find((item) => item.rowId === 'row_0001')).toMatchObject({
       rule: 'bed-state-long-float',
-      passIndices: [140, 141],
+      passIndices: [138, 139],
     });
   });
 
@@ -296,7 +297,7 @@ describe('blanket project compiler', () => {
     expect(compiled.capacity).toMatchObject({
       status: 'supported',
       project: { paletteColors: 4, activeColors: 2 },
-      observed: { knitoutRecords: 182_244 },
+      observed: { knitoutRecords: 182_284 },
     });
 
     project = appendProjectEdit(project, {
