@@ -258,11 +258,13 @@ describe('blanket project compiler', () => {
       status: 'supported',
       evidence: null,
       project: { width: 200, height: 300, paletteColors: 4, activeColors: 4, technique: 'birdseye', birdseyeMode: 'minimal' },
-      observed: { knitoutRecords: 506_665 },
+      observed: { knitoutRecords: 507_271 },
     });
     expect(compiled.capacity.estimate.knitoutRecords).toBeGreaterThanOrEqual(compiled.capacity.observed.knitoutRecords ?? Infinity);
     expect(compiled.capacity.estimate.kcodeRecords).toBeLessThanOrEqual(AUTHORED_CAPACITY_LIMITS_V1.kcodeRecords);
-    expect(compiled.stats).toMatchObject({ designRows: 300, needles: 200, passCount: 3_150, opCount: 506_653 });
+    // The frame casts on and finishes as dbj.kc does: a rear drop, a zigzag over both beds and a joining row
+    // add 606 ops. The simulator predicts no pass for a drop, so its pass count falls by two (the vendor file gains one).
+    expect(compiled.stats).toMatchObject({ designRows: 300, needles: 200, passCount: 3_148, opCount: 507_259 });
   });
 
   it('refuses a structurally valid oversized Birdseye project before compiler allocation', () => {
@@ -405,7 +407,7 @@ describe('blanket project compiler', () => {
       programOpSourceRows: compiled.programOpSourceRows,
       rowProvenance: compiled.rowProvenance,
     });
-    expect(emitted.capacity.observed.kcodeRecords).toBe(29_555);
+    expect(emitted.capacity.observed.kcodeRecords).toBe(29_556);
     const reopened = openMachineDocument('large-authored-self-reopen.kc', emitted.kcText, {
       dialect: 'knitout-vendor',
     });

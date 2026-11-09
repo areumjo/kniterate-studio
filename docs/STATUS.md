@@ -141,6 +141,32 @@ ship," trust this file and the working tree instead.
     starts wait at most 7. Its reversible sweater sleeve (`sleeves.kc`) holds
     one rear edge loop for 75 passes. Studio's starts now wait at most 7, and
     the old start fails this rule in every kind.
+- **Birdseye chart frame matches `dbj.kc` stitch for stitch (2026-11-08).**
+  An audit replayed every loop in Studio's files against Kniterate's own. It
+  found that the birdseye chart's frame, said to be derived from `dbj.kc`,
+  had only ever been compared on speed and roller. Its stitches differed in
+  three places (`jacquard-dbj-full.ts`):
+  - The rear waste was never dropped before the draw thread (`dbj.kc` pass
+    106), so the back layer's first row knitted straight into the waste
+    yarn.
+  - The ground's first row was a front-only row at rack 0. It is now
+    `dbj.kc`'s half-rack zigzag over both beds (pass 110), which closes the
+    edge and joins the layers. The draw row (stitch 8) and the two tubular
+    rows (stitch 6) now use `dbj.kc`'s stitch sizes too.
+  - After the rear is homed, no yarn knitted the joining row (`dbj.kc` pass
+    464), so the waste knitted the doubled loops and the top would come off
+    as two live loops per needle. The yarn that knitted the last front
+    stitch now knits it.
+  - `dbj-parity.test.ts` now compares the cast-on and the finish stitch for
+    stitch, not just the settings. Both fail on the old code.
+  - Nothing knitted is affected: no birdseye chart has been knitted. Issue
+    #9's birdseye toque came from the beanie route, which already had all
+    three.
+  - Known preview difference: the simulator predicts no pass for a drop
+    (`CarriageSimulator.drop`). The converter does emit one, as at `dbj.kc`
+    pass 106 and `fairisle.kc` pass 105. So the predicted pass count runs
+    short of the machine file at each drop. The machine file and its
+    stitch-level tests are what count.
 - **Fairisle colours end at the edge (2026-11-08).** Most fairisle colour
   charts were refused by `machine-safety.attached-yarn`. The refused cases
   included a centred motif, any chart whose colour stops short of the edges
