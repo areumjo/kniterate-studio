@@ -109,6 +109,44 @@ ship," trust this file and the working tree instead.
     Setting the yarn introduction back to 200 fails it. The birdseye chart's
     start is not covered: it still knits at 400 and brings yarns in at 200
     without a catch.
+- **Machine-file tools (2026-11-09).** Five CLI commands read what a file
+  does and check it against Kniterate's own files, so an engine fix or a knit
+  report takes minutes to check. They are listed in `pnpm --silent studio --
+  help` and in the `knit-design` and `kniterate-engine` skills
+  (`.claude/skills/`).
+  - **Inputs.** Each takes `ref:<name>`, a `.kc` or `.k` file, a project, or a
+    handoff package.
+  - **Pass numbers** count from 1, as in run records.
+  - **`reference [name]`:** Kniterate's 13 files in
+    `packages/machine-lib/reference`, with what each is, its yarn roles and its
+    sections. They come from `reference/atlas.json`, checked against the files
+    by `test/knitout/trace-audit.test.ts`.
+  - **`passes <file> [range] [--section]`:** one line per pass (carrier,
+    racking, speed, roller, stitch sizes, needles, section). A project's
+    sections are the run record's.
+  - **`audit <file>`:** replays every loop. It reports:
+    - start loops held over 12 passes;
+    - waste yarn knitting through doubled body loops;
+    - body loops dropped with nothing holding them;
+    - loops left on the needles;
+    - stacks over 3;
+    - eyelets inside the fabric, as a note only.
+
+    Each check states what Kniterate's own files show, and every exception
+    there is a deliberate choice. The rib beanie and the reversible sweater
+    release their tops live, and `sleeves.kc` holds one start loop for 75
+    passes.
+  - **`compare <a> <b> [--section | --passes] [--carriers 2=4]`:** stitch by
+    stitch, cutting both files into sections by the same rule. Needles count
+    from each range's edge; `width` marks the same stitches over a different
+    width.
+  - **`matrix [-o dir] [--quick]`:** builds every construction (both chart
+    backings at widths 9 to 60, three beanies, two scarves, six sweaters) and
+    audits all 40 files in about 20 s.
+  - **Library and tests.** The checks live in
+    `packages/machine-lib/src/knitout/kcode/trace-audit.ts`.
+    `flatStart.test.ts` now runs the audit on every start it checks, plus a
+    birdseye chart. `engineMatrix.test.ts` runs the full matrix.
 - **No held loop in the start (2026-11-08).** Handoff 2 was knitted (issue
   #9). Run 2 (`092076f4`) is registered as partial
   (`registry/swatches/2026-11-09-handoff2-run2-studio-fairisle`). It was the
