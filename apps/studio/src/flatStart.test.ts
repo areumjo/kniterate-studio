@@ -63,17 +63,18 @@ function startRules(name: string, kcode: KCodeArtifact, read: { kind: KnitFileKi
   const end = file.sections.find((section) => section.kind !== 'waste' && section.kind !== 'draw')!.passes.from;
   const start = file.passes.slice(0, end);
   const startLo = Math.min(...start.flatMap((pass) => (pass.needles ? [pass.needles.lo] : [])));
+  const startHi = Math.max(...start.flatMap((pass) => (pass.needles ? [pass.needles.hi] : [])));
 
   // No yarn knits faster than 300 before the piece begins (carriage-only moves carry no yarn).
   for (const [index, pass] of start.entries()) if (pass.carrier !== '0') expect(pass.speed, `${name}: pass ${index + 1} on C${pass.carrier}`).toBeLessThanOrEqual(300);
 
-  // Each yarn is caught out and back over the leftmost 20 needles, then knits its first row, all at speed 100.
+  // Each yarn is caught out and back over the leftmost 20 needles (all of them on a narrower piece), then knits its first row, all at speed 100.
   const yarns = [...new Set(start.filter((pass) => pass.carrier !== '0' && pass.kind === 'knit').map((pass) => pass.carrier))];
   expect(yarns.length, name).toBeGreaterThanOrEqual(2);
   for (const carrier of yarns) {
     const [out, back, first] = file.passes.filter((pass) => pass.carrier === carrier && pass.kind === 'knit');
     for (const pass of [out!, back!]) {
-      expect(pass.needles, `${name}: C${carrier} catch`).toEqual({ lo: startLo, hi: startLo + CATCH_NEEDLES - 1 });
+      expect(pass.needles, `${name}: C${carrier} catch`).toEqual({ lo: startLo, hi: Math.min(startLo + CATCH_NEEDLES - 1, startHi) });
       expect(pass.speed, `${name}: C${carrier} catch`).toBe(100);
       expect(pass.roller, `${name}: C${carrier} catch`).toBeGreaterThan(0);
     }
@@ -120,6 +121,26 @@ describe('the start every flat piece knits (issue #9 run 3)', () => {
         const raster = result.plan.pieces.find((item) => item.id === piece.id)!.raster!;
         const kind: KnitFileKind = result === scarf ? 'panel' : piece.id === 'sleeve' ? 'sleeve' : 'body';
         startRules(`${result === scarf ? 'scarf' : 'sweater'} ${piece.id}`, piece.kcode!, { kind, carriers: result.plan.carriers, zoneOfRow: (row) => raster.rows[row]?.zone ?? 'body' });
+      }
+    }
+  });
+
+  it('narrow and odd-width pieces, where the catch reaches the right edge', { timeout: 180_000 }, async () => {
+    // A catch over the whole piece also leaves a loop on the right-edge needle (issue #9 review).
+    for (const width of [9, 12, 19, 20, 21]) {
+      const cells = Array.from({ length: 12 }, (_, row) => Array.from({ length: width }, (_, column) => ((row + column) % 3 === 0 ? 1 : 0)));
+      const chart = {
+        kind: 'knitlab-colorwork-chart', version: 1, title: `Narrow ${width}`, width, height: 12, rowNumbering: 'bottom-up',
+        palette: [{ id: 'natural', name: 'Natural', hex: '#F4F0E6' }, { id: 'red', name: 'Red', hex: '#C2413A' }], cells,
+      } as const;
+      const result = await runAuthoredPipeline(createColorworkProjectV1(chart, { id: `narrow-${width}` }));
+      startRules(`fairisle chart ${width} wide`, result.kcode!, { kind: 'panel', carriers: { main: '2', second: null, waste: '6', draw: '1' }, zoneOfRow: () => 'body' });
+    }
+    for (const widthCm of [5, 8]) {
+      const scarf = await runSweaterPipeline(createPanelProject({ title: 'Narrow scarf', widthCm, lengthCm: 10, textureId: 'stockinette', yarn: { name: 'Oat', hex: '#D9CBB0' } }, { id: `narrow-scarf-${widthCm}`, source: 'human', group: 'create' }));
+      for (const piece of scarf.pieces) {
+        const raster = scarf.plan.pieces.find((item) => item.id === piece.id)!.raster!;
+        startRules(`scarf ${widthCm} cm`, piece.kcode!, { kind: 'panel', carriers: scarf.plan.carriers, zoneOfRow: (row) => raster.rows[row]?.zone ?? 'body' });
       }
     }
   });

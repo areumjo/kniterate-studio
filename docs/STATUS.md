@@ -119,8 +119,8 @@ ship," trust this file and the working tree instead.
     held until the first colour's catch knitted it, about 90 passes later
     (47 under roller pull). That is the corner that broke. It's not shown to
     be the cause.
-  - Every handoff 2 Studio file had it. Kniterate's files and the first
-    handoff don't.
+  - Every handoff 2 Studio file had it. Kniterate's fairisle, jacquard, DBJ
+    and rib-beanie files don't, and neither does the first handoff.
   - The fix: with the catch on, the waste's leftward rows also knit the
     rear-left needle, in both `customist-fairisle-frame.ts` and
     `customist-flat-start.ts`. The operator's PR #14 makes the same change
@@ -128,10 +128,19 @@ ship," trust this file and the working tree instead.
     cleanly. The flat start's version hasn't been knitted.
   - Each file changes by 40 waste stitches, and two empty waste-yarn moves
     drop out. The recipe path without the catch is unchanged.
+  - An independent review found the same loop at the right edge on pieces
+    of 20 needles or fewer, where the catch spans the whole piece: the front
+    or rear right needle was held about 85 passes. The leftward rows now knit
+    that needle too when the catch reaches it. The left-edge fix had let some
+    narrow odd-width charts (9, 13, 17, 19) past
+    `machine-safety.central-short-rows` while they still held the right loop.
   - `flatStart.test.ts` now also checks that no loop made in the start waits
-    more than 12 passes to be knitted again. Kniterate's own fairisle,
-    jacquard, DBJ and rib-beanie starts wait at most 7, and so do Studio's
-    starts now. The old start fails this rule in every kind.
+    more than 12 passes to be knitted again. It covers beanies, the scarf,
+    every sweater piece, a 60-wide chart, charts 9 to 21 wide and scarves of
+    12 and 20 needles. Kniterate's own fairisle, jacquard, DBJ and rib-beanie
+    starts wait at most 7. Its reversible sweater sleeve (`sleeves.kc`) holds
+    one rear edge loop for 75 passes. Studio's starts now wait at most 7, and
+    the old start fails this rule in every kind.
 - **Fairisle colours end at the edge (2026-11-08).** Most fairisle colour
   charts were refused by `machine-safety.attached-yarn`. The refused cases
   included a centred motif, any chart whose colour stops short of the edges
