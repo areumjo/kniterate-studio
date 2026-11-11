@@ -11,9 +11,9 @@ current proof receipt, not this document's dates.
   J-sleeve, set-in; crew, V, square or boat neck), one-colour scarves and
   blankets, and checking any `.kc` or `.k` file. Every machine file passes the
   blocking machine-safety envelope before it can be downloaded.
-- **Knitted:** three development runs are registered
+- **Knitted:** four development runs are registered
   (`packages/machine-lib/registry/swatches/`). None is promotable, and nothing
-  is Knit-proven. Joined-edge paisley completed successfully (operator report; 18.5 cm wide, 21 cm including top waste). A 16–48–16 stitch reversible diamond is prepared for its first shaping trial; see `REVERSIBLE-DIAMOND-TRIAL.md`. Handoff 3 strip 2 completed with waste/left-edge defects; its incomplete
+  is Knit-proven. Joined-edge paisley completed successfully (operator report; 18.5 cm wide, 21 cm including top waste). The 16–48–16 paisley diamond produced a completed specimen, with open-looking increase edges and repeated CLUMP-like stops during idle-feeder shuffling; decreases looked satisfactory. A derived two-bed increase passes limited loop-accounting tests but remains export-blocked by unverified split encoding and incomplete whole-project validation. See `REVERSIBLE-INCREASE-RESEARCH.md`. Handoff 3 strip 2 completed with waste/left-edge defects; its incomplete
   physical evidence is preserved in `docs/physical-trials/2026-11-11/`.
 - **Not built:** the in-app assistant, a swatch-registry UI, raglan sweaters,
   colourwork or stripes on sweater pieces. See "Not yet built".
