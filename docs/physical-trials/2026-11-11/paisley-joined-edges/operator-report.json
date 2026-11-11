@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-11",
+  "operatorReport": "this was successful",
+  "candidateSha256": "8de9d5e3a9bbd0c1eaaf40bce21a28f434682c21ed8bbcce887c1305f33f1c36",
+  "passCountProgrammed": 426,
+  "completed": true,
+  "outcome": "operator-reported success",
+  "measurements": null,
+  "stopsOrInterventions": "not individually reported",
+  "photoFiles": [
+    "IMG_1183.jpg",
+    "IMG_1184.jpg"
+  ],
+  "formalPromotion": "Incomplete machine/yarn/measurement evidence; not Knit-proven"
+}
