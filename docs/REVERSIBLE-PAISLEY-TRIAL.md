@@ -124,3 +124,18 @@ pnpm studio audit ../paisley-swatch/package
 The complete release proof also depends on the repository's mutation and
 physical-registry gates. Candidate Surface-proven status is software evidence,
 not a claim that the full repository release gate or physical gate has passed.
+
+## SD handoff and next steps (2026-11-11)
+
+The joined-edge candidate was copied to the connected SD as `command.kc`
+(516,348 bytes, 426 passes), read back and SHA-256 verified, then safely
+ejected. The previous strip-2 command was backed up locally. `PAISLEY-NOTES/`
+on the card contains setup, finishing and measurement records. No diamond
+program was issued in this round.
+
+Next work requested by the operator:
+- [#18: reversible diamond increase/decrease trial](https://github.com/xjhc/kniterate-studio/issues/18).
+- [#19: reusable tasteful trim for straight and shaped edges](https://github.com/xjhc/kniterate-studio/issues/19).
+
+Carry forward joined sides, closed bottom, both-bed top support, the unresolved
+waste/left-stitch observations, and no further bind-off-only trial by default.
