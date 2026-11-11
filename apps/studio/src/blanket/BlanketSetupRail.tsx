@@ -4,7 +4,7 @@ import type { BackFaceProjection } from '@kniterate-studio/machine-lib/browser';
 import type { BlanketCompileState } from './useBlanketCompiler';
 import { Section } from '../workspace/panel';
 import { MachineSetupSection } from '../workspace/MachineSetupSection';
-import { BACKINGS, backingWords, colourworkColours } from '../backing';
+import { BACKINGS, CHART_BACKINGS, backingWords, colourworkColours } from '../backing';
 
 function BackFaceMini({ projection, palette }: { projection: BackFaceProjection | null | undefined; palette: ProjectState['chart']['palette'] }) {
   if (!projection) return <span className="back-mini pending" />;
@@ -31,12 +31,12 @@ export function BlanketSetupRail({ state, compile, outputError, size, onStrategy
   const colours = colourworkColours(state);
   const beanie = state.object?.kind === 'beanie';
   const technique = state.strategy.technique;
-  const words = (id: (typeof BACKINGS)[number]) => backingWords(id, colours ?? 0, beanie);
-  const current = technique === 'fairisle' || technique === 'birdseye' ? words(technique) : null;
+  const words = (id: (typeof CHART_BACKINGS)[number]) => backingWords(id, colours ?? 0, beanie);
+  const current = technique === 'fairisle' || technique === 'birdseye' || technique === 'complement' ? words(technique) : null;
   const backing = colours === null ? null
     // One colour has nothing to back: a chart knits plain stockinette whichever backing is set.
     : !beanie && colours < 2 ? <Section id="backing" title="Backing" aside={<em className="section-aside">None</em>}><p className="garment-help">One colour knits plain, with no backing. Paint a second colour to choose one.</p></Section>
-      : <Section id="backing" title="Backing" aside={<em className="section-aside">{current?.name ?? technique}</em>}><div className="strategy-segments">{BACKINGS.map((id) => {
+      : <Section id="backing" title="Backing" aside={<em className="section-aside">{current?.name ?? technique}</em>}><div className="strategy-segments">{(beanie ? BACKINGS : CHART_BACKINGS).map((id) => {
         const comparison = compile.comparisons.find((item) => item.technique === id);
         const selected = technique === id;
         const minutes = selected ? compile.artifact?.stats.estimatedKnitTimeSeconds ?? comparison?.estimatedKnitTimeSeconds : comparison?.estimatedKnitTimeSeconds;

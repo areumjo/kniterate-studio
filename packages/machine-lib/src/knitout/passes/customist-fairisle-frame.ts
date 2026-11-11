@@ -61,6 +61,8 @@ export interface CustomistFairisleFrameInput {
   wastePasses: number
   waste: WasteMachineConfig
   intro: FairisleCarrierIntro
+  /** Keep the full two-bed cast-on for inverse jacquard; no rear-to-front collapse. */
+  retainBackBed?: boolean
   /** Body transfer stitch to restore after the frame's transfers. */
   restoreXferStitch?: number
   /** Needles of Studio's yarn catch before each yarn's first row (`STUDIO_YARN_CATCH_NEEDLES_V1`); 0 or absent for the reference's start. */
@@ -206,19 +208,22 @@ export function emitCustomistFairisleFrame(input: CustomistFairisleFrameInput): 
   sim.setRoller(intro.tubularRoller ?? intro.introRoller)
   sim.setStitch(rampTubular)
   bedRow(primary, '+', 'f')
-  sim.setRacking(0)
+  if (!input.retainBackBed) sim.setRacking(0)
   bedRow(primary, '-', 'b')
+  if (input.retainBackBed) sim.setRacking(0)
   drain()
   // Even offsets, then odd (Customist's Rr-Tr / Rl-Tr pair). A rack(0)
   // relief between batches keeps adjacent sources out of one pass.
-  sim.setSpeed(FRAME_CHOREOGRAPHY.xferSpeed)
-  sim.setXferStitch(FRAME_CHOREOGRAPHY.xferStitch)
-  sim.xferBatch(needles('+', even).map((n) => ({ from: backBed(n), to: f(n) })))
-  sim.seedRacking(0)
-  sim.setRacking(0)
-  sim.xferBatch(needles('+', (n) => !even(n)).map((n) => ({ from: backBed(n), to: f(n) })))
-  if (input.restoreXferStitch !== undefined) sim.setXferStitch(input.restoreXferStitch)
-  drain()
+  if (!input.retainBackBed) {
+    sim.setSpeed(FRAME_CHOREOGRAPHY.xferSpeed)
+    sim.setXferStitch(FRAME_CHOREOGRAPHY.xferStitch)
+    sim.xferBatch(needles('+', even).map((n) => ({ from: backBed(n), to: f(n) })))
+    sim.seedRacking(0)
+    sim.setRacking(0)
+    sim.xferBatch(needles('+', (n) => !even(n)).map((n) => ({ from: backBed(n), to: f(n) })))
+    if (input.restoreXferStitch !== undefined) sim.setXferStitch(input.restoreXferStitch)
+    drain()
+  }
 
   ops.push(comment('--- END CUSTOMIST WASTE & CAST-ON ---'))
 

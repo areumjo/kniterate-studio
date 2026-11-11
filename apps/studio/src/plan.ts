@@ -353,7 +353,7 @@ export function planProject(state: ProjectState, placements: readonly ResolvedPr
         ...(beanieObjectOf(state)?.cuffFold ? [`Fold the rib cuff up along its middle (the cuff is ${cuffRows} rows, so fold at row ${Math.floor(cuffRows / 2)}); the folded half shows the rib's reverse, which looks the same for 2x2 rib.`] : []),
         'Weave in the ends. Wash or steam as the yarn label says, then measure.',
       ]
-    : ['Pull the draw thread (C1) to separate the waste yarn from the cast-on edge.', 'Weave in the ends. Wash or steam as the yarn label says, then measure.'];
+    : state.strategy.technique === 'complement' ? ['Keep the supporting top waste attached while measuring. Secure the live stitches of BOTH faces on needles or lifelines before removing the top waste; bind off or graft by hand.', 'Pull C1 to remove the bottom waste. The cast-on colour forms the joining edge; solid-colour areas between motifs can separate into two layers.', 'Weave in the ends. Wash or steam as the yarn label says, then measure reversible-fabric gauge.'] : ['Pull the draw thread (C1) to separate the waste yarn from the cast-on edge.', 'Weave in the ends. Wash or steam as the yarn label says, then measure.'];
 
   let sections: BeanieSections | null = null;
   if (beanie) {

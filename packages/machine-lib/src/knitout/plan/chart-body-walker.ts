@@ -81,6 +81,7 @@ export interface ChooseChartBodyWalkerDispatchInput {
 }
 
 export interface EmitChartBodyWalkerInput extends ChooseChartBodyWalkerDispatchInput {
+  readonly retainComplementBeds?: boolean;
   readonly resolved: ResolvedChart;
   readonly projection: ResolvedChartProjection;
   readonly walkerProjection: ResolvedChartProjection<'knit-order'>;
@@ -310,6 +311,7 @@ const CHART_BODY_WALKER_RECORDS: readonly ChartBodyWalkerRecord[] = [
     emit: (ctx) => {
       const input = ctx.input;
       ctx.appendWalkResult(emitJacquardComplementWalk({
+        homeBackBed: !input.retainComplementBeds,
         resolved: input.resolved,
         bindings: ctx.bindingMap,
         needleStart: input.needleStart,

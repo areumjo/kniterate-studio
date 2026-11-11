@@ -4,16 +4,17 @@
 `pnpm verify` is the software gate. Full-gate status belongs to the exact
 current proof receipt, not this document's dates.
 
-## Now (2026-11-09)
+## Now (2026-11-11)
 
-- **Built, in the browser and the `studio` CLI:** colour charts (fairisle and
-  birdseye), cuffed and rib beanies, flat-panel sweaters (drop shoulder,
+- **Built, in the browser and the `studio` CLI:** colour charts (fairisle,
+  birdseye and two-colour reversible), cuffed and rib beanies, flat-panel sweaters (drop shoulder,
   J-sleeve, set-in; crew, V, square or boat neck), one-colour scarves and
   blankets, and checking any `.kc` or `.k` file. Every machine file passes the
   blocking machine-safety envelope before it can be downloaded.
 - **Knitted:** three development runs are registered
   (`packages/machine-lib/registry/swatches/`). None is promotable, and nothing
-  is Knit-proven. Handoff 3 (two bind-off strips) is waiting to be knitted.
+  is Knit-proven. Handoff 3 strip 2 completed with waste/left-edge defects; its incomplete
+  physical evidence is preserved in `docs/physical-trials/2026-11-11/`.
 - **Not built:** the in-app assistant, a swatch-registry UI, raglan sweaters,
   colourwork or stripes on sweater pieces. See "Not yet built".
 - **Next:** the checklist at the top of [`ROADMAP.md`](./ROADMAP.md).
@@ -30,6 +31,14 @@ ship," trust this file and the working tree instead.
 ---
 
 ## Implemented in `apps/studio`
+
+- **Reversible chart development export (2026-11-11).** Exactly two used
+  colours can select Invert colours. The new frame retains both full beds
+  through the half-rack zigzag and tubular cast-on, knits complementary
+  faces, and supports both faces with top waste before dropping. Chain
+  bind-off is refused for this construction. This combines reference
+  construction elements with development yarn settings; it is not whole-file
+  reference parity or physical proof. See [the trial and UX notes](REVERSIBLE-PAISLEY-TRIAL.md).
 
 - **First physical runs and the flat start's fix (2026-11-07).** Issue #9's
   handoff was knitted on 2026-10-30 (runs 1–3; run 4 not yet). Runs 2 and 3

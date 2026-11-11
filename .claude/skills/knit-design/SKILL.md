@@ -16,7 +16,11 @@ not ready, 2 = usage error. `pnpm --silent studio -- help` lists commands and
 One flat rectangular panel per project (scarf, blanket, swatch, colorwork
 panel): up to 252 stitches wide and 1,200 rows tall (75,600 cells), up to four
 pattern colors on carriers C2–C5, Fairisle or Birdseye (exactly four colors)
-backing.
+backing, or two-colour reversible (`--backing complement`, shown as Invert colours).
+Reversible charts require exactly two used colours and supporting waste on both
+beds (top rows count per bed); machine chain bind-off is refused. Secure both
+faces before removing top waste. This construction has not been physically
+validated; solid areas can separate into layers.
 
 Beanies: flat, seamed afterwards, in Customist's construction. Two kinds:
 - **All 2×2 rib:**

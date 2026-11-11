@@ -307,7 +307,7 @@ async function* constructions(quick: boolean): AsyncGenerator<{ name: string; pi
   const gauge = { stitchesPer10cm: 20, rowsPer10cm: 28, source: 'assumed' as const };
   const ribGauge = { stitchesPer10cm: 22, rowsPer10cm: 30, source: 'assumed' as const };
   const yarn = { name: 'Oat', hex: '#D9CBB0' };
-  const chartProject = (technique: 'fairisle' | 'birdseye', width: number) => {
+  const chartProject = (technique: 'fairisle' | 'birdseye' | 'complement', width: number) => {
     const height = 24;
     const cells = Array.from({ length: height }, (_, y) => Array.from({ length: width }, (_, x) => (((x - width / 2) / (width / 4)) ** 2 + ((height / 2 - y) / 7) ** 2 < 1 || (x + y) % 7 === 0 ? 1 : 0)));
     const chart = { kind: 'knitlab-colorwork-chart', version: 1, title: `${technique} ${width}`, width, height, rowNumbering: 'bottom-up', palette: [{ id: 'natural', name: 'Natural', hex: '#F4F0E6' }, { id: 'red', name: 'Red', hex: '#C2413A' }], cells } as const;
@@ -330,7 +330,7 @@ async function* constructions(quick: boolean): AsyncGenerator<{ name: string; pi
     const summary = summarizeSweaterRun(await runSweaterPipeline(project));
     return summary.pieces.map((piece) => ({ name: `${project.id}-${piece.id}`, piece: piece.id as string, kcText: piece.kcText, verdict: piece.verdict.label, sections: projectSections(piece.file) }));
   };
-  for (const technique of ['fairisle', 'birdseye'] as const) {
+  for (const technique of ['fairisle', 'birdseye', 'complement'] as const) {
     for (const width of quick ? [9, 60] : [9, 12, 19, 20, 21, 60]) yield { name: `chart ${technique} ${width} wide`, pieces: () => authored(chartProject(technique, width)) };
   }
   const hats = [
