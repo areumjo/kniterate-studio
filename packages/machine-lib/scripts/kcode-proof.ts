@@ -84,6 +84,7 @@ const STUDIO_PROOF_TESTS = [
   'src/studioCli.test.ts',
   'src/parity.test.ts',
   'src/blanket/compileProject.test.ts',
+  'src/reversibleChart.test.ts',
   'src/blanket/birdseyeBody.test.ts',
   'src/kcode/compileKCodeArtifact.test.ts',
   'src/kcode/MachineMovementView.test.tsx',

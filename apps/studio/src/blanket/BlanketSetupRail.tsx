@@ -1,5 +1,6 @@
+import { reversibleEdgeStatus } from '../reversibleEdges';
 import type { ReactNode } from 'react';
-import type { MachineSetup, ProjectState } from '@kniterate-studio/project-contract';
+import type { MachineSetup, ProjectState, ProjectEdit } from '@kniterate-studio/project-contract';
 import type { BackFaceProjection } from '@kniterate-studio/machine-lib/browser';
 import type { BlanketCompileState } from './useBlanketCompiler';
 import { Section } from '../workspace/panel';
@@ -14,7 +15,7 @@ function BackFaceMini({ projection, palette }: { projection: BackFaceProjection 
   return <span className="back-mini" style={{ gridTemplateColumns: `repeat(${Math.min(8, Math.ceil(projection.width / columnStep))}, 1fr)` }}>{sampled.map((cell, index) => <i className={cell.kind} style={{ background: cell.paletteIndexes.length ? palette[cell.paletteIndexes[0]!]?.hex : 'transparent' }} key={index} />)}</span>;
 }
 
-export function BlanketSetupRail({ state, compile, outputError, size, onStrategy, onFloatLimit, onAssignment, onSetup }: {
+export function BlanketSetupRail({ state, compile, outputError, size, onStrategy, onFloatLimit, onAssignment, onSetup, onCloseEdges }: {
   state: ProjectState;
   compile: BlanketCompileState;
   outputError: string | null;
@@ -23,8 +24,10 @@ export function BlanketSetupRail({ state, compile, outputError, size, onStrategy
   onAssignment: (paletteId: string, carrier: '2' | '3' | '4' | '5', yarnName: string) => void;
   /** What you are making: its size and swatch, and a garment's fit and motifs. */
   size: ReactNode;
+  onCloseEdges?: (edit: ProjectEdit) => void;
   onSetup: (setup: MachineSetup | null, label: string) => void;
 }) {
+  const edge = reversibleEdgeStatus(state);
   const assignmentFor = (paletteId: string) => state.machine.yarnAssignments.find((item) => item.paletteId === paletteId);
   const error = outputError ?? compile.error ?? compile.artifact?.messages.find((message) => message.severity === 'error')?.message ?? null;
   // Only backings with a Customist-matched reference program are authored. A rib beanie has no colourwork to back.
@@ -46,7 +49,7 @@ export function BlanketSetupRail({ state, compile, outputError, size, onStrategy
         const preview = !compared || comparison?.backFace ? <BackFaceMini projection={comparison?.backFace} palette={state.chart.palette} /> : null;
         const note = blocked ? 'Cannot knit' : minutes != null ? `${Math.ceil(minutes / 60)} min` : compared ? null : '…';
         return <button type="button" className={`${selected ? 'active' : ''}${preview ? '' : ' no-preview'}`} key={id} onClick={() => onStrategy(id)}>{preview}<span><b>{words(id)!.name}</b>{note && <small>{note}</small>}</span></button>;
-      })}</div>{current && <p className="garment-help">{current.help}</p>}{technique === 'fairisle' && colours >= 2 && <label className="strategy-field"><span>Longest float</span><input type="number" min="1" max="30" defaultValue={state.strategy.floatLimit} key={`float-${state.strategy.floatLimit}`} onBlur={(event) => onFloatLimit(Number(event.currentTarget.value))} /></label>}</Section>;
+      })}</div>{current && <p className="garment-help">{current.help}</p>}{technique === 'complement' && <div className="garment-help"><p>{edge.closed ? 'Side edges: linked by one-stitch alternating-colour stripes. Physical validation pending.' : 'Side edges: open. Export is blocked until a joining edge is added.'}</p>{!edge.closed && edge.edit && <button type="button" onClick={() => onCloseEdges?.(edge.edit!)}>Close side edges</button>}</div>}{technique === 'fairisle' && colours >= 2 && <label className="strategy-field"><span>Longest float</span><input type="number" min="1" max="30" defaultValue={state.strategy.floatLimit} key={`float-${state.strategy.floatLimit}`} onBlur={(event) => onFloatLimit(Number(event.currentTarget.value))} /></label>}</Section>;
   return <aside className="sweater-design chart-design" aria-label="Design">
     {size}
     <Section id="yarns" title="Colours" aside={<em className="section-aside">{state.chart.palette.length}</em>}><div className="assignment-list">{state.chart.palette.map((color) => {

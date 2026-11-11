@@ -13,7 +13,7 @@ export interface BackingWords {
 }
 
 const COLOURWORK: Record<Backing, BackingWords> = {
-  complement: { name: 'Invert colours', fabric: 'reversible jacquard', help: 'Two yarn colours, reversed on the back. Layers join where colours swap; solid areas can separate. Closed cast-on, waste support on both beds. This construction has not been physically validated.' },
+  complement: { name: 'Invert colours', fabric: 'reversible jacquard', help: 'Two yarn colours, reversed on the back. One-stitch striped side edges link the faces; solid interior areas can separate. Closed cast-on, waste support on both beds. This construction has not been physically validated.' },
   fairisle: { name: 'Fairisle', fabric: 'fairisle fabric', help: 'Light. Unused colours float behind the work.' },
   birdseye: { name: 'Birdseye', fabric: 'birdseye fabric', help: 'Thicker and warmer. No long floats, so thin lines and logos work.' },
 };

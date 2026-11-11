@@ -32,6 +32,13 @@ ship," trust this file and the working tree instead.
 
 ## Implemented in `apps/studio`
 
+- **Reversible side-edge correction (2026-11-11).** Invert colours now refuses
+  open side columns. Backing and the CLI plan offer an undoable one-stitch
+  alternating-colour selvedge on both sides. Emitted-yarn-path tests check
+  that each turnaround crosses beds. The updated paisley supersedes the
+  unjoined-edge file; physical edge quality is still unvalidated. This
+  requirement must survive future handoffs. See [trial details](REVERSIBLE-PAISLEY-TRIAL.md).
+
 - **Reversible chart development export (2026-11-11).** Exactly two used
   colours can select Invert colours. The new frame retains both full beds
   through the half-rack zigzag and tubular cast-on, knits complementary

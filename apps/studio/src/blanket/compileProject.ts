@@ -1,3 +1,4 @@
+import { reversibleEdgeStatus } from '../reversibleEdges';
 import {
   appendProjectEdit,
   assessAuthoredCapacityV1,
@@ -192,6 +193,7 @@ export function compileColorworkProject(project: ColorworkProjectV1): BlanketCom
   const setupMessages: ValidationMessage[] = [];
 
   if (!isAuthoredTechnique(state.strategy.technique)) setupMessages.push(setupError('project-technique-unmatched', `The ${state.strategy.technique} backing has no Customist-matched reference program yet; choose Fairisle or Birdseye.`));
+  if (state.strategy.technique === 'complement' && !reversibleEdgeStatus(state).closed) setupMessages.push(setupError('reversible-open-edges', 'Close the reversible side edges with one-stitch alternating-colour stripes in Backing before exporting (minimum 3 needles and 3 rows).'));
   if (state.strategy.technique === 'complement' && usedPalette.length !== 2) setupMessages.push(setupError('project-reversible-colors', 'Invert colours needs exactly two used yarn colours.'));
   if (state.strategy.technique === 'complement' && state.setup?.top === 'bind-off') setupMessages.push(setupError('project-reversible-finish', 'Invert colours needs waste support on both beds; choose a waste top.'));
   if (usedPalette.length > 4) setupMessages.push(setupError('project-pattern-color-limit', `This chart uses ${usedPalette.length} pattern colors; Kniterate Studio v1 supports at most four on reserved carriers C2-C5.`));

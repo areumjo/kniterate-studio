@@ -6,6 +6,45 @@ is a simplified authored chart, not an exact reconstruction of the photographed
 cashmere scarf. The supplied Midnight/Butter URL currently shows Burnt Cocoa/Dune;
 the design preview intentionally keeps midnight and butter.
 
+## Side-edge correction (2026-11-11)
+
+The earlier handoff explicitly required an explanation of layer connections and
+side finishing: https://github.com/xjhc/kniterate-studio/issues/9#issuecomment-6800976769.
+The first paisley export omitted the side join. That file, SHA-256
+`6373e2c66fcb12a5325ea406c0f71c5f2965d6d05375023c0c0e0f92a5e09f3f`,
+is superseded and retained under `paisley-swatch/superseded-open-sides/`.
+
+Studio now blocks a reversible chart with non-alternating outer columns and
+provides **Close side edges** in Backing and the plan's typed fix. This is one
+undoable paint edit, visible in the chart and retained by save/reopen. Editing
+or resizing away the joining stripes blocks export again. The supported recipe
+needs at least three needles and three design rows. It reserves the outermost
+column on each side, replacing any artwork there; it adds no width or passes.
+
+Mechanism: the same yarn ends one row on an edge needle, turns, then knits
+that edge on the opposite bed on its next pass. Tests follow that actual
+emitted yarn path at both sides, not merely the reversed colours. Widths 19,
+32, 33 and 68 retain exact complementary faces and both-bed top support.
+This is our development selvedge, not an exact copy of a vendor border preset.
+
+Sources distinguish inverse body from border closure:
+[Kniterate's Borders/Close controls](https://support.kniterate.com/hc/en-us/articles/39032141113757-Global-Local-commands)
+and [STOLL's cross-tubular jacquard description](https://nfc.stoll.com/faq/ckc_userguide/en/9303416331.html).
+Their descriptions support the construction rationale; the exact stripe recipe
+and its physical edge quality remain to be knitted.
+
+For this paisley, 94 chart cells change, all in the two outermost columns.
+The decoded comparison finds 94 changed body passes; all waste, draw, cast-on,
+top and carrier-out passes remain identical, as do 190 of 284 body passes.
+The total remains 426 passes. The motif interior, needle span, gauge assumption,
+carriers, speeds, stitch sizes and roller settings are unchanged.
+
+Acceptance for the physical trial: neither side peels into independent flaps;
+edge stitches form without gaps/drops or excessive tightness; both faces show
+the inverse motif; the bottom remains closed; both faces have supporting top
+waste. Continue recording the earlier waste-start and persistent-left-stitch
+issues separately. No further bind-off-only trial is requested.
+
 ## Candidate
 
 - 68 needles × 95 design rows; one-based needles 93–160, centered.
@@ -14,7 +53,7 @@ the design preview intentionally keeps midnight and butter.
 - C3 orange, C4 grey: one strand of the previous 2/14 acrylic each.
   C1 draw thread; C6 waste. Preview palette colours are not yarn identities.
 - 426 passes. SHA-256:
-  `6373e2c66fcb12a5325ea406c0f71c5f2965d6d05375023c0c0e0f92a5e09f3f`.
+  `8de9d5e3a9bbd0c1eaaf40bce21a28f434682c21ed8bbcce887c1305f33f1c36`.
 - Main body stitch 7, speed 200, roller 450; cast-on stitch 3, speed 100,
   roller 450, tubular roller 200. These are development settings, not
   experimentally established settings for this fabric.
@@ -22,9 +61,11 @@ the design preview intentionally keeps midnight and butter.
   during measurement. Secure both faces on lifelines/needles before removing
   waste; finish by hand. This is a fabric trial, not another bind-off trial.
 
-The cast-on joins the layers in the cast-on colour. Motif changes join the
-layers; large plain areas and plain side margins may separate. This is not
-yet a finished scarf with designed side edges. Watch the previously reported
+The cast-on joins the layers in the cast-on colour. **Both side edges now
+use a one-stitch alternating-colour stripe**, linking the faces at each yarn
+turnaround. Large plain interior areas may still separate; that is tubular
+jacquard, not an open side. The top still requires hand finishing after
+securing both faces. This is not yet a finished scarf. Watch the previously reported
 early waste bunching and persistent left-edge failure from the beginning;
 record the first affected pass rather than assuming the new construction
 fixes that physical problem.

@@ -19,7 +19,11 @@ pattern colors on carriers C2–C5, Fairisle or Birdseye (exactly four colors)
 backing, or two-colour reversible (`--backing complement`, shown as Invert colours).
 Reversible charts require exactly two used colours and supporting waste on both
 beds (top rows count per bed); machine chain bind-off is refused. Secure both
-faces before removing top waste. This construction has not been physically
+faces before removing top waste. Side edges must alternate the two colours on
+the outermost columns (minimum 3 needles and 3 rows). Apply the typed
+`reversible-open-edges` plan fix or Backing → Close side edges; it visibly
+replaces those columns with one-stitch stripes. Do not bypass the export block
+or describe an inverse body alone as a closed accessory. This construction has not been physically
 validated; solid areas can separate into layers.
 
 Beanies: flat, seamed afterwards, in Customist's construction. Two kinds:
