@@ -139,3 +139,7 @@ Next work requested by the operator:
 
 Carry forward joined sides, closed bottom, both-bed top support, the unresolved
 waste/left-stitch observations, and no further bind-off-only trial by default.
+
+## Physical result and next trial — 2026-11-11
+
+Operator reports this joined-edge paisley successful. Both supplied photographs and exact issued file are preserved in `physical-trials/2026-11-11/paisley-joined-edges/`. Width 18.5 cm; height 21 cm includes top waste and excludes bottom waste, so body row gauge remains unknown. The success and measurements are in issue #9. See [the diamond handoff](REVERSIBLE-DIAMOND-TRIAL.md) for the next increase/decrease trial and validation limits.

@@ -1,3 +1,4 @@
+import { reversibleEdgeStatus } from '../../apps/studio/src/reversibleEdges.js';
 /**
  * Machine-file commands for the Studio CLI: read what a .kc does pass by
  * pass, audit every loop, compare a stretch of passes with another file
@@ -333,6 +334,14 @@ async function* constructions(quick: boolean): AsyncGenerator<{ name: string; pi
   };
   for (const technique of ['fairisle', 'birdseye', 'complement'] as const) {
     for (const width of quick ? [9, 60] : [9, 12, 19, 20, 21, 60]) yield { name: `chart ${technique} ${width} wide`, pieces: () => authored(chartProject(technique, width)) };
+  }
+  {
+    const width = 48, height = 67;
+    let project = createColorworkProjectV1({ kind: 'knitlab-colorwork-chart', version: 1, title: 'Reversible diamond', width, height, rowNumbering: 'bottom-up', palette: [{ id: 'a', name: 'Orange', hex: '#DD6600' }, { id: 'b', name: 'Grey', hex: '#888888' }], cells: Array.from({ length: height }, () => Array.from({ length: width }, (_, x) => x === 24 ? 1 : 0)) }, { id: 'diamond-48' });
+    project = appendProjectEdit(project, { id: 'shape', source: 'human', edit: { kind: 'set-strategy', strategy: { technique: 'complement', floatLimit: 7, diamond: { tipStitches: 16, rowsPerStep: 2 } } } });
+    const edit = reversibleEdgeStatus(materializeColorworkProject(project).state).edit!;
+    project = appendProjectEdit(project, { id: 'edges', source: 'human', edit });
+    yield { name: 'reversible diamond 16–48–16', pieces: () => authored(project) };
   }
   const hats = [
     createBeanieProject({ title: 'Toque', headCircumferenceCm: 56, bodyCm: 13, bodyGauge: gauge, cuffCm: 7, ribGauge, fold: true, main: { name: 'Black', hex: '#111111' }, accent: { name: 'White', hex: '#F2F2F2' } }, options('beanie-toque')),

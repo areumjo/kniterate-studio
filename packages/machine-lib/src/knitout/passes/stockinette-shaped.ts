@@ -45,6 +45,7 @@ import {
 } from './first-row-speed.js';
 
 export interface ShapedStockinetteWalkInput {
+  retainComplementBeds?: boolean;
   /** Phase 1c (2026-05-24): canonical per-cell semanticOp source. The
    *  shape walker's `opAt` reads through this projection so multi-cell
    *  tile per-cell overrides (atomic ssk source = no-stitch, etc.) honor
@@ -338,6 +339,7 @@ export function emitShapedStockinetteWalk(
     && (backBedStyle === 'birdseye' || backBedStyle === 'complement');
 
   for (let r = 0; r < projection.rows; r++) {
+    sim.setSourceRows([r]);
     if (neckSuffix && r === neckSuffix.start) {
       emitNeckBlocks(neckSuffix.start, neckSuffix.center);
       break;
@@ -500,7 +502,7 @@ export function emitShapedStockinetteWalk(
     if (colorBindings && colorOrder.length > 1) {
       // E2E-3: uniform trim rows take the single-carrier path below so
       // their purls lower through the bed tracker.
-      const trimCarrier = uniformTrimRowCarrier(r);
+      const trimCarrier = input.retainComplementBeds ? null : uniformTrimRowCarrier(r);
       if (trimCarrier !== null) {
         emitResultRowPass({
           projection,
@@ -521,6 +523,7 @@ export function emitShapedStockinetteWalk(
       // elsewhere) over the active range. Optional back-bed birdseye
       // pass per color catches floats.
       emitShapedJacquardResultRow({
+        joinComplementEdges: input.retainComplementBeds,
         row: r,
         projection,
         skipCols,
@@ -550,11 +553,12 @@ export function emitShapedStockinetteWalk(
   }
   drain();
 
+  sim.setSourceRows();
   // Lined finish (§Reference sweater finish in the tracker: "xfer lining
   // loops to front" before the waste rows / drop): bring the final row's
   // lining home so the doubled front loops merge on the first finish
   // knit. Without this the top lining row drops live and unravels.
-  if (linedBackBed) {
+  if (linedBackBed && !input.retainComplementBeds) {
     const homeCols = activeCols(projection, projection.rows - 1);
     if (homeCols.length > 0) {
       ops.push(comment('-- lined finish: home final-row lining b->f --'));
@@ -602,6 +606,7 @@ function emitShapedJacquardResultRow(input: {
    *  its own row, leaving the merged stack unconsolidated until the
    *  next row (an elongated held stitch at the fashioning line). */
   defaultCarrier: CarrierId;
+  joinComplementEdges?: boolean;
   sim: CarriageSimulator;
 }): void {
   const { row, projection, skipCols, needleStart, colorBindings, colorOrder, backBedStyle, defaultCarrier, sim } = input;
@@ -614,6 +619,7 @@ function emitShapedJacquardResultRow(input: {
   // keyId → carrier lookup for this row, via projection identity reads.
   // Unbound keyIds (shape tiles) knit on the default carrier's pass.
   const carrierForCell = (col: number): CarrierId | null => {
+    if (input.joinComplementEdges && (col === first || col === last)) return colorOrder[row % 2]!;
     const keyId = projection.cellAt(row, col).keyId;
     if (!keyId) return null;
     return colorBindings.get(keyId) ?? defaultCarrier;

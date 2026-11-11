@@ -5,7 +5,14 @@
   "passCountProgrammed": 426,
   "completed": true,
   "outcome": "operator-reported success",
-  "measurements": null,
+  "measurements": {
+    "widthCm": 18.5,
+    "heightCm": 21,
+    "heightIncludes": "pattern and top waste; excludes bottom waste",
+    "operatorWording": "starting from pattern and wast yarn on top, 21cm height 18.5 cm width. doesn't include waste on bottom",
+    "derivedWidthStitchesPer10cm": 36.75675675675676,
+    "bodyRowGauge": "not established: top waste included"
+  },
   "stopsOrInterventions": "not individually reported",
   "photoFiles": [
     "IMG_1183.jpg",

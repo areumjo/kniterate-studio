@@ -184,7 +184,7 @@ export function planProject(state: ProjectState, placements: readonly ResolvedPr
   if (!beanie && state.strategy.technique === 'complement') {
     const edge = reversibleEdgeStatus(state);
     if (!edge.closed) findings.push({ rule: 'reversible-open-edges', severity: 'error', path: 'chart.cells',
-      message: 'Reversible side edges need alternating colours on the outermost columns (minimum 3 needles and 3 rows). This links the faces at yarn turnarounds.',
+      message: 'Reversible side edges need alternating colours at the active left and right boundaries (minimum 3 needles and 3 rows). This links the faces at yarn turnarounds.',
       fixes: edge.edit ? [{ label: 'Close side edges with one-stitch stripes', edits: [edge.edit] }] : [],
     });
   }

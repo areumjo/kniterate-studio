@@ -1,3 +1,4 @@
+import { projectDiamondColorworkChartV1 } from '@kniterate-studio/machine-lib/browser';
 import { reversibleEdgeStatus } from '../reversibleEdges';
 import {
   appendProjectEdit,
@@ -192,6 +193,7 @@ export function compileColorworkProject(project: ColorworkProjectV1): BlanketCom
   const assignments = new Map(state.machine.yarnAssignments.map((assignment) => [assignment.paletteId, assignment]));
   const setupMessages: ValidationMessage[] = [];
 
+  if (state.strategy.diamond && state.strategy.technique !== 'complement') setupMessages.push(setupError('diamond-backing', 'The diamond trial requires Invert colours.'));
   if (!isAuthoredTechnique(state.strategy.technique)) setupMessages.push(setupError('project-technique-unmatched', `The ${state.strategy.technique} backing has no Customist-matched reference program yet; choose Fairisle or Birdseye.`));
   if (state.strategy.technique === 'complement' && !reversibleEdgeStatus(state).closed) setupMessages.push(setupError('reversible-open-edges', 'Close the reversible side edges with one-stitch alternating-colour stripes in Backing before exporting (minimum 3 needles and 3 rows).'));
   if (state.strategy.technique === 'complement' && usedPalette.length !== 2) setupMessages.push(setupError('project-reversible-colors', 'Invert colours needs exactly two used yarn colours.'));
@@ -228,7 +230,7 @@ export function compileColorworkProject(project: ColorworkProjectV1): BlanketCom
   };
   if (setupMessages.length > 0 || !isAuthoredTechnique(state.strategy.technique)) return { ...base, ok: false, compileVerdict: 'blocked', inputHash: null, messages: setupMessages, knitoutText: null, passes: [], programOpSourceRows: [], rowProvenance: [], backFace: null, frame: null, diagnostics: setupMessages.map((message) => ({ ...message, opIndex: null, rowId: null, passIndices: [] })) };
 
-  const projected = projectColorworkChartV1(state.chart);
+  const projected = state.strategy.diamond ? projectDiamondColorworkChartV1(state.chart, state.strategy.diamond) : projectColorworkChartV1(state.chart);
   const yarnBindings: YarnBinding[] = usedPalette.map((entry) => {
     const assignment = assignments.get(entry.id)!;
     return { keyId: entry.id, carrier: assignment.carrier, name: assignment.yarnName };

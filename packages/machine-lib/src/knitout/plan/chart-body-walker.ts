@@ -220,8 +220,8 @@ const CHART_BODY_WALKER_RECORDS: readonly ChartBodyWalkerRecord[] = [
   },
   {
     kind: 'shaped-within-row-color',
-    matches: ({ patternCarrierCount, shapeMode, colorMode }) =>
-      patternCarrierCount > 1 && shapeMode && colorMode === 'within-row-multicolor',
+    matches: ({ patternCarrierCount, shapeMode, colorMode, backBedStyle, dbjBackingStrategy }) =>
+      patternCarrierCount > 1 && shapeMode && (colorMode === 'within-row-multicolor' || (backBedStyle === 'birdseye' && dbjBackingStrategy === 'complement')),
     technique: 'stockinette-shaped-jacquard',
     emit: (ctx) => {
       const input = ctx.input;
@@ -232,6 +232,7 @@ const CHART_BODY_WALKER_RECORDS: readonly ChartBodyWalkerRecord[] = [
         projection: input.walkerProjection,
         carrier: input.patternCarrier,
         colorBindings: ctx.bindingMap,
+        retainComplementBeds: input.retainComplementBeds,
         backBedStyle: input.backBedStyle === 'birdseye'
           ? (input.dbjBackingStrategy === 'complement' && input.patternCarrierCount === 2
             ? 'complement'
