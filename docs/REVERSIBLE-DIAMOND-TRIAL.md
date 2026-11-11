@@ -44,3 +44,9 @@ Additional UI limitation: the run schematic labels the top as “16 rows”; the
 The package manifest matches every file and its loop audit passes. The broad release proof is separate from these checks and physical promotion remains incomplete. Do not claim a clean release receipt from the trial checks.
 
 Release-proof result: `verify:kcode` completed with a **blocked** receipt. Its early deterministic proof-test stage recorded 13 failures (one then-unupdated public API allowlist, subsequently fixed; the other failures were timeouts under concurrent load). Final `verify:quick` passed afterward, and the proof's later Studio integration, type checks, build and mutation stages passed; mutation evidence is 3213/3213 killed, no survivors. The receipt is preserved as blocked, not manually promoted. This is not a clean full release proof.
+
+## Paisley artwork revision — 2026-11-11
+
+The operator approved the test silhouette and requested paisley instead of the grey stripe. The current next-knit candidate is `../diamond-paisley-swatch/package/program.kc`, reproducible from `fixtures/colorwork-project-v1/reversible-diamond-paisley-trial.json`. Two large alternating paisleys and two small side motifs adapt the successful rectangular swatch artwork, with small tip accents and clear space beside the moving selvedges.
+
+SHA-256 `7217462cfe9297bbffbbe82f78d683f6bde09292f0d979e007039beb5d9c9540`, still **1802 passes**. Only the pattern-yarn bed assignments change: pass-by-pass comparison confirms identical active columns, movement, racking, transfer actions, speeds and rollers; the start and finish pass payloads are byte-identical to the stripe trial. Loop audit passes and all package manifest hashes match. Export is Surface-proven; the physical shaping warning remains. No compiler change or full release-proof rerun was needed for this artwork edit. Both the original stripe trial and the successful rectangle remain preserved. The new project is open in Studio.
