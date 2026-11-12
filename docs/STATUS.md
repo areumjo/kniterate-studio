@@ -6,6 +6,9 @@ current proof receipt, not this document's dates.
 
 ## Trial update (2026-11-12)
 
+Operator subsequently requested paisley. [Paisley revision](physical-trials/2026-11-12/reversible-paisley-edge-candidate/instructions.md) adds 241 patterned interior cells using simplified original curves; exact startup/finish, row schedule, edge ownership and 494 passes retained. Strict checks and targeted verification pass; no physical run yet. Plain candidate remains preserved.
+
+
 Prepared the operator-requested **8 → 20 → 8**, 75-row two-colour reversible right-edge trial after the successful single-bed edge diagnostic. Fixed joined left edge; right increases/decreases every three design rows; official sleeve local increase colour choreography and existing paired cross-bed reversible decreases. Canonical frame/simulator/backend in an isolated experiment builder; production Studio emitter/UI unchanged. Strict source/KCode, safety, loop replay, yarn-path edge checks and negative control passed; 494 passes and zero C1/C6 body moves. **Not physically tested or Knit-proven.** Exact file, settings, pass map and limitations: [candidate](physical-trials/2026-11-12/reversible-right-edge-candidate/instructions.md).
 
 ## Now (2026-11-11)

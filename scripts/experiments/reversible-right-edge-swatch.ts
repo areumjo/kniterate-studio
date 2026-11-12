@@ -10,7 +10,9 @@ import {CarriageSimulator} from '../../packages/machine-lib/src/knitout/sim/carr
 import {ALL_CARRIERS,b,f,comment,type KnitoutOp,type KnitoutProgram,type CarrierId,type Direction} from '../../packages/machine-lib/src/knitout/types.js';
 import {writeKnitoutProgram} from '../../packages/machine-lib/src/knitout/emitter.js';
 import {knitoutToKCodeWithTrace} from '../../packages/machine-lib/src/knitout/kniterate/to-kcode.js';
+const paisley=process.argv.includes('--paisley');
 const out=process.argv[2]??'../reversible-right-edge-swatch';
+const motif=paisley?JSON.parse(fs.readFileSync('fixtures/experiments/reversible-paisley-20x75.json','utf8')):null;
 const lo=119, initialHi=126;
 const frame=emitCustomistFairisleFrame({needleStart:lo,needleEnd:initialHi,wasteCarrier:'6',bodyCarriers:['3','4'],drawCarrier:'1',wastePasses:80,waste:FAIRISLE_PARK_WASTE_DEFAULTS,intro:FAIRISLE_CARRIER_INTRO_DEFAULTS,retainBackBed:true,catchNeedles:8});
 const ops:KnitoutOp[]=[{kind:'x-carrier-spacing',value:2},{kind:'x-carrier-stopping-distance',value:2.5},...frame.ops];
@@ -41,7 +43,7 @@ for(let r=0;r<75;r++) {
   sim.setRacking(-1);sim.xferBatch([{from:b(hi),to:f(hi-1)}]);sim.setRacking(0);hi--;
  }
  sim.setSpeed(r===0?100:200);sim.setStitch(7);sim.setRoller(r===0?100:450);
- const front:CarrierId[]=Array.from({length:hi-lo+1},()=> '4');
+ const front:CarrierId[]=Array.from({length:hi-lo+1},(_,i)=> motif?.cells[r][i]?'3':'4');
  front[0]=r%2===0?'3':'4'; // Alternate face ownership to close the fixed left edge.
  // Right edge: swap between increases, but restore solid C4-front/C3-rear BEFORE each borrow.
  front[front.length-1]=r<39?(r%3===1?'3':'4'):(r%2===0?'3':'4');
@@ -67,5 +69,5 @@ sim.setRoller(0);for(const c of ['1','3','4','6'] as CarrierId[])sim.out(c);drai
 const program:KnitoutProgram={version:2,carriers:[...ALL_CARRIERS],machine:'kniterate',gauge:7,position:'Keep',yarns:{'3':'Orange single 2/14 acrylic','4':'Grey single 2/14 acrylic'},kniterate:{xferStyle:'four-pass'},ops};
 const source=writeKnitoutProgram(program),compiled=knitoutToKCodeWithTrace(source,'program.k');assert(compiled.ok,JSON.stringify(compiled));
 fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'program.k'),source);fs.writeFileSync(path.join(out,'program.kc'),compiled.kcode);
-fs.writeFileSync(path.join(out,'plan.json'),JSON.stringify({needleStart:lo,rows},null,2)+'\n');
+fs.writeFileSync(path.join(out,'plan.json'),JSON.stringify({needleStart:lo,motif:paisley?'paisley':'solid',rows},null,2)+'\n');
 console.log(JSON.stringify({output:out,sha256:createHash('sha256').update(compiled.kcode).digest('hex'),bytes:Buffer.byteLength(compiled.kcode),rows:rows.length},null,2));
