@@ -6,6 +6,9 @@ current proof receipt, not this document's dates.
 
 ## Trial update (2026-11-12)
 
+Latest operator refinement: **small paisley at cast-on, one large in the middle, small at finish**. [Current candidate](physical-trials/2026-11-12/reversible-paisley-small-large-small/instructions.md), SHA `e813b6461f96678f22302292113d0783154369695e904b814090ebeb7f2731b3`. Same shape, edges and 494 passes; software checks pass, no physical result or SD copy. Earlier artwork revisions preserved.
+
+
 Operator subsequently requested paisley. [Paisley revision](physical-trials/2026-11-12/reversible-paisley-edge-candidate/instructions.md) adds 241 patterned interior cells using simplified original curves; exact startup/finish, row schedule, edge ownership and 494 passes retained. Strict checks and targeted verification pass; no physical run yet. Plain candidate remains preserved.
 
 
