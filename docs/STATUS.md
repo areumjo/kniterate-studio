@@ -6,6 +6,9 @@ current proof receipt, not this document's dates.
 
 ## Trial update (2026-11-12)
 
+**Current spacing revision:** [mixed paisley with equal two-row gaps](physical-trials/2026-11-12/reversible-mixed-paisley-spaced/instructions.md). Previous unequal gaps (4 and1) corrected by moving only the original small end motifs; centre and all motif stitches unchanged. Gap equality, margins, loop/shaping and machine checks pass. Same 8→21→8,81 rows,522 passes; no SD copy/physical result.
+
+
 **Correction / current candidate:** [original small → simplified large → original small](physical-trials/2026-11-12/reversible-mixed-paisley/instructions.md). User clarified that centre should remain large; all-small interpretation was wrong. Exact original end tiles and exact earlier simplified centre verified. Same 8→21→8, 81 rows/522 passes, checked joins/margins; no SD copy or physical result.
 
 

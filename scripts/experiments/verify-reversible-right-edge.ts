@@ -19,6 +19,10 @@ if(plan.rows.length===81){
  }
 }
 if(plan.motif==='mixed-paisley'){
+ const mixed=JSON.parse(fs.readFileSync('fixtures/experiments/mixed-paisley-21x81.json','utf8'));
+ const visible=mixed.cells.flatMap((row:number[],i:number)=>row.some(Boolean)?[i+1]:[]);
+ const gaps=visible.slice(1).flatMap((r:number,i:number)=>r-visible[i]>1?[r-visible[i]-1]:[]);
+ assert.deepEqual(gaps,[2,2],'Both motif gaps must be exactly two blank rows');
  const previous=JSON.parse(fs.readFileSync('fixtures/experiments/reversible-paisley-21x81.json','utf8'));
  for(let r=28;r<55;r++)for(let x=2;x<=plan.rows[r].width-4;x++)assert.equal(plan.rows[r].front[x],previous.cells[r][x]?'3':'4','Large centre changed');
 }
