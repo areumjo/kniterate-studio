@@ -6,6 +6,9 @@ current proof receipt, not this document's dates.
 
 ## Trial update (2026-11-12)
 
+**Correction / current candidate:** [original small → simplified large → original small](physical-trials/2026-11-12/reversible-mixed-paisley/instructions.md). User clarified that centre should remain large; all-small interpretation was wrong. Exact original end tiles and exact earlier simplified centre verified. Same 8→21→8, 81 rows/522 passes, checked joins/margins; no SD copy or physical result.
+
+
 **Latest artwork choice:** operator declined widening and requested the original smaller paisley. [Current candidate](physical-trials/2026-11-12/reversible-original-small-paisley/instructions.md) retains 8→21→8 and uses three exact 7×13 original small motifs, including the centre. No scaling/redrawing. Exact-tile and margin verification plus machine checks pass; 81 design rows/522 passes. No physical run or SD copy.
 
 

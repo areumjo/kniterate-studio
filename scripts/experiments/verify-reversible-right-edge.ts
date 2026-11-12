@@ -11,12 +11,16 @@ const parsed=parseKCodeDocument(compiled.kcode,{profile,dialect:'knitout-vendor'
 const trace=projectKCodeMachineTrace(parsed.document,profile);assert(validateKCodeMachineSafetyV1(trace,profile).ok);
 const plan:{needleStart:number;motif?:string;rows:{row:number;width:number;event:string;direction:string;front:string[]}[]}=JSON.parse(fs.readFileSync(dir+'/plan.json','utf8'));
 if(plan.rows.length===81){
- const motif=JSON.parse(fs.readFileSync(plan.motif==='original-small'?'fixtures/experiments/original-small-paisley-21x81.json':'fixtures/experiments/reversible-paisley-21x81.json','utf8'));
- if(plan.motif==='original-small')for(const m of motif.placements)for(let y=0;y<13;y++)for(let x=0;x<7;x++)assert.equal(plan.rows[m.row-1+y].front[m.x+x],motif.originalTile[y][x]?'3':'4','Original tile changed');
+ const motif=JSON.parse(fs.readFileSync(plan.motif==='mixed-paisley'?'fixtures/experiments/mixed-paisley-21x81.json':plan.motif==='original-small'?'fixtures/experiments/original-small-paisley-21x81.json':'fixtures/experiments/reversible-paisley-21x81.json','utf8'));
+ if(plan.motif==='original-small'||plan.motif==='mixed-paisley')for(const m of motif.placements)for(let y=0;y<13;y++)for(let x=0;x<7;x++)assert.equal(plan.rows[m.row-1+y].front[m.x+x],motif.originalTile[y][x]?'3':'4','Original tile changed');
  for(let r=0;r<81;r++)for(let x=0;x<21;x++)if(motif.cells[r][x]){
   assert(x>=2&&x<=plan.rows[r].width-4,`motif touches construction margin row ${r+1}`);
   assert.equal(plan.rows[r].front[x],'3');
  }
+}
+if(plan.motif==='mixed-paisley'){
+ const previous=JSON.parse(fs.readFileSync('fixtures/experiments/reversible-paisley-21x81.json','utf8'));
+ for(let r=28;r<55;r++)for(let x=2;x<=plan.rows[r].width-4;x++)assert.equal(plan.rows[r].front[x],previous.cells[r][x]?'3':'4','Large centre changed');
 }
 const labels=lines.flatMap((s,i)=>s.startsWith('; TRIAL ROW ')?[{line:i+1,row:Number(s.split(' ')[3])}]:[]);
 const end=lines.findIndex(l=>l==='; TRIAL BODY END')+1;

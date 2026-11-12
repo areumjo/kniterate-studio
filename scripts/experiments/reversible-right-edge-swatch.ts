@@ -10,13 +10,14 @@ import {CarriageSimulator} from '../../packages/machine-lib/src/knitout/sim/carr
 import {ALL_CARRIERS,b,f,comment,type KnitoutOp,type KnitoutProgram,type CarrierId,type Direction} from '../../packages/machine-lib/src/knitout/types.js';
 import {writeKnitoutProgram} from '../../packages/machine-lib/src/knitout/emitter.js';
 import {knitoutToKCodeWithTrace} from '../../packages/machine-lib/src/knitout/kniterate/to-kcode.js';
+const mixed=process.argv.includes('--mixed-paisley');
 const originalSmall=process.argv.includes('--original-small');
 const wide=process.argv.includes('--wide21');
 const steps=wide?13:12,totalRows=3+6*steps,decStart=3+3*steps;
 const paisley=process.argv.includes('--paisley');
 const out=process.argv[2]??'../reversible-right-edge-swatch';
-assert(!originalSmall||(wide&&paisley),'Original small motif requires --wide21 --paisley');
-const motifFile=originalSmall?'fixtures/experiments/original-small-paisley-21x81.json':`fixtures/experiments/reversible-paisley-${wide?'21x81':'20x75'}.json`;
+assert(!(originalSmall||mixed)||(wide&&paisley),'Original small motif requires --wide21 --paisley');
+const motifFile=mixed?'fixtures/experiments/mixed-paisley-21x81.json':originalSmall?'fixtures/experiments/original-small-paisley-21x81.json':`fixtures/experiments/reversible-paisley-${wide?'21x81':'20x75'}.json`;
 const motif=paisley?JSON.parse(fs.readFileSync(motifFile,'utf8')):null;
 const lo=119, initialHi=126;
 const frame=emitCustomistFairisleFrame({needleStart:lo,needleEnd:initialHi,wasteCarrier:'6',bodyCarriers:['3','4'],drawCarrier:'1',wastePasses:80,waste:FAIRISLE_PARK_WASTE_DEFAULTS,intro:FAIRISLE_CARRIER_INTRO_DEFAULTS,retainBackBed:true,catchNeedles:8});
@@ -74,5 +75,5 @@ sim.setRoller(0);for(const c of ['1','3','4','6'] as CarrierId[])sim.out(c);drai
 const program:KnitoutProgram={version:2,carriers:[...ALL_CARRIERS],machine:'kniterate',gauge:7,position:'Keep',yarns:{'3':'Orange single 2/14 acrylic','4':'Grey single 2/14 acrylic'},kniterate:{xferStyle:'four-pass'},ops};
 const source=writeKnitoutProgram(program),compiled=knitoutToKCodeWithTrace(source,'program.k');assert(compiled.ok,JSON.stringify(compiled));
 fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,'program.k'),source);fs.writeFileSync(path.join(out,'program.kc'),compiled.kcode);
-fs.writeFileSync(path.join(out,'plan.json'),JSON.stringify({needleStart:lo,motif:originalSmall?'original-small':paisley?'paisley':'solid',rows},null,2)+'\n');
+fs.writeFileSync(path.join(out,'plan.json'),JSON.stringify({needleStart:lo,motif:mixed?'mixed-paisley':originalSmall?'original-small':paisley?'paisley':'solid',rows},null,2)+'\n');
 console.log(JSON.stringify({output:out,sha256:createHash('sha256').update(compiled.kcode).digest('hex'),bytes:Buffer.byteLength(compiled.kcode),rows:rows.length},null,2));
