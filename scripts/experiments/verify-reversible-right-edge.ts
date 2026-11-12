@@ -9,9 +9,10 @@ const compiled=knitoutToKCodeWithTrace(source,'program.k');assert(compiled.ok);
 assert.equal(compiled.kcode,fs.readFileSync(dir+'/program.kc','utf8'));
 const parsed=parseKCodeDocument(compiled.kcode,{profile,dialect:'knitout-vendor',strict:true});assert(parsed.ok);
 const trace=projectKCodeMachineTrace(parsed.document,profile);assert(validateKCodeMachineSafetyV1(trace,profile).ok);
-const plan:{needleStart:number;rows:{row:number;width:number;event:string;direction:string;front:string[]}[]}=JSON.parse(fs.readFileSync(dir+'/plan.json','utf8'));
+const plan:{needleStart:number;motif?:string;rows:{row:number;width:number;event:string;direction:string;front:string[]}[]}=JSON.parse(fs.readFileSync(dir+'/plan.json','utf8'));
 if(plan.rows.length===81){
- const motif=JSON.parse(fs.readFileSync('fixtures/experiments/reversible-paisley-21x81.json','utf8'));
+ const motif=JSON.parse(fs.readFileSync(plan.motif==='original-small'?'fixtures/experiments/original-small-paisley-21x81.json':'fixtures/experiments/reversible-paisley-21x81.json','utf8'));
+ if(plan.motif==='original-small')for(const m of motif.placements)for(let y=0;y<13;y++)for(let x=0;x<7;x++)assert.equal(plan.rows[m.row-1+y].front[m.x+x],motif.originalTile[y][x]?'3':'4','Original tile changed');
  for(let r=0;r<81;r++)for(let x=0;x<21;x++)if(motif.cells[r][x]){
   assert(x>=2&&x<=plan.rows[r].width-4,`motif touches construction margin row ${r+1}`);
   assert.equal(plan.rows[r].front[x],'3');

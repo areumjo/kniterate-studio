@@ -6,6 +6,9 @@ current proof receipt, not this document's dates.
 
 ## Trial update (2026-11-12)
 
+**Latest artwork choice:** operator declined widening and requested the original smaller paisley. [Current candidate](physical-trials/2026-11-12/reversible-original-small-paisley/instructions.md) retains 8→21→8 and uses three exact 7×13 original small motifs, including the centre. No scaling/redrawing. Exact-tile and margin verification plus machine checks pass; 81 design rows/522 passes. No physical run or SD copy.
+
+
 Current requested candidate: [8 → 21 → 8 paisley](physical-trials/2026-11-12/reversible-paisley-21/instructions.md), one extra right-side increase/decrease, 81 rows/522 passes. Motifs repositioned and middle slightly narrowed; blank-space margin verified on every row. Same simplified curves, not original stitch-identical artwork. Software checks pass; no physical run/SD copy. Supersedes the 20-column candidates below.
 
 
