@@ -4,6 +4,10 @@
 `pnpm verify` is the software gate. Full-gate status belongs to the exact
 current proof receipt, not this document's dates.
 
+## Trial update (2026-11-12)
+
+Prepared the operator-requested **8 → 20 → 8**, 75-row two-colour reversible right-edge trial after the successful single-bed edge diagnostic. Fixed joined left edge; right increases/decreases every three design rows; official sleeve local increase colour choreography and existing paired cross-bed reversible decreases. Canonical frame/simulator/backend in an isolated experiment builder; production Studio emitter/UI unchanged. Strict source/KCode, safety, loop replay, yarn-path edge checks and negative control passed; 494 passes and zero C1/C6 body moves. **Not physically tested or Knit-proven.** Exact file, settings, pass map and limitations: [candidate](physical-trials/2026-11-12/reversible-right-edge-candidate/instructions.md).
+
 ## Now (2026-11-11)
 
 - **Built, in the browser and the `studio` CLI:** colour charts (fairisle,
