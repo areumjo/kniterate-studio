@@ -10,6 +10,13 @@ assert.equal(compiled.kcode,fs.readFileSync(dir+'/program.kc','utf8'));
 const parsed=parseKCodeDocument(compiled.kcode,{profile,dialect:'knitout-vendor',strict:true});assert(parsed.ok);
 const trace=projectKCodeMachineTrace(parsed.document,profile);assert(validateKCodeMachineSafetyV1(trace,profile).ok);
 const plan:{needleStart:number;rows:{row:number;width:number;event:string;direction:string;front:string[]}[]}=JSON.parse(fs.readFileSync(dir+'/plan.json','utf8'));
+if(plan.rows.length===81){
+ const motif=JSON.parse(fs.readFileSync('fixtures/experiments/reversible-paisley-21x81.json','utf8'));
+ for(let r=0;r<81;r++)for(let x=0;x<21;x++)if(motif.cells[r][x]){
+  assert(x>=2&&x<=plan.rows[r].width-4,`motif touches construction margin row ${r+1}`);
+  assert.equal(plan.rows[r].front[x],'3');
+ }
+}
 const labels=lines.flatMap((s,i)=>s.startsWith('; TRIAL ROW ')?[{line:i+1,row:Number(s.split(' ')[3])}]:[]);
 const end=lines.findIndex(l=>l==='; TRIAL BODY END')+1;
 const rowOf=(line:number)=>line>=end?0:labels.findLast(x=>x.line<line)?.row??0;
@@ -33,7 +40,7 @@ for(let pi=0;pi<trace.passes.length;pi++){
  if(r&&passRow[pi+1]!==r){const live=[...stacks.values()].reduce((s,a)=>s+a.length,0);assert.equal(live,2*plan.rows[r-1].width,`row ${r} occupancy`);}
 }
 const lo=plan.needleStart-1,events:any[]=[];
-for(let i=0;i<75;i++){
+for(let i=0;i<plan.rows.length;i++){
  const row=plan.rows[i],knits=rowKnits[i],empty=rowEmpty[i],xfers=rowXfers[i],hi=lo+row.width-1;
  assert.equal(knits.length,row.width*2);assert.equal(new Set(knits.map(x=>key(x.at))).size,knits.length);
  for(const k of knits){assert(k.at.traceCoordinate>=lo&&k.at.traceCoordinate<=hi);assert.equal(k.carrier,k.at.bed==='front'?row.front[k.at.traceCoordinate-lo]:(row.front[k.at.traceCoordinate-lo]==='3'?'4':'3'));}
@@ -46,7 +53,7 @@ for(let i=0;i<75;i++){
 }
 // Yarn-path evidence, not just colour alternation: a carrier actually crosses beds at each edge.
 const last=new Map<string,any>(),joins:{left:number[],right:number[]}={left:[],right:[]};
-for(let i=0;i<75;i++)for(const k of rowKnits[i]){
+for(let i=0;i<plan.rows.length;i++)for(const k of rowKnits[i]){
  const prev=last.get(k.carrier),hi=lo+plan.rows[i].width-1;
  if(prev&&prev.at.bed!==k.at.bed){
   if(prev.at.traceCoordinate===lo&&k.at.traceCoordinate===lo)joins.left.push(i+1);
@@ -54,7 +61,7 @@ for(let i=0;i<75;i++)for(const k of rowKnits[i]){
  }
  last.set(k.carrier,k);
 }
-for(const side of ['left','right'] as const){joins[side]=[...new Set(joins[side])];for(let start=1;start<=72;start++)assert(joins[side].some(r=>r>=start&&r<=start+3),`${side} unlinked rows ${start}–${start+3}`);}
+for(const side of ['left','right'] as const){joins[side]=[...new Set(joins[side])];for(let start=1;start<=plan.rows.length-3;start++)assert(joins[side].some(r=>r>=start&&r<=start+3),`${side} unlinked rows ${start}–${start+3}`);}
 const bodyFirst=passRow.findIndex(r=>r>0),bodyLast=passRow.findLastIndex(r=>r>0),body=trace.passes.slice(bodyFirst,bodyLast+1);
 assert(!body.some(p=>p.carrier==='1'||p.carrier==='6'),'idle feeder in body');
 const knitting=body.filter(p=>p.actions.some(a=>a.kind==='knit')).length;
@@ -66,5 +73,5 @@ const transfer=ref.passes[168].actions.find(a=>a.kind==='xfer');assert(transfer&
 assert.equal(transfer.source.bed,'rear');assert.equal(transfer.target.bed,'front');assert.equal(transfer.target.traceCoordinate-transfer.source.traceCoordinate,1);
 const old=transfer.source.traceCoordinate,newN=transfer.target.traceCoordinate;
 for(const [pi,c,beds] of [[171,'3',['front','rear']],[172,'4',['rear','front']]] as const){const p=ref.passes[pi];assert.equal(p.carrier,c);for(const [j,n] of [old,newN].entries())assert(p.actions.some(a=>a.kind==='knit'&&a.at.traceCoordinate===n&&a.at.bed===beds[j]));}
-const report={passed:true,sha256:createHash('sha256').update(compiled.kcode).digest('hex'),passes:trace.passes.length,bodyPasses:[bodyFirst+1,bodyLast+1],bodyKnittingPasses:knitting,bodyMovementPasses:moves,movementToKnittingRatio:moves/knitting,idleC1C6BodyPasses:0,rows:75,increases:12,decreases:12,emptyNeedlesPerIncrease:'two rear needles, exactly one per carrier; none elsewhere',loopCounts:'two live loops per width column after every row',edgeJoins:joins,reference:'sleeves.kc passes 169,172,173: local transfer and old/new column yarn/bed selection; directions alternate in trial, settings not claimed identical',events,physicalValidation:false};
+const report={passed:true,sha256:createHash('sha256').update(compiled.kcode).digest('hex'),passes:trace.passes.length,bodyPasses:[bodyFirst+1,bodyLast+1],bodyKnittingPasses:knitting,bodyMovementPasses:moves,movementToKnittingRatio:moves/knitting,idleC1C6BodyPasses:0,rows:plan.rows.length,increases:events.filter(e=>e.event==='increase').length,decreases:events.filter(e=>e.event==='decrease').length,emptyNeedlesPerIncrease:'two rear needles, exactly one per carrier; none elsewhere',loopCounts:'two live loops per width column after every row',edgeJoins:joins,reference:'sleeves.kc passes 169,172,173: local transfer and old/new column yarn/bed selection; directions alternate in trial, settings not claimed identical',events,physicalValidation:false};
 fs.writeFileSync(dir+'/verification.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({...report,events:events.slice(0,2)},null,2));

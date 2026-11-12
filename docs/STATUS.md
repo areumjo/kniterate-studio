@@ -6,6 +6,9 @@ current proof receipt, not this document's dates.
 
 ## Trial update (2026-11-12)
 
+Current requested candidate: [8 → 21 → 8 paisley](physical-trials/2026-11-12/reversible-paisley-21/instructions.md), one extra right-side increase/decrease, 81 rows/522 passes. Motifs repositioned and middle slightly narrowed; blank-space margin verified on every row. Same simplified curves, not original stitch-identical artwork. Software checks pass; no physical run/SD copy. Supersedes the 20-column candidates below.
+
+
 Latest operator refinement: **small paisley at cast-on, one large in the middle, small at finish**. [Current candidate](physical-trials/2026-11-12/reversible-paisley-small-large-small/instructions.md), SHA `e813b6461f96678f22302292113d0783154369695e904b814090ebeb7f2731b3`. Same shape, edges and 494 passes; software checks pass, no physical result or SD copy. Earlier artwork revisions preserved.
 
 

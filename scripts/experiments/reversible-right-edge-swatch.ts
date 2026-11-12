@@ -10,9 +10,11 @@ import {CarriageSimulator} from '../../packages/machine-lib/src/knitout/sim/carr
 import {ALL_CARRIERS,b,f,comment,type KnitoutOp,type KnitoutProgram,type CarrierId,type Direction} from '../../packages/machine-lib/src/knitout/types.js';
 import {writeKnitoutProgram} from '../../packages/machine-lib/src/knitout/emitter.js';
 import {knitoutToKCodeWithTrace} from '../../packages/machine-lib/src/knitout/kniterate/to-kcode.js';
+const wide=process.argv.includes('--wide21');
+const steps=wide?13:12,totalRows=3+6*steps,decStart=3+3*steps;
 const paisley=process.argv.includes('--paisley');
 const out=process.argv[2]??'../reversible-right-edge-swatch';
-const motif=paisley?JSON.parse(fs.readFileSync('fixtures/experiments/reversible-paisley-20x75.json','utf8')):null;
+const motif=paisley?JSON.parse(fs.readFileSync(`fixtures/experiments/reversible-paisley-${wide?'21x81':'20x75'}.json`,'utf8')):null;
 const lo=119, initialHi=126;
 const frame=emitCustomistFairisleFrame({needleStart:lo,needleEnd:initialHi,wasteCarrier:'6',bodyCarriers:['3','4'],drawCarrier:'1',wastePasses:80,waste:FAIRISLE_PARK_WASTE_DEFAULTS,intro:FAIRISLE_CARRIER_INTRO_DEFAULTS,retainBackBed:true,catchNeedles:8});
 const ops:KnitoutOp[]=[{kind:'x-carrier-spacing',value:2},{kind:'x-carrier-stopping-distance',value:2.5},...frame.ops];
@@ -26,9 +28,9 @@ sim.miss('6','-',f(lo-8));sim.miss('1','-',f(lo-5));drain();
 ops.push(comment('TRIAL BODY START'));
 let hi=initialHi, nextDir:Direction='+';
 const rows:{row:number;width:number;event:string;direction:Direction;front:CarrierId[]}[]=[];
-for(let r=0;r<75;r++) {
- const increase=r>=3&&r<=36&&r%3===0;
- const decrease=r>=39&&r<=72&&r%3===0;
+for(let r=0;r<totalRows;r++) {
+ const increase=r>=3&&r<=3*steps&&r%3===0;
+ const decrease=r>=decStart&&r<=totalRows-3&&r%3===0;
  const event=increase?'increase':decrease?'decrease':'plain';
  ops.push(comment(`TRIAL ROW ${r+1} ${event}`));
  sim.setSourceRows([r]);
@@ -46,7 +48,7 @@ for(let r=0;r<75;r++) {
  const front:CarrierId[]=Array.from({length:hi-lo+1},(_,i)=> motif?.cells[r][i]?'3':'4');
  front[0]=r%2===0?'3':'4'; // Alternate face ownership to close the fixed left edge.
  // Right edge: swap between increases, but restore solid C4-front/C3-rear BEFORE each borrow.
- front[front.length-1]=r<39?(r%3===1?'3':'4'):(r%2===0?'3':'4');
+ front[front.length-1]=r<decStart?(r%3===1?'3':'4'):(r%2===0?'3':'4');
  if(increase)front[front.length-2]='3'; // Old column swaps; prevents two adjacent empty C3 needles.
  for(const c of ['3','4'] as CarrierId[]){
   const dir:Direction=c==='3'?nextDir:(nextDir==='+'?'-':'+');
