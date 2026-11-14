@@ -1,0 +1,200 @@
+{
+  "passed": true,
+  "scope": "candidate software checks; tuck visibility and temporary-front rear split physically untested",
+  "sha256": "912b9bc66264396cb5a79a079f23d969a46083f1c928ac0eeb2feca355cf7a18",
+  "bytes": 283387,
+  "passes": 234,
+  "errors": [],
+  "validation": [],
+  "safety": [],
+  "differential": {
+    "schemaVersion": 1,
+    "ok": true,
+    "scheduledPassCount": 234,
+    "tracePassCount": 234,
+    "mismatches": []
+  },
+  "auditFailed": [],
+  "advisories": {
+    "schemaVersion": 1,
+    "maxFloatDistance": 7,
+    "counts": {
+      "machine-advisory.float-distance": 1
+    },
+    "advisories": [
+      {
+        "rule": "machine-advisory.float-distance",
+        "passIndex": 85,
+        "fromPassIndex": 79,
+        "carrier": "6",
+        "distance": 15,
+        "actionIndex": 0,
+        "sourceSpan": {
+          "start": {
+            "offset": 102586,
+            "line": 775,
+            "column": 156
+          },
+          "end": {
+            "offset": 102587,
+            "line": 775,
+            "column": 157
+          }
+        },
+        "message": "Carrier 6 floats 15 needles from its last stitch in pass 80 to pass 86, 6 passes later (maximum 7). KCode does not encode carrier in/out, so a long gap may be a parked or cut yarn rather than a float."
+      }
+    ]
+  },
+  "events": [
+    {
+      "row": 4,
+      "pass": 133,
+      "carrier": "4",
+      "source": 134,
+      "parentIds": [
+        1614
+      ]
+    },
+    {
+      "row": 4,
+      "pass": 138,
+      "carrier": "3",
+      "source": 135,
+      "parentIds": [
+        1645
+      ]
+    },
+    {
+      "row": 8,
+      "pass": 161,
+      "carrier": "4",
+      "source": 135,
+      "parentIds": [
+        1749
+      ]
+    },
+    {
+      "row": 8,
+      "pass": 166,
+      "carrier": "3",
+      "source": 136,
+      "parentIds": [
+        1782
+      ]
+    }
+  ],
+  "joins": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12
+  ],
+  "leftJoins": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "rowAdvances": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "rows": [
+    {
+      "row": 1,
+      "lo": 119,
+      "hi": 134,
+      "kind": "plain"
+    },
+    {
+      "row": 2,
+      "lo": 119,
+      "hi": 134,
+      "kind": "plain"
+    },
+    {
+      "row": 3,
+      "lo": 119,
+      "hi": 134,
+      "kind": "plain"
+    },
+    {
+      "row": 4,
+      "lo": 119,
+      "hi": 135,
+      "kind": "growth"
+    },
+    {
+      "row": 5,
+      "lo": 119,
+      "hi": 135,
+      "kind": "plain"
+    },
+    {
+      "row": 6,
+      "lo": 119,
+      "hi": 135,
+      "kind": "plain"
+    },
+    {
+      "row": 7,
+      "lo": 119,
+      "hi": 135,
+      "kind": "plain"
+    },
+    {
+      "row": 8,
+      "lo": 119,
+      "hi": 136,
+      "kind": "growth"
+    },
+    {
+      "row": 9,
+      "lo": 119,
+      "hi": 136,
+      "kind": "plain"
+    },
+    {
+      "row": 10,
+      "lo": 119,
+      "hi": 136,
+      "kind": "plain"
+    },
+    {
+      "row": 11,
+      "lo": 119,
+      "hi": 136,
+      "kind": "plain"
+    },
+    {
+      "row": 12,
+      "lo": 119,
+      "hi": 136,
+      "kind": "plain"
+    }
+  ]
+}

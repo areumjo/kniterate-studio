@@ -1,0 +1,35 @@
+TAP version 13
+# Subtest: full frame, two supported same-colour increases, both joins and colour restoration
+ok 1 - full frame, two supported same-colour increases, both joins and colour restoration
+  ---
+  duration_ms: 70.070458
+  ...
+# Subtest: no-tuck variant fails joining despite intact same-colour increase loops
+ok 2 - no-tuck variant fails joining despite intact same-colour increase loops
+  ---
+  duration_ms: 65.409416
+  ...
+# Subtest: missing temporary-loop restoration fails colour/occupancy checks
+ok 3 - missing temporary-loop restoration fails colour/occupancy checks
+  ---
+  duration_ms: 60.12775
+  ...
+# Subtest: wrong split yarn fails same-colour ancestry check
+ok 4 - wrong split yarn fails same-colour ancestry check
+  ---
+  duration_ms: 58.595125
+  ...
+# Subtest: missing rear return cannot be hidden by following whole rows
+ok 5 - missing rear return cannot be hidden by following whole rows
+  ---
+  duration_ms: 56.047834
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 544.947625

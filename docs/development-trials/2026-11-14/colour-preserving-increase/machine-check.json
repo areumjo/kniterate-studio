@@ -1,0 +1,91 @@
+{
+  "kind": "kniterate-machine-check",
+  "schemaVersion": 1,
+  "input": {
+    "filename": "program.kc",
+    "format": "kc",
+    "byteCount": 283387,
+    "sha256": "912b9bc66264396cb5a79a079f23d969a46083f1c928ac0eeb2feca355cf7a18",
+    "profile": "kniterate-7gg-kcode@2",
+    "dialect": "knitout-vendor"
+  },
+  "verdict": {
+    "state": "surface",
+    "label": "Surface-proven (imported)",
+    "annotation": "Strict KCode parsing, conformance to the V1 operation, direction, carrier, rack, selection, transfer, stop, and continuity contract, and the machine-safety envelope passed. 1 non-blocking float advisory remain visible as informational evidence. Controller acceptance, settings for this yarn, and physical knitting remain unproven."
+  },
+  "stats": {
+    "passCount": 234,
+    "loopFormingPassCount": 156,
+    "authoredRowCount": null,
+    "passMetricProvenance": "strict-kcode-trace",
+    "authoredRowProvenance": "unavailable-for-foreign-machine-file",
+    "programmedMotion": {
+      "schemaVersion": 1,
+      "coordinateMetric": {
+        "programmedTravelUnits": 5810,
+        "unit": "encoded-stop-coordinate-unit",
+        "provenance": "exact-machine-trace"
+      },
+      "assumptionModel": {
+        "status": "available",
+        "assumedPitchMmPerCoordinateUnit": 3.63,
+        "assumedTravelMm": 21090.3,
+        "idealizedSeconds": 113.00795,
+        "unavailableReason": null,
+        "assumptions": {
+          "distance": "one-stop-coordinate-unit-equals-one-needle-pitch",
+          "speed": "encoded-footer-speed-is-constant-mm-per-second",
+          "claimBoundary": "assumption-derived-not-physical-duration-or-lower-bound"
+        }
+      }
+    },
+    "passRoles": {
+      "loop-forming": 156,
+      "transfer": 10,
+      "drop": 20,
+      "carrier-move": 32,
+      "carriage-move": 16,
+      "unclassified": 0
+    },
+    "carriers": [
+      "1",
+      "3",
+      "4",
+      "6"
+    ],
+    "needleSpan": "K-code 118-136",
+    "rackRange": "-1 to 2",
+    "infoCount": 1,
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "evidence": {
+    "exactInputBytes": "preserved-kcode-bytes",
+    "sourceCarrierLifecycle": "not-encoded-by-kcode",
+    "backendScheduleDifferential": "not-available-for-direct-kcode",
+    "physicalAcceptance": "not-established"
+  },
+  "diagnostics": [
+    {
+      "id": "machine-advisory.float-distance-85-0-0",
+      "rule": "machine-advisory.float-distance",
+      "severity": "info",
+      "classification": "operational-advisory",
+      "occurrences": 1,
+      "line": 775,
+      "passIndex": 85,
+      "actionIndex": 0,
+      "title": "Yarn floats farther than the advisory maximum",
+      "explanation": "A carrier travels more needles between two consecutive stitches than the official editor's default float limit. Long floats can snag or pull; KCode does not record carrier in/out, so a gap spanning many passes may be a parked or cut yarn. Non-blocking advisory only.",
+      "message": "Carrier 6 floats 15 needles from its last stitch in pass 80 to pass 86, 6 passes later (maximum 7). KCode does not encode carrier in/out, so a long gap may be a parked or cut yarn rather than a float."
+    }
+  ],
+  "diagnosticDetailsOmitted": 0,
+  "disclosure": [
+    "KCode bytes do not encode Knitout carrier in/out lifecycle or prove who produced them; checks begin at encoded KCode semantics.",
+    "Programmed travel is exact only in encoded stop-coordinate units. Millimetres and the constant-speed time term assume one coordinate unit equals one 3.63 mm needle pitch and encoded speed is constant mm/s; they are not physical duration or lower-bound claims.",
+    "Surface-proven remains software evidence; controller acceptance and physical knitting are separate gates.",
+    "Every check assumes the job starts with an empty needle bed and every yarn feeder parked at home on the left; the file cannot show either, so check both at the machine."
+  ]
+}
