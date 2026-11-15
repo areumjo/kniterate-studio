@@ -2,7 +2,7 @@
 
 Status: **design only; no machine program and no physical approval**. Prepared 2026-11-14.
 
-The operator asked to start a realistic final product with much better paisley artwork, aiming toward Kujten, then specified a triangle like the [Tafi Organic Beige](https://www.kujten.com/en-us/products/bandana-tafi-beige-organic-2). This replaces the provisional elongated-diamond direction. It runs alongside the small colour-preserving-increase diagnostic in issue #18; the diagnostic is still awaiting operator feedback.
+The operator asked to start a realistic final product with much better paisley artwork, aiming toward Kujten, then specified a triangle like the [Tafi Organic Beige](https://www.kujten.com/en-us/products/bandana-tafi-beige-organic-2). This replaces the provisional elongated-diamond direction. It runs alongside the small colour-preserving-increase diagnostic in issue #18; the operator now reports that the 234-pass diagnostic looked worse than the previous increase and that the grey stitch appeared not to knit properly. That experimental recipe is on hold and must not be used for the full scarf. See the [trial feedback](../../docs/development-trials/2026-11-14/colour-preserving-increase/operator-feedback.md).
 
 The selected product page lists 141 cm width, 62.5 cm length, 100% cashmere, two-ply loose-tension jersey, reversible and two-toned printed. These are reference specifications, not claims about our construction. It is not evidence that Kujten uses our reversible jacquard structure. Printed fine detail and loose jersey handfeel cannot be promised by a double-bed chart preview.
 

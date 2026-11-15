@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-14",
+  "candidate": "234-pass colour-preserving right increase / tuck join",
+  "sha256": "912b9bc66264396cb5a79a079f23d969a46083f1c928ac0eeb2feca355cf7a18",
+  "passes": 234,
+  "bytes": 283387,
+  "softwareChecks": "passed; not physical proof",
+  "operatorOutcome": "reported regression: worse than previous increase; grey apparently did not knit correctly",
+  "acceptance": "HOLD_DO_NOT_INTEGRATE",
+  "operatorIdentifiedCandidate": true,
+  "failingPass": null,
+  "cause": "unconfirmed",
+  "photos": "Earlier paisley comparison images IMG_1201/1202; not localized evidence of this diagnostic",
+  "preferredComparison": "514-pass supported-split paisley, imperfect but operator preferred",
+  "nextStep": "Inspect latest specimen; isolate split/transfer formation from the changed edge join before any new trial"
+}
