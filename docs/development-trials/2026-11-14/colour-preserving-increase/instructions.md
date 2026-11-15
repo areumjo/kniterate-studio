@@ -1,5 +1,7 @@
 # Colour-preserving right increase / tuck-join diagnostic
 
+**2026-11-14 update: hold for investigation.** The operator reports the latest increase looked worse than the previous method. The supplied images show the earlier paisley; exact specimen identification is pending. See [operator feedback](operator-feedback.md). Preparation-time statements below describe the original candidate, not its current acceptance.
+
 Prepared 2026-11-14. Experimental physical candidate, not a proven recipe. User requested matching face-colour shaping and a cleaner increase, authorised research/validation then a short two-colour test. The preceding 514-pass paisley was reported better but imperfect; contrasting increase stitches were explicitly unwanted. This is not another paisley run or a startup-fault fix.
 
 ## What this test can establish
