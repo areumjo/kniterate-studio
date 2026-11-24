@@ -1,6 +1,6 @@
 # Fig/Camel reversible cashmere scarf
 
-The operator started the first full-size knit on November 23, 2026, at **1:25 p.m. Pacific**, after a startup issue on the 1:07 attempt. The cause, finish time and finished measurements have yet to be reported. [Run log](fig-camel-full-scarf/run-log.md)
+The operator completed the first full-size knit on November 23, 2026. It ran from **1:25 to 5:16 p.m. Pacific**, an elapsed **3 h 51 min**, with two reported yarn feeder breaks. The earlier 1:07 attempt encountered a startup issue. [Run log](fig-camel-full-scarf/run-log.md)
 
 ## Current files
 
@@ -21,7 +21,7 @@ The scarf uses three-column tips, nine rows of small paisleys and a single sidew
 | Body chart | 846 courses, 3 → 214 → 3 columns. Planned one-based positions 20–22 at the tips and 20–233 at full width. |
 | Turn | Widest pair at passes 3,070–3,083. Narrowing starts at 3,084. |
 
-Planning estimates were approximately 154 g per colour, with 175 g per colour recommended on hand, and 2 h 18 min to 2 h 54 min before operator stops. Yarn consumption was scaled from the operator’s 10 g two-section cashmere sample. Those estimates await measurements from the full run.
+Planning estimates were approximately 154 g per colour, with 175 g per colour recommended on hand, and 2 h 18 min to 2 h 54 min before operator stops. Yarn consumption was scaled from the operator’s 10 g two-section cashmere sample. Actual yarn consumption and finished dimensions have yet to be reported.
 
 ## Swatches and verification
 
